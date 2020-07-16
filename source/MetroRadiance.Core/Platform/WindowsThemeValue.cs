@@ -33,7 +33,7 @@ namespace MetroRadiance.Platform
 
 				return this._current;
 			}
-			set
+			private set
 			{
 				this._current = value;
 				this._hasCache = true;
