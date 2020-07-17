@@ -12,7 +12,8 @@
     <description>$description$</description>
     <copyright>$copyright$</copyright>
     <language>ja-JP</language>
-    <tags>WPF</tags>
+    <tags>WPF Metro Radiance Managed C# Theme Dark Light MetroRadiance</tags>
+    <repository type="git" url="https://github.com/nishy2000/MetroRadiance" />
     <dependencies>
       <dependency id="MetroRadiance.Fork.Core" version="2.5.0" />
     </dependencies>
