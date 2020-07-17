@@ -1,11 +1,17 @@
-# MetroRadiance
+# MetroRadiance.Fork
 
-[![Build status](https://img.shields.io/appveyor/ci/Grabacr07/MetroRadiance/master.svg?style=flat-square)](https://ci.appveyor.com/project/Grabacr07/MetroRadiance)
+MetroRadiance.Fork: [![Build status](https://img.shields.io/appveyor/ci/nishy2000/MetroRadiance/master.svg?style=flat-square)](https://ci.appveyor.com/project/nishy2000/MetroRadiance)
+[![NuGet](https://img.shields.io/nuget/v/MetroRadiance.Core.Fork.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Core.Fork/)
+[![Downloads](https://img.shields.io/nuget/dt/MetroRadiance.Core.Fork.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Core.Fork/)
+[![License](https://img.shields.io/github/license/nishy2000/MetroRadiance.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance/blob/master/LICENSE.txt)
+
+( MetroRadiance: [![Build status](https://img.shields.io/appveyor/ci/Grabacr07/MetroRadiance/master.svg?style=flat-square)](https://ci.appveyor.com/project/Grabacr07/MetroRadiance)
 [![NuGet](https://img.shields.io/nuget/v/MetroRadiance.Core.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Core/)
 [![Downloads](https://img.shields.io/nuget/dt/MetroRadiance.Core.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Core/)
-[![License](https://img.shields.io/github/license/Grabacr07/MetroRadiance.svg?style=flat-square)](https://github.com/Grabacr07/MetroRadiance/blob/master/LICENSE.txt)
+[![License](https://img.shields.io/github/license/Grabacr07/MetroRadiance.svg?style=flat-square)](https://github.com/Grabacr07/MetroRadiance/blob/master/LICENSE.txt) )
 
 UI control libraries for create WPF window like Visual Studio 2012/2013/2015.
+MetroRadiance.Fork is forked of MetroRadiance 2.4.0.
 
 ![ss150730085651kd](https://cloud.githubusercontent.com/assets/1779073/8972861/0e3eed28-3699-11e5-9bfe-18af42a6ed73.png)
 
@@ -15,12 +21,12 @@ UI control libraries for create WPF window like Visual Studio 2012/2013/2015.
 Install NuGet package(s).
 
 ```powershell
-PM> Install-Package MetroRadiance
+PM> Install-Package MetroRadiance.Fork
 ```
 
-* [MetroRadiance.Core](https://www.nuget.org/packages/MetroRadiance.Core/) - MetroRadiance core library.
-* [MetroRadiance.Chrome](https://www.nuget.org/packages/MetroRadiance.Chrome/) - Chrome library for WPF Window.
-* [MetroRadiance](https://www.nuget.org/packages/MetroRadiance/) - WPF custom control library.
+* [MetroRadiance.Fork.Core](https://www.nuget.org/packages/MetroRadiance.Fork.Core/) - MetroRadiance core library.
+* [MetroRadiance.Fork.Chrome](https://www.nuget.org/packages/MetroRadiance.Fork.Chrome/) - Chrome library for WPF Window.
+* [MetroRadiance.Fork](https://www.nuget.org/packages/MetroRadiance.Fork/) - WPF custom control library.
 
 
 ## Features / How to use
