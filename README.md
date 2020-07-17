@@ -1,8 +1,8 @@
 # MetroRadiance.Fork
 
 MetroRadiance.Fork: [![Build status](https://img.shields.io/appveyor/ci/nishy2000/MetroRadiance/master.svg?style=flat-square)](https://ci.appveyor.com/project/nishy2000/MetroRadiance)
-[![NuGet](https://img.shields.io/nuget/v/MetroRadiance.Core.Fork.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Core.Fork/)
-[![Downloads](https://img.shields.io/nuget/dt/MetroRadiance.Core.Fork.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Core.Fork/)
+[![NuGet](https://img.shields.io/nuget/v/MetroRadiance.Core.Fork.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Fork.Core/)
+[![Downloads](https://img.shields.io/nuget/dt/MetroRadiance.Core.Fork.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Fork.Core/)
 [![License](https://img.shields.io/github/license/nishy2000/MetroRadiance.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance/blob/master/LICENSE.txt)
 
 ( MetroRadiance: [![Build status](https://img.shields.io/appveyor/ci/Grabacr07/MetroRadiance/master.svg?style=flat-square)](https://ci.appveyor.com/project/Grabacr07/MetroRadiance)
