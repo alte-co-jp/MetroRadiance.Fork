@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>$id$</id>
+    <id>MetroRadiance.Fork.Chrome</id>
     <title>$title$</title>
     <version>$version$</version>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://github.com/Grabacr07/MetroRadiance/blob/master/LICENSE.txt</licenseUrl>
-    <projectUrl>https://github.com/Grabacr07/MetroRadiance</projectUrl>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/nishy2000/MetroRadiance</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
+    <copyright>$copyright$</copyright>
     <language>ja-JP</language>
     <tags>WPF</tags>
     <dependencies>
-      <dependency id="MetroRadiance.Core" version="2.2.0" />
+      <dependency id="MetroRadiance.Fork.Core" version="2.5.0" />
     </dependencies>
   </metadata>
 </package>
