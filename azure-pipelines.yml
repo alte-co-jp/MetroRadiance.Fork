@@ -4,7 +4,13 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
 
 trigger:
-- *
+  branches:
+    include:
+    - '*'  
+  paths:
+    include:
+    - samples/*
+    - source/*
 
 pool:
   vmImage: 'windows-latest'
