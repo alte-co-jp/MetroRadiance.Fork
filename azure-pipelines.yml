@@ -15,6 +15,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Remove NuGet.targets
+      SET NUGET_TARGETS=$(Build.Repository.LocalPath)\source\.nuget\NuGet.targets
+      IF EXIST "%NUGET_TARGETS%" del "%NUGET_TARGETS%"
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
