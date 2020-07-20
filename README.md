@@ -1,6 +1,7 @@
 # MetroRadiance.Fork
 
-MetroRadiance.Fork: [![Build status](https://img.shields.io/appveyor/ci/nishy2000/MetroRadiance/master.svg?style=flat-square)](https://ci.appveyor.com/project/nishy2000/MetroRadiance)
+MetroRadiance.Fork: [![Build Status](https://nishy-software.visualstudio.com/MetroRadiance/_apis/build/status/nishy2000.MetroRadiance?branchName=develop)(develop-branch)](https://nishy-software.visualstudio.com/MetroRadiance/_build/latest?definitionId=6&branchName=develop)
+[![Build Status](https://nishy-software.visualstudio.com/MetroRadiance/_apis/build/status/nishy2000.MetroRadiance?branchName=master)(master-branch)](https://nishy-software.visualstudio.com/MetroRadiance/_build/latest?definitionId=6&branchName=master)
 [![NuGet](https://img.shields.io/nuget/v/MetroRadiance.Fork.Core.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Fork.Core/)
 [![Downloads](https://img.shields.io/nuget/dt/MetroRadiance.Fork.Core.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Fork.Core/)
 [![License](https://img.shields.io/github/license/nishy2000/MetroRadiance.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance/blob/master/LICENSE.txt)
