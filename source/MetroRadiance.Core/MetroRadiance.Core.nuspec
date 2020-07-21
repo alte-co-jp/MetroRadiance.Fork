@@ -10,6 +10,9 @@
     <projectUrl>https://github.com/nishy2000/MetroRadiance</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
+    <releaseNotes>Changes
+ - Change TargetPlatform to .NET framework 4.5 from .NET framework 4.6.
+ - Add SystemTheme property in WindowsTheme class</releaseNotes>
     <copyright>$copyright$</copyright>
     <language>ja-JP</language>
     <tags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</tags>

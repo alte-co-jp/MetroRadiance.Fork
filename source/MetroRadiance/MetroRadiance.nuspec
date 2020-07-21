@@ -10,6 +10,10 @@
     <projectUrl>https://github.com/nishy2000/MetroRadiance</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
+    <releaseNotes>Changes
+ - Support Visual Studio 2019
+ - Change TargetPlatform to .NET framework 4.5 from .NET framework 4.6
+ - Fixed a bug that the display is strange at next startup if the application is closed with the window minimized</releaseNotes>
     <copyright>$copyright$</copyright>
     <language>ja-JP</language>
     <tags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</tags>
