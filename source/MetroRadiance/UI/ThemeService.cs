@@ -10,6 +10,10 @@ using MetroRadiance.Media;
 using MetroRadiance.Platform;
 using MetroRadiance.Utilities;
 
+#if NETCOREAPP3_1
+using Tavis.UriTemplates;
+#endif
+
 namespace MetroRadiance.UI
 {
 	/// <summary>
@@ -23,9 +27,14 @@ namespace MetroRadiance.UI
 
 		#endregion
 
-		private static readonly UriTemplate themeTemplate = new UriTemplate(@"Themes/{theme}.xaml");
-		private static readonly UriTemplate accentTemplate = new UriTemplate(@"Themes/Accents/{accent}.xaml");
-		private static readonly Uri templateBaseUri = new Uri(@"pack://application:,,,/MetroRadiance;component");
+		private static readonly string _baseUrl = @"pack://application:,,,/MetroRadiance;component/";
+		private static readonly string _themeUrl = @"Themes/{theme}.xaml";
+		private static readonly string _accentUrl = @"Themes/Accents/{accent}.xaml";
+		private static readonly UriTemplateTable _templateTable;
+
+		private static readonly UriTemplate themeTemplate = new UriTemplate(_themeUrl);
+		private static readonly UriTemplate accentTemplate = new UriTemplate(_accentUrl);
+		private static readonly Uri templateBaseUri = new Uri(_baseUrl);
 
 		private Dispatcher dispatcher;
 		private IDisposable windowsAccentListener;
@@ -79,6 +88,20 @@ namespace MetroRadiance.UI
 		}
 
 		#endregion
+
+		static ThemeService()
+		{
+#if NETCOREAPP
+			_templateTable = new UriTemplateTable();
+			_templateTable.Add("theme", new UriTemplate(_baseUrl + _themeUrl));
+			_templateTable.Add("accent", new UriTemplate(_baseUrl + _accentUrl));
+#else
+			_templateTable = new UriTemplateTable(templateBaseUri);
+			_templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(themeTemplate, "theme"));
+			_templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(accentTemplate, "accent"));
+			_templateTable.MakeReadOnly(false);
+#endif
+		}
 
 		private ThemeService() { }
 
@@ -311,7 +334,16 @@ namespace MetroRadiance.UI
 		/// <returns><paramref name="uri"/> がテーマのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
 		private static bool CheckThemeResourceUri(Uri uri)
 		{
+#if NETCOREAPP
+			return _templateTable.Match(uri)?.Key == "theme";
+#else
+#if false
+			var result = _templateTable.Match(uri);
+			return result != null && result.Count == 1 && result.First().Data.ToString() == "theme";
+#else
 			return themeTemplate.Match(templateBaseUri, uri) != null;
+#endif
+#endif
 		}
 
 		/// <summary>
@@ -320,25 +352,54 @@ namespace MetroRadiance.UI
 		/// <returns><paramref name="uri"/> がアクセント カラーのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
 		private static bool CheckAccentResourceUri(Uri uri)
 		{
+#if NETCOREAPP
+			return _templateTable.Match(uri)?.Key == "accent";
+#else
+#if false
+			var result = _templateTable.Match(uri);
+			return result != null && result.Count == 1 && result.First().Data.ToString() == "accent";
+#else
 			return accentTemplate.Match(templateBaseUri, uri) != null;
+#endif
+#endif
 		}
 
 		private static Uri CreateThemeResourceUri(Theme.SpecifiedColor theme)
 		{
+#if NETCOREAPP
+			var url = themeTemplate
+				.AddParameters(new
+				{
+					theme = theme.ToString()
+				})
+				.Resolve();
+			return new Uri(templateBaseUri, url);
+#else
 			var param = new Dictionary<string, string>
 			{
 				{ "theme", theme.ToString() },
 			};
 			return themeTemplate.BindByName(templateBaseUri, param);
+#endif
 		}
 
 		private static Uri CreateAccentResourceUri(Accent.SpecifiedColor accent)
 		{
+#if NETCOREAPP
+			var url = accentTemplate
+				.AddParameters(new
+				{
+					accent = accent.ToString()
+				})
+				.Resolve();
+			return new Uri(templateBaseUri, url);
+#else
 			var param = new Dictionary<string, string>
 			{
 				{ "accent", accent.ToString() },
 			};
 			return accentTemplate.BindByName(templateBaseUri, param);
+#endif
 		}
 
 		private static IEnumerable<ResourceDictionary> EnumerateDictionaries(ResourceDictionary dictionary)
@@ -374,7 +435,7 @@ namespace MetroRadiance.UI
 		}
 
 		#endregion
-		
+
 
 		[Obsolete("Register メソッドを使用してください。")]
 		[EditorBrowsable(EditorBrowsableState.Never)]
