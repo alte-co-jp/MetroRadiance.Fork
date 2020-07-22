@@ -169,8 +169,9 @@ Naming rule is `[ColorName]ColorKey` and `[ColorName]BrushKey`.
 If you use these as `DynamicResource` in your controls, the control will work with the theme color.
 
 Table: Theme Color
+
 |Color Name |Sample| Color Key | Brush Key|
-|---|---|---|---|---|
+|---|---|---|---|
 |Theme|<span style="background:#EFEFF2">Light</span>/<span style="background:#2D2D30">Dark</span>|ThemeColorKey|ThemeBrushKey|
 |Background|<span style="background:#D7D7DC">Light</span>/<span style="background:#1B1B1C">Dark</span>|BackgroundColorKey|BackgroundBrushKey|
 |Border|<span style="background:#B9B9C0">Light</span>/<span style="background:#3F3F46">Dark</span>|BorderColorKey|BorderBrushKey|
@@ -188,7 +189,7 @@ Table: Theme Color
 |HighlightBorder|<span style="background:#A5A5AC">Light</span>/<span style="background:#686868">Dark</span>|HighlightBorderColorKey|HighlightBorderBrushKey|
 |HighlightForeground|<span style="background:#000000">Light</span>/<span style="background:#FFFFFF">Dark</span>|HighlightForegroundColorKey|HighlightForegroundBrushKey|
 |Highlight2Background|<span style="background:#696970">Light</span>/<span style="background:#A0A0A0">Dark</span>|Highlight2BackgroundColorKey|Highlight2BackgroundBrushKey|
-|Highlight2Border|<span style="background:#696970">LightL</span>/<span style="background:#A0A0A0">Dark</span>|Highlight2BorderColorKey|Highlight2BorderBrushKey|
+|Highlight2Border|<span style="background:#696970">Light</span>/<span style="background:#A0A0A0">Dark</span>|Highlight2BorderColorKey|Highlight2BorderBrushKey|
 |Highlight2Foreground|<span style="background:#FFFFFF">Light</span>/<span style="background:#000000">Dark</span>|Highlight2ForegroundColorKey|Highlight2ForegroundBrushKey|
 |Highlight3Background|<span style="background:#4B4B52">Light</span>/<span style="background:#C8C8C8">Dark</span>|Highlight3BackgroundColorKey|Highlight3BackgroundBrushKey|
 |Highlight3Border|<span style="background:#4B4B52">Light</span>/<span style="background:#C8C8C8">Dark</span>|Highlight3BorderColorKey|Highlight3BorderBrushKey|
