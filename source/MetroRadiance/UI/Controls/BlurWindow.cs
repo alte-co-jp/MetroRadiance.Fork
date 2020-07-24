@@ -11,36 +11,146 @@ namespace MetroRadiance.UI.Controls
 {
 	public class BlurWindow : Window
 	{
+		private static bool HasSystemTheme { get; }
+
 		static BlurWindow()
 		{
+			HasSystemTheme = Environment.OSVersion.Version.Build >= 18282;
+
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(typeof(BlurWindow)));
 			WindowStyleProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(WindowStyle.None));
 			AllowsTransparencyProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(true));
 		}
 
+		#region ThemeMode 依存関係プロパティ
+
+		public BlurWindowThemeMode ThemeMode
+		{
+			get { return (BlurWindowThemeMode)this.GetValue(ThemeModeProperty); }
+			set { this.SetValue(ThemeModeProperty, value); }
+		}
+		public static readonly DependencyProperty ThemeModeProperty =
+			DependencyProperty.Register("ThemeMode", typeof(BlurWindowThemeMode), typeof(BlurWindow), new UIPropertyMetadata(BlurWindowThemeMode.Default, ThemeModeChangedCallback));
+
+		private static void ThemeModeChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+		{
+			var instance = (BlurWindow)d;
+			instance.RemoveThemeCallback((BlurWindowThemeMode)e.OldValue);
+			instance.AddThemeCallback((BlurWindowThemeMode)e.NewValue);
+			instance.HandleThemeChanged();
+		}
+
+		#endregion
+
+		#region BlurOpacity 依存関係プロパティ
+
+		public double BlurOpacity
+		{
+			get { return (double)this.GetValue(BlurOpacityProperty); }
+			set { this.SetValue(BlurOpacityProperty, value); }
+		}
+		public static readonly DependencyProperty BlurOpacityProperty =
+			DependencyProperty.Register("BlurOpacity", typeof(double), typeof(BlurWindow), new UIPropertyMetadata(0.8, BlurOpacityChangedCallback));
+
+		private static void BlurOpacityChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+		{
+			var instance = (BlurWindow)d;
+			instance.HandleThemeChanged();
+		}
+
+		#endregion
+
+		#region DrawBorders 依存関係プロパティ
+
+		public AccentFlags BordersFlag
+		{
+			get { return (AccentFlags)this.GetValue(BordersFlagProperty); }
+			set { this.SetValue(BordersFlagProperty, value); }
+		}
+		public static readonly DependencyProperty BordersFlagProperty =
+			DependencyProperty.Register("BordersFlag", typeof(AccentFlags), typeof(BlurWindow), new UIPropertyMetadata(AccentFlags.DrawAllBorders, BordersFlagChangedCallback));
+
+		private static void BordersFlagChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+		{
+			var instance = (BlurWindow)d;
+			instance.HandleThemeChanged();
+		}
+
+		#endregion
+
 		protected override void OnSourceInitialized(EventArgs e)
 		{
 			base.OnSourceInitialized(e);
 
-			WindowComposition.Set(this, AccentState.ACCENT_ENABLE_BLURBEHIND, AccentFlags.DrawAllBorders);
+			WindowsTheme.HighContrast.Changed += this.HandleThemeChanged1;
+			WindowsTheme.Transparency.Changed += this.HandleThemeChanged1;
+			AddThemeCallback(this.ThemeMode);
 
-			WindowsTheme.HighContrast.Changed += this.HandleThemeChanged;
-			WindowsTheme.Transparency.Changed += this.HandleThemeChanged;
-			WindowsTheme.ColorPrevalence.Changed += this.HandleThemeChanged;
-
-			this.HandleThemeChanged(null, false);
+			this.HandleThemeChanged();
 		}
 
 		protected override void OnClosed(EventArgs e)
 		{
 			base.OnClosed(e);
 
-			WindowsTheme.HighContrast.Changed -= this.HandleThemeChanged;
-			WindowsTheme.Transparency.Changed -= this.HandleThemeChanged;
-			WindowsTheme.ColorPrevalence.Changed -= this.HandleThemeChanged;
+			WindowsTheme.HighContrast.Changed -= this.HandleThemeChanged1;
+			WindowsTheme.Transparency.Changed -= this.HandleThemeChanged1;
+			RemoveThemeCallback(this.ThemeMode);
 		}
 
-		private void HandleThemeChanged(object sender, bool value)
+		private void AddThemeCallback(BlurWindowThemeMode themeMode)
+		{
+			switch (themeMode)
+			{
+				case BlurWindowThemeMode.Light:
+				case BlurWindowThemeMode.Dark:
+				case BlurWindowThemeMode.Accent:
+					break;
+
+				case BlurWindowThemeMode.System:
+					if (HasSystemTheme)
+					{
+						WindowsTheme.ColorPrevalence.Changed += this.HandleThemeChanged1;
+						WindowsTheme.SystemTheme.Changed += this.HandleThemeValueChanged;
+					}
+					break;
+
+				default:
+					WindowsTheme.Theme.Changed += this.HandleThemeValueChanged;
+					break;
+			}
+		}
+
+		private void RemoveThemeCallback(BlurWindowThemeMode themeMode)
+		{
+			switch (themeMode)
+			{
+				case BlurWindowThemeMode.Light:
+				case BlurWindowThemeMode.Dark:
+				case BlurWindowThemeMode.Accent:
+					break;
+
+				case BlurWindowThemeMode.System:
+					if (HasSystemTheme)
+					{
+						WindowsTheme.ColorPrevalence.Changed -= this.HandleThemeChanged1;
+						WindowsTheme.SystemTheme.Changed -= this.HandleThemeValueChanged;
+					}
+					break;
+
+				default:
+					WindowsTheme.Theme.Changed -= this.HandleThemeValueChanged;
+					break;
+			}
+		}
+
+		private void HandleThemeChanged1(object sender, bool value)
+			=> this.HandleThemeChanged();
+
+		private void HandleThemeValueChanged(object sender, Platform.Theme value)
+			=> this.HandleThemeChanged();
+
+		internal protected virtual void HandleThemeChanged()
 		{
 			if (WindowsTheme.HighContrast.Current)
 			{
@@ -48,39 +158,114 @@ namespace MetroRadiance.UI.Controls
 			}
 			else
 			{
-				this.ToBlur(
-					WindowsTheme.Transparency.Current,
-					WindowsTheme.ColorPrevalence.Current);
+				this.ToBlur(WindowsTheme.Transparency.Current);
 			}
 		}
 
-		private void ToHighContrast()
+		internal protected void ToHighContrast()
 		{
+			WindowComposition.Disable(this);
 			this.ChangeProperties(
 				ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.ApplicationBackground),
 				ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemText),
 				SystemColors.WindowFrameColor,
-				new Thickness(2));
+				this.GetBordersFlagAsThickness(2));
 		}
 
-		private void ToBlur(bool transparency, bool colorPrevalence)
+		internal protected void GetColors(out Color background, out Color foreground)
 		{
-			var background = colorPrevalence
-				? ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemAccentDark1)
-				: ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.DarkChromeMedium);
-			if (transparency) background.A = (byte)(background.A * 0.8);
+			var colorPrevalence = WindowsTheme.ColorPrevalence.Current;
+			switch (this.ThemeMode)
+			{
+				case BlurWindowThemeMode.Light:
+					background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.LightChromeMedium);
+					foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextLightTheme);
+					break;
 
-			var foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextDarkTheme);
+				case BlurWindowThemeMode.Dark:
+					background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.DarkChromeMedium);
+					foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextDarkTheme);
+					break;
 
-			this.ChangeProperties(background, foreground, Colors.Transparent, new Thickness());
+				case BlurWindowThemeMode.Accent:
+					background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemAccentDark1);
+					foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextDarkTheme);
+					break;
+
+				case BlurWindowThemeMode.System:
+					if (HasSystemTheme)
+					{
+						if (colorPrevalence)
+						{
+							background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemAccentDark1);
+							foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextDarkTheme);
+						}
+						else if (WindowsTheme.SystemTheme.Current == Platform.Theme.Light)
+						{
+							background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.LightChromeMedium);
+							foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextLightTheme);
+						}
+						else
+						{
+							background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.DarkChromeMedium);
+							foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextDarkTheme);
+						}
+					}
+					else
+					{
+						background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.DarkChromeMedium);
+						foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextDarkTheme);
+					}
+					break;
+
+				default:
+					if (WindowsTheme.Theme.Current == Platform.Theme.Dark)
+					{
+						background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.DarkChromeMedium);
+						foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextDarkTheme);
+					}
+					else
+					{
+						background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.LightChromeMedium);
+						foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextLightTheme);
+					}
+					break;
+			}
 		}
 
-		private void ChangeProperties(Color background, Color foreground, Color border, Thickness borderThickness)
+		internal protected void ToBlur(bool transparency)
+		{
+			Color background, foreground;
+			this.GetColors(out background, out foreground);
+
+			if (transparency)
+			{
+				background.A = (byte)(background.A * this.BlurOpacity);
+				WindowComposition.EnableBlur(this, this.BordersFlag);
+				this.ChangeProperties(background, foreground, Colors.Transparent, new Thickness());
+			}
+			else
+			{
+				WindowComposition.Disable(this);
+				this.ChangeProperties(background, foreground, SystemColors.WindowFrameColor, this.GetBordersFlagAsThickness(1));
+			}
+		}
+
+		internal protected void ChangeProperties(Color background, Color foreground, Color border, Thickness borderThickness)
 		{
 			this.Background = new SolidColorBrush(background);
 			this.Foreground = new SolidColorBrush(foreground);
 			this.BorderBrush = new SolidColorBrush(border);
 			this.BorderThickness = borderThickness;
+		}
+
+		private Thickness GetBordersFlagAsThickness(double width)
+		{
+			return new Thickness(
+				this.BordersFlag.HasFlag(AccentFlags.DrawLeftBorder) ? width : 0.0,
+				this.BordersFlag.HasFlag(AccentFlags.DrawTopBorder) ? width : 0.0,
+				this.BordersFlag.HasFlag(AccentFlags.DrawRightBorder) ? width : 0.0,
+				this.BordersFlag.HasFlag(AccentFlags.DrawBottomBorder) ? width : 0.0);
 		}
 	}
 }

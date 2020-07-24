@@ -209,6 +209,7 @@
   <ItemGroup>
     <Compile Include="UI\Accent.cs" />
     <Compile Include="UI\Controls\BlurWindow.cs" />
+    <Compile Include="UI\Controls\BlurWindowThemeMode.cs" />
     <Compile Include="UI\Interactivity\DirectWindowAction.cs" />
     <Compile Include="UI\Controls\Badge.cs" />
     <Compile Include="UI\Controls\BindableRichTextBox.cs" />
