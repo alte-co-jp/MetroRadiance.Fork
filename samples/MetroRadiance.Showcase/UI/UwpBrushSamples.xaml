@@ -1,0 +1,178 @@
+﻿<UserControl x:Class="MetroRadiance.Showcase.UI.UwpBrushSamples"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MetroRadiance.Showcase.UI"
+             mc:Ignorable="d" 
+			 metro:ThemeHelper.HasThemeResources="True"
+             d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Themes/UWP/Dark.xaml" />-->
+                <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Themes/UWP/Accents/Orange.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="SystemAccentColorLigth3Brush" Color="{DynamicResource SystemAccentColorLigth3}"/>
+            <SolidColorBrush x:Key="SystemAccentColorLigth2Brush" Color="{DynamicResource SystemAccentColorLigth2}"/>
+            <SolidColorBrush x:Key="SystemAccentColorLigth1Brush" Color="{DynamicResource SystemAccentColorLigth1}"/>
+            <SolidColorBrush x:Key="SystemAccentColorBrush" Color="{DynamicResource SystemAccentColor}"/>
+            <SolidColorBrush x:Key="SystemAccentColorDark1Brush" Color="{DynamicResource SystemAccentColorDark1}"/>
+            <SolidColorBrush x:Key="SystemAccentColorDark2Brush" Color="{DynamicResource SystemAccentColorDark2}"/>
+            <SolidColorBrush x:Key="SystemAccentColorDark3Brush" Color="{DynamicResource SystemAccentColorDark3}"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border Padding="4">
+        <StackPanel>
+            <StackPanel.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderBrush" Value="{DynamicResource SystemControlForegroundTransparentBrush}"/>
+                        <Setter Property="BorderThickness" Value="3.001"/>
+                        <Setter Property="Margin" Value="4"/>
+                    </Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                        <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+                        <Setter Property="Margin" Value="20,5"/>
+                    </Style>
+                </ResourceDictionary>
+            </StackPanel.Resources>
+            <TextBlock Text="UWP compatible accent colors"
+                       TextWrapping="Wrap"
+					   FontFamily="Segoe UI Light"
+					   FontSize="18"
+					   HorizontalAlignment="Center"
+					   Margin="0,0,0,8" />
+            <Border Background="{DynamicResource SystemAccentColorLigth3Brush}">
+                <TextBlock Text="SystemAccentColorLigth3"
+						   Foreground="{DynamicResource SystemControlForegroundChromeBlackHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemAccentColorLigth2Brush}">
+                <TextBlock Text="SystemAccentColorLigth2"
+						   Foreground="{DynamicResource SystemControlForegroundChromeBlackHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemAccentColorLigth1Brush}">
+                <TextBlock Text="SystemAccentColorLigth1"
+						   Foreground="{DynamicResource SystemControlForegroundChromeBlackHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemAccentColorBrush}">
+                <TextBlock Text="SystemAccentColor"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemAccentColorDark1Brush}">
+                <TextBlock Text="SystemAccentColorDark1"
+						   Foreground="{DynamicResource SystemControlForegroundChromeWhiteBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemAccentColorDark2Brush}">
+                <TextBlock Text="SystemAccentColorDark2"
+						   Foreground="{DynamicResource SystemControlForegroundChromeWhiteBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemAccentColorDark3Brush}">
+                <TextBlock Text="SystemAccentColorDark3"
+						   Foreground="{DynamicResource SystemControlForegroundChromeWhiteBrush}"/>
+            </Border>
+
+            <TextBlock Text="UWP compatible brushes"
+                       TextWrapping="Wrap"
+					   FontFamily="Segoe UI Light"
+					   FontSize="18"
+					   HorizontalAlignment="Center"
+					   Margin="0,12,0,8" />
+
+            <Border Background="{DynamicResource SystemControlBackgroundAccentBrush}">
+                <TextBlock Text="BackgroundAccent"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundAltHighBrush}">
+                <TextBlock Text="BackgroundAltHigh"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundAltMediumHighBrush}">
+                <TextBlock Text="BackgroundAltMediumHigh"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundAltMediumBrush}">
+                <TextBlock Text="BackgroundAltMedium"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundAltMediumLowBrush}">
+                <TextBlock Text="BackgroundAltMediumLow"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundBaseHighBrush}">
+                <TextBlock Text="BackgroundBaseHigh"
+						   Foreground="{DynamicResource SystemControlForegroundAltHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundBaseMediumHighBrush}">
+                <TextBlock Text="BackgroundBaseMediumHigh"
+						   Foreground="{DynamicResource SystemControlForegroundAltHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundBaseMediumBrush}">
+                <TextBlock Text="BackgroundBaseMedium"
+						   Foreground="{DynamicResource SystemControlForegroundAltHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundBaseMediumLowBrush}">
+                <TextBlock Text="BackgroundBaseMediumLow"
+						   Foreground="{DynamicResource SystemControlForegroundAltHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundBaseLowBrush}">
+                <TextBlock Text="BackgroundBaseLow"
+						   Foreground="{DynamicResource SystemControlForegroundAltHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundChromeBlackHighBrush}">
+                <TextBlock Text="BackgroundChromeBlackHigh"
+						   Foreground="{DynamicResource SystemControlForegroundChromeWhiteBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundChromeBlackMediumBrush}">
+                <TextBlock Text="BackgroundChromeBlackMedium"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundChromeBlackMediumLowBrush}">
+                <TextBlock Text="BackgroundChromeBlackMediumLow"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundChromeBlackLowBrush}">
+                <TextBlock Text="BackgroundChromeBlackLow"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundChromeMediumBrush}">
+                <TextBlock Text="BackgroundChromeMedium"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundChromeMediumLowBrush}">
+                <TextBlock Text="BackgroundChromeMediumLow"
+						   Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundChromeWhiteBrush}">
+                <TextBlock Text="BackgroundChromeWhite"
+						   Foreground="{DynamicResource SystemControlForegroundChromeBlackHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundListMediumBrush}">
+                <TextBlock Text="BackgroundListMedium"
+						   Foreground="{DynamicResource SystemControlForegroundAltHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundListLowBrush}">
+                <TextBlock Text="BackgroundListLow"
+						   Foreground="{DynamicResource SystemControlForegroundAltHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlDisabledBaseMediumLowBrush}">
+                <TextBlock Text="DisabledBaseMediumLow"
+						   Foreground="{DynamicResource SystemControlHighlightAltAltHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlHighlightBaseHighBrush}">
+                <TextBlock Text="HighlightBaseHigh"
+						   Foreground="{DynamicResource SystemControlHighlightAltAltHighBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundBaseLowBrush}">
+                <TextBlock Text="HyperlinkText"
+						   Foreground="{DynamicResource SystemControlHyperlinkTextBrush}"/>
+            </Border>
+            <Border Background="{DynamicResource SystemControlBackgroundBaseLowBrush}">
+                <TextBlock Text="ErrorTextForeground"
+						   Foreground="{DynamicResource SystemControlErrorTextForegroundBrush}"/>
+            </Border>
+        </StackPanel>
+    </Border>
+</UserControl>

@@ -17,91 +17,74 @@
 
 	<Border Padding="4">
 		<StackPanel>
-			<TextBlock Text="Border &amp; Background Brushes"
+            <StackPanel.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrushKey}"/>
+                        <Setter Property="Background" Value="{DynamicResource BackgroundBrushKey}"/>
+                        <Setter Property="BorderThickness" Value="3.001"/>
+                        <Setter Property="Margin" Value="4"/>
+                    </Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                        <Setter Property="Foreground" Value="{DynamicResource ForegroundBrushKey}"/>
+                        <Setter Property="Margin" Value="20,5"/>
+                    </Style>
+                </ResourceDictionary>
+            </StackPanel.Resources>
+            <TextBlock Text="MetroRadiance Border &amp; Background Brushes"
+                       TextWrapping="Wrap"
 					   FontFamily="Segoe UI Light"
 					   FontSize="18"
-					   Foreground="{DynamicResource ForegroundBrushKey}"
 					   HorizontalAlignment="Center"
 					   Margin="0,0,0,8" />
-			<Border BorderThickness="3"
-					BorderBrush="{DynamicResource BorderBrushKey}"
-					Background="{DynamicResource BackgroundBrushKey}"
-					Margin="4">
+			<Border Background="{DynamicResource BackgroundBrushKey}">
 				<TextBlock Text="Normal"
-						   Foreground="{DynamicResource ForegroundBrushKey}"
-						   Margin="20,5" />
+						   Foreground="{DynamicResource ForegroundBrushKey}"/>
 			</Border>
-			<Border BorderThickness="3"
-					BorderBrush="{DynamicResource ActiveBorderBrushKey}"
-					Background="{DynamicResource ActiveBackgroundBrushKey}"
-					Margin="4">
+			<Border BorderBrush="{DynamicResource ActiveBorderBrushKey}"
+					Background="{DynamicResource ActiveBackgroundBrushKey}">
 				<TextBlock Text="Active"
-						   Foreground="{DynamicResource ActiveForegroundBrushKey}"
-						   Margin="20,5" />
+						   Foreground="{DynamicResource ActiveForegroundBrushKey}"/>
 			</Border>
-			<Border BorderThickness="3"
-					BorderBrush="{DynamicResource SemiactiveBorderBrushKey}"
-					Background="{DynamicResource SemiactiveBackgroundBrushKey}"
-					Margin="4">
+			<Border BorderBrush="{DynamicResource SemiactiveBorderBrushKey}"
+					Background="{DynamicResource SemiactiveBackgroundBrushKey}">
 				<TextBlock Text="Semiactive"
-						   Foreground="{DynamicResource SemiActiveForegroundBrushKey}"
-						   Margin="20,5" />
+						   Foreground="{DynamicResource SemiActiveForegroundBrushKey}"/>
 			</Border>
-			<Border BorderThickness="3"
-					BorderBrush="{DynamicResource InactiveBorderBrushKey}"
-					Background="{DynamicResource InactiveBackgroundBrushKey}"
-					Margin="4">
+			<Border BorderBrush="{DynamicResource InactiveBorderBrushKey}"
+					Background="{DynamicResource InactiveBackgroundBrushKey}">
 				<TextBlock Text="Inactive"
-						   Foreground="{DynamicResource InactiveForegroundBrushKey}"
-						   Margin="20,5" />
+						   Foreground="{DynamicResource InactiveForegroundBrushKey}"/>
 			</Border>
-			<Border BorderThickness="3"
-					BorderBrush="{DynamicResource HighlightBorderBrushKey}"
-					Background="{DynamicResource HighlightBackgroundBrushKey}"
-					Margin="4">
+			<Border BorderBrush="{DynamicResource HighlightBorderBrushKey}"
+					Background="{DynamicResource HighlightBackgroundBrushKey}">
 				<TextBlock Text="Highlight 1"
-						   Foreground="{DynamicResource HighlightForegroundBrushKey}"
-						   Margin="20,5" />
+						   Foreground="{DynamicResource HighlightForegroundBrushKey}"/>
 			</Border>
-			<Border BorderThickness="3"
-					BorderBrush="{DynamicResource Highlight2BorderBrushKey}"
-					Background="{DynamicResource Highlight2BackgroundBrushKey}"
-					Margin="4">
+			<Border BorderBrush="{DynamicResource Highlight2BorderBrushKey}"
+					Background="{DynamicResource Highlight2BackgroundBrushKey}">
 				<TextBlock Text="Highlight 2"
-						   Foreground="{DynamicResource Highlight2ForegroundBrushKey}"
-						   Margin="20,5" />
+						   Foreground="{DynamicResource Highlight2ForegroundBrushKey}"/>
 			</Border>
-			<Border BorderThickness="3"
-					BorderBrush="{DynamicResource Highlight3BorderBrushKey}"
-					Background="{DynamicResource Highlight3BackgroundBrushKey}"
-					Margin="4">
+			<Border BorderBrush="{DynamicResource Highlight3BorderBrushKey}"
+					Background="{DynamicResource Highlight3BackgroundBrushKey}">
 				<TextBlock Text="Highlight 3"
-						   Foreground="{DynamicResource Highlight3ForegroundBrushKey}"
-						   Margin="20,5" />
+						   Foreground="{DynamicResource Highlight3ForegroundBrushKey}"/>
 			</Border>
-			<Border BorderThickness="3"
-					BorderBrush="{DynamicResource AccentBrushKey}"
-					Background="{DynamicResource AccentBrushKey}"
-					Margin="4">
+			<Border BorderBrush="{DynamicResource AccentBrushKey}"
+					Background="{DynamicResource AccentBrushKey}">
 				<TextBlock Text="Accent"
-						   Foreground="{DynamicResource AccentForegroundBrushKey}"
-						   Margin="20,5" />
+						   Foreground="{DynamicResource AccentForegroundBrushKey}"/>
 			</Border>
-			<Border BorderThickness="3"
-					BorderBrush="{DynamicResource AccentActiveBrushKey}"
-					Background="{DynamicResource AccentActiveBrushKey}"
-					Margin="4">
+			<Border BorderBrush="{DynamicResource AccentActiveBrushKey}"
+					Background="{DynamicResource AccentActiveBrushKey}">
 				<TextBlock Text="Accent active"
-						   Foreground="{DynamicResource AccentForegroundBrushKey}"
-						   Margin="20,5" />
+						   Foreground="{DynamicResource AccentForegroundBrushKey}"/>
 			</Border>
-			<Border BorderThickness="3"
-					BorderBrush="{DynamicResource AccentHighlightBrushKey}"
-					Background="{DynamicResource AccentHighlightBrushKey}"
-					Margin="4">
+			<Border BorderBrush="{DynamicResource AccentHighlightBrushKey}"
+					Background="{DynamicResource AccentHighlightBrushKey}">
 				<TextBlock Text="Accent highlight"
-						   Foreground="{DynamicResource AccentForegroundBrushKey}"
-						   Margin="20,5" />
+						   Foreground="{DynamicResource AccentForegroundBrushKey}"/>
 			</Border>
 		</StackPanel>
 	</Border>

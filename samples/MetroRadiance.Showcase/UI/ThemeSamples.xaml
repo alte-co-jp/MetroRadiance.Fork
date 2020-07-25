@@ -102,8 +102,14 @@
 			<Border Height="1"
 					Background="{DynamicResource BorderBrushKey}"
 					Margin="0,8" />
-
-			<ui:BrushSamples />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ui:BrushSamples Grid.Column="0"/>
+                <ui:UwpBrushSamples Grid.Column="1"/>
+            </Grid>
 		</StackPanel>
 	</ScrollViewer>
 </UserControl>

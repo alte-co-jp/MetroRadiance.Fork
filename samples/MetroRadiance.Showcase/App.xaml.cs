@@ -14,6 +14,7 @@ namespace MetroRadiance.Showcase
 			base.OnStartup(e);
 			this.ShutdownMode = ShutdownMode.OnMainWindowClose;
 
+			ThemeService.Current.EnableUwpResoruces();
 			ThemeService.Current.Register(this, Theme.Windows, Accent.Windows);
 		}
 	}
