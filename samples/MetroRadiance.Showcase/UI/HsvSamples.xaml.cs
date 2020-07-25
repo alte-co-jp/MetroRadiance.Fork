@@ -35,7 +35,7 @@ namespace MetroRadiance.Showcase.UI
 
 			this.colorbox.Background = new SolidColorBrush(c);
 			this.colorbox.Foreground = w ? Brushes.White : Brushes.Black;
-			this.colorbox.Text = $"Color: {c}, Luminosity: {l}";
+			this.colorbox.Text = $"Color: {c}({c.R},{c.G},{c.B}), Luminosity: {l}";
 		}
 	}
 }

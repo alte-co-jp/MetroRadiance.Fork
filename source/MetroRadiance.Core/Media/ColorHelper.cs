@@ -16,6 +16,14 @@ namespace MetroRadiance.Media
 			return HsvColor.FromRgb(c);
 		}
 
+		/// <summary>
+		/// 現在の RGB 色空間による色から HSL 色空間の <see cref="HslColor"/> 構造体を作成します。
+		/// </summary>
+		public static HslColor ToHsl(this Color c)
+		{
+			return HslColor.FromRgb(c);
+		}
+
 		public static Color GetColorFromInt64(long color)
 		{
 			return Color.FromArgb((byte)(color >> 24), (byte)(color >> 16), (byte)(color >> 8), (byte)color);

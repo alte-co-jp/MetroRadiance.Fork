@@ -169,12 +169,14 @@
 
 			<TabItem>
 				<TabItem.Header>
-					<TextBlock Text="HSV / Luminosity"
+					<TextBlock Text="HSV / HSL / Luminosity"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
-
-				<ui:HsvSamples />
-			</TabItem>
+                <StackPanel Orientation="Vertical">
+                    <ui:HsvSamples />
+                    <ui:HslSamples />
+                </StackPanel>
+            </TabItem>
 
 			<TabItem>
 				<TabItem.Header>
@@ -193,7 +195,7 @@
 
 				<ui:ControlSamples />
 			</TabItem>
-		</TabControl>
+        </TabControl>
 
 		<Grid Grid.Row="2"
 			  Background="{DynamicResource AccentBrushKey}">
