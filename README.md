@@ -1,18 +1,18 @@
 # MetroRadiance.Fork
 
-MetroRadiance.Fork: [![Build Status (develop)](https://nishy-software.visualstudio.com/MetroRadiance/_apis/build/status/nishy2000.MetroRadiance?branchName=develop&label=develop)](https://nishy-software.visualstudio.com/MetroRadiance/_build/latest?definitionId=6&branchName=develop)
-[![Build Status (master)](https://nishy-software.visualstudio.com/MetroRadiance/_apis/build/status/nishy2000.MetroRadiance?branchName=master&label=master)](https://nishy-software.visualstudio.com/MetroRadiance/_build/latest?definitionId=6&branchName=master)
+MetroRadiance.Fork: [![Build Status (develop)](https://nishy-software.visualstudio.com/MetroRadiance/_apis/build/status/nishy2000.MetroRadiance.Fork?branchName=develop&label=develop)](https://nishy-software.visualstudio.com/MetroRadiance/_build/latest?definitionId=6&branchName=develop)
+[![Build Status (master)](https://nishy-software.visualstudio.com/MetroRadiance/_apis/build/status/nishy2000.MetroRadiance.Fork?branchName=master&label=master)](https://nishy-software.visualstudio.com/MetroRadiance/_build/latest?definitionId=6&branchName=master)
 
 [![Downloads (.Core)](https://img.shields.io/nuget/dt/MetroRadiance.Fork.Core.svg?style=flat-square&label=downloads%20%28.Core%29)](https://www.nuget.org/packages/MetroRadiance.Fork.Core/)
 [![NuGet](https://img.shields.io/nuget/v/MetroRadiance.Fork.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Fork/)
 [![NuGet (pre)](https://img.shields.io/nuget/vpre/MetroRadiance.Fork.svg?style=flat-square&label=nuget-pre)](https://www.nuget.org/packages/MetroRadiance.Fork/)
-[![Release](https://img.shields.io/github/tag/nishy2000/MetroRadiance.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance/releases)
-[![License](https://img.shields.io/github/license/nishy2000/MetroRadiance.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance/blob/master/LICENSE.txt)
+[![Release](https://img.shields.io/github/release/nishy2000/MetroRadiance.Fork.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance.Fork/releases)
+[![License](https://img.shields.io/github/license/nishy2000/MetroRadiance.Fork.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance.Fork/blob/master/LICENSE.txt)
 
-[![Issues](https://img.shields.io/github/issues/nishy2000/MetroRadiance.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance/issues)
-[![Issues](https://img.shields.io/github/issues-closed/nishy2000/MetroRadiance.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance/issues?q=is%3Aissue+is%3Aclosed)
-[![Pull Requests](https://img.shields.io/github/issues-pr/nishy2000/MetroRadiance.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance/pulls)
-[![Pull Requests](https://img.shields.io/github/issues-pr-closed/nishy2000/MetroRadiance.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance/pulls?q=is%3Apr+is%3Aclosed)
+[![Issues](https://img.shields.io/github/issues/nishy2000/MetroRadiance.Fork.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance.Fork/issues)
+[![Issues](https://img.shields.io/github/issues-closed/nishy2000/MetroRadiance.Fork.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance.Fork/issues?q=is%3Aissue+is%3Aclosed)
+[![Pull Requests](https://img.shields.io/github/issues-pr/nishy2000/MetroRadiance.Fork.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance.Fork/pulls)
+[![Pull Requests](https://img.shields.io/github/issues-pr-closed/nishy2000/MetroRadiance.Fork.svg?style=flat-square)](https://github.com/nishy2000/MetroRadiance.Fork/pulls?q=is%3Apr+is%3Aclosed)
 
 ( MetroRadiance: [![Build status (master)](https://img.shields.io/appveyor/ci/Grabacr07/MetroRadiance/master.svg?style=flat-square&label=build%20(master))](https://ci.appveyor.com/project/Grabacr07/MetroRadiance)
 [![Downloads](https://img.shields.io/nuget/dt/MetroRadiance.Core.svg?style=flat-square)](https://www.nuget.org/packages/MetroRadiance.Core/)
@@ -318,7 +318,6 @@ Styles are defined by "/Styles/Controls.xaml"
 - ResizeGrip
 - SystemButtons
 - TabView
-- 
 
 ### Custom converters
 - WindowStateToVisibilityConverter

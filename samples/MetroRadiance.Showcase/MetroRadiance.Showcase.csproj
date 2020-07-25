@@ -10,9 +10,9 @@
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
-    <RepositoryUrl>https://github.com/nishy2000/MetroRadiance</RepositoryUrl>
+    <RepositoryUrl>https://github.com/nishy2000/MetroRadiance.Fork</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl></PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/nishy2000/MetroRadiance.Fork</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Modern WPF Themes (Showcase). Fork of MetroRadiance</Description>
     <Copyright>©2020 nishy software / ©2014-2017 Manato KAMEYA</Copyright>

@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetroRadiance.Core", "Metro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetroRadiance", "MetroRadiance\MetroRadiance.csproj", "{0AF0B9FF-D981-4D0F-A41F-C3AB6FE2F16D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroRadiance.Showcase", "..\samples\MetroRadiance.Showcase\MetroRadiance.Showcase.csproj", "{0BB73913-9C59-41C1-8C1D-1C1D01432066}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetroRadiance.Showcase", "..\samples\MetroRadiance.Showcase\MetroRadiance.Showcase.csproj", "{0BB73913-9C59-41C1-8C1D-1C1D01432066}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroRadiance.Chrome.Externals", "MetroRadiance.Chrome.Externals\MetroRadiance.Chrome.Externals.csproj", "{35F4CDD9-E656-48C1-96F8-77CB63480E08}"
 EndProject
@@ -27,6 +27,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".settings", ".settings", "{
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		MetroRadiance.sln.DotSettings = MetroRadiance.sln.DotSettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{7857920E-0499-4C4C-80FD-131AC7D6B47D}"
+	ProjectSection(SolutionItems) = preProject
+		..\azure-pipelines.yml = ..\azure-pipelines.yml
 	EndProjectSection
 EndProject
 Global
