@@ -34,6 +34,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{7857920E
 		..\azure-pipelines.yml = ..\azure-pipelines.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{C6FEADFF-A591-44C3-A8B2-E8C5A0FCCE9D}"
+	ProjectSection(SolutionItems) = preProject
+		..\package\BuildPacakges.cmd = ..\package\BuildPacakges.cmd
+		..\package\NuGet.exe = ..\package\NuGet.exe
+		..\package\SignPackages.cmd = ..\package\SignPackages.cmd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
