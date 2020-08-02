@@ -11,15 +11,21 @@ namespace MetroRadiance.UI.Controls
 {
 	public class BlurWindow : Window
 	{
+		internal protected static bool IsWindows10 { get; }
+
 		private static bool HasSystemTheme { get; }
 
 		static BlurWindow()
 		{
-			HasSystemTheme = Environment.OSVersion.Version.Build >= 18282;
+			IsWindows10 = Environment.OSVersion.Version.Major == 10;
+			HasSystemTheme = IsWindows10 && Environment.OSVersion.Version.Build >= 18282;
 
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(typeof(BlurWindow)));
 			WindowStyleProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(WindowStyle.None));
-			AllowsTransparencyProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(true));
+			if (IsWindows10)
+			{
+				AllowsTransparencyProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(true));
+			}
 		}
 
 		#region ThemeMode 依存関係プロパティ
@@ -171,6 +177,10 @@ namespace MetroRadiance.UI.Controls
 			{
 				this.ToHighContrast();
 			}
+			else if (!IsWindows10)
+			{
+				this.ToCompatibility();
+			}
 			else
 			{
 				this.ToBlur(WindowsTheme.Transparency.Current);
@@ -185,6 +195,26 @@ namespace MetroRadiance.UI.Controls
 				ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemText),
 				SystemColors.WindowFrameColor,
 				this.GetBordersFlagAsThickness(2));
+		}
+
+		internal protected void ToCompatibility()
+		{
+			if (this.ThemeMode == BlurWindowThemeMode.Dark)
+			{
+				this.ChangeProperties(
+					SystemColors.WindowTextColor,
+					SystemColors.WindowColor,
+					SystemColors.WindowFrameColor,
+					new Thickness());
+			}
+			else
+			{
+				this.ChangeProperties(
+					SystemColors.WindowColor,
+					SystemColors.WindowTextColor,
+					SystemColors.WindowFrameColor,
+					new Thickness());
+			}
 		}
 
 		internal protected void GetColors(out Color background, out Color foreground)
