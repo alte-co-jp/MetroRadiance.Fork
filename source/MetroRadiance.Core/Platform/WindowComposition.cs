@@ -4,35 +4,76 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
+using System.Windows.Media;
 using MetroRadiance.Interop.Win32;
 
 namespace MetroRadiance.Platform
 {
 	public static class WindowComposition
 	{
-		public static void Set(Window window, AccentState accentState, AccentFlags accentFlags)
+		public static void Disable(Window window)
 		{
 			var hwndSource = PresentationSource.FromVisual(window) as HwndSource;
 			if (hwndSource == null) return;
 
 			var accent = new AccentPolicy
 			{
-				AccentState = accentState,
+				AccentState = AccentState.ACCENT_DISABLED,
+			};
+			Set(hwndSource, accent);
+		}
+
+		public static void EnableBlur(Window window, AccentFlags accentFlags)
+		{
+			var hwndSource = PresentationSource.FromVisual(window) as HwndSource;
+			if (hwndSource == null) return;
+
+			var accent = new AccentPolicy
+			{
+				AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND,
 				AccentFlags = accentFlags,
 			};
-			var accentStructSize = Marshal.SizeOf(accent);
-			var accentPtr = Marshal.AllocHGlobal(accentStructSize);
-			Marshal.StructureToPtr(accent, accentPtr, false);
+			Set(hwndSource, accent);
+		}
 
-			var data = new WindowCompositionAttributeData
+		public static void EnableAcrylicBlur(Window window, Color backgroundColor, byte opacity, AccentFlags accentFlags)
+		{
+			var hwndSource = PresentationSource.FromVisual(window) as HwndSource;
+			if (hwndSource == null) return;
+
+			var accent = new AccentPolicy
 			{
-				Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY,
-				SizeOfData = accentStructSize,
-				Data = accentPtr,
+				AccentState = AccentState.ACCENT_ENABLE_ACRYLICBLURBEHIND,
+				AccentFlags = accentFlags,
+				GradientColor = (opacity << 24) | (backgroundColor.B << 16) | (backgroundColor.G << 8) | backgroundColor.R,
 			};
-			User32.SetWindowCompositionAttribute(hwndSource.Handle, ref data);
+			Set(hwndSource, accent);
+		}
 
-			Marshal.FreeHGlobal(accentPtr);
+		private static void Set(HwndSource hwndSource, AccentPolicy accentPolicy)
+		{
+			var accentStructSize = Marshal.SizeOf(accentPolicy);
+			var accentPtr = IntPtr.Zero;
+			try
+			{
+				accentPtr = Marshal.AllocHGlobal(accentStructSize);
+				Marshal.StructureToPtr(accentPolicy, accentPtr, false);
+
+				var data = new WindowCompositionAttributeData
+				{
+					Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY,
+					SizeOfData = accentStructSize,
+					Data = accentPtr,
+				};
+				User32.SetWindowCompositionAttribute(hwndSource.Handle, ref data);
+			}
+			finally
+			{
+				if (accentPtr != IntPtr.Zero)
+				{
+					Marshal.FreeHGlobal(accentPtr);
+				}
+			}
 		}
 	}
 }
