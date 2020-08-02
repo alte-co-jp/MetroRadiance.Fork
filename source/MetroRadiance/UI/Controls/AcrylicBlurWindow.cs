@@ -23,6 +23,10 @@ namespace MetroRadiance.UI.Controls
 			{
 				this.ToHighContrast();
 			}
+			else if (!IsWindows10)
+			{
+				this.ToCompatibility();
+			}
 			else if (IsAcrylicBlurEnabled)
 			{
 				this.ToAcrylicBlur(WindowsTheme.Transparency.Current);
