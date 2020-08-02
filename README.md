@@ -43,7 +43,7 @@ PM> Install-Package MetroRadiance.Fork
 ## MetroRadiance.Core
 
 ### DPI / Per-Monitor DPI support
-  - Get system DPI
+  - Get system DPI from Visual
   - Get monitor DPI from HwndSource or window handle
 
 ```csharp
@@ -63,10 +63,14 @@ if (PerMonitorDpi.IsSupported)
 ```
 
 ### Windows theme support
-  - Get Windows system theme (Light or Dark, only Windows 10)
-  - Get Windows app theme (Light or Dark, only Windows 10)
-  - Get Windows accent color
-  - Subscribe color change event from Windows
+  - Get Windows app theme (`WindowsTheme.Theme`, Light or Dark, only Windows 10)
+  - Get Windows system theme (`WindowsTheme.SystemTheme`, Light or Dark, only Windows 10)
+  - Get Windows accent color (`WindowsTheme.Accent`)
+  - Get Windows highContrast mode (`WindowsTheme.HighContrast`)
+  - Get Windows color prevalence (`WindowsTheme.ColorPrevalence`)
+  - Get Windows transparency (`WindowsTheme.Transparency`)
+  - [v3.0.0-]Get Windows text scale factor (`WindowsTheme.TextScaleFactor`)
+  - Subscribe theme property change event from Windows
 
 ```csharp
 using MetroRadiance.Platform;
@@ -74,10 +78,10 @@ using MetroRadiance.Platform;
 
 ```csharp
 // Get Windows accent color
-var color = WindowsTheme.GetAccentColor();
+var color = WindowsTheme.Accent.Current;
 
 // Subscribe accent color change event from Windows theme.
-var disposable = WindowsTheme.RegisterAccentColorListener(color =>
+var disposable = WindowsTheme.Accent.RegisterListener(color =>
 {
     // apply color to your app.
 });
@@ -86,7 +90,7 @@ var disposable = WindowsTheme.RegisterAccentColorListener(color =>
 disposable.Dispose();
 ```
 
-### HSV color model support
+### HSV/HSL color model and Luminosity support
 
 ```csharp
 using MetroRadiance.Media;
@@ -94,14 +98,24 @@ using MetroRadiance.Media;
 
 ```csharp
 // Get Windows accent color (using MetroRadiance.Platform;)
-var rgbColor = WindowsTheme.GetAccentColor();
+var rgbColor = WindowsTheme.Accent.Current;
 
 // Convert from RGB to HSV color.
 var hsvColor = rgbColor.ToHsv();
 hsvColor.V *= 0.8;
 
 // Convert from HSV to RGB color.
-var newColor = hsvColor.ToRgb();
+var newColor1 = hsvColor.ToRgb();
+
+// [v3.0.0-] Convert from RGB to HSL color.
+var hslColor = rgbColor.ToHsv();
+hslColor.L *= 0.8;
+
+// Convert from HSL to RGB color.
+var newColor2 = hslColor.ToRgb();
+
+// Calculate luminosity from RGB color.
+var luminosity = Luminosity.FromRgb(rgbColor);
 ```
 
 ## MetroRadiance.Chrome
@@ -109,7 +123,7 @@ var newColor = hsvColor.ToRgb();
 ### Add window chrome like Visual Studio to WPF Window
   - `MetroRadiance.Chrome.WindowChrome`
 
-```XAML
+```xml
 <Window xmlns:chrome="http://schemes.grabacr.net/winfx/2014/chrome">
     <chrome:WindowChrome.Instance>
         <chrome:WindowChrome />
@@ -120,7 +134,7 @@ var newColor = hsvColor.ToRgb();
 ### Add any UI elements to window chrome
   - `MetroRadiance.Chrome.WindowChrome.Top` / `.Left` / `.Right` / `.Bottom`
 
-```XAML
+```xml
 <Window xmlns:chrome="http://schemes.grabacr.net/winfx/2014/chrome">
     <chrome:WindowChrome.Instance>
         <chrome:WindowChrome>
@@ -162,11 +176,106 @@ var accent = Colors.Red.ToAccent();
 ThemeService.Current.ChangeAccent(accent);
 ```
 
-### Colors and Brushes defined in MetroRadiance
+### [v3.0.0-] UWP compatible Color and Brushe resources defined in MetroRadiance
 
-MetroRadiance defines colors and brushes.
-Naming rule is `[ColorName]ColorKey` and `[ColorName]BrushKey`.
+MetroRadiance defines UWP compatible Color and Brush resources.
+Naming rule is [here (Microsoft site)](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/xaml-theme-resources#the-xaml-color-ramp-and-theme-dependent-brushes)
+
+You can not use these as `ThemeResource` in WPF.
 If you use these as `DynamicResource` in your controls, the control will work with the theme color.
+
+These resoruces are enabled by the followins.
+
+- Define in WPF XAML (App.xaml.cs)
+
+  App enables UWP resources using `EnableUwpResoruces()` before calling `Register()`. This method enables UWP resources for the entire app.
+  ```csharp
+    using MetroRadiance.UI;
+    
+    public partial class App : Application
+    {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            ThemeService.Current.EnableUwpResoruces();
+            ThemeService.Current.Register(this, Theme.Windows, Accent.Windows);
+            ...
+  ```
+
+- Define in WPF XAML (not App.xaml)
+
+  This method enables UWP resources only for the specified object (Window/Control/etc).
+  - Enable HasThemeResource using `ThemeHelper.HasThemeResources="True"` for Window/Control/etc
+  - Merge at least one UWP resource (.../Themes/UWP/....xaml) defined in MetroRadiance
+
+  ```xml
+  <UserControl x:Class="MetroRadiance.Showcase.UI.UwpBrushSamples"
+    ...
+    xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
+    metro:ThemeHelper.HasThemeResources="True">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Themes/UWP/Dark.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+    ...
+  ```
+UWP resoruce files defined in MetroRadiance
+- `/Themes/UWP/Light.xaml`
+- `/Themes/UWP/Dark.xaml`
+- `/Themes/UWP/HighContrast.xaml`
+- `/Themes/UWP/Accents/Blue.xaml`
+- `/Themes/UWP/Accents/Orange.xaml`
+- `/Themes/UWP/Accents/Purple.xaml`
+
+Your app can reference using the prefix: `"pack://application:,,,/MetroRadiance;component/"`.
+
+### Custom Color and Brush resources defined in MetroRadiance
+
+MetroRadiance defines custom Color and Brush resources.
+Naming rule is `[ColorName]ColorKey` and `[ColorName]BrushKey`.
+
+You can not use these as `ThemeResource` in WPF.
+If you use these as `DynamicResource` in your controls, the control will work with the theme color.
+
+These resoruces are enabled by the followins.
+
+- Define in WPF XAML (App.xaml.cs)
+
+  App enables the custom color and brush resources using `Register()`. This method enables UWP resources for the entire app.
+  ```csharp
+    using MetroRadiance.UI;
+    
+    public partial class App : Application
+    {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            ThemeService.Current.Register(this, Theme.Windows, Accent.Windows);
+            ...
+  ```
+
+- Define in WPF XAML (not App.xaml)
+
+  This method enables UWP resources only for the specified object (Window/Control/etc).
+  - Enable HasThemeResource using `ThemeHelper.HasThemeResources="True"` for Window/Control/etc
+
+  ```xml
+  <UserControl x:Class="MetroRadiance.Showcase.UI.UwpBrushSamples"
+    ...
+    xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
+    metro:ThemeHelper.HasThemeResources="True">
+    ...
+  ```
+UWP resoruce files defined in MetroRadiance
+- `/Themes/Light.xaml`
+- `/Themes/Dark.xaml`
+- `/Themes/Accents/Blue.xaml`
+- `/Themes/Accents/Orange.xaml`
+- `/Themes/Accents/Purple.xaml`
+
+Your app can reference using the prefix: `"pack://application:,,,/MetroRadiance;component/"`.
 
 Table: Theme Color
 
@@ -208,7 +317,7 @@ Table: Accent Color
 |AccentForeground|<span style="background:White">Blue</span>/<span style="background:White">Orange</span>/<span style="background:White">Purple</span>|AccentForegroundColorKey|AccentForegroundBrushKey|
 
 Style definition sample
-```csharp
+```xml
 <Style TargetType="{x:Type Button}">
     <Setter Property="Background"
             Value="{DynamicResource BackgroundBrushKey}" />
@@ -272,7 +381,7 @@ Style definition sample
 You can use the standard control styles by merging "/Styles/Controls.xaml" of MetroRadiance into ```Application.Resource``` etc.
 These styles use the colors and brushes defined in MetroRadiance. Therefore, it will be linked to the theme change and color setting change.
 
-```csharp
+```xml
 <Application x:Class="MetroRadiance.Showcase.App"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -303,6 +412,7 @@ Styles are defined by "/Styles/Controls.xaml"
 
 
 ### Custom controls
+- AcrylicBlurWindow
 - Badge
 - BindableRichTextBox
 - BindableTextBlock

@@ -17,8 +17,9 @@
     <Description>Modern WPF Themes (chrome). Fork of MetroRadiance</Description>
     <Copyright>©2020 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
     <PackageId>MetroRadiance.Fork.Chrome</PackageId>
-    <PackageReleaseNotes>Changes
- - Support .NET Core 3.1 (WPF)</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      Changes
+      - [alpha00]Support .NET Core 3.1 (WPF)</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

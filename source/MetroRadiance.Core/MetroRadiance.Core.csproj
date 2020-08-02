@@ -17,8 +17,12 @@
     <Description>Modern WPF Themes (core). Fork of MetroRadiance</Description>
     <Copyright>©2020 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
     <PackageId>MetroRadiance.Fork.Core</PackageId>
-    <PackageReleaseNotes>Changes
- - Support .NET Core 3.1 (WPF)</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      Changes
+      - [alpha00]Support .NET Core 3.1 (WPF)
+      - [alpha01]Add HslColor class for HSL color model
+      - [alpha01]Add text scale factor support.
+    </PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>

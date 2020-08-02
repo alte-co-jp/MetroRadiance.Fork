@@ -17,8 +17,14 @@
     <Description>Modern WPF Themes. Fork of MetroRadiance</Description>
     <Copyright>©2020 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
     <PackageId>MetroRadiance.Fork</PackageId>
-    <PackageReleaseNotes>Changes
- - Support .NET Core 3.1 (WPF)</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      Changes
+      - [alpha00]Support .NET Core 3.1 (WPF)
+      - [alpha01]Add Add UWP compatible resources (colors/brushes)
+      - [alpha01]Apply dark theme to the system menu
+      - [alpha01]Add AcrylicBlurWindow class
+      - [alpha01]Improve CaptionIcon behavior to work with Window.
+    </PackageReleaseNotes>
     <Configurations>Debug;Release;Release RETRO</Configurations>
   </PropertyGroup>
 
