@@ -82,25 +82,25 @@
 			<CheckBox x:Name="leftBorderCheckBox"
 					  x:FieldModifier="private"
 					  Content="Left border"
-					  Foreground="{Binding ElementName=BlurWindow, Path=Foreground}"
+					  Foreground="{Binding ElementName=AcrylicBlurWindow, Path=Foreground}"
 					  IsChecked="True"
 					  Margin="4" />
 			<CheckBox x:Name="topBorderCheckBox"
 					  x:FieldModifier="private"
 					  Content="Top border"
-					  Foreground="{Binding ElementName=BlurWindow, Path=Foreground}"
+					  Foreground="{Binding ElementName=AcrylicBlurWindow, Path=Foreground}"
 					  IsChecked="True"
 					  Margin="4" />
 			<CheckBox x:Name="rightBorderCheckBox"
 					  x:FieldModifier="private"
 					  Content="Right border"
-					  Foreground="{Binding ElementName=BlurWindow, Path=Foreground}"
+					  Foreground="{Binding ElementName=AcrylicBlurWindow, Path=Foreground}"
 					  IsChecked="True"
 					  Margin="4" />
 			<CheckBox x:Name="bottomBorderCheckBox"
 					  x:FieldModifier="private"
 					  Content="Bottom border"
-					  Foreground="{Binding ElementName=BlurWindow, Path=Foreground}"
+					  Foreground="{Binding ElementName=AcrylicBlurWindow, Path=Foreground}"
 					  IsChecked="True"
 					  Margin="4" />
 		</StackPanel>

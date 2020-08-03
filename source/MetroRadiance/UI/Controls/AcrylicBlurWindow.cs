@@ -10,11 +10,11 @@ namespace MetroRadiance.UI.Controls
 {
 	public class AcrylicBlurWindow : BlurWindow
 	{
-		private bool IsAcrylicBlurEnabled { get; }
+		private static bool IsAcrylicBlurEnabled { get; }
 
-		public AcrylicBlurWindow()
+		static AcrylicBlurWindow()
 		{
-			this.IsAcrylicBlurEnabled = Environment.OSVersion.Version.Build >= 17004;
+			IsAcrylicBlurEnabled = IsWindows10 && Environment.OSVersion.Version.Build >= 17004;
 		}
 
 		internal protected override void HandleThemeChanged()
@@ -23,7 +23,11 @@ namespace MetroRadiance.UI.Controls
 			{
 				this.ToHighContrast();
 			}
-			else if (this.IsAcrylicBlurEnabled)
+			else if (!IsWindows10)
+			{
+				this.ToCompatibility();
+			}
+			else if (IsAcrylicBlurEnabled)
 			{
 				this.ToAcrylicBlur(WindowsTheme.Transparency.Current);
 			}
