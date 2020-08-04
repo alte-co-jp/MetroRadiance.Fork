@@ -69,7 +69,7 @@ if (PerMonitorDpi.IsSupported)
   - Get Windows highContrast mode (`WindowsTheme.HighContrast`)
   - Get Windows color prevalence (`WindowsTheme.ColorPrevalence`)
   - Get Windows transparency (`WindowsTheme.Transparency`)
-  - [v3.0.0-]Get Windows text scale factor (`WindowsTheme.TextScaleFactor`)
+  - [v3.0.0-] Get Windows text scale factor (`WindowsTheme.TextScaleFactor`)
   - Subscribe theme property change event from Windows
 
 ```csharp
@@ -111,7 +111,7 @@ var newColor1 = hsvColor.ToRgb();
 var hslColor = rgbColor.ToHsv();
 hslColor.L *= 0.8;
 
-// Convert from HSL to RGB color.
+// [v3.0.0-] Convert from HSL to RGB color.
 var newColor2 = hslColor.ToRgb();
 
 // Calculate luminosity from RGB color.
@@ -243,7 +243,7 @@ These resoruces are enabled by the followins.
 
 - Define in WPF XAML (App.xaml.cs)
 
-  App enables the custom color and brush resources using `Register()`. This method enables UWP resources for the entire app.
+  App enables the custom color and brush resources using `Register()`. This method enables custom resources for the entire app.
   ```csharp
     using MetroRadiance.UI;
     
@@ -258,17 +258,17 @@ These resoruces are enabled by the followins.
 
 - Define in WPF XAML (not App.xaml)
 
-  This method enables UWP resources only for the specified object (Window/Control/etc).
+  This method enables custom resources only for the specified object (Window/Control/etc).
   - Enable HasThemeResource using `ThemeHelper.HasThemeResources="True"` for Window/Control/etc
 
   ```xml
-  <UserControl x:Class="MetroRadiance.Showcase.UI.UwpBrushSamples"
+  <UserControl x:Class="MetroRadiance.Showcase.UI.BrushSamples"
     ...
     xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
     metro:ThemeHelper.HasThemeResources="True">
     ...
   ```
-UWP resoruce files defined in MetroRadiance
+Custom resoruce files defined in MetroRadiance
 - `/Themes/Light.xaml`
 - `/Themes/Dark.xaml`
 - `/Themes/Accents/Blue.xaml`
@@ -412,7 +412,7 @@ Styles are defined by "/Styles/Controls.xaml"
 
 
 ### Custom controls
-- AcrylicBlurWindow
+- [v3.0.0-] AcrylicBlurWindow
 - Badge
 - BindableRichTextBox
 - BindableTextBlock
