@@ -27,33 +27,28 @@ namespace MetroRadiance.UI.Controls
 			{
 				this.ToCompatibility();
 			}
+			else if (!WindowsTheme.Transparency.Current)
+			{
+				this.ToDefault();
+			}
 			else if (IsAcrylicBlurEnabled)
 			{
-				this.ToAcrylicBlur(WindowsTheme.Transparency.Current);
+				this.ToAcrylicBlur();
 			}
 			else
 			{
-				this.ToBlur(WindowsTheme.Transparency.Current);
+				this.ToBlur();
 			}
 		}
 
-		private void ToAcrylicBlur(bool transparency)
+		private void ToAcrylicBlur()
 		{
 			Color background, foreground;
 			this.GetColors(out background, out foreground);
 
 			var wpfBackground = Color.FromArgb(1, 0, 0, 0);
-			if (transparency)
-			{
-				WindowComposition.EnableAcrylicBlur(this, background, (byte)(255 * this.BlurOpacity), this.BordersFlag);
-				this.ChangeProperties(wpfBackground, foreground, Colors.Transparent, new Thickness());
-			}
-			else
-			{
-				// Memo: It is impossible to reactivate the acrylic blur effect. So, its effect always turn on.
-				WindowComposition.EnableAcrylicBlur(this, background, 255, this.BordersFlag);
-				this.ChangeProperties(wpfBackground, foreground, Colors.Transparent, new Thickness());
-			}
+			WindowComposition.EnableAcrylicBlur(this, background, (byte)(255 * this.BlurOpacity), this.BordersFlag);
+			this.ChangeProperties(wpfBackground, foreground, Colors.Transparent, new Thickness());
 		}
 	}
 }

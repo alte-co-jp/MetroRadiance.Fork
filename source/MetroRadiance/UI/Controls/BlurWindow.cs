@@ -166,9 +166,13 @@ namespace MetroRadiance.UI.Controls
 			{
 				this.ToCompatibility();
 			}
+			else if (!WindowsTheme.Transparency.Current)
+			{
+				this.ToDefault();
+			}
 			else
 			{
-				this.ToBlur(WindowsTheme.Transparency.Current);
+				this.ToBlur();
 			}
 		}
 
@@ -263,22 +267,23 @@ namespace MetroRadiance.UI.Controls
 			}
 		}
 
-		internal protected void ToBlur(bool transparency)
+		internal protected void ToBlur()
 		{
 			Color background, foreground;
 			this.GetColors(out background, out foreground);
 
-			if (transparency)
-			{
-				background.A = (byte)(background.A * this.BlurOpacity);
-				WindowComposition.EnableBlur(this, this.BordersFlag);
-				this.ChangeProperties(background, foreground, Colors.Transparent, new Thickness());
-			}
-			else
-			{
-				WindowComposition.Disable(this);
-				this.ChangeProperties(background, foreground, SystemColors.WindowFrameColor, this.GetBordersFlagAsThickness(1));
-			}
+			background.A = (byte)(background.A * this.BlurOpacity);
+			WindowComposition.EnableBlur(this, this.BordersFlag);
+			this.ChangeProperties(background, foreground, Colors.Transparent, new Thickness());
+		}
+
+		internal protected void ToDefault()
+		{
+			Color background, foreground;
+			this.GetColors(out background, out foreground);
+
+			WindowComposition.Disable(this);
+			this.ChangeProperties(background, foreground, SystemColors.WindowFrameColor, this.GetBordersFlagAsThickness(1));
 		}
 
 		internal protected void ChangeProperties(Color background, Color foreground, Color border, Thickness borderThickness)
