@@ -43,7 +43,12 @@ namespace MetroRadiance.UI.Controls
 			var instance = (BlurWindow)d;
 			instance.RemoveThemeCallback((BlurWindowThemeMode)e.OldValue);
 			instance.AddThemeCallback((BlurWindowThemeMode)e.NewValue);
+			instance.OnThemeModeChanged(e);
 			instance.HandleThemeChanged();
+		}
+
+		protected virtual void OnThemeModeChanged(DependencyPropertyChangedEventArgs e)
+		{
 		}
 
 		#endregion
@@ -61,7 +66,12 @@ namespace MetroRadiance.UI.Controls
 		private static void BlurOpacityChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
 			var instance = (BlurWindow)d;
+			instance.OnBlurOpacityChanged(e);
 			instance.HandleThemeChanged();
+		}
+
+		protected virtual void OnBlurOpacityChanged(DependencyPropertyChangedEventArgs e)
+		{
 		}
 
 		#endregion
@@ -79,7 +89,12 @@ namespace MetroRadiance.UI.Controls
 		private static void BordersFlagChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
 			var instance = (BlurWindow)d;
+			instance.OnBordersFlagChanged(e);
 			instance.HandleThemeChanged();
+		}
+
+		protected virtual void OnBordersFlagChanged(DependencyPropertyChangedEventArgs e)
+		{
 		}
 
 		#endregion
