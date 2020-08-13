@@ -24,7 +24,13 @@ namespace MetroRadiance.Media
 			return HslColor.FromRgb(c);
 		}
 
+		[Obsolete("This method is obsolete. Call GetColorFromUInt32() instead.")]
 		public static Color GetColorFromInt64(long color)
+		{
+			return GetColorFromUInt32((uint)color);
+		}
+
+		public static Color GetColorFromUInt32(uint color)
 		{
 			return Color.FromArgb((byte)(color >> 24), (byte)(color >> 16), (byte)(color >> 8), (byte)color);
 		}
