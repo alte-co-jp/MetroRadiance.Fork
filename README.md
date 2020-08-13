@@ -43,8 +43,8 @@ PM> Install-Package MetroRadiance.Fork
 ## MetroRadiance.Core
 
 ### DPI / Per-Monitor DPI support
-  - Get system DPI from Visual
-  - Get monitor DPI from HwndSource or window handle
+  - Get system DPI from [Visual](https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.visual)
+  - Get monitor DPI from [HwndSource](https://docs.microsoft.com/en-us/dotnet/api/system.windows.interop.hwndsource) or window handle
 
 ```csharp
 using MetroRadiance.Interop;
@@ -176,7 +176,7 @@ var accent = Colors.Red.ToAccent();
 ThemeService.Current.ChangeAccent(accent);
 ```
 
-### [v3.0.0-] UWP compatible Color and Brushe resources defined in MetroRadiance
+### [v3.0.0-] UWP compatible Color and Brush resources defined in MetroRadiance
 
 MetroRadiance defines UWP compatible Color and Brush resources.
 Naming rule is [here (Microsoft site)](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/xaml-theme-resources#the-xaml-color-ramp-and-theme-dependent-brushes)
@@ -184,7 +184,7 @@ Naming rule is [here (Microsoft site)](https://docs.microsoft.com/en-us/windows/
 You can not use these as `ThemeResource` in WPF.
 If you use these as `DynamicResource` in your controls, the control will work with the theme color.
 
-These resoruces are enabled by the followins.
+These resources are enabled by the followings.
 
 - Define in WPF XAML (App.xaml.cs)
 
@@ -206,7 +206,7 @@ These resoruces are enabled by the followins.
 
   This method enables UWP resources only for the specified object (Window/Control/etc).
   - Enable HasThemeResource using `ThemeHelper.HasThemeResources="True"` for Window/Control/etc
-  - Merge at least one UWP resource (.../Themes/UWP/....xaml) defined in MetroRadiance
+  - Merge at least one UWP resource (.../Themes/UWP/....xaml) defined in MetroRadiance component
 
   ```xml
   <UserControl x:Class="MetroRadiance.Showcase.UI.UwpBrushSamples"
@@ -221,7 +221,7 @@ These resoruces are enabled by the followins.
             </ResourceDictionary.MergedDictionaries>
     ...
   ```
-UWP resoruce files defined in MetroRadiance
+UWP resoruce files defined in MetroRadiance component
 - `/Themes/UWP/Light.xaml`
 - `/Themes/UWP/Dark.xaml`
 - `/Themes/UWP/HighContrast.xaml`
@@ -239,7 +239,7 @@ Naming rule is `[ColorName]ColorKey` and `[ColorName]BrushKey`.
 You can not use these as `ThemeResource` in WPF.
 If you use these as `DynamicResource` in your controls, the control will work with the theme color.
 
-These resoruces are enabled by the followins.
+These resources are enabled by the followings.
 
 - Define in WPF XAML (App.xaml.cs)
 
@@ -268,7 +268,7 @@ These resoruces are enabled by the followins.
     metro:ThemeHelper.HasThemeResources="True">
     ...
   ```
-Custom resoruce files defined in MetroRadiance
+Custom resoruce files defined in MetroRadiance component
 - `/Themes/Light.xaml`
 - `/Themes/Dark.xaml`
 - `/Themes/Accents/Blue.xaml`
