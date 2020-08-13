@@ -22,6 +22,8 @@
       - [alpha00]Support .NET Core 3.1 (WPF)
       - [alpha01]Add HslColor class for HSL color model
       - [alpha01]Add text scale factor support.
+      Breaking changes
+      - [alpha01]The type of properties in the MetroRadiance.Platform.WindowsTheme class has changed. Affected if the received variable declaration is used an explicitly specified type instead of using "var".
     </PackageReleaseNotes>
   </PropertyGroup>
 
