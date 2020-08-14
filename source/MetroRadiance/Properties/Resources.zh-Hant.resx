@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CaptionButton_Close" xml:space="preserve">
-    <value>關閉</value>
-  </data>
-  <data name="CaptionButton_Maximize" xml:space="preserve">
-    <value>最大化</value>
-  </data>
-  <data name="CaptionButton_Minimize" xml:space="preserve">
-    <value>最小化</value>
-  </data>
-  <data name="CaptionButton_Normalize" xml:space="preserve">
-    <value>往下還原</value>
-  </data>
   <data name="FontFamily" xml:space="preserve">
     <value>Segoe UI, Microsoft JhengHei UI, Segoe UI Emoji</value>
   </data>

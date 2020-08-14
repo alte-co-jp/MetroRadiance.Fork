@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace MetroRadiance.Interop.Win32
 {
@@ -132,5 +133,19 @@ namespace MetroRadiance.Interop.Win32
 
 		[DllImport("user32.dll")]
 		internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
+
+		[DllImport("user32.dll", CharSet = CharSet.Unicode)]
+		private static extern int LoadStringW(IntPtr hInstance, uint uID, StringBuilder lpBuffer, int nBufferMax);
+
+		public static string LoadString(IntPtr hInstance, uint uID)
+		{
+			StringBuilder sb = new StringBuilder(32);
+			int length = LoadStringW(hInstance, uID, sb, 0);
+			if (length == 0) return null;
+
+			sb.EnsureCapacity(length);
+			LoadStringW(hInstance, uID, sb, sb.Capacity + 1);
+			return sb.ToString();
+		}
 	}
 }

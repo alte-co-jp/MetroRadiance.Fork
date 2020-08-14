@@ -10,17 +10,17 @@
 
 namespace MetroRadiance.Properties {
     using System;
-    
-    
-    /// <summary>
-    ///   ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
-    /// </summary>
-    // このクラスは StronglyTypedResourceBuilder クラスが ResGen
-    // または Visual Studio のようなツールを使用して自動生成されました。
-    // メンバーを追加または削除するには、.ResX ファイルを編集して、/str オプションと共に
-    // ResGen を実行し直すか、または VS プロジェクトをビルドし直します。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+
+
+	/// <summary>
+	///   ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+	/// </summary>
+	// このクラスは StronglyTypedResourceBuilder クラスが ResGen
+	// または Visual Studio のようなツールを使用して自動生成されました。
+	// メンバーを追加または削除するには、.ResX ファイルを編集して、/str オプションと共に
+	// ResGen を実行し直すか、または VS プロジェクトをビルドし直します。
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+	[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
         
@@ -31,11 +31,11 @@ namespace MetroRadiance.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
-        /// <summary>
-        ///   このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
-        /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+
+		/// <summary>
+		///   このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+		/// </summary>
+		[global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
@@ -45,12 +45,12 @@ namespace MetroRadiance.Properties {
                 return resourceMan;
             }
         }
-        
-        /// <summary>
-        ///   厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
-        ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
-        /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+
+		/// <summary>
+		///   厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+		///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+		/// </summary>
+		[global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
@@ -59,47 +59,11 @@ namespace MetroRadiance.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Close に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string CaptionButton_Close {
-            get {
-                return ResourceManager.GetString("CaptionButton_Close", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Maximize に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string CaptionButton_Maximize {
-            get {
-                return ResourceManager.GetString("CaptionButton_Maximize", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Minimize に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string CaptionButton_Minimize {
-            get {
-                return ResourceManager.GetString("CaptionButton_Minimize", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Restore Down に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string CaptionButton_Normalize {
-            get {
-                return ResourceManager.GetString("CaptionButton_Normalize", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Segoe UI, Segoe UI Emoji に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        public static string FontFamily {
+
+		/// <summary>
+		///   Segoe UI, Segoe UI Emoji に類似しているローカライズされた文字列を検索します。
+		/// </summary>
+		public static string FontFamily {
             get {
                 return ResourceManager.GetString("FontFamily", resourceCulture);
             }
