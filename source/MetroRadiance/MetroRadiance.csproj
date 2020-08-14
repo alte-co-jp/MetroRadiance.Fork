@@ -24,6 +24,8 @@
       - [alpha01]Apply dark theme to the system menu
       - [alpha01]Add AcrylicBlurWindow class
       - [alpha01]Improve CaptionIcon behavior to work with Window.
+      - [alpha01]Add toottip text to Caption buttons (Minimize/Maximize/Restore/Close).
+      - [alpha01]Fix a known issue with the maximized window size in High DPI environment
     </PackageReleaseNotes>
     <Configurations>Debug;Release;Release RETRO</Configurations>
   </PropertyGroup>
