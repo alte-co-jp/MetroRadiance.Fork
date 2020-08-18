@@ -1,3 +1,5 @@
+[Click here](https://nishy-software.com/ja/metroradiance-fork/) for Japanese page (日本語ページは[こちら](https://nishy-software.com/ja/metroradiance-fork/))
+
 # MetroRadiance.Fork
 
 MetroRadiance.Fork: [![Build Status (develop)](https://nishy-software.visualstudio.com/MetroRadiance/_apis/build/status/nishy2000.MetroRadiance.Fork?branchName=develop&label=develop)](https://nishy-software.visualstudio.com/MetroRadiance/_build/latest?definitionId=6&branchName=develop)
