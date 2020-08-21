@@ -25,7 +25,7 @@
       - [alpha01]Add AcrylicBlurWindow class
       - [alpha01]Improve CaptionIcon behavior to work with Window.
       - [alpha01]Add toottip text to Caption buttons (Minimize/Maximize/Restore/Close).
-      - [alpha01]Fix a known issue with the maximized window size in High DPI environment
+      - [alpha01]Adjust the foreground color of the tooltip control
     </PackageReleaseNotes>
     <Configurations>Debug;Release;Release RETRO</Configurations>
   </PropertyGroup>
