@@ -8,9 +8,9 @@ using MetroRadiance.UI;
 
 namespace MetroRadiance.Showcase.UI
 {
-	public partial class ThemeSamples
+	public partial class ThemeControls
 	{
-		public ThemeSamples()
+		public ThemeControls()
 		{
 			this.InitializeComponent();
 		}
@@ -18,6 +18,13 @@ namespace MetroRadiance.Showcase.UI
 
 	public class ThemeViewModel : ViewModel
 	{
+		static ThemeViewModel()
+		{
+			_instance = new ThemeViewModel();
+		}
+		static ThemeViewModel _instance;
+		public static ThemeViewModel Instance { get { return _instance; } }
+
 		#region Windows 変更通知プロパティ
 
 		private bool _Windows = ThemeService.Current.Theme == Theme.Windows;
@@ -84,6 +91,14 @@ namespace MetroRadiance.Showcase.UI
 
 	public class AccentViewModel : ViewModel
 	{
+		static AccentViewModel()
+		{
+			_instance = new AccentViewModel();
+		}
+		static AccentViewModel _instance;
+		public static AccentViewModel Instance { get { return _instance; } }
+
+
 		#region Windows 変更通知プロパティ
 
 		private bool _Windows = ThemeService.Current.Accent.SyncToWindows;

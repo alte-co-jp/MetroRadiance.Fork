@@ -4,6 +4,7 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
+			 xmlns:ui="clr-namespace:MetroRadiance.Showcase.UI"
 			 mc:Ignorable="d"
 			 d:DesignWidth="500"
 			 d:DesignHeight="500">
@@ -11,7 +12,8 @@
 	<ScrollViewer HorizontalScrollBarVisibility="Disabled"
 				  VerticalScrollBarVisibility="Auto">
 		<StackPanel Margin="8,0,8,8">
-			<TextBlock Text="Control Samples"
+            <ui:ThemeControls/>
+            <TextBlock Text="Control Samples"
 					   FontFamily="Segoe UI Light"
 					   FontSize="18"
 					   Foreground="{DynamicResource ForegroundBrushKey}"
@@ -22,9 +24,24 @@
 					  Content="IsEnabled"
 					  IsChecked="True"
 					  Margin="4" />
-			<StackPanel Margin="12,0"
+			<Grid Margin="12,0"
 						IsEnabled="{Binding ElementName=EnabledCheck, Path=IsChecked}">
-				<metro:PromptTextBox Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="metro:PromptTextBox: "/>
+                <metro:PromptTextBox Grid.Row="0" Grid.Column="1"  Margin="5">
 					<metro:PromptTextBox.Text>
 						<Binding Path="Int32"
 								 UpdateSourceTrigger="PropertyChanged">
@@ -35,7 +52,9 @@
 						</Binding>
 					</metro:PromptTextBox.Text>
 				</metro:PromptTextBox>
-				<metro:PromptComboBox Margin="5"
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="metro:PromptComboBox: "/>
+                <metro:PromptComboBox Grid.Row="1" Grid.Column="1"
+                                      Margin="5"
 									  IsEditable="True">
 					<metro:PromptComboBox.Text>
 						<Binding Path="Int32"
@@ -47,16 +66,31 @@
 						</Binding>
 					</metro:PromptComboBox.Text>
 				</metro:PromptComboBox>
-				<PasswordBox Margin="5" />
-				<CheckBox Content="チェックボックス"
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="PasswordBox: "/>
+                <PasswordBox Grid.Row="2" Grid.Column="1"
+                             Margin="5" />
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="CheckBox: "/>
+                <CheckBox Grid.Row="3" Grid.Column="1" Content="チェックボックス"
 						  Margin="4" />
-				<RadioButton Content="ラジオボタン 1"
-							 Margin="4" />
-				<RadioButton Content="ラジオボタン 2"
-							 Margin="4" />
-				<RadioButton Content="ラジオボタン 3"
-							 Margin="4" />
-			</StackPanel>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="RadioButton: "/>
+                <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical">
+					<RadioButton Content="ラジオボタン 1"
+								 Margin="4" />
+					<RadioButton Content="ラジオボタン 2"
+								 Margin="4" />
+					<RadioButton Content="ラジオボタン 3"
+								 Margin="4" />
+                </StackPanel>
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="ToggleButton: "/>
+                <ToggleButton Grid.Row="5" Grid.Column="1" Content="トグルボタン"
+						  Margin="4" />
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="Tooltip: "/>
+                <TextBlock Grid.Row="6" Grid.Column="1"
+                           Margin="4"
+                           Text="Move mouse pointer to here in order to show tooltip"
+                           ToolTip="Tooltip sample">
+                </TextBlock>
+            </Grid>
 
             <StackPanel Margin="12,0">
                 <Button Content="BlurWindow"

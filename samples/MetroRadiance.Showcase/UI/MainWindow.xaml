@@ -159,11 +159,11 @@
 
 			<TabItem>
 				<TabItem.Header>
-					<TextBlock Text="Themes"
+					<TextBlock Text="Theme Brushs"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
 
-				<ui:ThemeSamples />
+                <ui:ThemeBrushSamples />
 			</TabItem>
 
 			<TabItem>

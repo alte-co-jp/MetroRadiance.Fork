@@ -17,8 +17,12 @@
     <Description>Modern WPF Themes (Showcase). Fork of MetroRadiance</Description>
     <Copyright>©2020 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
     <PackageId>MetroRadiance.Fork.Showcase</PackageId>
-    <PackageReleaseNotes>Changes
- - Support .NET Core 3.1 (WPF)</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      Changes
+      - [alpha00]Support .NET Core 3.1 (WPF)
+      - [alpha01]Add UWP compatible resource samples to the theme brush sample page
+      - [alpha01]Add UI controls for adjusting themes to the control sample page
+    </PackageReleaseNotes>
     <OutputType>WinExe</OutputType>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
