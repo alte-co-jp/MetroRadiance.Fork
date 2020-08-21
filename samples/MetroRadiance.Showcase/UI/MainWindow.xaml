@@ -192,7 +192,7 @@
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
 
-				<ui:ControlSamples />
+                <ui:ControlSamples Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 			</TabItem>
         </TabControl>
 
