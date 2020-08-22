@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 using MetroRadiance.Interop.Win32;
+using MetroRadiance.Media;
 
 namespace MetroRadiance.Platform
 {
@@ -13,50 +14,48 @@ namespace MetroRadiance.Platform
 	{
 		public static void Disable(Window window)
 		{
-			var hwndSource = PresentationSource.FromVisual(window) as HwndSource;
-			if (hwndSource == null) return;
-
-			var accent = new AccentPolicy
+			var accentPolicy = new AccentPolicy
 			{
 				AccentState = AccentState.ACCENT_DISABLED,
 			};
-			Set(hwndSource, accent);
+			SetAccentPolicy(window, accentPolicy);
 		}
 
 		public static void EnableBlur(Window window, AccentFlags accentFlags)
 		{
-			var hwndSource = PresentationSource.FromVisual(window) as HwndSource;
-			if (hwndSource == null) return;
-
-			var accent = new AccentPolicy
+			var accentPolicy = new AccentPolicy
 			{
 				AccentState = AccentState.ACCENT_ENABLE_BLURBEHIND,
 				AccentFlags = accentFlags,
 			};
-			Set(hwndSource, accent);
+			SetAccentPolicy(window, accentPolicy);
 		}
 
-		public static void EnableAcrylicBlur(Window window, Color backgroundColor, byte opacity, AccentFlags accentFlags)
+		public static void EnableAcrylicBlur(Window window, Color backgroundColor, AccentFlags accentFlags)
 		{
-			var hwndSource = PresentationSource.FromVisual(window) as HwndSource;
-			if (hwndSource == null) return;
-
-			var accent = new AccentPolicy
+			var accentPolicy = new AccentPolicy
 			{
 				AccentState = AccentState.ACCENT_ENABLE_ACRYLICBLURBEHIND,
 				AccentFlags = accentFlags,
-				GradientColor = (opacity << 24) | (backgroundColor.B << 16) | (backgroundColor.G << 8) | backgroundColor.R,
+				GradientColor = ColorHelper.GetColorAsUInt32(backgroundColor),
 			};
-			Set(hwndSource, accent);
+			SetAccentPolicy(window, accentPolicy);
 		}
 
-		private static void Set(HwndSource hwndSource, AccentPolicy accentPolicy)
+		public static void SetAccentPolicy(Window window, AccentPolicy accentPolicy)
 		{
-			var accentStructSize = Marshal.SizeOf(accentPolicy);
+			var windowInteropHelper = new WindowInteropHelper(window);
+			var hWnd = windowInteropHelper.EnsureHandle();
+			SetAccentPolicy(hWnd, accentPolicy);
+		}
+
+		public static void SetAccentPolicy(IntPtr hWnd, AccentPolicy accentPolicy)
+		{
+			var accentStructSize = Marshal.SizeOf(typeof(AccentPolicy));
 			var accentPtr = IntPtr.Zero;
 			try
 			{
-				accentPtr = Marshal.AllocHGlobal(accentStructSize);
+				accentPtr = Marshal.AllocCoTaskMem(accentStructSize);
 				Marshal.StructureToPtr(accentPolicy, accentPtr, false);
 
 				var data = new WindowCompositionAttributeData
@@ -65,13 +64,13 @@ namespace MetroRadiance.Platform
 					SizeOfData = accentStructSize,
 					Data = accentPtr,
 				};
-				User32.SetWindowCompositionAttribute(hwndSource.Handle, ref data);
+				User32.SetWindowCompositionAttribute(hWnd, data);
 			}
 			finally
 			{
 				if (accentPtr != IntPtr.Zero)
 				{
-					Marshal.FreeHGlobal(accentPtr);
+					Marshal.FreeCoTaskMem(accentPtr);
 				}
 			}
 		}

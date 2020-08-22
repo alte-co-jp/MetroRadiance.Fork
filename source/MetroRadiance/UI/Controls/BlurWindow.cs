@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Interop;
 using System.Windows.Media;
 using MetroRadiance.Interop;
 using MetroRadiance.Interop.Win32;
@@ -13,20 +15,20 @@ namespace MetroRadiance.UI.Controls
 	{
 		internal protected static bool IsWindows10 { get; }
 
-		private static bool HasSystemTheme { get; }
-
 		static BlurWindow()
 		{
 			IsWindows10 = Environment.OSVersion.Version.Major == 10;
-			HasSystemTheme = IsWindows10 && Environment.OSVersion.Version.Build >= 18282;
 
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(typeof(BlurWindow)));
+			ResizeModeProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(ResizeMode.CanMinimize));
 			WindowStyleProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(WindowStyle.None));
 			if (IsWindows10)
 			{
 				AllowsTransparencyProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(true));
 			}
 		}
+
+		private HwndSource _source;
 
 		#region ThemeMode 依存関係プロパティ
 
@@ -103,41 +105,66 @@ namespace MetroRadiance.UI.Controls
 		{
 			base.OnSourceInitialized(e);
 
-			WindowsTheme.HighContrast.Changed += this.HandleThemeChanged1;
-			WindowsTheme.Transparency.Changed += this.HandleThemeChanged1;
+			WindowsTheme.HighContrast.Changed += this.HandleThemeBooleanChanged;
+			WindowsTheme.Transparency.Changed += this.HandleThemeBooleanChanged;
 			AddThemeCallback(this.ThemeMode);
 
 			this.HandleThemeChanged();
+
+			this._source = PresentationSource.FromVisual(this) as HwndSource;
+			if (this._source == null) return;
+			if (!IsWindows10) this._source.AddHook(this.WndProc);
+
+			var hWnd = this._source.Handle;
+			var wndStyle = User32.GetWindowLong(hWnd);
+			if (!IsWindows10) wndStyle |= WindowStyles.WS_SIZEFRAME;
+			User32.SetWindowLong(hWnd, wndStyle & ~WindowStyles.WS_SYSMENU);
 		}
 
 		protected override void OnClosed(EventArgs e)
 		{
 			base.OnClosed(e);
 
-			WindowsTheme.HighContrast.Changed -= this.HandleThemeChanged1;
-			WindowsTheme.Transparency.Changed -= this.HandleThemeChanged1;
+			if (!IsWindows10) this._source?.RemoveHook(this.WndProc);
+
+			WindowsTheme.HighContrast.Changed -= this.HandleThemeBooleanChanged;
+			WindowsTheme.Transparency.Changed -= this.HandleThemeBooleanChanged;
 			RemoveThemeCallback(this.ThemeMode);
+		}
+
+		private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+		{
+			if (msg == (int)WindowsMessages.WM_NCHITTEST)
+			{
+				handled = true;
+				return (IntPtr)HitTestValues.HTCLIENT;
+			}
+
+			return IntPtr.Zero;
 		}
 
 		private void AddThemeCallback(BlurWindowThemeMode themeMode)
 		{
 			switch (themeMode)
 			{
-				case BlurWindowThemeMode.Light:
-				case BlurWindowThemeMode.Dark:
+				case BlurWindowThemeMode.Default:
+					WindowsTheme.Theme.Changed += this.HandleThemeValueChanged;
+					break;
+					
 				case BlurWindowThemeMode.Accent:
+					WindowsTheme.Accent.Changed += this.HandleThemeColorChanged;
 					break;
 
 				case BlurWindowThemeMode.System:
-					if (HasSystemTheme)
+					WindowsTheme.Accent.Changed += this.HandleThemeColorChanged;
+					WindowsTheme.ColorPrevalence.Changed += this.HandleThemeBooleanChanged;
+					if (WindowsTheme.SystemTheme.IsDynamic)
 					{
-						WindowsTheme.ColorPrevalence.Changed += this.HandleThemeChanged1;
 						WindowsTheme.SystemTheme.Changed += this.HandleThemeValueChanged;
 					}
 					break;
 
 				default:
-					WindowsTheme.Theme.Changed += this.HandleThemeValueChanged;
 					break;
 			}
 		}
@@ -146,26 +173,32 @@ namespace MetroRadiance.UI.Controls
 		{
 			switch (themeMode)
 			{
-				case BlurWindowThemeMode.Light:
-				case BlurWindowThemeMode.Dark:
+				case BlurWindowThemeMode.Default:
+					WindowsTheme.Theme.Changed -= this.HandleThemeValueChanged;
+					break;
+					
 				case BlurWindowThemeMode.Accent:
+					WindowsTheme.Accent.Changed -= this.HandleThemeColorChanged;
 					break;
 
 				case BlurWindowThemeMode.System:
-					if (HasSystemTheme)
+					WindowsTheme.Accent.Changed -= this.HandleThemeColorChanged;
+					WindowsTheme.ColorPrevalence.Changed -= this.HandleThemeBooleanChanged;
+					if (WindowsTheme.SystemTheme.IsDynamic)
 					{
-						WindowsTheme.ColorPrevalence.Changed -= this.HandleThemeChanged1;
 						WindowsTheme.SystemTheme.Changed -= this.HandleThemeValueChanged;
 					}
 					break;
 
 				default:
-					WindowsTheme.Theme.Changed -= this.HandleThemeValueChanged;
 					break;
 			}
 		}
 
-		private void HandleThemeChanged1(object sender, bool value)
+		private void HandleThemeBooleanChanged(object sender, bool value)
+			=> this.HandleThemeChanged();
+
+		private void HandleThemeColorChanged(object sender, Color value)
 			=> this.HandleThemeChanged();
 
 		private void HandleThemeValueChanged(object sender, Platform.Theme value)
@@ -193,7 +226,7 @@ namespace MetroRadiance.UI.Controls
 
 		internal protected void ToHighContrast()
 		{
-			WindowComposition.Disable(this);
+			if (IsWindows10) WindowComposition.Disable(this);
 			this.ChangeProperties(
 				ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.ApplicationBackground),
 				ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemText),
@@ -201,24 +234,23 @@ namespace MetroRadiance.UI.Controls
 				this.GetBordersFlagAsThickness(2));
 		}
 
-		internal protected void ToCompatibility()
+		internal protected void ToDefault()
 		{
-			if (this.ThemeMode == BlurWindowThemeMode.Dark)
-			{
-				this.ChangeProperties(
-					SystemColors.WindowTextColor,
-					SystemColors.WindowColor,
-					SystemColors.WindowFrameColor,
-					new Thickness());
-			}
-			else
-			{
-				this.ChangeProperties(
-					SystemColors.WindowColor,
-					SystemColors.WindowTextColor,
-					SystemColors.WindowFrameColor,
-					new Thickness());
-			}
+			Color background, foreground;
+			this.GetColors(out background, out foreground);
+
+			WindowComposition.Disable(this);
+			this.ChangeProperties(background, foreground, SystemColors.WindowFrameColor, this.GetBordersFlagAsThickness(1));
+		}
+
+		internal protected void ToBlur()
+		{
+			Color background, foreground;
+			this.GetColors(out background, out foreground);
+
+			background.A = (byte)(background.A * this.BlurOpacity);
+			WindowComposition.EnableBlur(this, this.BordersFlag);
+			this.ChangeProperties(background, foreground, Colors.Transparent, new Thickness());
 		}
 
 		internal protected void GetColors(out Color background, out Color foreground)
@@ -242,23 +274,15 @@ namespace MetroRadiance.UI.Controls
 					break;
 
 				case BlurWindowThemeMode.System:
-					if (HasSystemTheme)
+					if (colorPrevalence)
 					{
-						if (colorPrevalence)
-						{
-							background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemAccentDark1);
-							foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextDarkTheme);
-						}
-						else if (WindowsTheme.SystemTheme.Current == Platform.Theme.Light)
-						{
-							background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.LightChromeMedium);
-							foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextLightTheme);
-						}
-						else
-						{
-							background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.DarkChromeMedium);
-							foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextDarkTheme);
-						}
+						background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemAccentDark1);
+						foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextDarkTheme);
+					}
+					else if (WindowsTheme.SystemTheme.Current == Platform.Theme.Light)
+					{
+						background = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.LightChromeMedium);
+						foreground = ImmersiveColor.GetColorByTypeName(ImmersiveColorNames.SystemTextLightTheme);
 					}
 					else
 					{
@@ -282,23 +306,36 @@ namespace MetroRadiance.UI.Controls
 			}
 		}
 
-		internal protected void ToBlur()
+		internal protected void ToCompatibility()
 		{
-			Color background, foreground;
-			this.GetColors(out background, out foreground);
+			Color background, foreground, border;
+			this.GetColorsCompatibility(out background, out foreground, out border);
 
-			background.A = (byte)(background.A * this.BlurOpacity);
-			WindowComposition.EnableBlur(this, this.BordersFlag);
-			this.ChangeProperties(background, foreground, Colors.Transparent, new Thickness());
+			this.ChangeProperties(background, foreground, border, new Thickness());
 		}
 
-		internal protected void ToDefault()
+		internal protected void GetColorsCompatibility(out Color background, out Color foreground, out Color border)
 		{
-			Color background, foreground;
-			this.GetColors(out background, out foreground);
+			switch (this.ThemeMode)
+			{
+				case BlurWindowThemeMode.Dark:
+					background = SystemColors.WindowTextColor;
+					foreground = SystemColors.WindowColor;
+					border = SystemColors.WindowFrameColor;
+					break;
+					
+				case BlurWindowThemeMode.Accent:
+					background = WindowsTheme.Accent.Current;
+					foreground = SystemColors.WindowColor;
+					border = WindowsTheme.Accent.Current;
+					break;
 
-			WindowComposition.Disable(this);
-			this.ChangeProperties(background, foreground, SystemColors.WindowFrameColor, this.GetBordersFlagAsThickness(1));
+				default:
+					background = SystemColors.WindowColor;
+					foreground = SystemColors.WindowTextColor;
+					border = SystemColors.WindowFrameColor;
+					break;
+			}
 		}
 
 		internal protected void ChangeProperties(Color background, Color foreground, Color border, Thickness borderThickness)

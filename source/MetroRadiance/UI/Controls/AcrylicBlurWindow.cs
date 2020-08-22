@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Media;
-using MetroRadiance.Interop;
-using MetroRadiance.Interop.Win32;
 using MetroRadiance.Platform;
 
 namespace MetroRadiance.UI.Controls
@@ -14,7 +11,7 @@ namespace MetroRadiance.UI.Controls
 
 		static AcrylicBlurWindow()
 		{
-			IsAcrylicBlurEnabled = IsWindows10 && Environment.OSVersion.Version.Build >= 17004;
+			IsAcrylicBlurEnabled = Environment.OSVersion.Version.Build >= 17004;
 		}
 
 		internal protected override void HandleThemeChanged()
@@ -46,9 +43,9 @@ namespace MetroRadiance.UI.Controls
 			Color background, foreground;
 			this.GetColors(out background, out foreground);
 
-			var wpfBackground = Color.FromArgb(1, 0, 0, 0);
-			WindowComposition.EnableAcrylicBlur(this, background, (byte)(255 * this.BlurOpacity), this.BordersFlag);
-			this.ChangeProperties(wpfBackground, foreground, Colors.Transparent, new Thickness());
+			background.A = (byte)(background.A * this.BlurOpacity);
+			WindowComposition.EnableAcrylicBlur(this, background, this.BordersFlag);
+			this.ChangeProperties(Color.FromArgb(1, 0, 0, 0), foreground, Colors.Transparent, new Thickness());
 		}
 	}
 }

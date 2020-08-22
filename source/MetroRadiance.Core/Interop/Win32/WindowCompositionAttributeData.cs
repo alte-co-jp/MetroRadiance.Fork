@@ -33,15 +33,15 @@ namespace MetroRadiance.Interop.Win32
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	internal struct AccentPolicy
+	public struct AccentPolicy
 	{
 		public AccentState AccentState;
 		public AccentFlags AccentFlags;
-		public int GradientColor;
+		public uint GradientColor;
 		public int AnimationId;
 	}
 
-	public enum WindowCompositionAttribute
+	public enum WindowCompositionAttribute : uint
 	{
 		WCA_UNDEFINED = 0,
 		WCA_NCRENDERING_ENABLED = 1,
