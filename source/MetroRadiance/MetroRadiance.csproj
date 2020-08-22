@@ -26,6 +26,7 @@
       - [alpha01]Improve CaptionIcon behavior to work with Window.
       - [alpha01]Add toottip text to Caption buttons (Minimize/Maximize/Restore/Close).
       - [alpha01]Adjust the foreground color of the tooltip control
+      - [alpha01]Localize the text string used in the Int32Rule class (en/ja/de/fr/ko/zh-Hans/zh-Hant)
     </PackageReleaseNotes>
     <Configurations>Debug;Release;Release RETRO</Configurations>
   </PropertyGroup>
