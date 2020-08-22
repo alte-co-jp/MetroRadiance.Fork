@@ -70,7 +70,7 @@ namespace MetroRadiance.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please fill in the value..
+        ///   Looks up a localized string similar to Please enter a value.
         /// </summary>
         public static string Int32Rule_ErrorEmpty {
             get {
@@ -79,7 +79,7 @@ namespace MetroRadiance.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter a number less than or equal to {0}..
+        ///   Looks up a localized string similar to Please enter a number less than or equal to {0}.
         /// </summary>
         public static string Int32Rule_ErrorMaximumNumber {
             get {
@@ -88,7 +88,7 @@ namespace MetroRadiance.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter a number greater than or equal to {0}..
+        ///   Looks up a localized string similar to Please enter a number greater than or equal to {0}.
         /// </summary>
         public static string Int32Rule_ErrorMinimumNumber {
             get {
@@ -97,7 +97,7 @@ namespace MetroRadiance.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter a number..
+        ///   Looks up a localized string similar to Please enter a number.
         /// </summary>
         public static string Int32Rule_ErrorNotNumber {
             get {

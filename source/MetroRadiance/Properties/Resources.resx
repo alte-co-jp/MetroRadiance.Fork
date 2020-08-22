@@ -121,15 +121,15 @@
     <value>Segoe UI, Segoe UI Emoji</value>
   </data>
   <data name="Int32Rule_ErrorEmpty" xml:space="preserve">
-    <value>Please fill in the value.</value>
+    <value>Please enter a value</value>
   </data>
   <data name="Int32Rule_ErrorMaximumNumber" xml:space="preserve">
-    <value>Please enter a number less than or equal to {0}.</value>
+    <value>Please enter a number less than or equal to {0}</value>
   </data>
   <data name="Int32Rule_ErrorMinimumNumber" xml:space="preserve">
-    <value>Please enter a number greater than or equal to {0}.</value>
+    <value>Please enter a number greater than or equal to {0}</value>
   </data>
   <data name="Int32Rule_ErrorNotNumber" xml:space="preserve">
-    <value>Please enter a number.</value>
+    <value>Please enter a number</value>
   </data>
 </root>

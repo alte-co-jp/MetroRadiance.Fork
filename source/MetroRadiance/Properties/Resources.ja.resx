@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FontFamily" xml:space="preserve">
-    <value>Segoe UI, Microsoft YaHei UI, Segoe UI Emoji</value>
+    <value>Segoe UI, Meiryo UI, Segoe UI Emoji</value>
   </data>
   <data name="Int32Rule_ErrorEmpty" xml:space="preserve">
-    <value>请输入值</value>
+    <value>値を入力してください</value>
   </data>
   <data name="Int32Rule_ErrorMaximumNumber" xml:space="preserve">
-    <value>请输入小于或等于 {0} 的数字</value>
+    <value>{0} 以下の数値を入力してください</value>
   </data>
   <data name="Int32Rule_ErrorMinimumNumber" xml:space="preserve">
-    <value>请输入大于或等于 {0} 的数字</value>
+    <value>{0} 以上の数値を入力してください</value>
   </data>
   <data name="Int32Rule_ErrorNotNumber" xml:space="preserve">
-    <value>请输入一个数字</value>
+    <value>数値を入力してください</value>
   </data>
 </root>
