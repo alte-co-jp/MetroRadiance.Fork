@@ -3,66 +3,84 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:prop="clr-namespace:MetroRadiance.Showcase.Properties"
 			 mc:Ignorable="d"
 			 d:DesignWidth="300"
 			 d:DesignHeight="300">
-	<StackPanel Margin="4,0,4,4">
-		<TextBlock Text="HSV Color &amp; Luminosity"
-				   FontFamily="Segoe UI Light"
+    <StackPanel Margin="4,0,4,4">
+        <TextBlock Text="{x:Static prop:Resources.ColorModel_TitleHSVColorModel}"
+				   FontFamily="Segoe UI"
 				   FontSize="18"
 				   Foreground="{DynamicResource ForegroundBrushKey}"
 				   HorizontalAlignment="Center"
 				   Margin="0,0,0,8" />
 
-		<DockPanel Margin="4">
-			<TextBlock DockPanel.Dock="Right"
-					   Text="{Binding ElementName=hSlider, Path=Value}"
-					   Foreground="{DynamicResource ForegroundBrushKey}"
-					   Margin="8,0"
-					   Width="25" />
-			<Slider x:Name="hSlider"
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Slider" BasedOn="{StaticResource {x:Type Slider}}">
+                    <Setter Property="SmallChange" Value="1"/>
+                    <Setter Property="LargeChange" Value="10"/>
+                    <Setter Property="TickFrequency" Value="1"/>
+                    <Setter Property="AutoToolTipPlacement" Value="TopLeft"/>
+                    <Setter Property="IsSnapToTickEnabled" Value="True"/>
+                </Style>
+                <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                    <Setter Property="Margin" Value="8,4"/>
+                    <Setter Property="Foreground" Value="{DynamicResource ForegroundBrushKey}"/>
+                </Style>
+            </Grid.Resources>
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="{x:Static prop:Resources.ColorModel_TitleHue}"/>
+            <TextBlock Grid.Row="0" Grid.Column="2"
+					   Width="25"
+					   Text="{Binding ElementName=hSlider, Path=Value}"/>
+            <Slider Grid.Row="0" Grid.Column="1"
+                    x:Name="hSlider"
 					x:FieldModifier="private"
 					Minimum="0"
 					Maximum="360"
-					Value="180"
-					IsSnapToTickEnabled="True"
-					TickFrequency="1" />
-		</DockPanel>
-		<DockPanel Margin="4">
-			<TextBlock DockPanel.Dock="Right"
-					   Text="{Binding ElementName=sSlider, Path=Value}"
-					   Foreground="{DynamicResource ForegroundBrushKey}"
-					   Margin="8,0"
-					   Width="25" />
-			<Slider x:Name="sSlider"
+                    LargeChange="36"
+					Value="180"/>
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       Text="{x:Static prop:Resources.ColorModel_TitleSaturation}"/>
+            <TextBlock Grid.Row="1" Grid.Column="2"
+					   Width="25"
+					   Text="{Binding ElementName=sSlider, Path=Value}"/>
+            <Slider Grid.Row="1" Grid.Column="1"
+                    x:Name="sSlider"
 					x:FieldModifier="private"
 					Minimum="0"
 					Maximum="100"
-					Value="50"
-					IsSnapToTickEnabled="True"
-					TickFrequency="1" />
-		</DockPanel>
-		<DockPanel Margin="4">
-			<TextBlock DockPanel.Dock="Right"
-					   Text="{Binding ElementName=vSlider, Path=Value}"
-					   Foreground="{DynamicResource ForegroundBrushKey}"
-					   Margin="8,0"
-					   Width="25" />
-			<Slider x:Name="vSlider"
+					Value="50"/>
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="{x:Static prop:Resources.ColorModel_TitleValue}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2"
+					   Width="25"
+                       Text="{Binding ElementName=vSlider, Path=Value}"/>
+            <Slider Grid.Row="2" Grid.Column="1"
+                    x:Name="vSlider"
 					x:FieldModifier="private"
 					Minimum="0"
 					Maximum="100"
-					Value="50"
-					IsSnapToTickEnabled="True"
-					TickFrequency="1" />
-		</DockPanel>
+					Value="50"/>
+        </Grid>
 
-		<TextBox x:Name="colorbox"
+        <TextBox x:Name="colorbox"
 				 x:FieldModifier="private"
 				 BorderThickness="0"
 				 HorizontalContentAlignment="Center"
 				 VerticalContentAlignment="Center"
 				 Padding="16"
 				 Margin="32,16" />
-	</StackPanel>
+    </StackPanel>
 </UserControl>

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MetroRadiance.Showcase.UI"
+             xmlns:prop="clr-namespace:MetroRadiance.Showcase.Properties"
              mc:Ignorable="d" 
 			 metro:ThemeHelper.HasThemeResources="True"
              d:DesignWidth="300">
@@ -39,9 +39,15 @@
                     </Style>
                 </ResourceDictionary>
             </StackPanel.Resources>
-            <TextBlock Text="UWP compatible accent colors"
+
+            <Border Height="1"
+                    BorderThickness="0"
+                    Background="{DynamicResource BorderBrushKey}"
+                    Margin="0,8,0,4" />
+
+            <TextBlock Text="{x:Static prop:Resources.ThemeBrush_UWPAccentColors}"
                        TextWrapping="Wrap"
-					   FontFamily="Segoe UI Light"
+					   FontFamily="Segoe UI"
 					   FontSize="18"
 					   HorizontalAlignment="Center"
 					   Margin="0,0,0,8" />
@@ -74,9 +80,14 @@
 						   Foreground="{DynamicResource SystemControlForegroundChromeWhiteBrush}"/>
             </Border>
 
-            <TextBlock Text="UWP compatible brushes"
+            <Border Height="1"
+                    BorderThickness="0"
+                    Background="{DynamicResource BorderBrushKey}"
+                    Margin="0,8,0,4" />
+
+            <TextBlock Text="{x:Static prop:Resources.ThemeBrush_UWPBrush}"
                        TextWrapping="Wrap"
-					   FontFamily="Segoe UI Light"
+					   FontFamily="Segoe UI"
 					   FontSize="18"
 					   HorizontalAlignment="Center"
 					   Margin="0,12,0,8" />

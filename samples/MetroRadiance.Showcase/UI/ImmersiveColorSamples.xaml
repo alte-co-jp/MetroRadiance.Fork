@@ -3,13 +3,14 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:prop="clr-namespace:MetroRadiance.Showcase.Properties"
 			 mc:Ignorable="d"
 			 d:DesignWidth="300"
 			 d:DesignHeight="300">
 	<DockPanel>
 		<TextBlock DockPanel.Dock="Top"
-				   Text="ImmersiveColor"
-				   FontFamily="Segoe UI Light"
+				   Text="{x:Static prop:Resources.ImmersiveColor_TitleImmersiveColorSample}"
+				   FontFamily="Segoe UI"
 				   FontSize="18"
 				   Foreground="{DynamicResource ForegroundBrushKey}"
 				   HorizontalAlignment="Center"

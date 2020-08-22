@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,117 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ColorModel_TitleHSLColorModel" xml:space="preserve">
+    <value>HSL color model &amp; Luminosity</value>
+  </data>
+  <data name="ColorModel_TitleHSVColorModel" xml:space="preserve">
+    <value>HSV color model &amp; Luminosity</value>
+  </data>
+  <data name="ColorModel_TitleHue" xml:space="preserve">
+    <value>Hue</value>
+  </data>
+  <data name="ColorModel_TitleLightness" xml:space="preserve">
+    <value>Lightness</value>
+  </data>
+  <data name="ColorModel_TitleSaturation" xml:space="preserve">
+    <value>Saturation</value>
+  </data>
+  <data name="ColorModel_TitleValue" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ControlSample_ButtonCreateAcrylicBlurWindow" xml:space="preserve">
+    <value>Create metro:_AcrylicBlurWindow</value>
+  </data>
+  <data name="ControlSample_ButtonCreateBlurWindow" xml:space="preserve">
+    <value>Create metro:_BlurWindow</value>
+  </data>
+  <data name="ControlSample_GroupHeader" xml:space="preserve">
+    <value>UI Control samples</value>
+  </data>
+  <data name="ControlSample_IsEnabledUIControls" xml:space="preserve">
+    <value>Enable UI controls (IsEnabled = True)</value>
+  </data>
+  <data name="ControlSample_TextCheckBox" xml:space="preserve">
+    <value>Check box</value>
+  </data>
+  <data name="ControlSample_TextRadioButtonItem1" xml:space="preserve">
+    <value>Radio button item 1</value>
+  </data>
+  <data name="ControlSample_TextRadioButtonItem2" xml:space="preserve">
+    <value>Radio button item 2</value>
+  </data>
+  <data name="ControlSample_TextRadioButtonItem3" xml:space="preserve">
+    <value>Radio button item 3</value>
+  </data>
+  <data name="ControlSample_TextToggleButton" xml:space="preserve">
+    <value>Toggle button</value>
+  </data>
+  <data name="ControlSample_TextTooltipDesc" xml:space="preserve">
+    <value>Move your mouse pointer inside this pane in order to show tooltip</value>
+  </data>
+  <data name="ControlSample_TextTooltipSamleText" xml:space="preserve">
+    <value>Tooltip sample text</value>
+  </data>
+  <data name="ImmersiveColor_TitleImmersiveColorSample" xml:space="preserve">
+    <value>Immersive color samples</value>
+  </data>
+  <data name="TabItemHeader_ColorModelSupport" xml:space="preserve">
+    <value>HSV / HSL / Luminosity</value>
+  </data>
+  <data name="TabItemHeader_Controls" xml:space="preserve">
+    <value>Controls</value>
+  </data>
+  <data name="TabItemHeader_ImmersiveColors" xml:space="preserve">
+    <value>Immersive colors</value>
+  </data>
+  <data name="TabItemHeader_ThemeBrushes" xml:space="preserve">
+    <value>Theme brushes</value>
+  </data>
+  <data name="ThemeAndAccent_AccentBlue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="ThemeAndAccent_AccentOrange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="ThemeAndAccent_AccentPurple" xml:space="preserve">
+    <value>Purple</value>
+  </data>
+  <data name="ThemeAndAccent_AccentRed" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="ThemeAndAccent_AccentWindows" xml:space="preserve">
+    <value>Windows</value>
+  </data>
+  <data name="ThemeAndAccent_DarkMode" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="ThemeAndAccent_GroupHeader" xml:space="preserve">
+    <value>Theme mode &amp; accent color</value>
+  </data>
+  <data name="ThemeAndAccent_LightMode" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="ThemeAndAccent_TitleAccentColor" xml:space="preserve">
+    <value>Accent color:</value>
+  </data>
+  <data name="ThemeAndAccent_TitleThemeMode" xml:space="preserve">
+    <value>Theme mode: </value>
+  </data>
+  <data name="ThemeBrush_MetroRadianceBrush" xml:space="preserve">
+    <value>MetroRadiance border &amp; background brushes</value>
+  </data>
+  <data name="ThemeBrush_UWPAccentColors" xml:space="preserve">
+    <value>UWP compatible accent colors</value>
+  </data>
+  <data name="ThemeBrush_UWPBrush" xml:space="preserve">
+    <value>UWP compatible theme brushes</value>
+  </data>
+  <data name="WindowSample_GroupHeader" xml:space="preserve">
+    <value>UI Window samples</value>
+  </data>
 </root>

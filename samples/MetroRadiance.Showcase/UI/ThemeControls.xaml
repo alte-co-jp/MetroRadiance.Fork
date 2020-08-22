@@ -3,6 +3,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:prop="clr-namespace:MetroRadiance.Showcase.Properties"
 			 xmlns:ui="clr-namespace:MetroRadiance.Showcase.UI"
 			 mc:Ignorable="d"
 			 d:DesignWidth="350"
@@ -28,8 +29,8 @@
             </Style>
         </Panel.Resources>
 
-        <TextBlock Text="Theme &amp; Accent"
-					FontFamily="Segoe UI Light"
+        <TextBlock Text="{x:Static prop:Resources.ThemeAndAccent_GroupHeader}"
+				    FontFamily="Segoe UI"
 					FontSize="18"
 					Foreground="{DynamicResource ForegroundBrushKey}"
 					HorizontalAlignment="Center"
@@ -39,61 +40,75 @@
 				Background="{DynamicResource BorderBrushKey}"
 				Margin="0,8" />
 
-        <DockPanel>
-            <Panel.DataContext>
-                <Binding Path="(ui:ThemeViewModel.Instance)"/>
-            </Panel.DataContext>
-            <Panel.Resources>
-                <Style TargetType="{x:Type RadioButton}"
-						BasedOn="{StaticResource {x:Type RadioButton}}">
-                    <Setter Property="GroupName"
-							Value="Themes" />
-                </Style>
-            </Panel.Resources>
-            <TextBlock Text="Theme:"
-						Width="50" />
-            <RadioButton Content="Windows"
-							IsChecked="{Binding Windows}" />
-            <Border Width="12" />
-            <WrapPanel>
-                <RadioButton Content="Dark"
-								IsChecked="{Binding Dark}" />
-                <RadioButton Content="Light"
-								IsChecked="{Binding Light}" />
-            </WrapPanel>
-        </DockPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Border Height="1"
-				Background="{DynamicResource BorderBrushKey}"
-				Margin="0,8" />
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="{x:Static prop:Resources.ThemeAndAccent_TitleThemeMode}"/>
 
-        <DockPanel>
-            <Panel.DataContext>
-                <Binding Path="(ui:AccentViewModel.Instance)"/>
-            </Panel.DataContext>
-            <Panel.Resources>
-                <Style TargetType="{x:Type RadioButton}"
-						BasedOn="{StaticResource {x:Type RadioButton}}">
-                    <Setter Property="GroupName"
-							Value="Accents" />
-                </Style>
-            </Panel.Resources>
-            <TextBlock Text="Accent:"
-						Width="50" />
-            <RadioButton Content="Windows"
-							IsChecked="{Binding Windows}" />
-            <Border Width="12" />
-            <WrapPanel>
-                <RadioButton Content="Purple"
-								IsChecked="{Binding Purple}" />
-                <RadioButton Content="Blue"
-								IsChecked="{Binding Blue}" />
-                <RadioButton Content="Orange"
-								IsChecked="{Binding Orange}" />
-                <RadioButton Content="Red"
-								IsChecked="{Binding Red}" />
-            </WrapPanel>
-        </DockPanel>
+            <DockPanel Grid.Row="0" Grid.Column="1">
+                <Panel.DataContext>
+                    <Binding Path="(ui:ThemeViewModel.Instance)"/>
+                </Panel.DataContext>
+                <Panel.Resources>
+                    <Style TargetType="{x:Type RadioButton}"
+						    BasedOn="{StaticResource {x:Type RadioButton}}">
+                        <Setter Property="GroupName"
+							    Value="Themes" />
+                    </Style>
+                </Panel.Resources>
+                <RadioButton Content="Windows"
+							    IsChecked="{Binding Windows}" />
+                <Border Width="12" />
+                <WrapPanel>
+                    <RadioButton Content="{x:Static prop:Resources.ThemeAndAccent_DarkMode}"
+								    IsChecked="{Binding Dark}" />
+                    <RadioButton Content="{x:Static prop:Resources.ThemeAndAccent_LightMode}"
+								    IsChecked="{Binding Light}" />
+                </WrapPanel>
+            </DockPanel>
+
+            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                    Height="1"
+				    Background="{DynamicResource BorderBrushKey}"
+				    Margin="0,8" />
+
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="{x:Static prop:Resources.ThemeAndAccent_TitleAccentColor}"/>
+            <DockPanel Grid.Row="2" Grid.Column="1">
+                <Panel.DataContext>
+                    <Binding Path="(ui:AccentViewModel.Instance)"/>
+                </Panel.DataContext>
+                <Panel.Resources>
+                    <Style TargetType="{x:Type RadioButton}"
+						    BasedOn="{StaticResource {x:Type RadioButton}}">
+                        <Setter Property="GroupName"
+							    Value="Accents" />
+                    </Style>
+                </Panel.Resources>
+                <RadioButton Content="{x:Static prop:Resources.ThemeAndAccent_AccentWindows}"
+							    IsChecked="{Binding Windows}" />
+                <Border Width="12" />
+                <WrapPanel>
+                    <RadioButton Content="{x:Static prop:Resources.ThemeAndAccent_AccentPurple}"
+								    IsChecked="{Binding Purple}" />
+                    <RadioButton Content="{x:Static prop:Resources.ThemeAndAccent_AccentBlue}"
+								    IsChecked="{Binding Blue}" />
+                    <RadioButton Content="{x:Static prop:Resources.ThemeAndAccent_AccentOrange}"
+								    IsChecked="{Binding Orange}" />
+                    <RadioButton Content="{x:Static prop:Resources.ThemeAndAccent_AccentRed}"
+								    IsChecked="{Binding Red}" />
+                </WrapPanel>
+            </DockPanel>
+        </Grid>
 
         <Border Height="1"
 				Background="{DynamicResource BorderBrushKey}"

@@ -6,6 +6,7 @@
 					  xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
 					  xmlns:chrome="http://schemes.grabacr.net/winfx/2014/chrome"
 					  xmlns:controls="http://schemes.grabacr.net/winfx/2014/controls"
+                      xmlns:prop="clr-namespace:MetroRadiance.Showcase.Properties"
 					  xmlns:ui="clr-namespace:MetroRadiance.Showcase.UI"
 					  Title="MetroRadiance Showcase"
 					  Width="700"
@@ -159,7 +160,7 @@
 
 			<TabItem>
 				<TabItem.Header>
-					<TextBlock Text="Theme Brushs"
+                    <TextBlock Text="{x:Static prop:Resources.TabItemHeader_ThemeBrushes}"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
 
@@ -168,18 +169,27 @@
 
 			<TabItem>
 				<TabItem.Header>
-					<TextBlock Text="HSV / HSL / Luminosity"
+                    <TextBlock Text="{x:Static prop:Resources.TabItemHeader_ColorModelSupport}"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
                 <StackPanel Orientation="Vertical">
+                    <Border Height="1"
+                            Background="{DynamicResource BorderBrushKey}"
+                            Margin="8,8,8,4" />
+
                     <ui:HsvSamples />
+
+                    <Border Height="1"
+                            Background="{DynamicResource BorderBrushKey}"
+                            Margin="8,8,8,4" />
+
                     <ui:HslSamples />
                 </StackPanel>
             </TabItem>
 
 			<TabItem>
 				<TabItem.Header>
-					<TextBlock Text="Immersive Colors"
+                    <TextBlock Text="{x:Static prop:Resources.TabItemHeader_ImmersiveColors}"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
 
@@ -188,7 +198,7 @@
 
 			<TabItem>
 				<TabItem.Header>
-					<TextBlock Text="Controls"
+                    <TextBlock Text="{x:Static prop:Resources.TabItemHeader_Controls}"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
 

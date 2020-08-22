@@ -4,6 +4,7 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
+             xmlns:prop="clr-namespace:MetroRadiance.Showcase.Properties"
 			 xmlns:ui="clr-namespace:MetroRadiance.Showcase.UI"
 			 mc:Ignorable="d"
 			 d:DesignWidth="500"
@@ -13,15 +14,20 @@
 				  VerticalScrollBarVisibility="Auto">
 		<StackPanel Margin="8,0,8,8">
             <ui:ThemeControls/>
-            <TextBlock Text="Control Samples"
-					   FontFamily="Segoe UI Light"
+
+            <Border Height="2"
+				Background="{DynamicResource BorderBrushKey}"
+				Margin="0,8,0,4" />
+
+            <TextBlock Text="{x:Static prop:Resources.ControlSample_GroupHeader}"
+					   FontFamily="Segoe UI"
 					   FontSize="18"
 					   Foreground="{DynamicResource ForegroundBrushKey}"
 					   HorizontalAlignment="Center"
 					   Margin="0,0,0,8" />
 
 			<CheckBox x:Name="EnabledCheck"
-					  Content="IsEnabled"
+					  Content="{x:Static prop:Resources.ControlSample_IsEnabledUIControls}"
 					  IsChecked="True"
 					  Margin="4" />
 			<Grid Margin="12,0"
@@ -70,42 +76,60 @@
                 <PasswordBox Grid.Row="2" Grid.Column="1"
                              Margin="5" />
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="CheckBox: "/>
-                <CheckBox Grid.Row="3" Grid.Column="1" Content="チェックボックス"
+                <CheckBox Grid.Row="3" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextCheckBox}"
 						  Margin="4" />
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="RadioButton: "/>
                 <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical">
-					<RadioButton Content="ラジオボタン 1"
+                    <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem1}"
 								 Margin="4" />
-					<RadioButton Content="ラジオボタン 2"
+                    <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem2}"
 								 Margin="4" />
-					<RadioButton Content="ラジオボタン 3"
+                    <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem3}"
 								 Margin="4" />
                 </StackPanel>
                 <TextBlock Grid.Row="5" Grid.Column="0" Text="ToggleButton: "/>
-                <ToggleButton Grid.Row="5" Grid.Column="1" Content="トグルボタン"
+                <ToggleButton Grid.Row="5" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextToggleButton}"
 						  Margin="4" />
                 <TextBlock Grid.Row="6" Grid.Column="0" Text="Tooltip: "/>
-                <TextBlock Grid.Row="6" Grid.Column="1"
-                           Margin="4"
-                           Text="Move mouse pointer to here in order to show tooltip"
-                           ToolTip="Tooltip sample">
-                </TextBlock>
+                <Border Grid.Row="6" Grid.Column="1"
+                        Margin="4"
+                        BorderThickness="1"
+                        BorderBrush="{DynamicResource BorderBrushKey}">
+                    <Label ToolTip="{x:Static prop:Resources.ControlSample_TextTooltipSamleText}">
+                        <TextBlock 
+                           TextWrapping="Wrap"
+                           Text="{x:Static prop:Resources.ControlSample_TextTooltipDesc}">
+                        </TextBlock>
+                    </Label>
+                </Border>
             </Grid>
 
-            <StackPanel Margin="12,0">
-                <Button Content="BlurWindow"
-					    Margin="4,4"
-					    Width="140"
+            <Border Height="2"
+				Background="{DynamicResource BorderBrushKey}"
+				Margin="0,8,0,4" />
+
+            <TextBlock Text="{x:Static prop:Resources.WindowSample_GroupHeader}"
+					   FontFamily="Segoe UI"
+					   FontSize="18"
+					   Foreground="{DynamicResource ForegroundBrushKey}"
+					   HorizontalAlignment="Center"
+					   Margin="0,0,0,8" />
+
+            <WrapPanel Margin="12,0"
+                        Orientation="Horizontal">
+                <Button Margin="4,4"
 					    Height="30"
 					    HorizontalAlignment="Left"
-					    Click="HandleBlurWindowButtonClicked"/>
-			    <Button Content="AcrylicBlurWindow"
-					    Margin="4,4"
-					    Width="140"
+					    Click="HandleBlurWindowButtonClicked">
+                    <Label Content="{x:Static prop:Resources.ControlSample_ButtonCreateBlurWindow}"/>
+                </Button>
+                <Button Margin="4,4"
 					    Height="30"
 					    HorizontalAlignment="Left"
-					    Click="HandleAcrylicBlurWindowButtonClicked"/>
-              </StackPanel>
+					    Click="HandleAcrylicBlurWindowButtonClicked">
+                    <Label Content="{x:Static prop:Resources.ControlSample_ButtonCreateAcrylicBlurWindow}"/>
+                </Button>
+              </WrapPanel>
 		</StackPanel>
 	</ScrollViewer>
 </UserControl>

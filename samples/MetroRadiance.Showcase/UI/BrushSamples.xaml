@@ -3,6 +3,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:prop="clr-namespace:MetroRadiance.Showcase.Properties"
 			 xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
 			 mc:Ignorable="d"
 			 d:DesignWidth="300"
@@ -31,9 +32,15 @@
                     </Style>
                 </ResourceDictionary>
             </StackPanel.Resources>
-            <TextBlock Text="MetroRadiance Border &amp; Background Brushes"
+            
+            <Border Height="1"
+                    BorderThickness="0"
+                    Background="{DynamicResource BorderBrushKey}"
+                    Margin="0,8,0,4" />
+
+            <TextBlock Text="{x:Static prop:Resources.ThemeBrush_MetroRadianceBrush}"
                        TextWrapping="Wrap"
-					   FontFamily="Segoe UI Light"
+					   FontFamily="Segoe UI"
 					   FontSize="18"
 					   HorizontalAlignment="Center"
 					   Margin="0,0,0,8" />

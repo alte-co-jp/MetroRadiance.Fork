@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ColorModel_TitleHSLColorModel" xml:space="preserve">
+    <value>HSL カラーモデル &amp; 明るさ (Luminosity)</value>
+  </data>
+  <data name="ColorModel_TitleHSVColorModel" xml:space="preserve">
+    <value>HSV カラーモデル &amp; 明るさ (Luminosity)</value>
+  </data>
+  <data name="ColorModel_TitleHue" xml:space="preserve">
+    <value>色相 (Hue)</value>
+  </data>
+  <data name="ColorModel_TitleLightness" xml:space="preserve">
+    <value>輝度 (Lightness)</value>
+  </data>
+  <data name="ColorModel_TitleSaturation" xml:space="preserve">
+    <value>彩度 (Saturation)</value>
+  </data>
+  <data name="ColorModel_TitleValue" xml:space="preserve">
+    <value>明度 (Value)</value>
+  </data>
+  <data name="ControlSample_ButtonCreateAcrylicBlurWindow" xml:space="preserve">
+    <value>metro:AcrylicBlurWindow を作成する(_A)</value>
+  </data>
+  <data name="ControlSample_ButtonCreateBlurWindow" xml:space="preserve">
+    <value>metro:BlurWindow を作成する(_B)</value>
+  </data>
+  <data name="ControlSample_GroupHeader" xml:space="preserve">
+    <value>UI コントロール サンプル</value>
+  </data>
+  <data name="ControlSample_IsEnabledUIControls" xml:space="preserve">
+    <value>UI コントロールを有効化する (IsEnabled = True)</value>
+  </data>
+  <data name="ControlSample_TextCheckBox" xml:space="preserve">
+    <value>チェックボックス</value>
+  </data>
+  <data name="ControlSample_TextRadioButtonItem1" xml:space="preserve">
+    <value>ラジオ ボタン 項目 1</value>
+  </data>
+  <data name="ControlSample_TextRadioButtonItem2" xml:space="preserve">
+    <value>ラジオ ボタン 項目 2</value>
+  </data>
+  <data name="ControlSample_TextRadioButtonItem3" xml:space="preserve">
+    <value>ラジオ ボタン 項目 3</value>
+  </data>
+  <data name="ControlSample_TextToggleButton" xml:space="preserve">
+    <value>トグル ボタン</value>
+  </data>
+  <data name="ControlSample_TextTooltipDesc" xml:space="preserve">
+    <value>ツールチップを表示するために、この枠の中にマウスポインターを移動してください。</value>
+  </data>
+  <data name="ControlSample_TextTooltipSamleText" xml:space="preserve">
+    <value>ツールチップ サンプル テキスト</value>
+  </data>
+  <data name="ImmersiveColor_TitleImmersiveColorSample" xml:space="preserve">
+    <value>イマーシブ カラー サンプル (Immersive color samples)</value>
+  </data>
+  <data name="TabItemHeader_ColorModelSupport" xml:space="preserve">
+    <value>カラーモデル (HSV / HSL / 明るさ)</value>
+  </data>
+  <data name="TabItemHeader_Controls" xml:space="preserve">
+    <value>UIコントロール (Controls)</value>
+  </data>
+  <data name="TabItemHeader_ImmersiveColors" xml:space="preserve">
+    <value>イマーシブ カラー (Immersive Colors)</value>
+  </data>
+  <data name="TabItemHeader_ThemeBrushes" xml:space="preserve">
+    <value>テーマ ブラシ (Theme Brushes)</value>
+  </data>
+  <data name="ThemeAndAccent_AccentBlue" xml:space="preserve">
+    <value>青色 (Blue)</value>
+  </data>
+  <data name="ThemeAndAccent_AccentOrange" xml:space="preserve">
+    <value>橙色 (Orange)</value>
+  </data>
+  <data name="ThemeAndAccent_AccentPurple" xml:space="preserve">
+    <value>紫色 (Purple)</value>
+  </data>
+  <data name="ThemeAndAccent_AccentRed" xml:space="preserve">
+    <value>赤色 (Red)</value>
+  </data>
+  <data name="ThemeAndAccent_AccentWindows" xml:space="preserve">
+    <value>Windows</value>
+  </data>
+  <data name="ThemeAndAccent_DarkMode" xml:space="preserve">
+    <value>ダーク</value>
+  </data>
+  <data name="ThemeAndAccent_GroupHeader" xml:space="preserve">
+    <value>テーマ モードとアクセント カラー</value>
+  </data>
+  <data name="ThemeAndAccent_LightMode" xml:space="preserve">
+    <value>ライト</value>
+  </data>
+  <data name="ThemeAndAccent_TitleAccentColor" xml:space="preserve">
+    <value>アクセント カラー : </value>
+  </data>
+  <data name="ThemeAndAccent_TitleThemeMode" xml:space="preserve">
+    <value>テーマ モード : </value>
+  </data>
+  <data name="ThemeBrush_MetroRadianceBrush" xml:space="preserve">
+    <value>MetroRadiance 定義の境界(Border)と背景(Background)ブラシ</value>
+  </data>
+  <data name="ThemeBrush_UWPAccentColors" xml:space="preserve">
+    <value>UWP互換アクセント カラー</value>
+  </data>
+  <data name="ThemeBrush_UWPBrush" xml:space="preserve">
+    <value>UWP互換テーマ ブラシ</value>
+  </data>
+  <data name="WindowSample_GroupHeader" xml:space="preserve">
+    <value>UI ウィンドウ サンプル</value>
+  </data>
+</root>

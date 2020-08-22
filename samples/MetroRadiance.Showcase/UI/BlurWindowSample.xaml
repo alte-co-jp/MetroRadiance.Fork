@@ -75,8 +75,10 @@
 						Minimum="0"
 						Maximum="1"
 						Value="0.8"
+                        SmallChange="0.01"
+                        LargeChange="0.1"
 						IsSnapToTickEnabled="True"
-						TickFrequency="0.1" />
+						TickFrequency="0.01" />
 			</DockPanel>
 
 			<CheckBox x:Name="leftBorderCheckBox"
