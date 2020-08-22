@@ -41,7 +41,7 @@ namespace MetroRadiance.UI.Controls
 			{
 				return this.AllowsEmpty
 					? new ValidationResult(true, null)
-					: new ValidationResult(false, "値を入力してください。");
+					: new ValidationResult(false, MetroRadiance.Properties.Resources.Int32Rule_ErrorEmpty);
 			}
 
 			int number;
@@ -51,17 +51,17 @@ namespace MetroRadiance.UI.Controls
 			}
 			catch (Exception)
 			{
-				return new ValidationResult(false, "数値を入力してください。");
+				return new ValidationResult(false, MetroRadiance.Properties.Resources.Int32Rule_ErrorNotNumber);
 			}
 
 			if (this.Min.HasValue && number < this.Min)
 			{
-				return new ValidationResult(false, $"{this.Min} 以上の数値を入力してください。");
+				return new ValidationResult(false, string.Format(MetroRadiance.Properties.Resources.Int32Rule_ErrorMinimumNumber, this.Min));
 			}
 
 			if (this.Max.HasValue && this.Max < number)
 			{
-				return new ValidationResult(false, $"{this.Max} 以下の数値を入力してください。");
+				return new ValidationResult(false, string.Format(MetroRadiance.Properties.Resources.Int32Rule_ErrorMaximumNumber, this.Max));
 			}
 
 			return new ValidationResult(true, null);

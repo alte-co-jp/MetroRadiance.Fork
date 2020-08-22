@@ -120,4 +120,16 @@
   <data name="FontFamily" xml:space="preserve">
     <value>Segoe UI, Meiryo UI, Segoe UI Emoji</value>
   </data>
+  <data name="Int32Rule_ErrorEmpty" xml:space="preserve">
+    <value>値を入力してください。</value>
+  </data>
+  <data name="Int32Rule_ErrorMaximumNumber" xml:space="preserve">
+    <value>{0} 以下の数値を入力してください。</value>
+  </data>
+  <data name="Int32Rule_ErrorMinimumNumber" xml:space="preserve">
+    <value>{0} 以上の数値を入力してください。</value>
+  </data>
+  <data name="Int32Rule_ErrorNotNumber" xml:space="preserve">
+    <value>数値を入力してください。</value>
+  </data>
 </root>
