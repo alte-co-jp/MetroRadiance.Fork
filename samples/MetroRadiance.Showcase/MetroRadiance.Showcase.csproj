@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net452;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.0.0</AssemblyVersion>
-    <FileVersion>3.0.0.0</FileVersion>
+    <AssemblyVersion>3.0.0.8230</AssemblyVersion>
+    <FileVersion>3.0.0.8230</FileVersion>
     
-    <Version>3.0.0-alpha00</Version>
+    <Version>3.0.0-alpha01</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
