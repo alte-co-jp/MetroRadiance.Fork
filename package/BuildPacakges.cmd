@@ -177,6 +177,53 @@ IF ERRORLEVEL 1 GOTO ERROR
 COPY "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\ja\MetroRadiance.Showcase.resources.dll" "%SIGNED_FOLER%\netcoreapp3.1\ja\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 
+REM  Copy signed resource files to obj folder
+ECHO =======================
+ECHO Copy signed resource files to obj folder
+ECHO -----------------------
+
+REM  MetroRadiance modules
+SET COPY_SOURCE=MetroRadiance\bin\Release\net45
+SET COPY_DEST=MetroRadiance\obj\Release\net45
+COPY "%COPY_SOURCE%\MetroRadiance.dll" "%COPY_DEST%\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\fr\MetroRadiance.resources.dll" "%COPY_DEST%\fr\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\de\MetroRadiance.resources.dll" "%COPY_DEST%\de\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\ko\MetroRadiance.resources.dll" "%COPY_DEST%\ko\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\ja\MetroRadiance.resources.dll" "%COPY_DEST%\ja\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\zh-Hans\MetroRadiance.resources.dll" "%COPY_DEST%\zh-Hans\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\zh-Hant\MetroRadiance.resources.dll" "%COPY_DEST%\zh-Hant\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+SET COPY_SOURCE=MetroRadiance\bin\Release\netcoreapp3.1
+SET COPY_DEST=MetroRadiance\obj\Release\netcoreapp3.1
+COPY "%COPY_SOURCE%\MetroRadiance.dll" "%COPY_DEST%\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\fr\MetroRadiance.resources.dll" "%COPY_DEST%\fr\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\de\MetroRadiance.resources.dll" "%COPY_DEST%\de\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\ko\MetroRadiance.resources.dll" "%COPY_DEST%\ko\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\ja\MetroRadiance.resources.dll" "%COPY_DEST%\ja\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\zh-Hans\MetroRadiance.resources.dll" "%COPY_DEST%\zh-Hans\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\zh-Hant\MetroRadiance.resources.dll" "%COPY_DEST%\zh-Hant\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+REM  MetroRadiance.Showcase modules
+COPY "..\samples\MetroRadiance.Showcase\bin\Release\net452\ja\MetroRadiance.Showcase.resources.dll" "..\samples\MetroRadiance.Showcase\obj\Release\net452\ja\MetroRadiance.Showcase.resources.dll" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+COPY "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\ja\MetroRadiance.Showcase.resources.dll" "..\samples\MetroRadiance.Showcase\obj\Release\netcoreapp3.1\ja\MetroRadiance.Showcase.resources.dll" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
 
 REM  Packaging
 ECHO =======================
@@ -200,7 +247,6 @@ ECHO =======================
 ECHO Backup packages
 ECHO -----------------------
 
-MKDIR "%SIGNED_FOLER%"
 FOR %%i in (%WORK_FOLDER%\*.nupkg) do (
     COPY "%%i" "%SIGNED_FOLER%" > nul
     MOVE "%%i" "%UNSIGNED_FOLER%\%%~ni_unsigned%%~xi" > nul
