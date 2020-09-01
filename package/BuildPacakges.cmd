@@ -91,7 +91,10 @@ SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\net45
 SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\MetroRadiance.Showcase.exe"
 SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\MetroRadiance.Showcase.dll"
 SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\ja\MetroRadiance.Showcase.resources.dll"
+
+SETLOCAL
 CALL "%SIGNTOOL%" %SIGN_FILES%
+ENDLOCAL
 
 
 REM  Backup signed modules
