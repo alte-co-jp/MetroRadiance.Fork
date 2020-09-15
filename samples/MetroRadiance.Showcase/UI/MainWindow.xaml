@@ -18,7 +18,18 @@
 
 	<chrome:WindowChrome.Instance>
 		<chrome:WindowChrome x:Name="WindowChrome">
-			<chrome:WindowChrome.Top>
+            <chrome:WindowChrome.Left>
+                <Border Background="DarkBlue"
+						Padding="24,3"
+						VerticalAlignment="Bottom">
+                    <Border.LayoutTransform>
+                        <RotateTransform Angle="90" />
+                    </Border.LayoutTransform>
+                    <TextBlock Text="UI element on Left"
+							   Foreground="White" />
+                </Border>
+            </chrome:WindowChrome.Left>
+            <chrome:WindowChrome.Top>
 				<Border Background="DarkRed"
 						Padding="24,3"
 						Margin="8,0"
@@ -204,6 +215,15 @@
 
                 <ui:ControlSamples Foreground="{DynamicResource ActiveForegroundBrushKey}" />
 			</TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="External Chrome"
+							   Style="{StaticResource TabHeaderTextStyleKey}" />
+                </TabItem.Header>
+
+                <ui:ExternalChromeSamples />
+            </TabItem>
         </TabControl>
 
 		<Grid Grid.Row="2"

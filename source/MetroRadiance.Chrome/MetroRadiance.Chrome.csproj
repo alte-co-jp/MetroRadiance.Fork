@@ -19,7 +19,10 @@
     <PackageId>MetroRadiance.Fork.Chrome</PackageId>
     <PackageReleaseNotes>
       Changes
-      - [alpha00]Support .NET Core 3.1 (WPF)</PackageReleaseNotes>
+      - [alpha00]Support .NET Core 3.1 (WPF)
+      - [alpha02]Support High DPI enviroment
+      - [alpha02]Fix misalignment issues of some parts
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

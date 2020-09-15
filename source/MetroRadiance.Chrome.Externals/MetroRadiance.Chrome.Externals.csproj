@@ -21,6 +21,8 @@
       Changes
       - [alpha02]Update the development tool to Visual Studio 2019
       - [alpha02]Change TargetPlatform from .NET framework 4.6 to .NET framework 4.5
+      - [alpha02]Support High DPI enviroment
+      - [alpha02]Fix misalignment issues of some parts
     </PackageReleaseNotes>
   </PropertyGroup>
 

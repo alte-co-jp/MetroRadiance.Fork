@@ -23,6 +23,7 @@
       - [alpha01]Add UWP compatible resource samples to the theme brush sample page
       - [alpha01]Add UI controls for adjusting themes to the control sample page
       - [alpha01]Localize the text string (English/Japanese)
+      - [alpha02]Add Chrome.Externals sample
     </PackageReleaseNotes>
     <OutputType>WinExe</OutputType>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -42,6 +43,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\source\MetroRadiance\MetroRadiance.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+    <ProjectReference Include="..\..\source\MetroRadiance.Chrome.Externals\MetroRadiance.Chrome.Externals.csproj" />
   </ItemGroup>
 
   <ItemGroup>
