@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -12,15 +13,20 @@ namespace MetroRadiance.UI.Controls
 		private static readonly Dictionary<FrameworkElement, IDisposable> registeredElements = new Dictionary<FrameworkElement, IDisposable>();
 
 		private static void AddResources(FrameworkElement element)
-			=> registeredElements[element] = ThemeService.Current.Register(element.Resources);
+		{
+			if (registeredElements.TryGetValue(element, out IDisposable disposable))
+			{
+				disposable?.Dispose();
+			}
+			registeredElements[element] = ThemeService.Current.Register(element.Resources);
+		}
 
 		private static void RemoveResources(FrameworkElement element)
 		{
-			IDisposable disposable;
-			if (registeredElements.TryGetValue(element, out disposable))
+			if (registeredElements.TryGetValue(element, out IDisposable disposable))
 			{
 				registeredElements.Remove(element);
-				disposable.Dispose();
+				disposable?.Dispose();
 			}
 		}
 
@@ -55,13 +61,20 @@ namespace MetroRadiance.UI.Controls
 				if (oldValue && !newValue)
 				{
 					// true -> false
-					element.Unloaded -= ElementUnloadedCallback;
-					RemoveResources(element);
+					ElementUnloadedCallback(element, null);
+					FrameworkElementLoadedWeakEventManager.RemoveHandler(element, ElementLoadedCallback);
 				}
 				else if (!oldValue && newValue)
 				{
 					// false -> true
-					FrameworkElementLoadedWeakEventManager.AddHandler(element, ElementLoadedCallback);
+					if (element.IsLoaded)
+					{
+						ElementLoadedCallback(element, null);
+					}
+					else
+					{
+						FrameworkElementLoadedWeakEventManager.AddHandler(element, ElementLoadedCallback);
+					}
 				}
 			};
 
