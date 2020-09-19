@@ -45,9 +45,12 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="metro:PromptTextBox: "/>
-                <metro:PromptTextBox Grid.Row="0" Grid.Column="1"  Margin="5">
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="TextBox: "/>
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="TextBox" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="metro:PromptTextBox: "/>
+                <metro:PromptTextBox Grid.Row="1" Grid.Column="1"  Margin="5">
 					<metro:PromptTextBox.Text>
 						<Binding Path="Int32"
 								 UpdateSourceTrigger="PropertyChanged">
@@ -58,8 +61,8 @@
 						</Binding>
 					</metro:PromptTextBox.Text>
 				</metro:PromptTextBox>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="metro:PromptComboBox: "/>
-                <metro:PromptComboBox Grid.Row="1" Grid.Column="1"
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="metro:PromptComboBox: "/>
+                <metro:PromptComboBox Grid.Row="2" Grid.Column="1"
                                       Margin="5"
 									  IsEditable="True">
 					<metro:PromptComboBox.Text>
@@ -72,14 +75,14 @@
 						</Binding>
 					</metro:PromptComboBox.Text>
 				</metro:PromptComboBox>
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="PasswordBox: "/>
-                <PasswordBox Grid.Row="2" Grid.Column="1"
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="PasswordBox: "/>
+                <PasswordBox Grid.Row="3" Grid.Column="1"
                              Margin="5" />
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="CheckBox: "/>
-                <CheckBox Grid.Row="3" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextCheckBox}"
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="CheckBox: "/>
+                <CheckBox Grid.Row="4" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextCheckBox}"
 						  Margin="4" />
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="RadioButton: "/>
-                <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical">
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="RadioButton: "/>
+                <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Vertical">
                     <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem1}"
 								 Margin="4" />
                     <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem2}"
@@ -87,11 +90,11 @@
                     <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem3}"
 								 Margin="4" />
                 </StackPanel>
-                <TextBlock Grid.Row="5" Grid.Column="0" Text="ToggleButton: "/>
-                <ToggleButton Grid.Row="5" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextToggleButton}"
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="ToggleButton: "/>
+                <ToggleButton Grid.Row="6" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextToggleButton}"
 						  Margin="4" />
-                <TextBlock Grid.Row="6" Grid.Column="0" Text="Tooltip: "/>
-                <Border Grid.Row="6" Grid.Column="1"
+                <TextBlock Grid.Row="7" Grid.Column="0" Text="Tooltip: "/>
+                <Border Grid.Row="7" Grid.Column="1"
                         Margin="4"
                         BorderThickness="1"
                         BorderBrush="{DynamicResource BorderBrushKey}">
