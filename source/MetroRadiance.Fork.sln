@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetroRadiance", "MetroRadia
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetroRadiance.Showcase", "..\samples\MetroRadiance.Showcase\MetroRadiance.Showcase.csproj", "{0BB73913-9C59-41C1-8C1D-1C1D01432066}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroRadiance.Chrome.Externals", "MetroRadiance.Chrome.Externals\MetroRadiance.Chrome.Externals.csproj", "{35F4CDD9-E656-48C1-96F8-77CB63480E08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetroRadiance.Chrome.Externals", "MetroRadiance.Chrome.Externals\MetroRadiance.Chrome.Externals.csproj", "{35F4CDD9-E656-48C1-96F8-77CB63480E08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetroRadiance", "RetroRadiance\RetroRadiance.csproj", "{7F898B3A-DA17-4CAB-B387-5629B5FACA49}"
 EndProject

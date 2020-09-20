@@ -37,28 +37,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MetroRadiance.Fork.Chrome.Externals.targets" Pack="true" PackagePath="\build\">
+    <None Include="lib\MetroRadiance.Fork.Chrome.Externals.targets" Pack="true" PackagePath="\build\" />
+    <None Include="lib\net45\*" Pack="true" PackagePath="\build\net45\" />
+    <ContentWithTargetPath Include="lib\net45\*" Pack="False">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="lib\net45\ChromeHook.InjectDll32.exe" Pack="true" PackagePath="\build\net45\">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="lib\net45\ChromeHook32.dll" Pack="true" PackagePath="\build\net45\">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="lib\net45\ChromeHook64.dll" Pack="true" PackagePath="\build\net45\">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="lib\net45\ChromeHookCLR32.dll" Pack="true" PackagePath="\build\net45\">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="lib\net45\ChromeHookCLR64.dll" Pack="true" PackagePath="\build\net45\">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="lib\net45\ChromeHookService.dll" Pack="true" PackagePath="\build\net45\">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
+    </ContentWithTargetPath>
   </ItemGroup>
 </Project>
