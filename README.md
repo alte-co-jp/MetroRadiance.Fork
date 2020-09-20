@@ -409,6 +409,7 @@ Styles are defined by "/Styles/Controls.xaml"
  - `<Style TargetType="{x:Type PasswordBox}">`
  - `<Style TargetType="{x:Type RadioButton}">`
  - `<Style TargetType="{x:Type ScrollBar}">`
+ - [v3.0.0-] `<Style TargetType="{x:Type TextBox}">`
  - `<Style TargetType="{x:Type ToggleButton}">`
  - `<Style TargetType="{x:Type ToolTip}">`
 
