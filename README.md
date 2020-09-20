@@ -406,6 +406,7 @@ Styles are defined by "/Styles/Controls.xaml"
  - `<Style TargetType="{x:Type CheckBox}">`
  - `<Style TargetType="{x:Type Expander}">`
  - `<Style x:Key="{x:Static SystemParameters.FocusVisualStyleKey}">`
+ - [v3.0.0-] `<Style TargetType="{x:Type Label}">`
  - `<Style TargetType="{x:Type PasswordBox}">`
  - `<Style TargetType="{x:Type RadioButton}">`
  - `<Style TargetType="{x:Type ScrollBar}">`

@@ -28,6 +28,8 @@
       - [alpha01]Adjust the foreground color of the tooltip control
       - [alpha01]Localize the text string used in the Int32Rule class (en/ja/de/fr/ko/zh-Hans/zh-Hant)
       - [alpha02]Fix an issue where brush values would not update as the theme changed after the control was reloaded
+      - [alpha02]Improve the appearance of radio button
+      - [alpha02]Add standard control styles (Label/TextBox)
     </PackageReleaseNotes>
     <Configurations>Debug;Release;Release RETRO</Configurations>
   </PropertyGroup>
