@@ -33,6 +33,8 @@ dotnet.exe build -c Release --no-incremental --no-dependencies MetroRadiance.Cor
 IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe build -c Release --no-incremental --no-dependencies MetroRadiance.Chrome\MetroRadiance.Chrome.csproj
 IF ERRORLEVEL 1 GOTO ERROR
+dotnet.exe build -c Release --no-incremental --no-dependencies MetroRadiance.Chrome.Externals\MetroRadiance.Chrome.Externals.csproj
+IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe build -c Release --no-incremental --no-dependencies MetroRadiance\MetroRadiance.csproj
 IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe build -c Release --no-incremental --no-dependencies ..\samples\MetroRadiance.Showcase\MetroRadiance.Showcase.csproj
@@ -54,6 +56,10 @@ REM  MetroRadiance modules
 XCOPY /D /E "MetroRadiance\bin\Release" "%UNSIGNED_FOLER%\MetroRadiance\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
 
+REM  MetroRadiance.Chrome.Externals modules
+XCOPY /D /E "MetroRadiance.Chrome.Externals\bin\Release" "%UNSIGNED_FOLER%\MetroRadiance.Chrome.Externals\" > nul
+IF ERRORLEVEL 1 GOTO ERROR
+
 REM  MetroRadiance.Chrome modules
 XCOPY /D /E "MetroRadiance.Chrome\bin\Release" "%UNSIGNED_FOLER%\MetroRadiance.Chrome\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
@@ -72,6 +78,10 @@ SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Core\bin\Release\net45\MetroRadiance.
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Core\bin\Release\netcoreapp3.1\MetroRadiance.Core.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Chrome\bin\Release\net45\MetroRadiance.Chrome.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Chrome\bin\Release\netcoreapp3.1\MetroRadiance.Chrome.dll"
+SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Chrome.Externals\bin\Release\net45\MetroRadiance.Chrome.Externals.dll"
+IF EXIST "MetroRadiance.Chrome.Externals\bin\Release\netcoreapp3.1\MetroRadiance.Chrome.Externals.dll" (
+    SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Chrome.Externals\bin\Release\netcoreapp3.1\MetroRadiance.Chrome.Externals.dll"
+)
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net45\MetroRadiance.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net45\de\MetroRadiance.resources.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net45\fr\MetroRadiance.resources.dll"
@@ -131,6 +141,14 @@ COPY "MetroRadiance.Chrome\bin\Release\net45\MetroRadiance.Chrome.dll" "%SIGNED_
 IF ERRORLEVEL 1 GOTO ERROR
 COPY "MetroRadiance.Chrome\bin\Release\netcoreapp3.1\MetroRadiance.Chrome.dll" "%SIGNED_FOLER%\netcoreapp3.1\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
+
+REM  MetroRadiance.Chrome.Externals modules
+COPY "MetroRadiance.Chrome.Externals\bin\Release\net45\MetroRadiance.Chrome.Externals.dll" "%SIGNED_FOLER%\net45\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+IF EXIST "MetroRadiance.Chrome.Externals\bin\Release\netcoreapp3.1\MetroRadiance.Chrome.Externals.dll" (
+    COPY "MetroRadiance.Chrome.Externals\bin\Release\netcoreapp3.1\MetroRadiance.Chrome.Externals.dll" "%SIGNED_FOLER%\netcoreapp3.1\" >nul
+    IF ERRORLEVEL 1 GOTO ERROR
+)
 
 REM  MetroRadiance modules
 SET COPY_SOURCE=MetroRadiance\bin\Release\net45
@@ -237,8 +255,8 @@ dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" MetroRadiance.Core\Metr
 IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" MetroRadiance.Chrome\MetroRadiance.Chrome.csproj
 IF ERRORLEVEL 1 GOTO ERROR
-REM dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" MetroRadiance.Chrome.Externals\MetroRadiance.Chrome.Externals.csproj
-REM IF ERRORLEVEL 1 GOTO ERROR
+dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" MetroRadiance.Chrome.Externals\MetroRadiance.Chrome.Externals.csproj
+IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" MetroRadiance\MetroRadiance.csproj
 IF ERRORLEVEL 1 GOTO ERROR
 dotnet.exe pack -c Release --no-build -o "%WORK_FOLDER%" ..\samples\MetroRadiance.Showcase\MetroRadiance.Showcase.csproj
