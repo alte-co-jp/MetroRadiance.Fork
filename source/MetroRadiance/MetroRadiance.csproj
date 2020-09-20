@@ -32,9 +32,10 @@
     <Configurations>Debug;Release;Release RETRO</Configurations>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release RETRO|net45|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)'=='Release RETRO|net45'">
     <DefineConstants>TRACE;RETRO</DefineConstants>
     <Optimize>true</Optimize>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -48,22 +49,46 @@
     <Reference Include="System.ServiceModel" />
     <ProjectReference Include="..\RetroRadiance\RetroRadiance.csproj" Condition=" '$(Configuration)' == 'Release RETRO' " />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\MetroRadiance.Chrome\MetroRadiance.Chrome.csproj" />
     <ProjectReference Include="..\MetroRadiance.Core\MetroRadiance.Core.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Properties\Resources.*.resx">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Styles\Controls.*.xaml">
+      <DependentUpon>Controls.xaml</DependentUpon>
+    </Page>
+    <Page Update="Themes\Generic.*.xaml">
+      <DependentUpon>Generic.xaml</DependentUpon>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Utilities\TypeForwardedTo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TypeForwardedTo.g.cs</LastGenOutput>
+    </None>
+    <Compile Update="Utilities\TypeForwardedTo.g.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TypeForwardedTo.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

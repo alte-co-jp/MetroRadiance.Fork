@@ -43,5 +43,13 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-
+  
+  <ItemGroup>
+    <Page Remove="Themes\Generic.*.xaml" />
+    <Page Include="Themes\Generic.*.xaml">
+      <SubType>Designer</SubType>
+      <DependentUpon>Generic.xaml</DependentUpon>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
 </Project>
