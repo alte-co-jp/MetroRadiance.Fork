@@ -120,16 +120,16 @@
   <data name="FontFamily" xml:space="preserve">
     <value>Segoe UI, Malgun Gothic, Segoe UI Emoji</value>
   </data>
-  <data name="Int32Rule_ErrorEmpty" xml:space="preserve">
+  <data name="NumberRule_ErrorMessage_Empty" xml:space="preserve">
     <value>값 입력</value>
   </data>
-  <data name="Int32Rule_ErrorMaximumNumber" xml:space="preserve">
+  <data name="NumberRule_ErrorMessage_Max" xml:space="preserve">
     <value>{0}보다 작거나 같은 숫자를 입력하세요.</value>
   </data>
-  <data name="Int32Rule_ErrorMinimumNumber" xml:space="preserve">
+  <data name="NumberRule_ErrorMessage_Min" xml:space="preserve">
     <value>{0}보다 크거나 같은 숫자를 입력하세요.</value>
   </data>
-  <data name="Int32Rule_ErrorNotNumber" xml:space="preserve">
+  <data name="NumberRule_ErrorMessage_NonNumber" xml:space="preserve">
     <value>숫자를 입력하세요.</value>
   </data>
 </root>

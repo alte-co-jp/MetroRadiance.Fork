@@ -1,17 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Controls;
+using MetroRadiance.Properties;
 
 namespace MetroRadiance.UI.Controls
 {
-	/// <summary>
-	/// 入力された値が有効な <see cref="Int32"/> 値かどうかを検証します。
-	/// </summary>
-	public class Int32Rule : ValidationRule
+	internal static class NumberRuleResults
 	{
+		internal static readonly ValidationResult SuccessValidationResult = new ValidationResult(true, null);
+
+		internal static readonly ValidationResult FailedEmptyValidationResult = new ValidationResult(false, Resources.NumberRule_ErrorMessage_Empty);
+
+		internal static readonly ValidationResult FailedNonNumberValidationResult = new ValidationResult(false, Resources.NumberRule_ErrorMessage_NonNumber);
+	}
+
+	public abstract class NumberRule<T> : ValidationRule where T : struct, IComparable<T>
+	{
+		private ValidationResult _failedMinValidationResult;
+		private ValidationResult _failedMaxValidationResult;
+
+		private T? _min;
+		private T? _max;
+		
 		/// <summary>
 		/// 入力に空文字を許可するかどうかを示す値を取得または設定します。
 		/// </summary>
@@ -23,7 +34,18 @@ namespace MetroRadiance.UI.Controls
 		/// <value>
 		/// 入力可能な最小値。最小値がない場合は null。
 		/// </value>
-		public int? Min { get; set; }
+		public T? Min
+		{
+			get { return this._min; }
+			set
+			{
+				if (!ReferenceEquals(this._min, value))
+				{
+					this._min = value;
+					this._failedMinValidationResult = null;
+				}
+			}
+		}
 
 		/// <summary>
 		/// 入力可能な最大値を取得または設定します。
@@ -31,8 +53,20 @@ namespace MetroRadiance.UI.Controls
 		/// <value>
 		/// 入力可能な最大値。最大値がない場合は null。
 		/// </value>
-		public int? Max { get; set; }
+		public T? Max
+		{
+			get { return this._max; }
+			set
+			{
+				if (!ReferenceEquals(this._max, value))
+				{
+					this._max = value;
+					this._failedMaxValidationResult = null;
+				}
+			}
+		}
 
+		protected abstract bool TryParse(string s, IFormatProvider provider, out T value);
 
 		public override ValidationResult Validate(object value, CultureInfo cultureInfo)
 		{
@@ -40,31 +74,38 @@ namespace MetroRadiance.UI.Controls
 			if (string.IsNullOrEmpty(numberAsString))
 			{
 				return this.AllowsEmpty
-					? new ValidationResult(true, null)
-					: new ValidationResult(false, MetroRadiance.Properties.Resources.Int32Rule_ErrorEmpty);
+					? NumberRuleResults.SuccessValidationResult
+					: NumberRuleResults.FailedEmptyValidationResult;
 			}
 
-			int number;
-			try
+			T number;
+			if (!this.TryParse(numberAsString, cultureInfo, out number))
 			{
-				number = int.Parse(numberAsString);
-			}
-			catch (Exception)
-			{
-				return new ValidationResult(false, MetroRadiance.Properties.Resources.Int32Rule_ErrorNotNumber);
+				return NumberRuleResults.FailedNonNumberValidationResult;
 			}
 
-			if (this.Min.HasValue && number < this.Min)
+			if (this.Min.HasValue && number.CompareTo(this.Min.Value) < 0)
 			{
-				return new ValidationResult(false, string.Format(MetroRadiance.Properties.Resources.Int32Rule_ErrorMinimumNumber, this.Min));
+				return this._failedMinValidationResult
+					?? (this._failedMinValidationResult = new ValidationResult(false, string.Format(Resources.NumberRule_ErrorMessage_Min, this.Min)));
 			}
 
-			if (this.Max.HasValue && this.Max < number)
+			if (this.Max.HasValue && number.CompareTo(this.Max.Value) > 0)
 			{
-				return new ValidationResult(false, string.Format(MetroRadiance.Properties.Resources.Int32Rule_ErrorMaximumNumber, this.Max));
+				return this._failedMaxValidationResult
+					?? (this._failedMaxValidationResult = new ValidationResult(false, string.Format(Resources.NumberRule_ErrorMessage_Max, this.Max)));
 			}
 
-			return new ValidationResult(true, null);
+			return NumberRuleResults.SuccessValidationResult;
 		}
+	}
+
+	/// <summary>
+	/// 入力された値が有効な <see cref="int"/> 値かどうかを検証します。
+	/// </summary>
+	public sealed class Int32Rule : NumberRule<int>
+	{
+		protected override bool TryParse(string s, IFormatProvider provider, out int value)
+			=> int.TryParse(s, NumberStyles.Integer, provider, out value);
 	}
 }

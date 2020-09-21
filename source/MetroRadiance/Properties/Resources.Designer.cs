@@ -72,36 +72,36 @@ namespace MetroRadiance.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a value.
         /// </summary>
-        public static string Int32Rule_ErrorEmpty {
+        public static string NumberRule_ErrorMessage_Empty {
             get {
-                return ResourceManager.GetString("Int32Rule_ErrorEmpty", resourceCulture);
+                return ResourceManager.GetString("NumberRule_ErrorMessage_Empty", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Please enter a number less than or equal to {0}.
         /// </summary>
-        public static string Int32Rule_ErrorMaximumNumber {
+        public static string NumberRule_ErrorMessage_Max {
             get {
-                return ResourceManager.GetString("Int32Rule_ErrorMaximumNumber", resourceCulture);
+                return ResourceManager.GetString("NumberRule_ErrorMessage_Max", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Please enter a number greater than or equal to {0}.
         /// </summary>
-        public static string Int32Rule_ErrorMinimumNumber {
+        public static string NumberRule_ErrorMessage_Min {
             get {
-                return ResourceManager.GetString("Int32Rule_ErrorMinimumNumber", resourceCulture);
+                return ResourceManager.GetString("NumberRule_ErrorMessage_Min", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Please enter a number.
         /// </summary>
-        public static string Int32Rule_ErrorNotNumber {
+        public static string NumberRule_ErrorMessage_NonNumber {
             get {
-                return ResourceManager.GetString("Int32Rule_ErrorNotNumber", resourceCulture);
+                return ResourceManager.GetString("NumberRule_ErrorMessage_NonNumber", resourceCulture);
             }
         }
     }

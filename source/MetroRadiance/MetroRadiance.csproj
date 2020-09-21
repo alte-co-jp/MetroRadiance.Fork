@@ -67,9 +67,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Update="Properties\Resources.*.resx">
-      <DependentUpon>Resources.resx</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

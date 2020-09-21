@@ -120,16 +120,16 @@
   <data name="FontFamily" xml:space="preserve">
     <value>Segoe UI, Segoe UI Emoji</value>
   </data>
-  <data name="Int32Rule_ErrorEmpty" xml:space="preserve">
+  <data name="NumberRule_ErrorMessage_Empty" xml:space="preserve">
     <value>Geben Sie einen Wert ein.</value>
   </data>
-  <data name="Int32Rule_ErrorMaximumNumber" xml:space="preserve">
+  <data name="NumberRule_ErrorMessage_Max" xml:space="preserve">
     <value>Geben Sie eine Zahl kleiner als oder gleich {0} ein.</value>
   </data>
-  <data name="Int32Rule_ErrorMinimumNumber" xml:space="preserve">
+  <data name="NumberRule_ErrorMessage_Min" xml:space="preserve">
     <value>Geben Sie eine Zahl größer als oder gleich {0} ein.</value>
   </data>
-  <data name="Int32Rule_ErrorNotNumber" xml:space="preserve">
+  <data name="NumberRule_ErrorMessage_NonNumber" xml:space="preserve">
     <value>Geben Sie eine Zahl ein.</value>
   </data>
 </root>
