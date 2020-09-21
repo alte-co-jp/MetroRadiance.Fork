@@ -436,6 +436,93 @@ Styles are defined by "/Styles/Controls.xaml"
 ### Custom converters
 - WindowStateToVisibilityConverter
 
+### Custom validation rules
+#### NumberRule
+- [v3.0.0-] Int16Rule
+- [v3.0.0-] UInt16Rule
+- Int32Rule
+- [v3.0.0-] UInt32Rule
+- [v3.0.0-] Int64Rule
+- [v3.0.0-] UInt64Rule
+- [v3.0.0-] SingleRule
+- [v3.0.0-] DoubleRule
+
+Example for TextBox using UInt16Rule (ushort)
+```xml
+<TextBox xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls">
+    <TextBox.Text>
+        <Binding Path="UInt16"
+                 UpdateSourceTrigger="PropertyChanged">
+            <Binding.ValidationRules>
+                <metro:UInt16Rule Min="1"
+                                  Max="49" />
+            </Binding.ValidationRules>
+        </Binding>
+    </TextBox.Text>
+</TextBox>
+```
+
+Example for TextBox using DoubleRule (dobule).
+If you want to use PropertyChanged as UpdateSourceTrigger for DoubleRule and SingleRule, you need to use `FrameworkCompatibilityPreferences.KeepTextBoxDisplaySynchronizedWithTextProperty = false;`
+```xml
+<TextBox xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls">
+    <TextBox.Text>
+        <Binding Path="Double"
+                 UpdateSourceTrigger="LostFocus">
+            <Binding.ValidationRules>
+                <metro:Int32Rule Min="-4.9"
+                                 Max="9.9" />
+            </Binding.ValidationRules>
+        </Binding>
+    </TextBox.Text>
+</TextBox>
+```
+
+Example for TextBox using UInt16Rule (ushort) and a tooltip display of errors
+```xml
+<TextBox xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls">
+    <TextBox.Text>
+        <Binding Path="UInt16"
+                 UpdateSourceTrigger="PropertyChanged">
+            <Binding.ValidationRules>
+                <metro:Int32Rule Min="1"
+                                 Max="49" />
+            </Binding.ValidationRules>
+        </Binding>
+    </TextBox.Text>
+    <TextBox.Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError"
+                         Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding 
+                                Path="(Validation.Errors)[0].ErrorContent"
+                                RelativeSource="{x:Static RelativeSource.Self}" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </TextBox.Style>
+</TextBox>
+```
+Example for metro:PromptTextBox using Int32Rule (int)
+```xml
+<metro:PromptTextBox xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls">
+    <metro:PromptTextBox.Text>
+        <Binding Path="Int32"
+  UpdateSourceTrigger="PropertyChanged">
+            <Binding.ValidationRules>
+                <metro:Int32Rule Min="-4"
+                                 Max="49" />
+            </Binding.ValidationRules>
+        </Binding>
+    </metro:PromptTextBox.Text>
+</metro:PromptTextBox>
+```
+
 ### Custom behaviors
 
 

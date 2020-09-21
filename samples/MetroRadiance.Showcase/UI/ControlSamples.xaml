@@ -53,6 +53,33 @@
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="TextBox: "/>
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="TextBox" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="TextBox with UInt16Rule: "/>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="5">
+                    <TextBox.Text>
+                        <Binding Path="UInt16"
+								 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <metro:UInt16Rule Min="1"
+												 Max="49" />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                            <Style.Triggers>
+                                <Trigger Property="Validation.HasError" Value="True">
+                                    <Setter Property="ToolTip">
+                                        <Setter.Value>
+                                            <Binding 
+                                                Path="(Validation.Errors)[0].ErrorContent"
+                                                RelativeSource="{x:Static RelativeSource.Self}" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="metro:PromptTextBox with Int32Rule: "/>
                 <metro:PromptTextBox Grid.Row="2" Grid.Column="1"  Margin="5">
                     <metro:PromptTextBox.Text>
