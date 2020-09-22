@@ -29,10 +29,14 @@ namespace MetroRadiance.Showcase.UI
 
 		private void HandleMetroChromeClicked(object sender, RoutedEventArgs e)
 		{
-			var viewModel = (WindowViewModel)this.WindowsListView.SelectedItem;
-			if (viewModel == null) return;
-
 #if NETFRAMEWORK
+			var viewModel = (WindowViewModel)this.WindowsListView.SelectedItem;
+			if (viewModel == null)
+			{
+				MessageBox.Show(App.Current.MainWindow, Properties.Resources.ExternalChromeSample_SelectTargetWindow, Properties.Resources.AppName, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+				return;
+			}
+
 			var externalWindow = new ExternalWindow(viewModel.Handle);
 			if (this._metroChrome == null)
 			{
@@ -40,7 +44,7 @@ namespace MetroRadiance.Showcase.UI
 			}
 			this._metroChrome.Attach(externalWindow);
 #else
-			MessageBox.Show("Currently, this feature is now available only in .NET Framework.");
+			MessageBox.Show(App.Current.MainWindow, Properties.Resources.ExternalChromeSample_SupportOnlyDotNetFramework, Properties.Resources.AppName, MessageBoxButton.OK, MessageBoxImage.Exclamation);
 #endif
 		}
 

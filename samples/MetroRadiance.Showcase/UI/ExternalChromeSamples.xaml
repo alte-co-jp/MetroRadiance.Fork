@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:props="clr-namespace:MetroRadiance.Showcase.Properties"
              mc:Ignorable="d"
              d:DesignWidth="300"
              d:DesignHeight="300">
     <DockPanel>
         <TextBlock DockPanel.Dock="Top"
-                   Text="Windows"
+                   Text="{x:Static props:Resources.ExternalChromeSample_WindowList}"
                    FontFamily="Segoe UI Light"
                    FontSize="18"
                    Foreground="{DynamicResource ForegroundBrushKey}"
@@ -19,14 +20,14 @@
                     HorizontalAlignment="Right"
                     Margin="0,0,8,8">
             <Button Margin="8,0,0,0"
-                    Content="Refresh"
-                    Width="100"
+                    Content="{x:Static props:Resources.ExternalChromeSample_RefreshList}"
+                    MinWidth="100"
                     Height="30"
                     HorizontalAlignment="Left"
                     Click="HandleRefreshClicked" />
             <Button Margin="8,0,0,0"
-                    Content="Apply"
-                    Width="100"
+                    Content="{x:Static props:Resources.ExternalChromeSample_ApplyChrome}"
+                    MinWidth="100"
                     Height="30"
                     HorizontalAlignment="Left"
                     Click="HandleMetroChromeClicked" />
@@ -48,7 +49,7 @@
                 <DataTemplate>
                     <DockPanel>
                         <Border DockPanel.Dock="Left"
-                                Background="White">
+                                Background="{DynamicResource ActiveBackgroundBrushKey}">
                             <Image Width="32"
                                    Height="32"
                                    Source="{Binding Icon}" />

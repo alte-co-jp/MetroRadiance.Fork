@@ -6,9 +6,9 @@
 					  xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
 					  xmlns:chrome="http://schemes.grabacr.net/winfx/2014/chrome"
 					  xmlns:controls="http://schemes.grabacr.net/winfx/2014/controls"
-                      xmlns:prop="clr-namespace:MetroRadiance.Showcase.Properties"
+                      xmlns:props="clr-namespace:MetroRadiance.Showcase.Properties"
 					  xmlns:ui="clr-namespace:MetroRadiance.Showcase.UI"
-					  Title="MetroRadiance Showcase"
+					  Title="{x:Static props:Resources.AppName}"
 					  Width="700"
 					  Height="700"
 					  Background="{DynamicResource ThemeBrushKey}"
@@ -171,7 +171,7 @@
 
 			<TabItem>
 				<TabItem.Header>
-                    <TextBlock Text="{x:Static prop:Resources.TabItemHeader_ThemeBrushes}"
+                    <TextBlock Text="{x:Static props:Resources.TabItemHeader_ThemeBrushes}"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
 
@@ -180,7 +180,7 @@
 
 			<TabItem>
 				<TabItem.Header>
-                    <TextBlock Text="{x:Static prop:Resources.TabItemHeader_ColorModelSupport}"
+                    <TextBlock Text="{x:Static props:Resources.TabItemHeader_ColorModelSupport}"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
                 <StackPanel Orientation="Vertical">
@@ -200,7 +200,7 @@
 
 			<TabItem>
 				<TabItem.Header>
-                    <TextBlock Text="{x:Static prop:Resources.TabItemHeader_ImmersiveColors}"
+                    <TextBlock Text="{x:Static props:Resources.TabItemHeader_ImmersiveColors}"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
 
@@ -209,7 +209,7 @@
 
 			<TabItem>
 				<TabItem.Header>
-                    <TextBlock Text="{x:Static prop:Resources.TabItemHeader_Controls}"
+                    <TextBlock Text="{x:Static props:Resources.TabItemHeader_Controls}"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
 				</TabItem.Header>
 
@@ -218,7 +218,7 @@
 
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="External Chrome"
+                    <TextBlock Text="{x:Static props:Resources.TabItemHeader_ExternalWindowChrome}"
 							   Style="{StaticResource TabHeaderTextStyleKey}" />
                 </TabItem.Header>
 

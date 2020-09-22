@@ -61,6 +61,15 @@ namespace MetroRadiance.Showcase.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MetroRadiance Showcase.
+        /// </summary>
+        public static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HSL color model &amp; Luminosity.
         /// </summary>
         public static string ColorModel_TitleHSLColorModel {
@@ -214,6 +223,51 @@ namespace MetroRadiance.Showcase.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apply chrome.
+        /// </summary>
+        public static string ExternalChromeSample_ApplyChrome {
+            get {
+                return ResourceManager.GetString("ExternalChromeSample_ApplyChrome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh list.
+        /// </summary>
+        public static string ExternalChromeSample_RefreshList {
+            get {
+                return ResourceManager.GetString("ExternalChromeSample_RefreshList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a target window.
+        /// </summary>
+        public static string ExternalChromeSample_SelectTargetWindow {
+            get {
+                return ResourceManager.GetString("ExternalChromeSample_SelectTargetWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currently, this feature is now available only in .NET Framework app..
+        /// </summary>
+        public static string ExternalChromeSample_SupportOnlyDotNetFramework {
+            get {
+                return ResourceManager.GetString("ExternalChromeSample_SupportOnlyDotNetFramework", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to External window list.
+        /// </summary>
+        public static string ExternalChromeSample_WindowList {
+            get {
+                return ResourceManager.GetString("ExternalChromeSample_WindowList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Immersive color samples.
         /// </summary>
         public static string ImmersiveColor_TitleImmersiveColorSample {
@@ -237,6 +291,15 @@ namespace MetroRadiance.Showcase.Properties {
         public static string TabItemHeader_Controls {
             get {
                 return ResourceManager.GetString("TabItemHeader_Controls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to External Window Chrome.
+        /// </summary>
+        public static string TabItemHeader_ExternalWindowChrome {
+            get {
+                return ResourceManager.GetString("TabItemHeader_ExternalWindowChrome", resourceCulture);
             }
         }
         

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>MetroRadiance ショーケース</value>
+  </data>
   <data name="ColorModel_TitleHSLColorModel" xml:space="preserve">
     <value>HSL カラーモデル &amp; 明るさ (Luminosity)</value>
   </data>
@@ -168,6 +171,21 @@
   <data name="ControlSample_TextTooltipSamleText" xml:space="preserve">
     <value>ツールチップ サンプル テキスト</value>
   </data>
+  <data name="ExternalChromeSample_ApplyChrome" xml:space="preserve">
+    <value>クロムを適用する</value>
+  </data>
+  <data name="ExternalChromeSample_RefreshList" xml:space="preserve">
+    <value>リストを更新する</value>
+  </data>
+  <data name="ExternalChromeSample_SelectTargetWindow" xml:space="preserve">
+    <value>対象とするウィンドウを選択してください</value>
+  </data>
+  <data name="ExternalChromeSample_SupportOnlyDotNetFramework" xml:space="preserve">
+    <value>現在、この機能は.NET Frameworkアプリのみで利用できます。</value>
+  </data>
+  <data name="ExternalChromeSample_WindowList" xml:space="preserve">
+    <value>外部ウィンドウ一覧</value>
+  </data>
   <data name="ImmersiveColor_TitleImmersiveColorSample" xml:space="preserve">
     <value>イマーシブ カラー サンプル (Immersive color samples)</value>
   </data>
@@ -176,6 +194,9 @@
   </data>
   <data name="TabItemHeader_Controls" xml:space="preserve">
     <value>UIコントロール (Controls)</value>
+  </data>
+  <data name="TabItemHeader_ExternalWindowChrome" xml:space="preserve">
+    <value>外部ウィンドウ クロム (External Window Chrome)</value>
   </data>
   <data name="TabItemHeader_ImmersiveColors" xml:space="preserve">
     <value>イマーシブ カラー (Immersive Colors)</value>
