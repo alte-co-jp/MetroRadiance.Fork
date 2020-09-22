@@ -30,7 +30,7 @@ namespace MetroRadiance.UI.Controls
 
 		private HwndSource _source;
 
-		#region ThemeMode 依存関係プロパティ
+		#region ThemeMode dependency property
 
 		public BlurWindowThemeMode ThemeMode
 		{
@@ -38,7 +38,7 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(ThemeModeProperty, value); }
 		}
 		public static readonly DependencyProperty ThemeModeProperty =
-			DependencyProperty.Register("ThemeMode", typeof(BlurWindowThemeMode), typeof(BlurWindow), new UIPropertyMetadata(BlurWindowThemeMode.Default, ThemeModeChangedCallback));
+			DependencyProperty.Register(nameof(ThemeMode), typeof(BlurWindowThemeMode), typeof(BlurWindow), new UIPropertyMetadata(BlurWindowThemeMode.Default, ThemeModeChangedCallback));
 
 		private static void ThemeModeChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
@@ -55,7 +55,7 @@ namespace MetroRadiance.UI.Controls
 
 		#endregion
 
-		#region BlurOpacity 依存関係プロパティ
+		#region BlurOpacity dependency property
 
 		public double BlurOpacity
 		{
@@ -63,7 +63,7 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(BlurOpacityProperty, value); }
 		}
 		public static readonly DependencyProperty BlurOpacityProperty =
-			DependencyProperty.Register("BlurOpacity", typeof(double), typeof(BlurWindow), new UIPropertyMetadata(0.8, BlurOpacityChangedCallback));
+			DependencyProperty.Register(nameof(BlurOpacity), typeof(double), typeof(BlurWindow), new UIPropertyMetadata(0.8, BlurOpacityChangedCallback));
 
 		private static void BlurOpacityChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
@@ -78,7 +78,7 @@ namespace MetroRadiance.UI.Controls
 
 		#endregion
 
-		#region DrawBorders 依存関係プロパティ
+		#region DrawBorders dependency property
 
 		public AccentFlags BordersFlag
 		{
@@ -86,7 +86,7 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(BordersFlagProperty, value); }
 		}
 		public static readonly DependencyProperty BordersFlagProperty =
-			DependencyProperty.Register("BordersFlag", typeof(AccentFlags), typeof(BlurWindow), new UIPropertyMetadata(AccentFlags.DrawAllBorders, BordersFlagChangedCallback));
+			DependencyProperty.Register(nameof(BordersFlag), typeof(AccentFlags), typeof(BlurWindow), new UIPropertyMetadata(AccentFlags.DrawAllBorders, BordersFlagChangedCallback));
 
 		private static void BordersFlagChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{

@@ -11,7 +11,7 @@ namespace MetroRadiance.Chrome.Primitives
 {
 	internal class WindowWrapper : IChromeOwner
 	{
-		#region WindowWrapper 添付プロパティ
+		#region WindowWrapper attached property
 
 		public static readonly DependencyProperty WindowWrapperProperty =
 			DependencyProperty.RegisterAttached("WindowWrapper", typeof(WindowWrapper), typeof(Window), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.None));

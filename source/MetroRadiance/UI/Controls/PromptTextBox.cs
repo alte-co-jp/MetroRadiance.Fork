@@ -27,7 +27,7 @@ namespace MetroRadiance.UI.Controls
 			this.GotKeyboardFocus += (sender, e) => this.UpdateTextStates(true);
 		}
 
-		#region Prompt 依存関係プロパティ
+		#region Prompt dependency property
 
 		public string Prompt
 		{
@@ -35,7 +35,7 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(PromptProperty, value); }
 		}
 		public static readonly DependencyProperty PromptProperty =
-			DependencyProperty.Register("Prompt", typeof(string), typeof(PromptTextBox), new UIPropertyMetadata("", PromptChangedCallback));
+			DependencyProperty.Register(nameof(Prompt), typeof(string), typeof(PromptTextBox), new UIPropertyMetadata("", PromptChangedCallback));
 
 		private static void PromptChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
@@ -43,7 +43,7 @@ namespace MetroRadiance.UI.Controls
 
 		#endregion
 
-		#region PromptBrush 依存関係プロパティ
+		#region PromptBrush dependency property
 
 		public Brush PromptBrush
 		{
@@ -51,7 +51,7 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(PromptBrushProperty, value); }
 		}
 		public static readonly DependencyProperty PromptBrushProperty =
-			DependencyProperty.Register("PromptBrush", typeof(Brush), typeof(PromptTextBox), new UIPropertyMetadata(Brushes.Gray));
+			DependencyProperty.Register(nameof(PromptBrush), typeof(Brush), typeof(PromptTextBox), new UIPropertyMetadata(Brushes.Gray));
 
 		#endregion
 

@@ -21,7 +21,7 @@ namespace MetroRadiance.UI.Controls
 		private TextBlock block;
 		private double initialSize;
 
-		#region Count 依存関係プロパティ
+		#region Count dependency property
 
 		public int? Count
 		{

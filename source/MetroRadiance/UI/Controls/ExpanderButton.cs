@@ -16,7 +16,7 @@ namespace MetroRadiance.UI.Controls
 		}
 
 
-		#region Direction 依存関係プロパティ
+		#region Direction dependency property
 
 		public ExpandDirection Direction
 		{
@@ -25,7 +25,7 @@ namespace MetroRadiance.UI.Controls
 		}
 
 		public static readonly DependencyProperty DirectionProperty =
-			DependencyProperty.Register("Direction", typeof(ExpandDirection), typeof(ExpanderButton), new UIPropertyMetadata(ExpandDirection.Left, DirectionChangedCallback));
+			DependencyProperty.Register(nameof(Direction), typeof(ExpandDirection), typeof(ExpanderButton), new UIPropertyMetadata(ExpandDirection.Left, DirectionChangedCallback));
 
 		private static void DirectionChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{

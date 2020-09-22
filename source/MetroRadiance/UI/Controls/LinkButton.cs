@@ -14,7 +14,7 @@ namespace MetroRadiance.UI.Controls
 			DefaultStyleKeyProperty.OverrideMetadata(typeof(LinkButton), new FrameworkPropertyMetadata(typeof(LinkButton)));
 		}
 
-		#region Text 依存関係プロパティ
+		#region Text dependency property
 
 		public string Text
 		{
@@ -22,11 +22,11 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(TextProperty, value); }
 		}
 		public static readonly DependencyProperty TextProperty =
-			DependencyProperty.Register("Text", typeof(string), typeof(LinkButton), new UIPropertyMetadata(""));
+			DependencyProperty.Register(nameof(Text), typeof(string), typeof(LinkButton), new UIPropertyMetadata(""));
 
 		#endregion
 
-		#region TextTrimming 依存関係プロパティ
+		#region TextTrimming dependency property
 
 		public TextTrimming TextTrimming
 		{
@@ -34,11 +34,11 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(TextTrimmingProperty, value); }
 		}
 		public static readonly DependencyProperty TextTrimmingProperty =
-			DependencyProperty.Register("TextTrimming", typeof(TextTrimming), typeof(LinkButton), new UIPropertyMetadata(TextTrimming.CharacterEllipsis));
+			DependencyProperty.Register(nameof(TextTrimming), typeof(TextTrimming), typeof(LinkButton), new UIPropertyMetadata(TextTrimming.CharacterEllipsis));
 
 		#endregion
 
-		#region TextWrapping 依存関係プロパティ
+		#region TextWrapping dependency property
 
 		public TextWrapping TextWrapping
 		{
@@ -46,7 +46,7 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(TextWrappingProperty, value); }
 		}
 		public static readonly DependencyProperty TextWrappingProperty =
-			DependencyProperty.Register("TextWrapping", typeof(TextWrapping), typeof(LinkButton), new UIPropertyMetadata(TextWrapping.NoWrap));
+			DependencyProperty.Register(nameof(TextWrapping), typeof(TextWrapping), typeof(LinkButton), new UIPropertyMetadata(TextWrapping.NoWrap));
 
 		#endregion
 

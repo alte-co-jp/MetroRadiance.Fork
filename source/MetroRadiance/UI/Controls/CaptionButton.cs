@@ -20,7 +20,7 @@ namespace MetroRadiance.UI.Controls
 
 		private Window owner;
 
-		#region WindowAction 依存関係プロパティ
+		#region WindowAction dependency property
 
 		/// <summary>
 		/// ボタンに割り当てるウィンドウ操作を取得または設定します。
@@ -31,11 +31,11 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(WindowActionProperty, value); }
 		}
 		public static readonly DependencyProperty WindowActionProperty =
-			DependencyProperty.Register("WindowAction", typeof(WindowAction), typeof(CaptionButton), new UIPropertyMetadata(WindowAction.None));
+			DependencyProperty.Register(nameof(WindowAction), typeof(WindowAction), typeof(CaptionButton), new UIPropertyMetadata(WindowAction.None));
 
 		#endregion
-		
-		#region Mode 依存関係プロパティ
+
+		#region Mode dependency property
 
 		public CaptionButtonMode Mode
 		{
@@ -43,11 +43,11 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(ModeProperty, value); }
 		}
 		public static readonly DependencyProperty ModeProperty =
-			DependencyProperty.Register("Mode", typeof(CaptionButtonMode), typeof(CaptionButton), new UIPropertyMetadata(CaptionButtonMode.Normal));	
+			DependencyProperty.Register(nameof(Mode), typeof(CaptionButtonMode), typeof(CaptionButton), new UIPropertyMetadata(CaptionButtonMode.Normal));
 
 		#endregion
 
-		#region IsChecked 依存関係プロパティ
+		#region IsChecked dependency property
 
 		public bool IsChecked
 		{
@@ -55,7 +55,7 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(IsCheckedProperty, value); }
 		}
 		public static readonly DependencyProperty IsCheckedProperty =
-			DependencyProperty.Register("IsChecked", typeof(bool), typeof(CaptionButton), new UIPropertyMetadata(false));
+			DependencyProperty.Register(nameof(IsChecked), typeof(bool), typeof(CaptionButton), new UIPropertyMetadata(false));
 
 		#endregion
 

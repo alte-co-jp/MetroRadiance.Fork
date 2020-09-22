@@ -30,7 +30,7 @@ namespace MetroRadiance.UI.Controls
 			}
 		}
 
-		#region HasThemeResources 添付プロパティ
+		#region HasThemeResources attached property
 
 		public static readonly DependencyProperty HasThemeResourcesProperty = DependencyProperty.RegisterAttached(
 			"HasThemeResources",

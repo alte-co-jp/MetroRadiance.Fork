@@ -41,7 +41,7 @@ namespace MetroRadiance.UI.Controls
 		private FrameworkElement resizeGrip;
 		private FrameworkElement captionBar;
 
-		#region ShellChrome 依存関係プロパティ
+		#region ShellChrome dependency property
 
 		public static readonly DependencyProperty ShellChromeProperty = DependencyProperty.Register(
 			nameof(ShellChrome), typeof(ShellChrome), typeof(MetroWindow), new PropertyMetadata(null, HandleShellChromeChanged));
@@ -62,7 +62,7 @@ namespace MetroRadiance.UI.Controls
 
 		#endregion
 
-		#region DpiScaleTransform 依存関係プロパティ
+		#region DpiScaleTransform dependency property
 
 		/// <summary>
 		/// DPI スケーリングを実現する <see cref="Transform" /> を取得または設定します。
@@ -74,11 +74,11 @@ namespace MetroRadiance.UI.Controls
 		}
 
 		public static readonly DependencyProperty DpiScaleTransformProperty =
-			DependencyProperty.Register("DpiScaleTransform", typeof(Transform), typeof(MetroWindow), new UIPropertyMetadata(Transform.Identity));
+			DependencyProperty.Register(nameof(DpiScaleTransform), typeof(Transform), typeof(MetroWindow), new UIPropertyMetadata(Transform.Identity));
 
 		#endregion
 
-		#region IsRestoringWindowPlacement 依存関係プロパティ
+		#region IsRestoringWindowPlacement dependency property
 
 		/// <summary>
 		/// ウィンドウの位置とサイズを復元できるようにするかどうかを示す値を取得または設定します。
@@ -89,11 +89,11 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(IsRestoringWindowPlacementProperty, value); }
 		}
 		public static readonly DependencyProperty IsRestoringWindowPlacementProperty =
-			DependencyProperty.Register("IsRestoringWindowPlacement", typeof(bool), typeof(MetroWindow), new UIPropertyMetadata(false));
+			DependencyProperty.Register(nameof(IsRestoringWindowPlacement), typeof(bool), typeof(MetroWindow), new UIPropertyMetadata(false));
 
 		#endregion
 
-		#region WindowSettings 依存関係プロパティ
+		#region WindowSettings dependency property
 
 		/// <summary>
 		/// ウィンドウの位置とサイズを保存または復元する方法を指定するオブジェクトを取得または設定します。
@@ -104,11 +104,11 @@ namespace MetroRadiance.UI.Controls
 			set { this.SetValue(WindowSettingsProperty, value); }
 		}
 		public static readonly DependencyProperty WindowSettingsProperty =
-			DependencyProperty.Register("WindowSettings", typeof(IWindowSettings), typeof(MetroWindow), new UIPropertyMetadata(null));
+			DependencyProperty.Register(nameof(WindowSettings), typeof(IWindowSettings), typeof(MetroWindow), new UIPropertyMetadata(null));
 
 		#endregion
 
-		#region IsCaptionBar 添付プロパティ
+		#region IsCaptionBar attached property
 
 		public static readonly DependencyProperty IsCaptionBarProperty =
 			DependencyProperty.RegisterAttached("IsCaptionBar", typeof(bool), typeof(MetroWindow), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsRender, IsCaptionBarChangedCallback));
