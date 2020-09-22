@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-					xmlns:controls="clr-namespace:MetroRadiance.UI.Controls">
+					xmlns:controls="clr-namespace:MetroRadiance.UI.Controls"
+					xmlns:props="clr-namespace:MetroRadiance.Properties"
+					>
 
 	<Style TargetType="{x:Type controls:PromptComboBox}">
 		<Setter Property="Background"
@@ -14,7 +16,7 @@
 		<Setter Property="Padding"
 				Value="1" />
 		<Setter Property="Prompt"
-				Value="プロンプト" />
+				Value="{x:Static props:Resources.PromptTextBox_Prompt}" />
 		<Setter Property="PromptBrush"
 				Value="{DynamicResource InactiveForegroundBrushKey}" />
 		<Setter Property="VerticalContentAlignment"

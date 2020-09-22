@@ -26,6 +26,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".settings", ".settings", "{D36A100D-8C9C-499F-97CD-7BFB768D86B4}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		..\.gitignore = ..\.gitignore
 		..\global.json = ..\global.json
 		MetroRadiance.sln.DotSettings = MetroRadiance.sln.DotSettings
 	EndProjectSection

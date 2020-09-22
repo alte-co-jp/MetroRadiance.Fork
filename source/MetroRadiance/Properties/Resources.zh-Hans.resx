@@ -132,4 +132,7 @@
   <data name="NumberRule_ErrorMessage_NonNumber" xml:space="preserve">
     <value>请输入一个数字</value>
   </data>
+  <data name="PromptTextBox_Prompt" xml:space="preserve">
+    <value>请输入值</value>
+  </data>
 </root>

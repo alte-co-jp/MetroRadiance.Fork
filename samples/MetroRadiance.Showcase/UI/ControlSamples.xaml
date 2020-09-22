@@ -8,7 +8,7 @@
 			 xmlns:ui="clr-namespace:MetroRadiance.Showcase.UI"
 			 mc:Ignorable="d"
 			 d:DesignWidth="500"
-			 d:DesignHeight="500">
+			 d:DesignHeight="700">
 
 	<ScrollViewer HorizontalScrollBarVisibility="Disabled"
 				  VerticalScrollBarVisibility="Auto">
@@ -50,9 +50,22 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="TextBox: "/>
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="TextBox" />
+
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="TextBox with UInt16Rule: "/>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="5">
                     <TextBox.Text>
@@ -80,8 +93,12 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="metro:PromptTextBox with Int32Rule: "/>
-                <metro:PromptTextBox Grid.Row="2" Grid.Column="1"  Margin="5">
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="metro:PromptTextBox: "/>
+                <metro:PromptTextBox Grid.Row="4" Grid.Column="1"  Margin="5"/>
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="metro:PromptTextBox with Int32Rule: "/>
+                <metro:PromptTextBox Grid.Row="5" Grid.Column="1"  Margin="5">
                     <metro:PromptTextBox.Text>
                         <Binding Path="Int32"
 								 UpdateSourceTrigger="PropertyChanged">
@@ -92,8 +109,8 @@
                         </Binding>
                     </metro:PromptTextBox.Text>
                 </metro:PromptTextBox>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="metro:PromptTextBox with DobuleRule: "/>
-                <metro:PromptTextBox Grid.Row="3" Grid.Column="1"  Margin="5">
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="metro:PromptTextBox with DobuleRule: "/>
+                <metro:PromptTextBox Grid.Row="6" Grid.Column="1"  Margin="5">
                     <metro:PromptTextBox.Text>
                         <Binding Path="Double"
 								 UpdateSourceTrigger="Default">
@@ -104,8 +121,18 @@
                         </Binding>
                     </metro:PromptTextBox.Text>
                 </metro:PromptTextBox>
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="metro:PromptComboBox: "/>
-                <metro:PromptComboBox Grid.Row="4" Grid.Column="1"
+
+                <TextBlock Grid.Row="8" Grid.Column="0" Text="metro:PromptComboBox: "/>
+                <metro:PromptComboBox Grid.Row="8" Grid.Column="1"
+                                      Margin="5"
+									  IsEditable="True">
+                    <ComboBoxItem>2.2</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>-10</ComboBoxItem>
+                    <ComboBoxItem>-1</ComboBoxItem>
+                </metro:PromptComboBox>
+                <TextBlock Grid.Row="9" Grid.Column="0" Text="metro:PromptComboBox with Int32Rule: "/>
+                <metro:PromptComboBox Grid.Row="9" Grid.Column="1"
                                       Margin="5"
 									  IsEditable="True">
 					<metro:PromptComboBox.Text>
@@ -122,14 +149,17 @@
                     <ComboBoxItem>-10</ComboBoxItem>
                     <ComboBoxItem>-1</ComboBoxItem>
                 </metro:PromptComboBox>
-                <TextBlock Grid.Row="6" Grid.Column="0" Text="PasswordBox: "/>
-                <PasswordBox Grid.Row="6" Grid.Column="1"
+
+                <TextBlock Grid.Row="12" Grid.Column="0" Text="PasswordBox: "/>
+                <PasswordBox Grid.Row="12" Grid.Column="1"
                              Margin="5" />
-                <TextBlock Grid.Row="8" Grid.Column="0" Text="CheckBox: "/>
-                <CheckBox Grid.Row="8" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextCheckBox}"
+                
+                <TextBlock Grid.Row="14" Grid.Column="0" Text="CheckBox: "/>
+                <CheckBox Grid.Row="14" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextCheckBox}"
 						  Margin="4" />
-                <TextBlock Grid.Row="9" Grid.Column="0" Text="RadioButton: "/>
-                <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Vertical">
+                
+                <TextBlock Grid.Row="16" Grid.Column="0" Text="RadioButton: "/>
+                <StackPanel Grid.Row="16" Grid.Column="1" Orientation="Vertical">
                     <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem1}"
 								 Margin="4" />
                     <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem2}"
@@ -137,11 +167,13 @@
                     <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem3}"
 								 Margin="4" />
                 </StackPanel>
-                <TextBlock Grid.Row="10" Grid.Column="0" Text="ToggleButton: "/>
-                <ToggleButton Grid.Row="10" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextToggleButton}"
+                
+                <TextBlock Grid.Row="18" Grid.Column="0" Text="ToggleButton: "/>
+                <ToggleButton Grid.Row="18" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextToggleButton}"
 						  Margin="4" />
-                <TextBlock Grid.Row="12" Grid.Column="0" Text="Tooltip: "/>
-                <Border Grid.Row="12" Grid.Column="1"
+
+                <TextBlock Grid.Row="24" Grid.Column="0" Text="Tooltip: "/>
+                <Border Grid.Row="24" Grid.Column="1"
                         Margin="4"
                         BorderThickness="1"
                         BorderBrush="{DynamicResource BorderBrushKey}">

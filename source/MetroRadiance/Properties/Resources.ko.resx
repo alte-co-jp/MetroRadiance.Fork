@@ -132,4 +132,7 @@
   <data name="NumberRule_ErrorMessage_NonNumber" xml:space="preserve">
     <value>숫자를 입력하세요.</value>
   </data>
+  <data name="PromptTextBox_Prompt" xml:space="preserve">
+    <value>값 입력</value>
+  </data>
 </root>

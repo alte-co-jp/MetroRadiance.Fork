@@ -132,4 +132,7 @@
   <data name="NumberRule_ErrorMessage_NonNumber" xml:space="preserve">
     <value>Please enter a number</value>
   </data>
+  <data name="PromptTextBox_Prompt" xml:space="preserve">
+    <value>Please enter a value</value>
+  </data>
 </root>

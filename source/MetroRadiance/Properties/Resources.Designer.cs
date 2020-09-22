@@ -104,5 +104,14 @@ namespace MetroRadiance.Properties {
                 return ResourceManager.GetString("NumberRule_ErrorMessage_NonNumber", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a value.
+        /// </summary>
+        public static string PromptTextBox_Prompt {
+            get {
+                return ResourceManager.GetString("PromptTextBox_Prompt", resourceCulture);
+            }
+        }
     }
 }
