@@ -24,8 +24,7 @@ MetroRadiance.Fork: [![Build Status (develop)](https://nishy-software.visualstud
 UI control libraries for create WPF window like Visual Studio 2012/2013/2015.
 MetroRadiance.Fork is forked of MetroRadiance 2.4.0.
 
-![ss150730085651kd](https://cloud.githubusercontent.com/assets/1779073/8972861/0e3eed28-3699-11e5-9bfe-18af42a6ed73.png)
-
+![Light/Dark sample](images/MetroRadiance-fork-showcase-Controls-light-dark-en.png)
 
 # Installation
 
@@ -233,6 +232,8 @@ UWP resoruce files defined in MetroRadiance component
 
 Your app can reference using the prefix: `"pack://application:,,,/MetroRadiance;component/"`.
 
+![Showcase - brushes samples](images/MetroRadiance-fork-showcase-Brushes-en.png)
+
 ### Custom Color and Brush resources defined in MetroRadiance
 
 MetroRadiance defines custom Color and Brush resources.
@@ -414,6 +415,7 @@ Styles are defined by "/Styles/Controls.xaml"
  - `<Style TargetType="{x:Type ToggleButton}">`
  - `<Style TargetType="{x:Type ToolTip}">`
 
+![Showcase - control samples](images/MetroRadiance-fork-showcase-Controls-light-en.png)
 
 ### Custom controls
 - [v3.0.0-] AcrylicBlurWindow
@@ -522,6 +524,7 @@ Example for metro:PromptTextBox using Int32Rule (int)
     </metro:PromptTextBox.Text>
 </metro:PromptTextBox>
 ```
+![Showcase - validation rule samples](images/MetroRadiance-fork-showcase-Controls-rule-en.png)
 
 ### Custom behaviors
 
