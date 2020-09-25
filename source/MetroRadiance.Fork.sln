@@ -43,6 +43,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{C6FE
 		..\package\SignPackages.cmd = ..\package\SignPackages.cmd
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{E2BACC1E-93E8-465E-A3CC-A4573CAAD2A5}"
+	ProjectSection(SolutionItems) = preProject
+		..\images\MetroRadiance-fork-showcase-Brushes-en.png = ..\images\MetroRadiance-fork-showcase-Brushes-en.png
+		..\images\MetroRadiance-fork-showcase-Brushes-ja.png = ..\images\MetroRadiance-fork-showcase-Brushes-ja.png
+		..\images\MetroRadiance-fork-showcase-Controls-dark-en.png = ..\images\MetroRadiance-fork-showcase-Controls-dark-en.png
+		..\images\MetroRadiance-fork-showcase-Controls-dark-ja.png = ..\images\MetroRadiance-fork-showcase-Controls-dark-ja.png
+		..\images\MetroRadiance-fork-showcase-Controls-light-dark-en.png = ..\images\MetroRadiance-fork-showcase-Controls-light-dark-en.png
+		..\images\MetroRadiance-fork-showcase-Controls-light-dark-ja.png = ..\images\MetroRadiance-fork-showcase-Controls-light-dark-ja.png
+		..\images\MetroRadiance-fork-showcase-Controls-light-en.png = ..\images\MetroRadiance-fork-showcase-Controls-light-en.png
+		..\images\MetroRadiance-fork-showcase-Controls-light-ja.png = ..\images\MetroRadiance-fork-showcase-Controls-light-ja.png
+		..\images\MetroRadiance-fork-showcase-Controls-rule-en.png = ..\images\MetroRadiance-fork-showcase-Controls-rule-en.png
+		..\images\MetroRadiance-fork-showcase-Controls-rule-ja.png = ..\images\MetroRadiance-fork-showcase-Controls-rule-ja.png
+		..\images\MetroRadiance-fork-showcase-External-chrome-en.png = ..\images\MetroRadiance-fork-showcase-External-chrome-en.png
+		..\images\MetroRadiance-fork-showcase-External-chrome-ja.png = ..\images\MetroRadiance-fork-showcase-External-chrome-ja.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

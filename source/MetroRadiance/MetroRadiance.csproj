@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net45;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.0.8230</AssemblyVersion>
-    <FileVersion>3.0.0.8230</FileVersion>
+    <AssemblyVersion>3.0.0.9250</AssemblyVersion>
+    <FileVersion>3.0.0.9250</FileVersion>
     <RootNamespace>MetroRadiance</RootNamespace>
-    <Version>3.0.0-alpha01</Version>
+    <Version>3.0.0-alpha02</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -30,6 +30,7 @@
       - [alpha02]Fix an issue where brush values would not update as the theme changed after the control was reloaded
       - [alpha02]Improve the appearance of radio button
       - [alpha02]Add standard control styles (Label/TextBox)
+      - [alpha02]Add number validation rules (Int16Rule/UInt16Rule/Int32Rule/UInt32Rule/SingleRule/DoubleRule)
     </PackageReleaseNotes>
     <Configurations>Debug;Release;Release RETRO</Configurations>
   </PropertyGroup>
