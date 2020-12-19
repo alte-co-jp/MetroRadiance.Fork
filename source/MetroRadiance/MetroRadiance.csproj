@@ -48,7 +48,8 @@
     <PackageReference Include="Tavis.UriTemplates" Version="1.1.1" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' OR '$(TargetFramework)'=='net462' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' OR '$(TargetFramework)' == 'net462' ">
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System.ServiceModel" />
     <ProjectReference Include="..\RetroRadiance\RetroRadiance.csproj" Condition=" '$(Configuration)' == 'Release RETRO' " />
   </ItemGroup>
