@@ -23,6 +23,7 @@
       - [alpha01]Add HslColor class for HSL color model
       - [alpha01]Add text scale factor support.
       - [alpha02]Improve interop methods
+      - [alpha03]Add new DPIHelper class for DPI / Per-Monitor DPI support
       Breaking changes
       - [alpha01]The type of properties in the MetroRadiance.Platform.WindowsTheme class has changed. Affected if the received variable declaration is used an explicitly specified type instead of using "var".
     </PackageReleaseNotes>

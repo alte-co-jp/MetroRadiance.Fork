@@ -45,7 +45,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\source\MetroRadiance\MetroRadiance.csproj" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' OR '$(TargetFramework)' == 'net462' ">
     <ProjectReference Include="..\..\source\MetroRadiance.Chrome.Externals\MetroRadiance.Chrome.Externals.csproj" />
   </ItemGroup>
 

@@ -43,24 +43,29 @@ PM> Install-Package MetroRadiance.Fork
 
 ## MetroRadiance.Core
 
-### DPI / Per-Monitor DPI support
-  - Get system DPI from [Visual](https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.visual)
-  - Get monitor DPI from [HwndSource](https://docs.microsoft.com/en-us/dotnet/api/system.windows.interop.hwndsource) or window handle
+### [v3.0.0-] DPI / Per-Monitor DPI support
+  - Get system DPI
+  - Get monitor DPI from monitor handle
+  - Get window DPI from [Visual](https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.visual)
+  - Get window DPI from [HwndSource](https://docs.microsoft.com/en-us/dotnet/api/system.windows.interop.hwndsource) or window handle
 
 ```csharp
 using MetroRadiance.Interop;
 ```
 
 ```csharp
-// Get system dpi
-var systemDpi = window.GetSystemDpi();
+// Get system dpi.
+var systemDpi = DpiHelper.GetDpiForSystem();
 
-if (PerMonitorDpi.IsSupported)
-{
-    // Get monitor dpi.
-    var hwndSource = (HwndSource)PresentationSource.FromVisual(this);
-    var monitorDpi = hwndSource.GetDpi();
-}
+// Get monitor dpi.
+var monitorDpi = DpiHelper.GetDpiForMonitor(hMonitor);
+
+// Get window dpi from HwndSource.
+var hwndSource = (HwndSource)PresentationSource.FromVisual(this);
+var windowDpi = hwndSource.GetDpi();
+
+// Get window dpi from window handle.
+var windowDpi = DpiHelper.GetDpiForWindow(hWnd);
 ```
 
 ### Windows theme support
