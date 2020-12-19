@@ -14,7 +14,7 @@ namespace MetroRadiance.UI.Controls
 			IsAcrylicBlurEnabled = Environment.OSVersion.Version.Build >= 17004;
 		}
 
-		internal protected override void HandleThemeChanged()
+		protected internal override void HandleThemeChanged()
 		{
 			if (WindowsTheme.HighContrast.Current)
 			{
@@ -40,8 +40,7 @@ namespace MetroRadiance.UI.Controls
 
 		private void ToAcrylicBlur()
 		{
-			Color background, foreground;
-			this.GetColors(out background, out foreground);
+			this.GetColors(out var background, out var foreground);
 
 			background.A = (byte)(background.A * this.BlurOpacity);
 			WindowComposition.EnableAcrylicBlur(this, background, this.BordersFlag);

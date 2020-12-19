@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace MetroRadiance.Media
@@ -35,7 +33,7 @@ namespace MetroRadiance.Media
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj)) return false;
-			return obj is HsvColor && this.Equals((HsvColor)obj);
+			return obj is HsvColor color && this.Equals(color);
 		}
 
 		public override int GetHashCode()
@@ -189,7 +187,7 @@ namespace MetroRadiance.Media
 			}
 			else
 			{
-				s = ((max - min) / (double)max);
+				s = (max - min) / (double)max;
 			}
 
 			var v = max / 255.0;

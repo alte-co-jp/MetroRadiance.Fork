@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 using MetroRadiance.Interop.Win32;
@@ -39,7 +37,7 @@ namespace MetroRadiance.Chrome.Primitives
 
 			return wrapper;
 		}
-		
+
 
 		public Window Window { get; }
 		public IntPtr Handle { get; private set; }
@@ -85,8 +83,10 @@ namespace MetroRadiance.Chrome.Primitives
 			this.Window = window;
 			this.Window.SourceInitialized += (sender, args) =>
 			{
-				var source = PresentationSource.FromVisual(this.Window) as HwndSource;
-				if (source != null) this.Handle = source.Handle;
+				if (PresentationSource.FromVisual(this.Window) is HwndSource source)
+				{
+					this.Handle = source.Handle;
+				}
 			};
 			this.Window.SizeChanged += (sender, args) => this.SizeChanged?.Invoke(this, EventArgs.Empty);
 		}

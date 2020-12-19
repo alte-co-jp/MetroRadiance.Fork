@@ -10,22 +10,22 @@ namespace MetroRadiance.UI.Controls
 {
 	public static class ThemeHelper
 	{
-		private static readonly Dictionary<FrameworkElement, IDisposable> registeredElements = new Dictionary<FrameworkElement, IDisposable>();
+		private static readonly Dictionary<FrameworkElement, IDisposable> _registeredElements = new Dictionary<FrameworkElement, IDisposable>();
 
 		private static void AddResources(FrameworkElement element)
 		{
-			if (registeredElements.TryGetValue(element, out IDisposable disposable))
+			if (_registeredElements.TryGetValue(element, out IDisposable disposable))
 			{
 				disposable?.Dispose();
 			}
-			registeredElements[element] = ThemeService.Current.Register(element.Resources);
+			_registeredElements[element] = ThemeService.Current.Register(element.Resources);
 		}
 
 		private static void RemoveResources(FrameworkElement element)
 		{
-			if (registeredElements.TryGetValue(element, out IDisposable disposable))
+			if (_registeredElements.TryGetValue(element, out IDisposable disposable))
 			{
-				registeredElements.Remove(element);
+				_registeredElements.Remove(element);
 				disposable?.Dispose();
 			}
 		}

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
@@ -20,7 +18,9 @@ namespace MetroRadiance.UI.Controls
 	[TemplatePart(Name = PART_ResizeGrip, Type = typeof(FrameworkElement))]
 	public class MetroWindow : Window
 	{
+#pragma warning disable IDE1006
 		private const string PART_ResizeGrip = "PART_ResizeGrip";
+#pragma warning restore IDE1006
 
 		static MetroWindow()
 		{
@@ -30,16 +30,16 @@ namespace MetroRadiance.UI.Controls
 		/// <summary>
 		/// WPF が認識しているシステムの DPI (プライマリ モニターの DPI)。
 		/// </summary>
-		private Dpi systemDpi;
+		private Dpi _systemDpi;
 
 		/// <summary>
 		/// このウィンドウが表示されているモニターの現在の DPI。
 		/// </summary>
 		internal Dpi CurrentDpi { get; set; }
 
-		private HwndSource source;
-		private FrameworkElement resizeGrip;
-		private FrameworkElement captionBar;
+		private HwndSource _source;
+		private FrameworkElement _resizeGrip;
+		private FrameworkElement _captionBar;
 
 		#region ShellChrome dependency property
 
@@ -113,7 +113,7 @@ namespace MetroRadiance.UI.Controls
 		public static readonly DependencyProperty IsCaptionBarProperty =
 			DependencyProperty.RegisterAttached("IsCaptionBar", typeof(bool), typeof(MetroWindow), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsRender, IsCaptionBarChangedCallback));
 
-		public static void SetIsCaptionBar(FrameworkElement element, Boolean value)
+		public static void SetIsCaptionBar(FrameworkElement element, bool value)
 		{
 			element.SetValue(IsCaptionBarProperty, value);
 		}
@@ -124,13 +124,10 @@ namespace MetroRadiance.UI.Controls
 
 		private static void IsCaptionBarChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
-			var instance = d as FrameworkElement;
-			if (instance == null) return;
+			if (!(d is FrameworkElement instance)) return;
+			if (!(GetWindow(instance) is MetroWindow window)) return;
 
-			var window = GetWindow(instance) as MetroWindow;
-			if (window == null) return;
-
-			window.captionBar = (bool)e.NewValue ? instance : null;
+			window._captionBar = (bool)e.NewValue ? instance : null;
 
 			instance.Loaded += (sender, args) =>
 			{
@@ -143,12 +140,12 @@ namespace MetroRadiance.UI.Controls
 			var chrome = ShellChrome.GetWindowChrome(this);
 			if (chrome == null) return;
 
-			var captionBar = this.captionBar;
+			var captionBar = this._captionBar;
 			if (captionBar != null)
 			{
-				if (this.systemDpi.Y > 0)
+				if (this._systemDpi.Y > 0)
 				{
-					chrome.CaptionHeight = captionBar.ActualHeight * this.CurrentDpi.Y / this.systemDpi.Y;
+					chrome.CaptionHeight = captionBar.ActualHeight * this.CurrentDpi.Y / this._systemDpi.Y;
 				}
 				else
 				{
@@ -173,19 +170,19 @@ namespace MetroRadiance.UI.Controls
 		{
 			base.OnSourceInitialized(e);
 
-			this.source = PresentationSource.FromVisual(this) as HwndSource;
-			if (this.source == null) return;
-			this.source.AddHook(this.WndProc);
+			this._source = PresentationSource.FromVisual(this) as HwndSource;
+			if (this._source == null) return;
+			this._source.AddHook(this.WndProc);
 
-			this.systemDpi = this.GetSystemDpi() ?? Dpi.Default;
+			this._systemDpi = this.GetSystemDpi() ?? Dpi.Default;
 			if (PerMonitorDpi.IsSupported)
 			{
-				this.CurrentDpi = this.source.GetDpi();
+				this.CurrentDpi = this._source.GetDpi();
 				this.ChangeDpi(this.CurrentDpi);
 			}
 			else
 			{
-				this.CurrentDpi = this.systemDpi;
+				this.CurrentDpi = this._systemDpi;
 			}
 
 			if (this.WindowSettings == null)
@@ -207,7 +204,7 @@ namespace MetroRadiance.UI.Controls
 						placement.showCmd = ShowWindowFlags.SW_RESTORE;
 					}
 
-					User32.SetWindowPlacement(this.source.Handle, ref placement);
+					User32.SetWindowPlacement(this._source.Handle, ref placement);
 				}
 			}
 		}
@@ -216,27 +213,27 @@ namespace MetroRadiance.UI.Controls
 		{
 			base.OnApplyTemplate();
 
-			this.resizeGrip = this.GetTemplateChild(PART_ResizeGrip) as FrameworkElement;
-			if (this.resizeGrip != null)
+			this._resizeGrip = this.GetTemplateChild(PART_ResizeGrip) as FrameworkElement;
+			if (this._resizeGrip != null)
 			{
-				this.resizeGrip.Visibility = this.ResizeMode == ResizeMode.CanResizeWithGrip
+				this._resizeGrip.Visibility = this.ResizeMode == ResizeMode.CanResizeWithGrip
 					? Visibility.Visible
 					: Visibility.Collapsed;
 
-				ShellChrome.SetIsHitTestVisibleInChrome(this.resizeGrip, true);
+				ShellChrome.SetIsHitTestVisibleInChrome(this._resizeGrip, true);
 			}
 		}
 
 		protected override void OnActivated(EventArgs e)
 		{
 			base.OnActivated(e);
-			if (this.captionBar != null) this.captionBar.Opacity = 1.0;
+			if (this._captionBar != null) this._captionBar.Opacity = 1.0;
 		}
 
 		protected override void OnDeactivated(EventArgs e)
 		{
 			base.OnDeactivated(e);
-			if (this.captionBar != null) this.captionBar.Opacity = 0.5;
+			if (this._captionBar != null) this._captionBar.Opacity = 0.5;
 		}
 
 		protected override void OnClosing(CancelEventArgs e)
@@ -257,7 +254,7 @@ namespace MetroRadiance.UI.Controls
 		{
 			base.OnClosed(e);
 
-			this.source?.RemoveHook(this.WndProc);
+			this._source?.RemoveHook(this.WndProc);
 		}
 
 
@@ -267,12 +264,12 @@ namespace MetroRadiance.UI.Controls
 			{
 				if (this.ResizeMode == ResizeMode.CanResizeWithGrip
 					&& this.WindowState == WindowState.Normal
-					&& this.resizeGrip != null)
+					&& this._resizeGrip != null)
 				{
 					var ptScreen = lParam.ToPoint();
-					var ptClient = this.resizeGrip.PointFromScreen(ptScreen);
+					var ptClient = this._resizeGrip.PointFromScreen(ptScreen);
 
-					var rectTarget = new Rect(0, 0, this.resizeGrip.ActualWidth, this.resizeGrip.ActualHeight);
+					var rectTarget = new Rect(0, 0, this._resizeGrip.ActualWidth, this._resizeGrip.ActualHeight);
 					if (rectTarget.Contains(ptClient))
 					{
 						handled = true;
@@ -337,7 +334,7 @@ namespace MetroRadiance.UI.Controls
 			this.ChangeDpi(dpi);
 
 			User32.SetWindowPos(
-				this.source.Handle,
+				this._source.Handle,
 				IntPtr.Zero,
 				rect.Left,
 				rect.Top,
@@ -352,9 +349,9 @@ namespace MetroRadiance.UI.Controls
 
 		private void ChangeDpi(Dpi dpi)
 		{
-			this.DpiScaleTransform = dpi == this.systemDpi
+			this.DpiScaleTransform = dpi == this._systemDpi
 				? Transform.Identity
-				: new ScaleTransform((double)dpi.X / this.systemDpi.X, (double)dpi.Y / this.systemDpi.Y);
+				: new ScaleTransform((double)dpi.X / this._systemDpi.X, (double)dpi.Y / this._systemDpi.Y);
 		}
 	}
 }

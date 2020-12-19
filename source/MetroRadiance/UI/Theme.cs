@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
@@ -34,7 +33,7 @@ namespace MetroRadiance.UI
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj)) return false;
-			return obj is Theme && this.Equals((Theme)obj);
+			return obj is Theme theme && this.Equals(theme);
 		}
 
 		public override int GetHashCode()
@@ -78,6 +77,7 @@ namespace MetroRadiance.UI
 		/// <summary>
 		/// シリアル化インフラストラクチャをサポートします。コードから直接使用するためのものではありません。
 		/// </summary>
+#pragma warning disable IDE1006
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		// ReSharper disable once InconsistentNaming
 		public SpecifiedColor? __Specified
@@ -85,5 +85,6 @@ namespace MetroRadiance.UI
 			get { return this.Specified; }
 			set { this.Specified = value; }
 		}
+#pragma warning restore IDE1006
 	}
 }
