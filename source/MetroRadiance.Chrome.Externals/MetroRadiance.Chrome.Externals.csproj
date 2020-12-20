@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net45</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.0.9250</AssemblyVersion>
-    <FileVersion>3.0.0.9250</FileVersion>
+    <AssemblyVersion>3.0.0.12200</AssemblyVersion>
+    <FileVersion>3.0.0.12200</FileVersion>
     <RootNamespace>MetroRadiance</RootNamespace>
-    <Version>3.0.0-alpha02</Version>
+    <Version>3.0.0-alpha03</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -23,6 +23,7 @@
       - [alpha02]Change TargetPlatform from .NET framework 4.6 to .NET framework 4.5
       - [alpha02]Support High DPI enviroment
       - [alpha02]Fix misalignment issues of some parts
+      - [alpha03][internal change]Update the formatting of source code
     </PackageReleaseNotes>
   </PropertyGroup>
 
