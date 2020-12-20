@@ -31,6 +31,7 @@
       - [alpha02]Improve the appearance of radio button
       - [alpha02]Add standard control styles (Label/TextBox)
       - [alpha02]Add number validation rules (Int16Rule/UInt16Rule/Int32Rule/UInt32Rule/SingleRule/DoubleRule)
+      - [alpha03]Add standard menu styles (Menu/MenuItem/ContextMenu)
     </PackageReleaseNotes>
     <Configurations>Debug;Release;Release RETRO</Configurations>
   </PropertyGroup>

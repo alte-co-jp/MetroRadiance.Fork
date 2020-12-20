@@ -182,15 +182,15 @@
 													   Height="{Binding ElementName=SubMenuBorder, Path=ActualHeight}"
 													   Fill="{Binding ElementName=SubMenuBorder, Path=Background}" />
 										</Canvas>
-										<Rectangle HorizontalAlignment="Left"
-												   Width="1"
-												   Margin="29,2,0,2"
-												   Fill="{TemplateBinding TextElement.Foreground}" />
 										<ItemsPresenter x:Name="ItemsPresenter"
 														KeyboardNavigation.DirectionalNavigation="Cycle"
 														KeyboardNavigation.TabNavigation="Cycle"
 														Grid.IsSharedSizeScope="true"
 														SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+										<Rectangle HorizontalAlignment="Left"
+												   Width="1"
+												   Margin="29,2,0,2"
+												   Fill="{TemplateBinding BorderBrush}" />
 									</Grid>
 								</ScrollViewer>
 							</StackPanel>
@@ -484,15 +484,15 @@
 											   Width="{Binding ElementName=SubMenuBorder,Path=ActualWidth}"
 											   Fill="{Binding ElementName=SubMenuBorder,Path=Background}" />
 								</Canvas>
-								<Rectangle HorizontalAlignment="Left"
-										   Width="1"
-										   Margin="29,2,0,2"
-										   Fill="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" />
 								<ItemsPresenter x:Name="ItemsPresenter"
 												KeyboardNavigation.DirectionalNavigation="Cycle"
 												KeyboardNavigation.TabNavigation="Cycle"
 												Grid.IsSharedSizeScope="true"
 												SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								<Rectangle HorizontalAlignment="Left"
+										   Width="1"
+										   Margin="29,2,0,2"
+										   Fill="{TemplateBinding BorderBrush}" />
 							</Grid>
 						</ScrollViewer>
 					</Border>
@@ -586,6 +586,8 @@
 				Value="Both" />
 		<Setter Property="Stylus.IsFlicksEnabled"
 				Value="False" />
+		<Setter Property="Padding"
+				Value="6,0" />
 		<Setter Property="Template"
 				Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type MenuItem}, ResourceId=SubmenuItemTemplateKey}}" />
 		<Style.Triggers>
