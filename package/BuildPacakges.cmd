@@ -12,8 +12,8 @@ SET CERT_SUBJECT_NAME=nishy software
 
 COLOR F
 
-SET SIGNTOOL=%SIGNTOOL:"=%
-ECHO signtool: %SIGNTOOL%
+IF NOT "x-" == "x-%SIGNTOOL%" SET SIGNTOOL=%SIGNTOOL:"=%
+ECHO signtool: "%SIGNTOOL%"
 IF NOT EXIST "%SIGNTOOL%" (
     ECHO Pease SET SIGNTOOL=sign batch file path
     COLOR 6F
@@ -75,6 +75,7 @@ ECHO Sign modules
 ECHO -----------------------
 SET SIGN_FILES=
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Core\bin\Release\net45\MetroRadiance.Core.dll"
+SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Core\bin\Release\net462\MetroRadiance.Core.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Core\bin\Release\netcoreapp3.1\MetroRadiance.Core.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Chrome\bin\Release\net45\MetroRadiance.Chrome.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance.Chrome\bin\Release\netcoreapp3.1\MetroRadiance.Chrome.dll"
@@ -89,6 +90,13 @@ SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net45\ja\MetroRadiance.re
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net45\ko\MetroRadiance.resources.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net45\zh-Hans\MetroRadiance.resources.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net45\zh-Hant\MetroRadiance.resources.dll"
+SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net462\MetroRadiance.dll"
+SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net462\de\MetroRadiance.resources.dll"
+SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net462\fr\MetroRadiance.resources.dll"
+SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net462\ja\MetroRadiance.resources.dll"
+SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net462\ko\MetroRadiance.resources.dll"
+SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net462\zh-Hans\MetroRadiance.resources.dll"
+SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\net462\zh-Hant\MetroRadiance.resources.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\netcoreapp3.1\MetroRadiance.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\netcoreapp3.1\de\MetroRadiance.resources.dll"
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\netcoreapp3.1\fr\MetroRadiance.resources.dll"
@@ -98,6 +106,8 @@ SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\netcoreapp3.1\zh-Hans\Met
 SET SIGN_FILES=%SIGN_FILES% "MetroRadiance\bin\Release\netcoreapp3.1\zh-Hant\MetroRadiance.resources.dll"
 SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\net452\MetroRadiance.Showcase.exe"
 SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\net452\ja\MetroRadiance.Showcase.resources.dll"
+SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\net462\MetroRadiance.Showcase.exe"
+SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\net462\ja\MetroRadiance.Showcase.resources.dll"
 SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\MetroRadiance.Showcase.exe"
 SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\MetroRadiance.Showcase.dll"
 SET SIGN_FILES=%SIGN_FILES% "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\ja\MetroRadiance.Showcase.resources.dll"
@@ -122,6 +132,13 @@ mkdir "%SIGNED_FOLER%\net45\zh-Hans"
 mkdir "%SIGNED_FOLER%\net45\zh-Hant"
 mkdir "%SIGNED_FOLER%\net452"
 mkdir "%SIGNED_FOLER%\net452\ja"
+mkdir "%SIGNED_FOLER%\net462"
+mkdir "%SIGNED_FOLER%\net462\fr"
+mkdir "%SIGNED_FOLER%\net462\de"
+mkdir "%SIGNED_FOLER%\net462\ko"
+mkdir "%SIGNED_FOLER%\net462\ja"
+mkdir "%SIGNED_FOLER%\net462\zh-Hans"
+mkdir "%SIGNED_FOLER%\net462\zh-Hant"
 mkdir "%SIGNED_FOLER%\netcoreapp3.1"
 mkdir "%SIGNED_FOLER%\netcoreapp3.1\fr"
 mkdir "%SIGNED_FOLER%\netcoreapp3.1\de"
@@ -132,6 +149,8 @@ mkdir "%SIGNED_FOLER%\netcoreapp3.1\zh-Hant"
 
 REM  MetroRadiance.Core modules
 COPY "MetroRadiance.Core\bin\Release\net45\MetroRadiance.Core.dll" "%SIGNED_FOLER%\net45\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "MetroRadiance.Core\bin\Release\net462\MetroRadiance.Core.dll" "%SIGNED_FOLER%\net462\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 COPY "MetroRadiance.Core\bin\Release\netcoreapp3.1\MetroRadiance.Core.dll" "%SIGNED_FOLER%\netcoreapp3.1\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
@@ -153,6 +172,23 @@ IF EXIST "MetroRadiance.Chrome.Externals\bin\Release\netcoreapp3.1\MetroRadiance
 REM  MetroRadiance modules
 SET COPY_SOURCE=MetroRadiance\bin\Release\net45
 SET COPY_DEST=%SIGNED_FOLER%\net45
+COPY "%COPY_SOURCE%\MetroRadiance.dll" "%COPY_DEST%\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\fr\MetroRadiance.resources.dll" "%COPY_DEST%\fr\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\de\MetroRadiance.resources.dll" "%COPY_DEST%\de\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\ko\MetroRadiance.resources.dll" "%COPY_DEST%\ko\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\ja\MetroRadiance.resources.dll" "%COPY_DEST%\ja\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\zh-Hans\MetroRadiance.resources.dll" "%COPY_DEST%\zh-Hans\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\zh-Hant\MetroRadiance.resources.dll" "%COPY_DEST%\zh-Hant\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+SET COPY_SOURCE=MetroRadiance\bin\Release\net462
+SET COPY_DEST=%SIGNED_FOLER%\net462
 COPY "%COPY_SOURCE%\MetroRadiance.dll" "%COPY_DEST%\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 COPY "%COPY_SOURCE%\fr\MetroRadiance.resources.dll" "%COPY_DEST%\fr\" >nul
@@ -191,6 +227,11 @@ IF ERRORLEVEL 1 GOTO ERROR
 COPY "..\samples\MetroRadiance.Showcase\bin\Release\net452\ja\MetroRadiance.Showcase.resources.dll" "%SIGNED_FOLER%\net452\ja\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 
+COPY "..\samples\MetroRadiance.Showcase\bin\Release\net462\MetroRadiance.Showcase.exe" "%SIGNED_FOLER%\net462\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "..\samples\MetroRadiance.Showcase\bin\Release\net462\ja\MetroRadiance.Showcase.resources.dll" "%SIGNED_FOLER%\net462\ja\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
 COPY "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\MetroRadiance.Showcase.exe" "%SIGNED_FOLER%\netcoreapp3.1\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 COPY "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\MetroRadiance.Showcase.dll" "%SIGNED_FOLER%\netcoreapp3.1\" >nul
@@ -206,6 +247,23 @@ ECHO -----------------------
 REM  MetroRadiance modules
 SET COPY_SOURCE=MetroRadiance\bin\Release\net45
 SET COPY_DEST=MetroRadiance\obj\Release\net45
+COPY "%COPY_SOURCE%\MetroRadiance.dll" "%COPY_DEST%\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\fr\MetroRadiance.resources.dll" "%COPY_DEST%\fr\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\de\MetroRadiance.resources.dll" "%COPY_DEST%\de\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\ko\MetroRadiance.resources.dll" "%COPY_DEST%\ko\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\ja\MetroRadiance.resources.dll" "%COPY_DEST%\ja\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\zh-Hans\MetroRadiance.resources.dll" "%COPY_DEST%\zh-Hans\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+COPY "%COPY_SOURCE%\zh-Hant\MetroRadiance.resources.dll" "%COPY_DEST%\zh-Hant\" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+SET COPY_SOURCE=MetroRadiance\bin\Release\net462
+SET COPY_DEST=MetroRadiance\obj\Release\net462
 COPY "%COPY_SOURCE%\MetroRadiance.dll" "%COPY_DEST%\" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 COPY "%COPY_SOURCE%\fr\MetroRadiance.resources.dll" "%COPY_DEST%\fr\" >nul
@@ -240,6 +298,9 @@ IF ERRORLEVEL 1 GOTO ERROR
 
 REM  MetroRadiance.Showcase modules
 COPY "..\samples\MetroRadiance.Showcase\bin\Release\net452\ja\MetroRadiance.Showcase.resources.dll" "..\samples\MetroRadiance.Showcase\obj\Release\net452\ja\MetroRadiance.Showcase.resources.dll" >nul
+IF ERRORLEVEL 1 GOTO ERROR
+
+COPY "..\samples\MetroRadiance.Showcase\bin\Release\net462\ja\MetroRadiance.Showcase.resources.dll" "..\samples\MetroRadiance.Showcase\obj\Release\net462\ja\MetroRadiance.Showcase.resources.dll" >nul
 IF ERRORLEVEL 1 GOTO ERROR
 
 COPY "..\samples\MetroRadiance.Showcase\bin\Release\netcoreapp3.1\ja\MetroRadiance.Showcase.resources.dll" "..\samples\MetroRadiance.Showcase\obj\Release\netcoreapp3.1\ja\MetroRadiance.Showcase.resources.dll" >nul
@@ -283,6 +344,10 @@ IF ERRORLEVEL 1 GOTO ERROR
 XCOPY /D /E /Y "%SIGNED_FOLER%\net45" "%SIGNED_FOLER%\MetroRadiance.Fork.Showcase\net452\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
 XCOPY /D /E /Y "%SIGNED_FOLER%\net452" "%SIGNED_FOLER%\MetroRadiance.Fork.Showcase\net452\" > nul
+IF ERRORLEVEL 1 GOTO ERROR
+XCOPY /D /E /Y "%SIGNED_FOLER%\net45" "%SIGNED_FOLER%\MetroRadiance.Fork.Showcase\net462\" > nul
+IF ERRORLEVEL 1 GOTO ERROR
+XCOPY /D /E /Y "%SIGNED_FOLER%\net462" "%SIGNED_FOLER%\MetroRadiance.Fork.Showcase\net462\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
 XCOPY /D /E /Y "%SIGNED_FOLER%\netcoreapp3.1" "%SIGNED_FOLER%\MetroRadiance.Fork.Showcase\netcoreapp3.1\" > nul
 IF ERRORLEVEL 1 GOTO ERROR
