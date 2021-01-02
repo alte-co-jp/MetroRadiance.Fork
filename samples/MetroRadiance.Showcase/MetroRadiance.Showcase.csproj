@@ -25,7 +25,11 @@
       - [alpha01]Localize the text string (English/Japanese)
       - [alpha02]Add Chrome.Externals sample
       - [alpha02]Add Number validation rule sample
-      - [alpha02]Add MenuItem sample
+      - [alpha03]Add MenuItem sample
+      - [alpha04]Fix an issue that failed when creating metro:BlurWindow and metro:AcrylicBlurWindow in UI Window sample
+
+      Limitations
+      - [alpha01-] When moving windows using metro:AcrylicBlurWindow, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
     </PackageReleaseNotes>
     <OutputType>WinExe</OutputType>
     <ApplicationManifest>app.manifest</ApplicationManifest>

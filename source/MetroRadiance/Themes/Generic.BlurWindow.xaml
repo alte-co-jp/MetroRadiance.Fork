@@ -4,7 +4,7 @@
 					xmlns:properties="clr-namespace:MetroRadiance.Properties">
 
 	<Style TargetType="{x:Type controls:BlurWindow}"
-		   BasedOn="{StaticResource {x:Type controls:WindowCompat}}">
+		   BasedOn="{StaticResource {x:Type Window}}">
 		<Setter Property="FontFamily"
 				Value="{DynamicResource {x:Static properties:Resources.FontFamily}}" />
 		<Setter Property="Background"

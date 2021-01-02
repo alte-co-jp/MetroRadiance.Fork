@@ -32,6 +32,10 @@
       - [alpha02]Add standard control styles (Label/TextBox)
       - [alpha02]Add number validation rules (Int16Rule/UInt16Rule/Int32Rule/UInt32Rule/SingleRule/DoubleRule)
       - [alpha03]Add standard menu styles (Menu/MenuItem/ContextMenu)
+      - [alpha04]Fix an issue that failed when initializing BlurWindow and AcrylicBlurWindow
+
+      Limitations
+      - [alpha01-] When moving windows using AcrylicBlurWindow class, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
     </PackageReleaseNotes>
     <Configurations>Debug;Release;Release RETRO</Configurations>
   </PropertyGroup>
