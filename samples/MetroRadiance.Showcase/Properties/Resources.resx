@@ -166,7 +166,8 @@
     <value>Toggle button</value>
   </data>
   <data name="ControlSample_TextTooltipDesc" xml:space="preserve">
-    <value>Move your mouse pointer inside this pane in order to show tooltip</value>
+    <value>Move your mouse pointer inside this pane in order to show tooltip.
+Click the right mouse button inside this pane in order to show context menu.</value>
   </data>
   <data name="ControlSample_TextTooltipSamleText" xml:space="preserve">
     <value>Tooltip sample text</value>

@@ -63,9 +63,45 @@
 							  InputGestureText="Ctrl+V" />
 				</MenuItem>
 				<MenuItem Header="_Help">
-					<MenuItem Header="_About" />
-				</MenuItem>
-			</Menu>
+                    <MenuItem Header="_Help window" IsCheckable="True" IsChecked="True" />
+                    <MenuItem Header="_Help windows">
+                        <MenuItem Header="_Help window" IsCheckable="True" IsChecked="True" />
+                    </MenuItem>
+                    <MenuItem Header="_About" />
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="TopLevelItem (Standard)" IsCheckable="False" IsChecked="False"/>
+                <MenuItem Header="TopLevelItem (Checked)" IsCheckable="False" IsChecked="True"/>
+                <MenuItem Header="TopLevelItem (Checkable)" IsCheckable="True" IsChecked="True"/>
+                <MenuItem Header="TopLevelHeader">
+                    <MenuItem Header="SubmenuItem (Standard)" IsCheckable="False" IsChecked="False" />
+                    <MenuItem Header="SubmenuItem (Checked)" IsCheckable="False" IsChecked="True" />
+                    <MenuItem Header="SubmenuItem (Checkable)" IsCheckable="True" IsChecked="True" />
+                    <Separator/>
+                    <MenuItem Header="SubmenuHeader">
+                        <MenuItem Header="SubmenuItem (Standard)" IsCheckable="False" IsChecked="False" />
+                        <MenuItem Header="SubmenuItem (Checked)" IsCheckable="False" IsChecked="True" />
+                        <MenuItem Header="SubmenuItem (Checkable)" IsCheckable="True" IsChecked="True" />
+                    </MenuItem>
+                    <MenuItem Header="SubmenuHeader (Checked)" IsChecked="True">
+                        <MenuItem Header="SubmenuItem (Standard)" IsCheckable="False" IsChecked="False">
+                            <MenuItem.Icon>
+                                <Ellipse Fill="{DynamicResource ForegroundBrushKey}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="SubmenuItem (Checked)" IsCheckable="False" IsChecked="True">
+                            <MenuItem.Icon>
+                                <Ellipse Fill="{DynamicResource ForegroundBrushKey}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="SubmenuItem (Checkable)" IsCheckable="True" IsChecked="True">
+                            <MenuItem.Icon>
+                                <Ellipse Fill="{DynamicResource ForegroundBrushKey}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
 
 			<CheckBox x:Name="EnabledCheck"
 					  Content="{x:Static prop:Resources.ControlSample_IsEnabledUIControls}"
@@ -213,11 +249,59 @@
                 <ToggleButton Grid.Row="18" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextToggleButton}"
 						  Margin="4" />
 
-                <TextBlock Grid.Row="24" Grid.Column="0" Text="Tooltip: "/>
+                <TextBlock Grid.Row="24" Grid.Column="0" Text="Tooltip/ContextMenu: "/>
                 <Border Grid.Row="24" Grid.Column="1"
                         Margin="4"
                         BorderThickness="1"
                         BorderBrush="{DynamicResource BorderBrushKey}">
+                    <Border.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Item"/>
+                            <MenuItem Header="Item with shortcut" InputGestureText="Ctrl+Z"/>
+                            <MenuItem Header="Item with sub items">
+                                <MenuItem Header="Sub item"/>
+                                <MenuItem Header="Sub item with shortcut" InputGestureText="Ctrl+Z"/>
+                                <Separator/>
+                                <MenuItem Header="Checkable sub item" IsCheckable="True" IsChecked="True"/>
+                                <MenuItem Header="Disabled sub item" IsEnabled="False"/>
+                            </MenuItem>
+                            <Separator/>
+                            <MenuItem Header="Checkable item" IsCheckable="True" IsChecked="True"/>
+                            <MenuItem Header="Disabled item" IsEnabled="False"/>
+                            <Separator/>
+                            <MenuItem Header="SubmenuItem (Standard)" IsCheckable="False" IsChecked="False" />
+                            <MenuItem Header="SubmenuItem (Checked)" IsCheckable="False" IsChecked="True" />
+                            <MenuItem Header="SubmenuItem (Checkable)" IsCheckable="True" IsChecked="True" />
+                            <MenuItem Header="SubmenuHeader (Standard)">
+                                <MenuItem Header="SubmenuItem (Standard)" IsCheckable="False" IsChecked="False" />
+                                <MenuItem Header="SubmenuItem (Checked)" IsCheckable="False" IsChecked="True" />
+                                <MenuItem Header="SubmenuItem (Checkable)" IsCheckable="True" IsChecked="True" />
+                                <Separator/>
+                                <MenuItem Header="SubmenuHeader (Standard)">
+                                    <MenuItem Header="SubmenuItem (Standard)" IsCheckable="False" IsChecked="False" />
+                                    <MenuItem Header="SubmenuItem (Checked)" IsCheckable="False" IsChecked="True" />
+                                    <MenuItem Header="SubmenuItem (Checkable)" IsCheckable="True" IsChecked="True" />
+                                </MenuItem>
+                                <MenuItem Header="SubmenuHeader (Checked)" IsChecked="True">
+                                    <MenuItem Header="SubmenuItem (Standard)" IsCheckable="False" IsChecked="False">
+                                        <MenuItem.Icon>
+                                            <Ellipse Fill="{DynamicResource ForegroundBrushKey}" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="SubmenuItem (Checked)" IsCheckable="False" IsChecked="True">
+                                        <MenuItem.Icon>
+                                            <Ellipse Fill="{DynamicResource ForegroundBrushKey}" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="SubmenuItem (Checkable)" IsCheckable="True" IsChecked="True">
+                                        <MenuItem.Icon>
+                                            <Ellipse Fill="{DynamicResource ForegroundBrushKey}" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </MenuItem>
+                            </MenuItem>
+                        </ContextMenu>
+                    </Border.ContextMenu>
                     <Label ToolTip="{x:Static prop:Resources.ControlSample_TextTooltipSamleText}">
                         <TextBlock 
                            TextWrapping="Wrap"

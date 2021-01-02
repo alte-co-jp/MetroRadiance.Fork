@@ -206,6 +206,7 @@ namespace MetroRadiance.Showcase.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Move your mouse pointer inside this pane in order to show tooltip.
+        ///Click the right mouse button inside this pane in order to show context menu..
         /// </summary>
         public static string ControlSample_TextTooltipDesc {
             get {

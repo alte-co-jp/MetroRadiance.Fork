@@ -166,7 +166,8 @@
     <value>トグル ボタン</value>
   </data>
   <data name="ControlSample_TextTooltipDesc" xml:space="preserve">
-    <value>ツールチップを表示するために、この枠の中にマウスポインターを移動してください。</value>
+    <value>ツールチップを表示するためには、この枠の中にマウスポインターを移動してください。
+コンテキストメニューを表示するためには、この枠の中でマウスの右ボタンをクリックしてください。</value>
   </data>
   <data name="ControlSample_TextTooltipSamleText" xml:space="preserve">
     <value>ツールチップ サンプル テキスト</value>
