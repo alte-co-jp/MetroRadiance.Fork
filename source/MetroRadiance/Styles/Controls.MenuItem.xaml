@@ -172,7 +172,7 @@
 								<ScrollViewer x:Name="SubMenuScrollViewer"
 											  Margin="4,2,0,0"
 											  Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
-									<Grid>
+									<Grid Margin="1,0,0,0">
 										<Canvas Height="0"
 												Width="0"
 												HorizontalAlignment="Left"
@@ -309,17 +309,28 @@
 							  Height="16"
 							  Margin="3"
 							  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-			<Border x:Name="GlyphPanel"
+			<Border x:Name="GlyphPanelBackground"
 					Visibility="Hidden"
-					Height="22"
-					Width="22"
+					Margin="2"
+					Height="18"
+					Width="18"
 					VerticalAlignment="Center"
 					HorizontalAlignment="Center"
-					Background="{TemplateBinding Background}"
+					Opacity="0.7"
+					Background="{DynamicResource SemiactiveBackgroundBrushKey}"
+					BorderThickness="0"
+					ClipToBounds="False"/>
+			<Border x:Name="GlyphPanel"
+					Visibility="Hidden"
+					Margin="2"
+					Height="18"
+					Width="18"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					Background="Transparent"
 					BorderBrush="{TemplateBinding BorderBrush}"
 					BorderThickness="{TemplateBinding BorderThickness}"
-					ClipToBounds="False"
-					Margin="-1,0,0,0">
+					ClipToBounds="False">
 				<Path x:Name="Glyph"
 					  Data="{StaticResource &#363;}"
 					  FlowDirection="LeftToRight"
@@ -351,6 +362,9 @@
 			</Trigger>
 			<Trigger Property="IsChecked"
 					 Value="True">
+				<Setter TargetName="GlyphPanelBackground"
+						Property="Visibility"
+						Value="Visible" />
 				<Setter TargetName="GlyphPanel"
 						Property="Visibility"
 						Value="Visible" />
@@ -421,15 +435,28 @@
 							  Height="16"
 							  Margin="3"
 							  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-			<Border x:Name="GlyphPanel"
-					Width="22"
-					Height="22"
+			<Border x:Name="GlyphPanelBackground"
 					Visibility="Hidden"
+					Margin="2"
+					Height="18"
+					Width="18"
 					VerticalAlignment="Center"
-					Margin="-1,0,0,0"
-					Background="{TemplateBinding Background}"
+					HorizontalAlignment="Center"
+					Opacity="0.7"
+					Background="{DynamicResource SemiactiveBackgroundBrushKey}"
+					BorderThickness="0"
+					ClipToBounds="False"/>
+			<Border x:Name="GlyphPanel"
+					Visibility="Hidden"
+					Margin="2"
+					Height="18"
+					Width="18"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"
+					Background="Transparent"
 					BorderBrush="{TemplateBinding BorderBrush}"
-					BorderThickness="{TemplateBinding BorderThickness}">
+					BorderThickness="{TemplateBinding BorderThickness}"
+					ClipToBounds="False">
 				<Path x:Name="Glyph"
 					  Data="{StaticResource &#363;}"
 					  FlowDirection="LeftToRight"
@@ -474,7 +501,8 @@
 							Padding="2">
 						<ScrollViewer x:Name="SubMenuScrollViewer"
 									  Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
-							<Grid RenderOptions.ClearTypeHint="Enabled">
+							<Grid RenderOptions.ClearTypeHint="Enabled"
+								  Margin="1,0,0,0">
 								<Canvas Height="0"
 										Width="0"
 										HorizontalAlignment="Left"
@@ -514,6 +542,9 @@
 			</Trigger>
 			<Trigger Property="IsChecked"
 					 Value="True">
+				<Setter TargetName="GlyphPanelBackground"
+						Property="Visibility"
+						Value="Visible" />
 				<Setter TargetName="GlyphPanel"
 						Property="Visibility"
 						Value="Visible" />

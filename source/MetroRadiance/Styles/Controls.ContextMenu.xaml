@@ -10,7 +10,7 @@
 	<Style x:Key="{x:Type ContextMenu}"
 		   TargetType="{x:Type ContextMenu}">
 		<Setter Property="Background"
-				Value="{DynamicResource ThemeBrushKey}" />
+				Value="{DynamicResource BackgroundBrushKey}" />
 		<Setter Property="BorderBrush"
 				Value="{DynamicResource BorderBrushKey}" />
 		<Setter Property="BorderThickness"
@@ -46,10 +46,9 @@
 						<Border Name="ContextMenuBorder"
 								Background="{TemplateBinding Background}"
 								BorderBrush="{TemplateBinding BorderBrush}"
-								BorderThickness="{TemplateBinding BorderThickness}">
+								BorderThickness="{TemplateBinding BorderThickness}"
+								Padding="2">
 							<ScrollViewer Name="ContextMenuScrollViewer"
-										  Grid.ColumnSpan="2"
-										  Margin="1,0"
 										  Style="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type FrameworkElement}, ResourceId=MenuScrollViewer}}">
 								<Grid>
 									<Canvas Height="0"
@@ -65,6 +64,10 @@
 													Margin="{TemplateBinding Padding}"
 													KeyboardNavigation.DirectionalNavigation="Cycle"
 													SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+									<Rectangle HorizontalAlignment="Left"
+											   Width="1"
+											   Margin="29,2,0,2"
+											   Fill="{TemplateBinding BorderBrush}" />
 								</Grid>
 							</ScrollViewer>
 						</Border>
