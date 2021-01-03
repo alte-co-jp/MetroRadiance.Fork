@@ -50,7 +50,7 @@ PM> Install-Package MetroRadiance.Fork
   - Get window DPI from [HwndSource](https://docs.microsoft.com/en-us/dotnet/api/system.windows.interop.hwndsource) or window handle
 
 ```csharp
-using MetroRadiance.Interop;
+using MetroRadiance.Platform;
 ```
 
 ```csharp
@@ -410,9 +410,12 @@ Styles are defined by "/Styles/Controls.xaml"
  - `<Style TargetType="{x:Type Button}">`
  - `<Style x:Key="CircleButtonStyleKey" TargetType="{x:Type Button}">`
  - `<Style TargetType="{x:Type CheckBox}">`
+ - [v3.0.0-] `<Style TargetType="{x:Type ContextMenu}">`
  - `<Style TargetType="{x:Type Expander}">`
  - `<Style x:Key="{x:Static SystemParameters.FocusVisualStyleKey}">`
  - [v3.0.0-] `<Style TargetType="{x:Type Label}">`
+ - [v3.0.0-] `<Style TargetType="{x:Type Menu}">`
+ - [v3.0.0-] `<Style TargetType="{x:Type MenuItem}">`
  - `<Style TargetType="{x:Type PasswordBox}">`
  - `<Style TargetType="{x:Type RadioButton}">`
  - `<Style TargetType="{x:Type ScrollBar}">`
