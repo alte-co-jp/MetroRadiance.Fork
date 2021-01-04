@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-	<Style TargetType="{x:Type TextBoxBase}">
+	<Style x:Key="MetroRadianceTextBoxBaseStyleKey" TargetType="{x:Type TextBoxBase}">
 		<Setter Property="Background"
 				Value="{DynamicResource SemiactiveBackgroundBrushKey}" />
 		<Setter Property="BorderBrush"
@@ -67,8 +67,5 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-
-	<Style TargetType="{x:Type TextBox}"
-		   BasedOn="{StaticResource {x:Type TextBoxBase}}" />
 
 </ResourceDictionary>

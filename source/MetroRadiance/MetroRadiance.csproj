@@ -36,7 +36,8 @@
       - [alpha04]Fix an issue that background of context menu style is not appropriate
       - [alpha04]Fix an issue where the appearance of the check state is clipped in Menu/ContextMenu
       - [alpha04]Adjust the appearance of the selected state in Menu/ContextMenu
-
+      - [alpha04]Add a style key for each style defined by MetroRadiance
+      
       Limitations
       - [alpha01-] When moving windows using AcrylicBlurWindow class, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
     </PackageReleaseNotes>
@@ -81,7 +82,7 @@
 
   <ItemGroup>
     <Page Update="Styles\Controls.*.xaml">
-      <DependentUpon>Controls.xaml</DependentUpon>
+      <DependentUpon>Control-styles.xaml</DependentUpon>
     </Page>
     <Page Update="Themes\Generic.*.xaml">
       <DependentUpon>Generic.xaml</DependentUpon>

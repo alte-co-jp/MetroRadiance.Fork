@@ -2,19 +2,56 @@
 					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 	<ResourceDictionary.MergedDictionaries>
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Button.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.CheckBox.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.ContextMenu.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Expander.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.FocusVisualStyle.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Label.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Menu.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.MenuItem.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.PasswordBox.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.RadioButton.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Scrollbar.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.TextBox.xaml" />
-		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Tooltip.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Control-styles.xaml" />
 	</ResourceDictionary.MergedDictionaries>
+
+	<!-- Apply MetroRadiance control styles to default control styles -->
+
+	<!-- Controls.Button.xaml -->
+	<Style TargetType="{x:Type Button}" BasedOn="{StaticResource MetroRadianceButtonStyleKey}"/>
+
+	<!-- Controls.CheckBox.xaml -->
+	<Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MetroRadianceCheckBoxStyleKey}"/>
+
+	<!-- Controls.ContextMenu.xaml -->
+	<Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MetroRadianceContextMenuStyleKey}"
+		   x:Key="{x:Type ContextMenu}" />
+
+	<!-- Controls.Expander.xaml -->
+	<Style TargetType="{x:Type Expander}" BasedOn="{StaticResource MetroRadianceExpanderStyleKey}"/>
+
+	<!-- Controls.FocusVisualStyle.xaml -->
+	<Style BasedOn="{StaticResource MetroRadianceFocusVisualStyleKey}"
+		   x:Key="{x:Static SystemParameters.FocusVisualStyleKey}"/>
+
+	<!-- Controls.Label.xaml -->
+	<Style TargetType="{x:Type Label}" BasedOn="{StaticResource MetroRadianceLabelStyleKey}"/>
+
+	<!-- Controls.Menu.xaml -->
+	<Style TargetType="{x:Type Menu}" BasedOn="{StaticResource MetroRadianceMenuStyleKey}"/>
+
+	<!-- Controls.MenuItem.xaml -->
+	<Style TargetType="{x:Type Separator}" BasedOn="{StaticResource MetroRadianceSeparatorStyleKey}"
+		   x:Key="{x:Static MenuItem.SeparatorStyleKey}"/>
+	<Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource MetroRadianceMenuItemStyleKey}"/>
+
+	<!-- Controls.PasswordBox.xaml -->
+	<Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MetroRadiancePasswordBoxStyleKey}"/>
+
+	<!-- Controls.RadioButton.xaml -->
+	<Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource MetroRadianceRadioButtonStyleKey}"/>
+
+	<!-- Controls.ScrollBar.xaml -->
+	<Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource MetroRadianceScrollBarStyleKey}"/>
+
+	<!-- Controls.TextBox.xaml -->
+	<Style TargetType="{x:Type TextBoxBase}" BasedOn="{StaticResource MetroRadianceTextBoxBaseStyleKey}"/>
+	<Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBoxBase}}"/>
+
+	<!-- Controls.ToggleButton.xaml -->
+	<Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource MetroRadianceToggleButtonStyleKey}"/>
+
+	<!-- Controls.ToolTip.xaml -->
+	<Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource MetroRadianceToolTipStyleKey}"/>
 
 </ResourceDictionary>

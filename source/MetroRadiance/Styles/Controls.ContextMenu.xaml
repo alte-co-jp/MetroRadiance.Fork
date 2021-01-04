@@ -2,12 +2,65 @@
 					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:ms="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
 					xmlns:properties="clr-namespace:MetroRadiance.Properties">
-
-	<MenuScrollingVisibilityConverter x:Key="&#360;" />
-	<Geometry x:Key="&#203;">M 0,0 L 3.5,4 L 7,0 Z</Geometry>
-	<Geometry x:Key="&#361;">M 0,4 L 3.5,0 L 7,4 Z</Geometry>
-
-	<Style x:Key="{x:Type ContextMenu}"
+	<!-- this style depends on some styles are defined by Controls.MenuItem.xaml-->
+	<ControlTemplate x:Key="MetroRadianceContextMenuTemplateKey"
+					 TargetType="{x:Type ContextMenu}">
+		<ms:SystemDropShadowChrome x:Name="Shdw"
+									Color="Transparent"
+									SnapsToDevicePixels="true">
+			<Border Name="ContextMenuBorder"
+					Background="{TemplateBinding Background}"
+					BorderBrush="{TemplateBinding BorderBrush}"
+					BorderThickness="{TemplateBinding BorderThickness}"
+					Padding="2">
+				<ScrollViewer Name="ContextMenuScrollViewer"
+							  Style="{DynamicResource MetroRadianceMenuScrollViewerStyleKey}">
+					<Grid>
+						<Canvas Height="0"
+								Width="0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top">
+							<Rectangle Name="OpaqueRect"
+										Height="{Binding ElementName=ContextMenuBorder,Path=ActualHeight}"
+										Width="{Binding ElementName=ContextMenuBorder,Path=ActualWidth}"
+										Fill="{Binding ElementName=ContextMenuBorder,Path=Background}" />
+						</Canvas>
+						<ItemsPresenter Name="ItemsPresenter"
+										Margin="{TemplateBinding Padding}"
+										KeyboardNavigation.DirectionalNavigation="Cycle"
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+						<Rectangle HorizontalAlignment="Left"
+										   Width="1"
+										   Margin="29,2,0,2"
+										   Fill="{TemplateBinding BorderBrush}" />
+					</Grid>
+				</ScrollViewer>
+			</Border>
+		</ms:SystemDropShadowChrome>
+		<ControlTemplate.Triggers>
+			<Trigger Property="HasDropShadow"
+					Value="True">
+				<Setter TargetName="Shdw"
+						Property="Margin"
+						Value="0,0,5,5" />
+				<Setter TargetName="Shdw"
+						Property="Color"
+						Value="#71000000" />
+			</Trigger>
+			<Trigger SourceName="ContextMenuScrollViewer"
+					Property="ScrollViewer.CanContentScroll"
+					Value="False">
+				<Setter TargetName="OpaqueRect"
+						Property="Canvas.Top"
+						Value="{Binding ElementName=ContextMenuScrollViewer, Path=VerticalOffset}" />
+				<Setter TargetName="OpaqueRect"
+						Property="Canvas.Left"
+						Value="{Binding ElementName=ContextMenuScrollViewer, Path=HorizontalOffset}" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	
+	<Style x:Key="MetroRadianceContextMenuStyleKey"
 		   TargetType="{x:Type ContextMenu}">
 		<Setter Property="Background"
 				Value="{DynamicResource BackgroundBrushKey}" />
@@ -37,167 +90,7 @@
 				Value="Both" />
 		<Setter Property="Stylus.IsFlicksEnabled"
 				Value="False" />
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type ContextMenu}">
-					<ms:SystemDropShadowChrome x:Name="Shdw"
-											   Color="Transparent"
-											   SnapsToDevicePixels="true">
-						<Border Name="ContextMenuBorder"
-								Background="{TemplateBinding Background}"
-								BorderBrush="{TemplateBinding BorderBrush}"
-								BorderThickness="{TemplateBinding BorderThickness}"
-								Padding="2">
-							<ScrollViewer Name="ContextMenuScrollViewer"
-										  Style="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type FrameworkElement}, ResourceId=MenuScrollViewer}}">
-								<Grid>
-									<Canvas Height="0"
-											Width="0"
-											HorizontalAlignment="Left"
-											VerticalAlignment="Top">
-										<Rectangle Name="OpaqueRect"
-												   Height="{Binding ElementName=ContextMenuBorder,Path=ActualHeight}"
-												   Width="{Binding ElementName=ContextMenuBorder,Path=ActualWidth}"
-												   Fill="{Binding ElementName=ContextMenuBorder,Path=Background}" />
-									</Canvas>
-									<ItemsPresenter Name="ItemsPresenter"
-													Margin="{TemplateBinding Padding}"
-													KeyboardNavigation.DirectionalNavigation="Cycle"
-													SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-									<Rectangle HorizontalAlignment="Left"
-											   Width="1"
-											   Margin="29,2,0,2"
-											   Fill="{TemplateBinding BorderBrush}" />
-								</Grid>
-							</ScrollViewer>
-						</Border>
-					</ms:SystemDropShadowChrome>
-					<ControlTemplate.Triggers>
-						<Trigger Property="HasDropShadow"
-								 Value="True">
-							<Setter TargetName="Shdw"
-									Property="Margin"
-									Value="0,0,5,5" />
-							<Setter TargetName="Shdw"
-									Property="Color"
-									Value="#71000000" />
-						</Trigger>
-						<Trigger SourceName="ContextMenuScrollViewer"
-								 Property="ScrollViewer.CanContentScroll"
-								 Value="False">
-							<Setter TargetName="OpaqueRect"
-									Property="Canvas.Top"
-									Value="{Binding ElementName=ContextMenuScrollViewer, Path=VerticalOffset}" />
-							<Setter TargetName="OpaqueRect"
-									Property="Canvas.Left"
-									Value="{Binding ElementName=ContextMenuScrollViewer, Path=HorizontalOffset}" />
-						</Trigger>
-					</ControlTemplate.Triggers>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
-	
-	<ControlTemplate x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type FrameworkElement}, ResourceId=SubmenuContent}"
-					 TargetType="{x:Type ContentControl}">
-		<Border Background="{TemplateBinding Menu.Background}"
-				BorderBrush="{TemplateBinding Menu.BorderBrush}"
-				BorderThickness="1"
-				Padding="2">
-			<Border Background="{StaticResource &#347;}">
-				<ContentPresenter />
-			</Border>
-		</Border>
-	</ControlTemplate>
-
-	<Style x:Key="&#364;"
-		   TargetType="{x:Type RepeatButton}"
-		   BasedOn="{x:Null}">
-		<Setter Property="ClickMode"
-				Value="Hover" />
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type RepeatButton}">
-					<Border x:Name="templateRoot"
-							SnapsToDevicePixels="true"
-							Background="Transparent"
-							BorderBrush="Transparent"
-							BorderThickness="1">
-						<ContentPresenter Margin="6"
-										  HorizontalAlignment="Center"
-										  VerticalAlignment="Center" />
-					</Border>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
-
-	<Style x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type FrameworkElement}, ResourceId=MenuScrollViewer}"
-		   TargetType="{x:Type ScrollViewer}"
-		   BasedOn="{x:Null}">
-		<Setter Property="HorizontalScrollBarVisibility"
-				Value="Hidden" />
-		<Setter Property="VerticalScrollBarVisibility"
-				Value="Auto" />
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type ScrollViewer}">
-					<Grid SnapsToDevicePixels="True">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto" />
-							<RowDefinition Height="*" />
-							<RowDefinition Height="Auto" />
-						</Grid.RowDefinitions>
-						<ScrollContentPresenter Grid.Row="1"
-												Margin="{TemplateBinding Padding}"
-												CanContentScroll="{TemplateBinding CanContentScroll}" />
-						<RepeatButton Grid.Row="0"
-									  Style="{StaticResource &#364;}"
-									  Command="{x:Static ScrollBar.LineUpCommand}"
-									  CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
-									  Focusable="false">
-							<RepeatButton.Visibility>
-								<MultiBinding ConverterParameter="0"
-											  Converter="{StaticResource &#360;}"
-											  FallbackValue="Visibility.Collapsed">
-									<Binding Path="ComputedVerticalScrollBarVisibility"
-											 RelativeSource="{RelativeSource TemplatedParent}" />
-									<Binding Path="VerticalOffset"
-											 RelativeSource="{RelativeSource TemplatedParent}" />
-									<Binding Path="ExtentHeight"
-											 RelativeSource="{RelativeSource TemplatedParent}" />
-									<Binding Path="ViewportHeight"
-											 RelativeSource="{RelativeSource TemplatedParent}" />
-								</MultiBinding>
-							</RepeatButton.Visibility>
-							<Path Data="{StaticResource &#361;}"
-								  Fill="{TemplateBinding Foreground}" />
-						</RepeatButton>
-						<RepeatButton Grid.Row="2"
-									  Style="{StaticResource &#364;}"
-									  Command="{x:Static ScrollBar.LineDownCommand}"
-									  CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
-									  Focusable="false">
-							<RepeatButton.Visibility>
-								<MultiBinding ConverterParameter="100"
-											  Converter="{StaticResource &#360;}"
-											  FallbackValue="Visibility.Collapsed">
-									<Binding Path="ComputedVerticalScrollBarVisibility"
-											 RelativeSource="{RelativeSource TemplatedParent}" />
-									<Binding Path="VerticalOffset"
-											 RelativeSource="{RelativeSource TemplatedParent}" />
-									<Binding Path="ExtentHeight"
-											 RelativeSource="{RelativeSource TemplatedParent}" />
-									<Binding Path="ViewportHeight"
-											 RelativeSource="{RelativeSource TemplatedParent}" />
-								</MultiBinding>
-							</RepeatButton.Visibility>
-							<Path Data="{StaticResource &#203;}"
-								  Fill="{TemplateBinding Foreground}" />
-						</RepeatButton>
-					</Grid>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
+		<Setter Property="Template"
+				Value="{DynamicResource MetroRadianceContextMenuTemplateKey}"/>
 	</Style>
 </ResourceDictionary>

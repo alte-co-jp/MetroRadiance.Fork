@@ -386,8 +386,12 @@ Style definition sample
 
 ### Standard control styles
 
-You can use the standard control styles by merging "/Styles/Controls.xaml" of MetroRadiance into ```Application.Resource``` etc.
+You can use the standard control styles by merging `"/Styles/Controls.xaml"` or `"/Styles/Control-styles.xaml"` of MetroRadiance into ```Application.Resource``` etc.
 These styles use the colors and brushes defined in MetroRadiance. Therefore, it will be linked to the theme change and color setting change.
+
+`"/Styles/Control-styles.xaml"` defines MetroRadiance styles using Keys in MetroRadiance*XXXX*StyleKey format.
+`"/Styles/Controls.xaml"` overrides standard control styles.
+`"/Styles/Controls.xaml"` also includes MetroRadiance styles are defined by `"/Styles/Control-styles.xaml"`.
 
 ```xml
 <Application x:Class="MetroRadiance.Showcase.App"
@@ -406,22 +410,47 @@ These styles use the colors and brushes defined in MetroRadiance. Therefore, it 
 </Application>
 ```
 
-Styles are defined by "/Styles/Controls.xaml"
- - `<Style TargetType="{x:Type Button}">`
- - `<Style x:Key="CircleButtonStyleKey" TargetType="{x:Type Button}">`
- - `<Style TargetType="{x:Type CheckBox}">`
- - [v3.0.0-] `<Style TargetType="{x:Type ContextMenu}">`
- - `<Style TargetType="{x:Type Expander}">`
- - `<Style x:Key="{x:Static SystemParameters.FocusVisualStyleKey}">`
- - [v3.0.0-] `<Style TargetType="{x:Type Label}">`
- - [v3.0.0-] `<Style TargetType="{x:Type Menu}">`
- - [v3.0.0-] `<Style TargetType="{x:Type MenuItem}">`
- - `<Style TargetType="{x:Type PasswordBox}">`
- - `<Style TargetType="{x:Type RadioButton}">`
- - `<Style TargetType="{x:Type ScrollBar}">`
- - [v3.0.0-] `<Style TargetType="{x:Type TextBox}">`
- - `<Style TargetType="{x:Type ToggleButton}">`
- - `<Style TargetType="{x:Type ToolTip}">`
+#### [v3.0.0-] MetroRadiance styles are defined by "/Styles/Control-styles.xaml"
+ - `<Style TargetType="{x:Type Button}" x:key="MetroRadianceButtonStyleKey">`
+ - `<Style TargetType="{x:Type Button}" x:Key="CircleButtonStyleKey">`
+ - `<Style TargetType="{x:Type CheckBox}" x:Key="MetroRadianceCheckBoxStyleKey">`
+ - `<Style TargetType="{x:Type ContextMenu}" x:Key="MetroRadianceContextMenuStyleKey">`
+ - `<Style TargetType="{x:Type Expander}" x:Key="MetroRadianceExpanderStyleKey">`
+ - `<Style x:Key="MetroRadianceFocusVisualStyleKey">`
+ - `<Style TargetType="{x:Type Label}" x:Key="MetroRadianceLabelStyleKey">`
+ - `<Style TargetType="{x:Type Menu}" x:Key="MetroRadianceMenuStyleKey">`
+ - `<Style TargetType="{x:Type MenuItem}" x:Key="MetroRadianceMenuItemStyleKey">`
+ - `<Style TargetType="{x:Type Separator}" x:Key="MetroRadianceSeparatorStyleKey">`
+ - `<Style TargetType="{x:Type PasswordBox}" x:Key="MetroRadiancePasswordBoxStyleKey">`
+ - `<Style TargetType="{x:Type RadioButton}" x:Key="MetroRadianceRadioButtonStyleKey">`
+ - `<Style TargetType="{x:Type ScrollBar}" x:Key="MetroRadianceScrollBarStyleKey">`
+ - `<Style TargetType="{x:Type TextBox}" x:Key="MetroRadianceTextBoxBaseStyleKey">`
+ - `<Style TargetType="{x:Type ToggleButton}" x:Key="MetroRadianceToggleButtonStyleKey">`
+ - `<Style TargetType="{x:Type ToolTip}" x:Key="MetroRadianceToolTipStyleKey">`
+
+ 
+#### Standard styles are overridden by "/Styles/Controls.xaml"
+("/Styles/Controls.xaml" includes MetroRadiance styles are defined by "/Styles/Control-styles.xaml")
+
+ - `<Style TargetType="{x:Type Button}" BasedOn="{StaticResource MetroRadianceButtonStyleKey}"/>`
+ - `<Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MetroRadianceCheckBoxStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MetroRadianceContextMenuStyleKey}"
+		   x:Key="{x:Type ContextMenu}" />`
+ - `<Style TargetType="{x:Type Expander}" BasedOn="{StaticResource MetroRadianceExpanderStyleKey}"/>`
+ - `<Style BasedOn="{StaticResource MetroRadianceFocusVisualStyleKey}"
+		   x:Key="{x:Static SystemParameters.FocusVisualStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type Label}" BasedOn="{StaticResource MetroRadianceLabelStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type Menu}" BasedOn="{StaticResource MetroRadianceMenuStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type Separator}" BasedOn="{StaticResource MetroRadianceSeparatorStyleKey}"
+		   x:Key="{x:Static MenuItem.SeparatorStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource MetroRadianceMenuItemStyleKey}"/>`
+ - `<Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MetroRadiancePasswordBoxStyleKey}"/>`
+ - `<Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource MetroRadianceRadioButtonStyleKey}"/>`
+ - `<Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource MetroRadianceScrollBarStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type TextBoxBase}" BasedOn="{StaticResource MetroRadianceTextBoxBaseStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBoxBase}}"/>`
+ - `<Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource MetroRadianceToggleButtonStyleKey}"/>`
+ - `<Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource MetroRadianceToolTipStyleKey}"/>`
 
 ![Showcase - control samples](images/MetroRadiance-fork-showcase-Controls-light-en.png)
 
