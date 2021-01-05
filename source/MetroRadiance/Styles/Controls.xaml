@@ -24,6 +24,9 @@
 	<Style BasedOn="{StaticResource MetroRadianceFocusVisualStyleKey}"
 		   x:Key="{x:Static SystemParameters.FocusVisualStyleKey}"/>
 
+	<!-- Controls.GroupBox.xaml -->
+	<Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroRadianceGroupBoxStyleKey}"/>
+
 	<!-- Controls.Label.xaml -->
 	<Style TargetType="{x:Type Label}" BasedOn="{StaticResource MetroRadianceLabelStyleKey}"/>
 

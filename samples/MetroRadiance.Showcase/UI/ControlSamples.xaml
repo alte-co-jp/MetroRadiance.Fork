@@ -235,16 +235,18 @@
                 <CheckBox Grid.Row="14" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextCheckBox}"
 						  Margin="4" />
                 
-                <TextBlock Grid.Row="16" Grid.Column="0" Text="RadioButton: "/>
-                <StackPanel Grid.Row="16" Grid.Column="1" Orientation="Vertical">
-                    <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem1}"
+                <TextBlock Grid.Row="16" Grid.Column="0" Text="RadioButton / GroupBox: "/>
+                <GroupBox Grid.Row="16" Grid.Column="1" Header="{x:Static prop:Resources.ControlSample_GroupBoxHeader}" >
+                    <StackPanel Orientation="Vertical">
+                        <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem1}"
 								 Margin="4" />
-                    <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem2}"
+                        <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem2}"
 								 Margin="4" />
-                    <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem3}"
+                        <RadioButton Content="{x:Static prop:Resources.ControlSample_TextRadioButtonItem3}"
 								 Margin="4" />
-                </StackPanel>
-                
+                    </StackPanel>
+                </GroupBox>
+
                 <TextBlock Grid.Row="18" Grid.Column="0" Text="ToggleButton: "/>
                 <ToggleButton Grid.Row="18" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextToggleButton}"
 						  Margin="4" />

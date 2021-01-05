@@ -417,6 +417,7 @@ These styles use the colors and brushes defined in MetroRadiance. Therefore, it 
  - `<Style TargetType="{x:Type ContextMenu}" x:Key="MetroRadianceContextMenuStyleKey">`
  - `<Style TargetType="{x:Type Expander}" x:Key="MetroRadianceExpanderStyleKey">`
  - `<Style x:Key="MetroRadianceFocusVisualStyleKey">`
+ - `<Style TargetType="{x:Type GroupBox}" x:Key="MetroRadianceGroupBoxStyleKey">`
  - `<Style TargetType="{x:Type Label}" x:Key="MetroRadianceLabelStyleKey">`
  - `<Style TargetType="{x:Type Menu}" x:Key="MetroRadianceMenuStyleKey">`
  - `<Style TargetType="{x:Type MenuItem}" x:Key="MetroRadianceMenuItemStyleKey">`
@@ -439,6 +440,7 @@ These styles use the colors and brushes defined in MetroRadiance. Therefore, it 
  - `<Style TargetType="{x:Type Expander}" BasedOn="{StaticResource MetroRadianceExpanderStyleKey}"/>`
  - `<Style BasedOn="{StaticResource MetroRadianceFocusVisualStyleKey}"
 		   x:Key="{x:Static SystemParameters.FocusVisualStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroRadianceGroupBoxStyleKey}"/>`
  - [v3.0.0-] `<Style TargetType="{x:Type Label}" BasedOn="{StaticResource MetroRadianceLabelStyleKey}"/>`
  - [v3.0.0-] `<Style TargetType="{x:Type Menu}" BasedOn="{StaticResource MetroRadianceMenuStyleKey}"/>`
  - [v3.0.0-] `<Style TargetType="{x:Type Separator}" BasedOn="{StaticResource MetroRadianceSeparatorStyleKey}"

@@ -144,6 +144,9 @@
   <data name="ControlSample_ButtonCreateBlurWindow" xml:space="preserve">
     <value>Create metro:_BlurWindow</value>
   </data>
+  <data name="ControlSample_GroupBoxHeader" xml:space="preserve">
+    <value>Group box</value>
+  </data>
   <data name="ControlSample_GroupHeader" xml:space="preserve">
     <value>UI Control samples</value>
   </data>

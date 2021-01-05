@@ -6,6 +6,7 @@
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.CheckBox.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Expander.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.FocusVisualStyle.xaml" />
+		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.GroupBox.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Label.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Menu.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.MenuItem.xaml" />

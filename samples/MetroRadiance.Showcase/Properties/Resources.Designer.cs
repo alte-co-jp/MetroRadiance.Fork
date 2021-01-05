@@ -142,6 +142,15 @@ namespace MetroRadiance.Showcase.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Group box.
+        /// </summary>
+        public static string ControlSample_GroupBoxHeader {
+            get {
+                return ResourceManager.GetString("ControlSample_GroupBoxHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to UI Control samples.
         /// </summary>
         public static string ControlSample_GroupHeader {
