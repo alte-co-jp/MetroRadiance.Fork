@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net45;net462;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.0.12200</AssemblyVersion>
-    <FileVersion>3.0.0.12200</FileVersion>
+    <AssemblyVersion>3.0.0.13270</AssemblyVersion>
+    <FileVersion>3.0.0.13270</FileVersion>
     <RootNamespace>MetroRadiance</RootNamespace>
-    <Version>3.0.0-alpha03</Version>
+    <Version>3.0.0-alpha04</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -15,7 +15,7 @@
     <PackageProjectUrl>https://github.com/nishy2000/MetroRadiance.Fork</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Modern WPF Themes. Fork of MetroRadiance</Description>
-    <Copyright>©2020 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
+    <Copyright>©2020, 2021 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
     <PackageId>MetroRadiance.Fork</PackageId>
     <PackageReleaseNotes>
       Changes
@@ -37,7 +37,8 @@
       - [alpha04]Fix an issue where the appearance of the check state is clipped in Menu/ContextMenu
       - [alpha04]Adjust the appearance of the selected state in Menu/ContextMenu
       - [alpha04]Add a style key for each style defined by MetroRadiance
-      
+      - [alpha04]Add standard control styles (GroupBox)
+
       Limitations
       - [alpha01-] When moving windows using AcrylicBlurWindow class, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
     </PackageReleaseNotes>

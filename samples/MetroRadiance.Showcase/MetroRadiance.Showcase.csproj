@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net452;net462;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.0.12200</AssemblyVersion>
-    <FileVersion>3.0.0.12200</FileVersion>
+    <AssemblyVersion>3.0.0.13270</AssemblyVersion>
+    <FileVersion>3.0.0.13270</FileVersion>
 
-    <Version>3.0.0-alpha03</Version>
+    <Version>3.0.0-alpha04</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -15,7 +15,7 @@
     <PackageProjectUrl>https://github.com/nishy2000/MetroRadiance.Fork</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Modern WPF Themes (Showcase). Fork of MetroRadiance</Description>
-    <Copyright>©2020 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
+    <Copyright>©2020, 2021 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
     <PackageId>MetroRadiance.Fork.Showcase</PackageId>
     <PackageReleaseNotes>
       Changes
@@ -28,7 +28,8 @@
       - [alpha03]Add MenuItem sample
       - [alpha04]Fix an issue that failed when creating metro:BlurWindow and metro:AcrylicBlurWindow in UI Window sample
       - [alpha04]Add ContextMenu sample
-      
+      - [alpha04]Add GroupBox sample
+
       Limitations
       - [alpha01-] When moving windows using metro:AcrylicBlurWindow, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
     </PackageReleaseNotes>
