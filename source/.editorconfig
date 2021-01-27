@@ -1,14 +1,33 @@
 ﻿root = true
 
-[*.{cs,xaml}]
+###############################
+# Core EditorConfig Options   #
+###############################
+# All files
+[*]
+indent_style = space
+
+# Code files
+[*.{c,cpp,h,hpp}]
 indent_style = tab
 indent_size = 4
 end_of_line = crlf
 insert_final_newline = true
 charset = utf-8-bom
 
+[*.{cs,csx,vb,vbx}]
+indent_size = 4
+end_of_line = crlf
+insert_final_newline = true
+charset = utf-8-bom
+
+[*.{xaml}]
+indent_size = 4
+end_of_line = crlf
+insert_final_newline = true
+charset = utf-8-bom
+
 [*.nuspec]
-indent_style = space
 indent_size = 2
 end_of_line = crlf
 insert_final_newline = true
