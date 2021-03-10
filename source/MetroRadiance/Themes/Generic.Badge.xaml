@@ -9,7 +9,7 @@
 				Value="22" />
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="controls:Badge">
+                <ControlTemplate TargetType="{x:Type controls:Badge}">
 					<Grid>
 						<Border CornerRadius="100"
 								Background="{DynamicResource AccentHighlightBrushKey}"

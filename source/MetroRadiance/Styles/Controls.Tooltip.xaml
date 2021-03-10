@@ -3,7 +3,7 @@
 					xmlns:controls="clr-namespace:MetroRadiance.UI.Controls">
 
 	<Style x:Key="MetroRadianceToolTipStyleKey"
-		   TargetType="ToolTip">
+		   TargetType="{x:Type ToolTip}">
 		<Setter Property="OverridesDefaultStyle"
 				Value="True" />
 		<Setter Property="HasDropShadow"
@@ -12,7 +12,7 @@
 				Value="{DynamicResource ForegroundBrushKey}" />
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="ToolTip">
+                <ControlTemplate TargetType="{x:Type ToolTip}">
 					<Border Name="Border"
 							BorderThickness=".99"
 							BorderBrush="{DynamicResource BorderBrushKey}"

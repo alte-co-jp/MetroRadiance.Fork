@@ -534,7 +534,7 @@ Example for TextBox using UInt16Rule (ushort) and a tooltip display of errors
         </Binding>
     </TextBox.Text>
     <TextBox.Style>
-        <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError"
                          Value="True">

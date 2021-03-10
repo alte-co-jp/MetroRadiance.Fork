@@ -28,12 +28,12 @@
         <StackPanel>
             <StackPanel.Resources>
                 <ResourceDictionary>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="BorderBrush" Value="{DynamicResource SystemControlForegroundTransparentBrush}"/>
                         <Setter Property="BorderThickness" Value="3.001"/>
                         <Setter Property="Margin" Value="4"/>
                     </Style>
-                    <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
                         <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
                         <Setter Property="Margin" Value="20,5"/>
                     </Style>
