@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net45;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.0.12200</AssemblyVersion>
-    <FileVersion>3.0.0.12200</FileVersion>
+    <AssemblyVersion>3.0.0.15100</AssemblyVersion>
+    <FileVersion>3.0.0.15100</FileVersion>
     <RootNamespace>MetroRadiance</RootNamespace>
-    <Version>3.0.0-alpha03</Version>
+    <Version>3.0.0</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -15,14 +15,14 @@
     <PackageProjectUrl>https://github.com/nishy2000/MetroRadiance.Fork</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Modern WPF Themes (chrome). Fork of MetroRadiance</Description>
-    <Copyright>©2020 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
+    <Copyright>©2020, 2021 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
     <PackageId>MetroRadiance.Fork.Chrome</PackageId>
     <PackageReleaseNotes>
       Changes
-      - [alpha00]Support .NET Core 3.1 (WPF)
-      - [alpha02]Adjust for High DPI enviroment
-      - [alpha02]Fix misalignment issues of some parts
-      - [alpha03][internal change]Update the formatting of source code
+      - Support .NET Core 3.1 (WPF)
+      - Adjust for High DPI enviroment
+      - Fix misalignment issues of some parts
+      - [internal change]Update the formatting of source code
     </PackageReleaseNotes>
   </PropertyGroup>
 

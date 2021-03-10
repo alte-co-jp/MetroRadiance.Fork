@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net452;net462;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.0.13270</AssemblyVersion>
-    <FileVersion>3.0.0.13270</FileVersion>
+    <AssemblyVersion>3.0.0.15100</AssemblyVersion>
+    <FileVersion>3.0.0.15100</FileVersion>
 
-    <Version>3.0.0-alpha04</Version>
+    <Version>3.0.0</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -19,20 +19,15 @@
     <PackageId>MetroRadiance.Fork.Showcase</PackageId>
     <PackageReleaseNotes>
       Changes
-      - [alpha00]Support .NET Core 3.1 (WPF)
-      - [alpha01]Add UWP compatible resource samples to the theme brush sample page
-      - [alpha01]Add UI controls for adjusting themes to the control sample page
-      - [alpha01]Localize the text string (English/Japanese)
-      - [alpha02]Add Chrome.Externals sample
-      - [alpha02]Add Number validation rule sample
-      - [alpha03]Add MenuItem sample
-      - [alpha04]Fix an issue that failed when creating metro:BlurWindow and metro:AcrylicBlurWindow in UI Window sample
-      - [alpha04]Add ContextMenu sample
-      - [alpha04]Add GroupBox sample
-      - [alpha05]Add ComboBox sample
+      - Support .NET Core 3.1 (WPF)
+      - Localize the text string (English/Japanese)
+      - Add UWP compatible resource samples to the theme brush sample page
+      - Add UI controls for adjusting themes to the control sample page
+      - Add ComboBox / ContextMenu /GroupBox / MenuItem / Number validation rule samples in the control sample page
+      - Add Chrome.Externals sample in the External Window Chrome sample page
 
       Limitations
-      - [alpha01-] When moving windows using metro:AcrylicBlurWindow, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
+      - When moving windows using metro:AcrylicBlurWindow, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
     </PackageReleaseNotes>
     <OutputType>WinExe</OutputType>
     <ApplicationManifest>app.manifest</ApplicationManifest>

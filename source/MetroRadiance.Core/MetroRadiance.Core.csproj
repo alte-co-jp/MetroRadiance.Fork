@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net45;net462;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.0.12200</AssemblyVersion>
-    <FileVersion>3.0.0.12200</FileVersion>
+    <AssemblyVersion>3.0.0.15100</AssemblyVersion>
+    <FileVersion>3.0.0.15100</FileVersion>
     <RootNamespace>MetroRadiance</RootNamespace>
-    <Version>3.0.0-alpha03</Version>
+    <Version>3.0.0</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -15,17 +15,18 @@
     <PackageProjectUrl>https://github.com/nishy2000/MetroRadiance.Fork</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Modern WPF Themes (core). Fork of MetroRadiance</Description>
-    <Copyright>©2020 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
+    <Copyright>©2020, 2021 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
     <PackageId>MetroRadiance.Fork.Core</PackageId>
     <PackageReleaseNotes>
       Changes
-      - [alpha00]Support .NET Core 3.1 (WPF)
-      - [alpha01]Add HslColor class for HSL color model
-      - [alpha01]Add text scale factor support.
-      - [alpha02]Improve interop methods
-      - [alpha03]Add new DPIHelper class for DPI / Per-Monitor DPI support
+      - Support .NET Core 3.1 (WPF)
+      - Add HslColor class for HSL color model
+      - Add text scale factor support.
+      - Improve interop methods
+      - Add new DPIHelper class for DPI / Per-Monitor DPI support
+
       Breaking changes
-      - [alpha01]The type of properties in the MetroRadiance.Platform.WindowsTheme class has changed. Affected if the received variable declaration is used an explicitly specified type instead of using "var".
+      - The type of properties in the MetroRadiance.Platform.WindowsTheme class has changed. Affected if the received variable declaration is used an explicitly specified type instead of using "var".
     </PackageReleaseNotes>
   </PropertyGroup>
 
