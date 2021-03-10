@@ -74,7 +74,12 @@
 										  ContentStringFormat="{TemplateBinding ContentStringFormat}"
 										  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
 					</Grid>
-				</ControlTemplate>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" TargetName="Header" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
 			</Setter.Value>
 		</Setter>
 	</Style>
