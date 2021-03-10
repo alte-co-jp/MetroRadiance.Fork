@@ -10,10 +10,13 @@
 	<!-- Controls.Button.xaml -->
 	<Style TargetType="{x:Type Button}" BasedOn="{StaticResource MetroRadianceButtonStyleKey}"/>
 
-	<!-- Controls.CheckBox.xaml -->
-	<Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MetroRadianceCheckBoxStyleKey}"/>
+    <!-- Controls.CheckBox.xaml -->
+    <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MetroRadianceCheckBoxStyleKey}"/>
 
-	<!-- Controls.ContextMenu.xaml -->
+    <!-- Controls.ComboBox.xaml -->
+    <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroRadianceComboBoxStyleKey}"/>
+
+    <!-- Controls.ContextMenu.xaml -->
 	<Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MetroRadianceContextMenuStyleKey}"
 		   x:Key="{x:Type ContextMenu}" />
 

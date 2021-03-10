@@ -178,6 +178,33 @@ namespace MetroRadiance.Showcase.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ComboBox item 1.
+        /// </summary>
+        public static string ControlSample_TextComboBoxItem1 {
+            get {
+                return ResourceManager.GetString("ControlSample_TextComboBoxItem1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ComboBox item 2.
+        /// </summary>
+        public static string ControlSample_TextComboBoxItem2 {
+            get {
+                return ResourceManager.GetString("ControlSample_TextComboBoxItem2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ComboBox item 3.
+        /// </summary>
+        public static string ControlSample_TextComboBoxItem3 {
+            get {
+                return ResourceManager.GetString("ControlSample_TextComboBoxItem3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Radio button item 1.
         /// </summary>
         public static string ControlSample_TextRadioButtonItem1 {

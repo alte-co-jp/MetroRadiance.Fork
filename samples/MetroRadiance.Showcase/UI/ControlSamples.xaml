@@ -8,11 +8,11 @@
 			 xmlns:ui="clr-namespace:MetroRadiance.Showcase.UI"
 			 mc:Ignorable="d"
 			 d:DesignWidth="500"
-			 d:DesignHeight="700">
+			 d:DesignHeight="850">
 
-	<ScrollViewer HorizontalScrollBarVisibility="Disabled"
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
 				  VerticalScrollBarVisibility="Auto">
-		<StackPanel Margin="8,0,8,8">
+        <StackPanel Margin="8,0,8,8">
             <ui:ThemeControls/>
 
             <Border Height="2"
@@ -26,43 +26,43 @@
 					   HorizontalAlignment="Center"
 					   Margin="0,0,0,8" />
 
-			<Menu>
-				<MenuItem Header="_File">
-					<MenuItem Header="_New">
-						<MenuItem Header="_Solution"
+            <Menu>
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New">
+                        <MenuItem Header="_Solution"
 								  InputGestureText="Ctrl+Shift+N"
 								  IsEnabled="{Binding ElementName=EnabledCheck, Path=IsChecked}">
-							<MenuItem.Icon>
-								<Ellipse Fill="{DynamicResource ForegroundBrushKey}" />
-							</MenuItem.Icon>
-						</MenuItem>
-						<MenuItem Header="_Project"
+                            <MenuItem.Icon>
+                                <Ellipse Fill="{DynamicResource ForegroundBrushKey}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="_Project"
 								  InputGestureText="Ctrl+N"
 								  IsEnabled="{Binding ElementName=EnabledCheck, Path=IsChecked}">
-							<MenuItem.Icon>
-								<Rectangle Fill="{DynamicResource ForegroundBrushKey}" />
-							</MenuItem.Icon>
-						</MenuItem>
-					</MenuItem>
-					<Separator />
-					<MenuItem Header="_Exit"
+                            <MenuItem.Icon>
+                                <Rectangle Fill="{DynamicResource ForegroundBrushKey}" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="_Exit"
 							  InputGestureText="Alt+F4" />
-				</MenuItem>
-				<MenuItem Header="_Edit"
+                </MenuItem>
+                <MenuItem Header="_Edit"
 						  IsEnabled="{Binding ElementName=EnabledCheck, Path=IsChecked}">
-					<MenuItem Header="_Undo"
+                    <MenuItem Header="_Undo"
 							  InputGestureText="Ctrl+Z" />
-					<MenuItem Header="_Redo"
+                    <MenuItem Header="_Redo"
 							  InputGestureText="Ctrl+Y" />
-					<Separator />
-					<MenuItem Header="Cu_t"
+                    <Separator />
+                    <MenuItem Header="Cu_t"
 							  InputGestureText="Ctrl+X" />
-					<MenuItem Header="_Copy"
+                    <MenuItem Header="_Copy"
 							  InputGestureText="Ctrl+C" />
-					<MenuItem Header="_Paste"
+                    <MenuItem Header="_Paste"
 							  InputGestureText="Ctrl+V" />
-				</MenuItem>
-				<MenuItem Header="_Help">
+                </MenuItem>
+                <MenuItem Header="_Help">
                     <MenuItem Header="_Help window" IsCheckable="True" IsChecked="True" />
                     <MenuItem Header="_Help windows">
                         <MenuItem Header="_Help window" IsCheckable="True" IsChecked="True" />
@@ -103,17 +103,21 @@
                 </MenuItem>
             </Menu>
 
-			<CheckBox x:Name="EnabledCheck"
+            <CheckBox x:Name="EnabledCheck"
 					  Content="{x:Static prop:Resources.ControlSample_IsEnabledUIControls}"
 					  IsChecked="True"
 					  Margin="4" />
-			<Grid Margin="12,0"
+            <Grid Margin="12,0"
 						IsEnabled="{Binding ElementName=EnabledCheck, Path=IsChecked}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -179,11 +183,11 @@
                     <metro:PromptTextBox.Text>
                         <Binding Path="Int32"
 								 UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <metro:Int32Rule Min="-4"
-												 Max="49" />
-                            </Binding.ValidationRules>
-                        </Binding>
+                        <Binding.ValidationRules>
+                            <metro:Int32Rule Min="-4"
+											 Max="49" />
+                        </Binding.ValidationRules>
+                    </Binding>
                     </metro:PromptTextBox.Text>
                 </metro:PromptTextBox>
                 <TextBlock Grid.Row="6" Grid.Column="0" Text="metro:PromptTextBox with DobuleRule: "/>
@@ -191,11 +195,11 @@
                     <metro:PromptTextBox.Text>
                         <Binding Path="Double"
 								 UpdateSourceTrigger="Default">
-                            <Binding.ValidationRules>
-                                <metro:DoubleRule Min="-4.9"
+                        <Binding.ValidationRules>
+                            <metro:DoubleRule Min="-4.9"
 												 Max="9.9" />
-                            </Binding.ValidationRules>
-                        </Binding>
+                        </Binding.ValidationRules>
+                    </Binding>
                     </metro:PromptTextBox.Text>
                 </metro:PromptTextBox>
 
@@ -212,15 +216,15 @@
                 <metro:PromptComboBox Grid.Row="9" Grid.Column="1"
                                       Margin="5"
 									  IsEditable="True">
-					<metro:PromptComboBox.Text>
-						<Binding Path="Int32"
+                    <metro:PromptComboBox.Text>
+                        <Binding Path="Int32"
 								 UpdateSourceTrigger="PropertyChanged">
-							<Binding.ValidationRules>
-								<metro:Int32Rule Min="-4"
+                            <Binding.ValidationRules>
+                                <metro:Int32Rule Min="-4"
 												 Max="49" />
-							</Binding.ValidationRules>
-						</Binding>
-					</metro:PromptComboBox.Text>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </metro:PromptComboBox.Text>
                     <ComboBoxItem>2.2</ComboBoxItem>
                     <ComboBoxItem>1</ComboBoxItem>
                     <ComboBoxItem>-10</ComboBoxItem>
@@ -230,11 +234,11 @@
                 <TextBlock Grid.Row="12" Grid.Column="0" Text="PasswordBox: "/>
                 <PasswordBox Grid.Row="12" Grid.Column="1"
                              Margin="5" />
-                
+
                 <TextBlock Grid.Row="14" Grid.Column="0" Text="CheckBox: "/>
                 <CheckBox Grid.Row="14" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextCheckBox}"
 						  Margin="4" />
-                
+
                 <TextBlock Grid.Row="16" Grid.Column="0" Text="RadioButton / GroupBox: "/>
                 <GroupBox Grid.Row="16" Grid.Column="1" Header="{x:Static prop:Resources.ControlSample_GroupBoxHeader}" >
                     <StackPanel Orientation="Vertical">
@@ -251,8 +255,27 @@
                 <ToggleButton Grid.Row="18" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextToggleButton}"
 						  Margin="4" />
 
-                <TextBlock Grid.Row="24" Grid.Column="0" Text="Tooltip/ContextMenu: "/>
-                <Border Grid.Row="24" Grid.Column="1"
+                <TextBlock Grid.Row="20" Grid.Column="0" Text="ComboBox: "/>
+                <ComboBox Grid.Row="20" Grid.Column="1"
+						  Margin="4"
+                          SelectedIndex="0">
+                    <ComboBoxItem Content="{x:Static prop:Resources.ControlSample_TextComboBoxItem1}"/>
+                    <ComboBoxItem Content="{x:Static prop:Resources.ControlSample_TextComboBoxItem2}"/>
+                    <ComboBoxItem Content="{x:Static prop:Resources.ControlSample_TextComboBoxItem3}"/>
+                </ComboBox>
+
+                <TextBlock Grid.Row="22" Grid.Column="0" Text="ComboBox (Editable): "/>
+                <ComboBox Grid.Row="22" Grid.Column="1"
+                          IsEditable="True"
+						  Margin="4"
+                          SelectedIndex="0">
+                    <ComboBoxItem Content="{x:Static prop:Resources.ControlSample_TextComboBoxItem1}"/>
+                    <ComboBoxItem Content="{x:Static prop:Resources.ControlSample_TextComboBoxItem2}"/>
+                    <ComboBoxItem Content="{x:Static prop:Resources.ControlSample_TextComboBoxItem3}"/>
+                </ComboBox>
+
+                <TextBlock Grid.Row="26" Grid.Column="0" Text="Tooltip/ContextMenu: "/>
+                <Border Grid.Row="28" Grid.Column="1"
                         Margin="4"
                         BorderThickness="1"
                         BorderBrush="{DynamicResource BorderBrushKey}">
@@ -338,7 +361,7 @@
 					    Click="HandleAcrylicBlurWindowButtonClicked">
                     <Label Content="{x:Static prop:Resources.ControlSample_ButtonCreateAcrylicBlurWindow}"/>
                 </Button>
-              </WrapPanel>
-		</StackPanel>
-	</ScrollViewer>
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

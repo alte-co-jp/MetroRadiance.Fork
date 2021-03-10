@@ -1,0 +1,493 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.TextBox.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Foreground" Color="{DynamicResource ActiveForegroundColorKey}"/>
+    <!--
+    <LinearGradientBrush x:Key="MetroRadianceComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFF0F0F0" Offset="0.0"/>
+        <GradientStop Color="#FFE5E5E5" Offset="1.0"/>
+    </LinearGradientBrush>
+    -->
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Background" Color="{DynamicResource BackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Border" Color="{DynamicResource BorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Editable.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Editable.Button.Background" Color="{DynamicResource BackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Editable.Button.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Glyph" Color="{DynamicResource AccentColorKey}"/>
+    <!--
+    <LinearGradientBrush x:Key="MetroRadianceComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFECF4FC" Offset="0.0"/>
+        <GradientStop Color="#FFDCECFC" Offset="1.0"/>
+    </LinearGradientBrush>
+    -->
+    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Background" Color="{DynamicResource ActiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Border" Color="{DynamicResource AccentColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Editable.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
+    <!--
+    <LinearGradientBrush x:Key="MetroRadianceComboBox.MouseOver.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFEBF4FC" Offset="0.0"/>
+        <GradientStop Color="#FFDCECFC" Offset="1.0"/>
+    </LinearGradientBrush>
+    -->
+    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Editable.Button.Background" Color="{DynamicResource BackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Editable.Button.Border" Color="{DynamicResource AccentColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Glyph" Color="{DynamicResource AccentForegroundColorKey}"/>
+    <!--
+    <LinearGradientBrush x:Key="MetroRadianceComboBox.Pressed.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFDAECFC" Offset="0.0"/>
+        <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
+    </LinearGradientBrush>
+    -->
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Background" Color="{DynamicResource ActiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Border" Color="{DynamicResource AccentColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Editable.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
+    <!--
+    <LinearGradientBrush x:Key="MetroRadianceComboBox.Pressed.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFDAEBFC" Offset="0.0"/>
+        <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
+    </LinearGradientBrush>
+    -->
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Editable.Button.Background" Color="{DynamicResource BackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Editable.Button.Border" Color="{DynamicResource AccentColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Background" Color="{DynamicResource BackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Border" Color="{DynamicResource BorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Editable.Border" Color="{DynamicResource BorderColorKey}"/>
+    <!--
+    <LinearGradientBrush x:Key="MetroRadianceComboBox.Opened.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFDAEBFC" Offset="0.0"/>
+        <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
+    </LinearGradientBrush>
+    -->
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Editable.Button.Background" Color="{DynamicResource AccentColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Editable.Button.Border" Color="{DynamicResource AccentColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Foreground" Color="{DynamicResource InactiveForegroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Glyph" Color="{DynamicResource InactiveForegroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Background" Color="{DynamicResource InactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Editable.Background" Color="{DynamicResource InactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Editable.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Editable.Button.Background" Color="Transparent"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Editable.Button.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Glyph" Color="{DynamicResource ForegroundColorKey}"/>
+    <Style x:Key="MetroRadianceComboBoxToggleButtonKey" TargetType="{x:Type ToggleButton}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="ClickMode" Value="Press"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border x:Name="templateRoot"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="true">
+                        <Border x:Name="splitBorder"
+                                BorderBrush="Transparent"
+                                BorderThickness="0.99"
+                                HorizontalAlignment="Right"
+                                Margin="0"
+                                SnapsToDevicePixels="true"
+                                Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
+                            <!--
+                            <Path x:Name="arrow" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z"
+                                  Fill="{DynamicResource MetroRadianceComboBox.Static.Glyph}"
+                                  HorizontalAlignment="Center"
+                                  Margin="0"
+                                  VerticalAlignment="Center"/>
+                            -->
+                            <Path x:Name="arrow"
+                                  Data="M 0.0,0.0 L 3.5,4.0 7.0,0.0 z"
+                                  Fill="{DynamicResource MetroRadianceComboBox.Static.Glyph}"
+							      HorizontalAlignment="Center"
+                                  Margin="0"
+							      VerticalAlignment="Center" />
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
+                                           Value="true"/>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="true"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot"
+                                    Value="{DynamicResource MetroRadianceComboBox.Static.Editable.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot"
+                                    Value="{DynamicResource MetroRadianceComboBox.Static.Editable.Border}"/>
+                            <Setter Property="Background" TargetName="splitBorder"
+                                    Value="{DynamicResource MetroRadianceComboBox.Static.Editable.Button.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="splitBorder"
+                                    Value="{DynamicResource MetroRadianceComboBox.Static.Editable.Button.Border}"/>
+                        </MultiDataTrigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Glyph}"/>
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
+                                           Value="false"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Border}"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
+                                           Value="true"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Editable.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Editable.Border}"/>
+                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Editable.Button.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Editable.Button.Border}"/>
+                        </MultiDataTrigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadianceComboBox.Pressed.Glyph}"/>
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
+                                           Value="false"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Pressed.Border}"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
+                                           Value="true"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Pressed.Editable.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Pressed.Editable.Border}"/>
+                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Pressed.Editable.Button.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Pressed.Editable.Button.Border}"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
+                                           Value="true"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Opened.Editable.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Opened.Editable.Border}"/>
+                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Opened.Editable.Button.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Opened.Editable.Button.Border}"/>
+                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadianceComboBox.Pressed.Glyph}"/>
+                        </MultiDataTrigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadianceComboBox.Disabled.Glyph}"/>
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
+                                           Value="false"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Disabled.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Disabled.Border}"/>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
+                                           Value="true"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Disabled.Editable.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Disabled.Editable.Border}"/>
+                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Disabled.Editable.Button.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Disabled.Editable.Button.Border}"/>
+                        </MultiDataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <ControlTemplate x:Key="MetroRadianceComboBoxTemplateKey"
+                     TargetType="{x:Type ComboBox}">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
+                                  Width="0"/>
+            </Grid.ColumnDefinitions>
+            <Popup x:Name="PART_Popup"
+                   AllowsTransparency="true"
+                   Grid.ColumnSpan="2"
+                   IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                   Margin="1"
+                   PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}"
+                   Placement="Bottom">
+                <Themes:SystemDropShadowChrome
+                    x:Name="shadow"
+                    Color="Transparent"
+                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                    MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
+                    <Border x:Name="dropDownBorder"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                        <ScrollViewer x:Name="DropDownScrollViewer">
+                            <Grid x:Name="grid"
+                                  RenderOptions.ClearTypeHint="Enabled">
+                                <Canvas x:Name="canvas"
+                                        HorizontalAlignment="Left"
+                                        Height="0"
+                                        VerticalAlignment="Top"
+                                        Width="0">
+                                    <Rectangle x:Name="opaqueRect"
+                                               Fill="{Binding Background, ElementName=dropDownBorder}"
+                                               Height="{Binding ActualHeight, ElementName=dropDownBorder}"
+                                               Width="{Binding ActualWidth, ElementName=dropDownBorder}"/>
+                                </Canvas>
+                                <ItemsPresenter x:Name="ItemsPresenter"
+                                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Grid>
+                        </ScrollViewer>
+                    </Border>
+                </Themes:SystemDropShadowChrome>
+            </Popup>
+            <ToggleButton x:Name="toggleButton"
+                          Grid.ColumnSpan="2"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          Background="{TemplateBinding Background}"
+                          IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                          Style="{StaticResource MetroRadianceComboBoxToggleButtonKey}"/>
+            <ContentPresenter x:Name="contentPresenter"
+                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                              Content="{TemplateBinding SelectionBoxItem}"
+                              ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              IsHitTestVisible="false"
+                              Margin="{TemplateBinding Padding}"
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="HasDropShadow"
+                     SourceName="PART_Popup"
+                     Value="true">
+                <Setter Property="Margin"
+                        TargetName="shadow"
+                        Value="0,0,5,5"/>
+                <Setter Property="Color"
+                        TargetName="shadow"
+                        Value="#71000000"/>
+            </Trigger>
+            <Trigger Property="HasItems" Value="false">
+                <Setter Property="Height"
+                        TargetName="dropDownBorder"
+                        Value="95"/>
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsGrouping" Value="true"/>
+                    <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+            </MultiTrigger>
+            <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
+                <Setter Property="Canvas.Top"
+                        TargetName="opaqueRect"
+                        Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
+                <Setter Property="Canvas.Left"
+                        TargetName="opaqueRect"
+                        Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style x:Key="MetroRadianceComboBoxEditableTextBoxKey"
+           TargetType="{x:Type TextBox}"
+           BasedOn="{StaticResource MetroRadianceTextBoxBaseStyleKey}">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="MinWidth" Value="0"/>
+        <Setter Property="MinHeight" Value="0"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <!--
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <ScrollViewer x:Name="PART_ContentHost"
+                                  Background="Transparent"
+                                  Focusable="false"
+                                  HorizontalScrollBarVisibility="Hidden"
+                                  VerticalScrollBarVisibility="Hidden"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        -->
+    </Style>
+    <ControlTemplate x:Key="MetroRadianceComboBoxEditableTemplateKey"
+                     TargetType="{x:Type ComboBox}">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
+                                  Width="0"/>
+            </Grid.ColumnDefinitions>
+            <Popup x:Name="PART_Popup"
+                   AllowsTransparency="true"
+                   Grid.ColumnSpan="2"
+                   IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                   PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}"
+                   Placement="Bottom">
+                <Themes:SystemDropShadowChrome
+                    x:Name="shadow"
+                    Color="Transparent"
+                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                    MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
+                    <Border x:Name="dropDownBorder"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                        <ScrollViewer x:Name="DropDownScrollViewer">
+                            <Grid x:Name="grid"
+                                  RenderOptions.ClearTypeHint="Enabled">
+                                <Canvas x:Name="canvas"
+                                        HorizontalAlignment="Left"
+                                        Height="0"
+                                        VerticalAlignment="Top"
+                                        Width="0">
+                                    <Rectangle x:Name="opaqueRect"
+                                               Fill="{Binding Background, ElementName=dropDownBorder}"
+                                               Height="{Binding ActualHeight, ElementName=dropDownBorder}"
+                                               Width="{Binding ActualWidth, ElementName=dropDownBorder}"/>
+                                </Canvas>
+                                <ItemsPresenter
+                                    x:Name="ItemsPresenter"
+                                    KeyboardNavigation.DirectionalNavigation="Contained"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Grid>
+                        </ScrollViewer>
+                    </Border>
+                </Themes:SystemDropShadowChrome>
+            </Popup>
+            <ToggleButton x:Name="toggleButton"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          Background="{TemplateBinding Background}"
+                          Grid.ColumnSpan="2"
+                          IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                          Style="{StaticResource MetroRadianceComboBoxToggleButtonKey}"/>
+            <Border x:Name="border"
+                    Background="{DynamicResource MetroRadianceComboBox.Static.Editable.Background}"
+                    Margin="{TemplateBinding BorderThickness}">
+                <TextBox x:Name="PART_EditableTextBox"
+                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                         IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}"
+                         Padding="{TemplateBinding Padding}"
+                         Style="{StaticResource MetroRadianceComboBoxEditableTextBoxKey}"
+                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" TargetName="PART_EditableTextBox" Value="{DynamicResource MetroRadianceComboBox.Disabled.Foreground}"/>
+                <!--
+                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                -->
+            </Trigger>
+            <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+            <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
+                <Setter Property="Margin" TargetName="shadow" Value="0,0,5,5"/>
+                <Setter Property="Color" TargetName="shadow" Value="#71000000"/>
+            </Trigger>
+            <Trigger Property="HasItems" Value="false">
+                <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsGrouping" Value="true"/>
+                    <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+            </MultiTrigger>
+            <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
+                <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
+                <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style x:Key="MetroRadianceComboBoxStyleKey" TargetType="{x:Type ComboBox}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource MetroRadianceInnerFocusVisualStyleKey}"/>
+        <Setter Property="Background" Value="{DynamicResource MetroRadianceComboBox.Static.Background}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource MetroRadianceComboBox.Static.Border}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Static.Foreground}"/>
+        <Setter Property="BorderThickness" Value="0.999"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="Padding" Value="6,3,5,3"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <Setter Property="SnapsToDevicePixels"
+							Value="true" />
+                    <Setter Property="OverridesDefaultStyle"
+							Value="true" />
+                    <Setter Property="Background"
+							Value="Transparent" />
+                    <Setter Property="FocusVisualStyle"
+							Value="{x:Null}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                                <Border CornerRadius="0"
+										Padding="2"
+										Background="{TemplateBinding Background}"
+										SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                    <ContentPresenter />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsHighlighted"
+											 Value="True">
+                                        <Setter Property="Background"
+												Value="{DynamicResource HighlightBackgroundBrushKey}" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template" Value="{StaticResource MetroRadianceComboBoxTemplateKey}"/>
+        <Style.Triggers>
+            <Trigger Property="IsEditable" Value="true">
+                <Setter Property="IsTabStop" Value="false"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Static.Foreground}"/>
+                <Setter Property="Template" Value="{StaticResource MetroRadianceComboBoxEditableTemplateKey}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Disabled.Foreground}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

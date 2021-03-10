@@ -414,6 +414,7 @@ These styles use the colors and brushes defined in MetroRadiance. Therefore, it 
  - `<Style TargetType="{x:Type Button}" x:key="MetroRadianceButtonStyleKey">`
  - `<Style TargetType="{x:Type Button}" x:Key="CircleButtonStyleKey">`
  - `<Style TargetType="{x:Type CheckBox}" x:Key="MetroRadianceCheckBoxStyleKey">`
+ - `<Style TargetType="{x:Type ComboBox}" x:Key="MetroRadianceComboBoxStyleKey">`
  - `<Style TargetType="{x:Type ContextMenu}" x:Key="MetroRadianceContextMenuStyleKey">`
  - `<Style TargetType="{x:Type Expander}" x:Key="MetroRadianceExpanderStyleKey">`
  - `<Style x:Key="MetroRadianceFocusVisualStyleKey">`
@@ -435,6 +436,7 @@ These styles use the colors and brushes defined in MetroRadiance. Therefore, it 
 
  - `<Style TargetType="{x:Type Button}" BasedOn="{StaticResource MetroRadianceButtonStyleKey}"/>`
  - `<Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MetroRadianceCheckBoxStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroRadianceComboBoxStyleKey}"/>`
  - [v3.0.0-] `<Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MetroRadianceContextMenuStyleKey}"
 		   x:Key="{x:Type ContextMenu}" />`
  - `<Style TargetType="{x:Type Expander}" BasedOn="{StaticResource MetroRadianceExpanderStyleKey}"/>`

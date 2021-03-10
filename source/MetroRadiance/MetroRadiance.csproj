@@ -38,6 +38,7 @@
       - [alpha04]Adjust the appearance of the selected state in Menu/ContextMenu
       - [alpha04]Add a style key for each style defined by MetroRadiance
       - [alpha04]Add standard control styles (GroupBox)
+      - [alpha05]Add standard control styles (ComboBox)
 
       Limitations
       - [alpha01-] When moving windows using AcrylicBlurWindow class, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
