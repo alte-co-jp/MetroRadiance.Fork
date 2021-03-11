@@ -25,21 +25,38 @@ namespace MetroRadiance.Showcase.UI
 		static ThemeViewModel _instance;
 		public static ThemeViewModel Instance { get { return _instance; } }
 
-		#region Windows 変更通知プロパティ
+		#region Theme property
+		Theme _theme = ThemeService.Current.Theme;
 
-		private bool _Windows = ThemeService.Current.Theme == Theme.Windows;
+		public Theme Theme
+		{
+			get { return this._theme; }
+			set
+			{
+				if (this._theme != value)
+				{
+					this._theme = value;
+					this.RaisePropertyChanged();
+					this.RaisePropertyChanged(nameof(this.Windows));
+					this.RaisePropertyChanged(nameof(this.Light));
+					this.RaisePropertyChanged(nameof(this.Dark));
+
+					ThemeService.Current.ChangeTheme(this._theme);
+				}
+			}
+		}
+		#endregion
+
+		#region Windows 変更通知プロパティ
 
 		public bool Windows
 		{
-			get { return this._Windows; }
+			get { return this._theme == Theme.Windows; }
 			set
 			{
-				if (this._Windows != value)
+				if (value)
 				{
-					this._Windows = value;
-					this.RaisePropertyChanged();
-
-					if (value) ThemeService.Current.ChangeTheme(Theme.Windows);
+					this.Theme = Theme.Windows;
 				}
 			}
 		}
@@ -48,19 +65,14 @@ namespace MetroRadiance.Showcase.UI
 
 		#region Light 変更通知プロパティ
 
-		private bool _Light = ThemeService.Current.Theme == Theme.Light;
-
 		public bool Light
 		{
-			get { return this._Light; }
+			get { return this._theme == Theme.Light; }
 			set
 			{
-				if (this._Light != value)
+				if (value)
 				{
-					this._Light = value;
-					this.RaisePropertyChanged();
-
-					if (value) ThemeService.Current.ChangeTheme(Theme.Light);
+					this.Theme = Theme.Light;
 				}
 			}
 		}
@@ -69,19 +81,14 @@ namespace MetroRadiance.Showcase.UI
 
 		#region Dark 変更通知プロパティ
 
-		private bool _Dark = ThemeService.Current.Theme == Theme.Dark;
-
 		public bool Dark
 		{
-			get { return this._Dark; }
+			get { return this._theme == Theme.Dark; }
 			set
 			{
-				if (this._Dark != value)
+				if (value)
 				{
-					this._Dark = value;
-					this.RaisePropertyChanged();
-
-					if (value) ThemeService.Current.ChangeTheme(Theme.Dark);
+					this.Theme = Theme.Dark;
 				}
 			}
 		}
@@ -98,22 +105,40 @@ namespace MetroRadiance.Showcase.UI
 		static AccentViewModel _instance;
 		public static AccentViewModel Instance { get { return _instance; } }
 
+		#region Accent property
+		Accent _accent = ThemeService.Current.Accent;
+
+		public Accent Accent
+		{
+			get { return this._accent; }
+			set
+			{
+				if (this._accent != value)
+				{
+					this._accent = value;
+					this.RaisePropertyChanged();
+					this.RaisePropertyChanged(nameof(this.Windows));
+					this.RaisePropertyChanged(nameof(this.Purple));
+					this.RaisePropertyChanged(nameof(this.Blue));
+					this.RaisePropertyChanged(nameof(this.Orange));
+					this.RaisePropertyChanged(nameof(this.Red));
+
+					ThemeService.Current.ChangeAccent(this._accent);
+				}
+			}
+		}
+		#endregion
 
 		#region Windows 変更通知プロパティ
 
-		private bool _Windows = ThemeService.Current.Accent.SyncToWindows;
-
 		public bool Windows
 		{
-			get { return this._Windows; }
+			get { return this.Accent == Accent.Windows; }
 			set
 			{
-				if (this._Windows != value)
+				if (value)
 				{
-					this._Windows = value;
-					this.RaisePropertyChanged();
-
-					if (value) ThemeService.Current.ChangeAccent(Accent.Windows);
+					this.Accent = Accent.Windows;
 				}
 			}
 		}
@@ -122,19 +147,14 @@ namespace MetroRadiance.Showcase.UI
 
 		#region Purple 変更通知プロパティ
 
-		private bool _Purple = ThemeService.Current.Accent.Specified == Accent.SpecifiedColor.Purple;
-
 		public bool Purple
 		{
-			get { return this._Purple; }
+			get { return this.Accent == Accent.Purple; }
 			set
 			{
-				if (this._Purple != value)
+				if (value)
 				{
-					this._Purple = value;
-					this.RaisePropertyChanged();
-
-					if (value) ThemeService.Current.ChangeAccent(Accent.Purple);
+					this.Accent = Accent.Purple;
 				}
 			}
 		}
@@ -143,19 +163,14 @@ namespace MetroRadiance.Showcase.UI
 
 		#region Blue 変更通知プロパティ
 
-		private bool _Blue = ThemeService.Current.Accent.Specified == Accent.SpecifiedColor.Blue;
-
 		public bool Blue
 		{
-			get { return this._Blue; }
+			get { return this.Accent == Accent.Blue; }
 			set
 			{
-				if (this._Blue != value)
+				if (value)
 				{
-					this._Blue = value;
-					this.RaisePropertyChanged();
-
-					if (value) ThemeService.Current.ChangeAccent(Accent.Blue);
+					this.Accent = Accent.Blue;
 				}
 			}
 		}
@@ -164,19 +179,14 @@ namespace MetroRadiance.Showcase.UI
 
 		#region Orange 変更通知プロパティ
 
-		private bool _Orange = ThemeService.Current.Accent.Specified == Accent.SpecifiedColor.Orange;
-
 		public bool Orange
 		{
-			get { return this._Orange; }
+			get { return this.Accent == Accent.Orange; }
 			set
 			{
-				if (this._Orange != value)
+				if (value)
 				{
-					this._Orange = value;
-					this.RaisePropertyChanged();
-
-					if (value) ThemeService.Current.ChangeAccent(Accent.Orange);
+					this.Accent = Accent.Orange;
 				}
 			}
 		}
@@ -185,19 +195,16 @@ namespace MetroRadiance.Showcase.UI
 
 		#region Red 変更通知プロパティ
 
-		private bool _Red = ThemeService.Current.Accent.Color == Colors.Red;
+		static Accent _accentRed = Accent.FromColor(Colors.Red);
 
 		public bool Red
 		{
-			get { return this._Red; }
+			get { return this.Accent == _accentRed; }
 			set
 			{
-				if (this._Red != value)
+				if (value)
 				{
-					this._Red = value;
-					this.RaisePropertyChanged();
-
-					if (value) ThemeService.Current.ChangeAccent(Accent.FromColor(Colors.Red));
+					this.Accent = _accentRed;
 				}
 			}
 		}

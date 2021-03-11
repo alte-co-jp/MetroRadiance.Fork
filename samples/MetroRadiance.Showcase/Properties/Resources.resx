@@ -144,6 +144,9 @@
   <data name="ControlSample_ButtonCreateBlurWindow" xml:space="preserve">
     <value>Create metro:_BlurWindow</value>
   </data>
+  <data name="ControlSample_ButtonCreateSystemWindow" xml:space="preserve">
+    <value>Create _System.Windows.Window</value>
+  </data>
   <data name="ControlSample_GroupBoxHeader" xml:space="preserve">
     <value>Group box</value>
   </data>
@@ -258,5 +261,11 @@ Click the right mouse button inside this pane in order to show context menu.</va
   </data>
   <data name="WindowSample_GroupHeader" xml:space="preserve">
     <value>UI Window samples</value>
+  </data>
+  <data name="WindowTitle_MetroWindow" xml:space="preserve">
+    <value>MetroRadiance Showcase (metro:MetroWindow)</value>
+  </data>
+  <data name="WindowTitle_SystemWindow" xml:space="preserve">
+    <value>MetroRadiance Showcase (System.Windows.Window)</value>
   </data>
 </root>

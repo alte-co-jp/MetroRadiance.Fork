@@ -144,6 +144,9 @@
   <data name="ControlSample_ButtonCreateBlurWindow" xml:space="preserve">
     <value>metro:BlurWindow を作成する(_B)</value>
   </data>
+  <data name="ControlSample_ButtonCreateSystemWindow" xml:space="preserve">
+    <value>System.Windows.Window を作成する(_S)</value>
+  </data>
   <data name="ControlSample_GroupBoxHeader" xml:space="preserve">
     <value>グループ ボックス</value>
   </data>
@@ -258,5 +261,11 @@
   </data>
   <data name="WindowSample_GroupHeader" xml:space="preserve">
     <value>UI ウィンドウ サンプル</value>
+  </data>
+  <data name="WindowTitle_MetroWindow" xml:space="preserve">
+    <value>MetroRadiance ショーケース (metro:MetroWindow)</value>
+  </data>
+  <data name="WindowTitle_SystemWindow" xml:space="preserve">
+    <value>MetroRadiance ショーケース (System.Windows.Window)</value>
   </data>
 </root>

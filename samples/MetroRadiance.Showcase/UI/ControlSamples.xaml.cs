@@ -14,6 +14,11 @@ namespace MetroRadiance.Showcase.UI
 			this.DataContext = new SampleValues();
 		}
 
+		private void HandleSystemWindowButtonClicked(object sender, RoutedEventArgs e)
+		{
+			new MainSystemWindow().Show();
+		}
+
 		private void HandleBlurWindowButtonClicked(object sender, RoutedEventArgs e)
 		{
 			new BlurWindowSample().Show();

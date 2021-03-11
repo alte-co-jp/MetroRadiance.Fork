@@ -352,6 +352,12 @@
                 <Button Margin="4,4"
 					    Height="30"
 					    HorizontalAlignment="Left"
+					    Click="HandleSystemWindowButtonClicked">
+                    <Label Content="{x:Static prop:Resources.ControlSample_ButtonCreateSystemWindow}"/>
+                </Button>
+                <Button Margin="4,4"
+					    Height="30"
+					    HorizontalAlignment="Left"
 					    Click="HandleBlurWindowButtonClicked">
                     <Label Content="{x:Static prop:Resources.ControlSample_ButtonCreateBlurWindow}"/>
                 </Button>

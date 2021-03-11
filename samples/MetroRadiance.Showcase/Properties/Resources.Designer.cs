@@ -142,6 +142,15 @@ namespace MetroRadiance.Showcase.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create _System.Windows.Window.
+        /// </summary>
+        public static string ControlSample_ButtonCreateSystemWindow {
+            get {
+                return ResourceManager.GetString("ControlSample_ButtonCreateSystemWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Group box.
         /// </summary>
         public static string ControlSample_GroupBoxHeader {
@@ -481,6 +490,24 @@ namespace MetroRadiance.Showcase.Properties {
         public static string WindowSample_GroupHeader {
             get {
                 return ResourceManager.GetString("WindowSample_GroupHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MetroRadiance Showcase (metro:MetroWindow).
+        /// </summary>
+        public static string WindowTitle_MetroWindow {
+            get {
+                return ResourceManager.GetString("WindowTitle_MetroWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MetroRadiance Showcase (System.Windows.Window).
+        /// </summary>
+        public static string WindowTitle_SystemWindow {
+            get {
+                return ResourceManager.GetString("WindowTitle_SystemWindow", resourceCulture);
             }
         }
     }
