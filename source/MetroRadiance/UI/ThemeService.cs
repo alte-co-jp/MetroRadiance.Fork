@@ -33,14 +33,16 @@ namespace MetroRadiance.UI
 		private static readonly string _themeUrl = @"Themes/{theme}.xaml";
 		private static readonly string _uwpThemeUrl = @"Themes/UWP/{theme}.xaml";
 		private static readonly string _accentUrl = @"Themes/Accents/{accent}.xaml";
-		private static readonly string _uwpAccentUrl = @"Themes/UWP/Accents/{accent}.xaml";
-		private static readonly UriTemplateTable _templateTable;
+        private static readonly string _uwpAccentUrl = @"Themes/UWP/Accents/{accent}.xaml";
+        private static readonly string _styleUrl = @"Styles/{style}.xaml";
+        private static readonly UriTemplateTable _templateTable;
 
 		private static readonly UriTemplate _themeTemplate = new UriTemplate(_themeUrl);
 		private static readonly UriTemplate _uwpThemeTemplate = new UriTemplate(_uwpThemeUrl);
 		private static readonly UriTemplate _accentTemplate = new UriTemplate(_accentUrl);
-		private static readonly UriTemplate _uwpAccentTemplate = new UriTemplate(_uwpAccentUrl);
-		private static readonly Uri _templateBaseUri = new Uri(_baseUrl);
+        private static readonly UriTemplate _uwpAccentTemplate = new UriTemplate(_uwpAccentUrl);
+        private static readonly UriTemplate _styleTemplate = new UriTemplate(_styleUrl);
+        private static readonly Uri _templateBaseUri = new Uri(_baseUrl);
 
 		private bool _enableUWPCompatibleResources;
 		private Dispatcher _dispatcher;
@@ -50,11 +52,12 @@ namespace MetroRadiance.UI
 		private readonly List<ResourceDictionary> _themeResources = new List<ResourceDictionary>();
 		private readonly List<ResourceDictionary> _uwpThemeResources = new List<ResourceDictionary>();
 		private readonly List<ResourceDictionary> _accentResources = new List<ResourceDictionary>();
-		private readonly List<ResourceDictionary> _uwpAccentResources = new List<ResourceDictionary>();
+        private readonly List<ResourceDictionary> _uwpAccentResources = new List<ResourceDictionary>();
+        private readonly List<ResourceDictionary> _styleResources = new List<ResourceDictionary>();
 
-		#region Theme 変更通知プロパティ
+        #region Theme 変更通知プロパティ
 
-		private Theme? _Theme;
+        private Theme? _Theme;
 
 		/// <summary>
 		/// 現在設定されているテーマを取得します。
@@ -106,13 +109,15 @@ namespace MetroRadiance.UI
 			_templateTable.Add("accent", new UriTemplate(_baseUrl + _accentUrl));
 			_templateTable.Add("uwptheme", new UriTemplate(_baseUrl + _uwpThemeUrl));
 			_templateTable.Add("uwpaccent", new UriTemplate(_baseUrl + _uwpAccentUrl));
+			_templateTable.Add("style", new UriTemplate(_baseUrl + _styleUrl));
 #else
-			_templateTable = new UriTemplateTable(_templateBaseUri);
+            _templateTable = new UriTemplateTable(_templateBaseUri);
 			_templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_themeTemplate, "theme"));
 			_templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_accentTemplate, "accent"));
 			_templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_uwpThemeTemplate, "uwptheme"));
-			_templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_uwpAccentTemplate, "uwpaccent"));
-			_templateTable.MakeReadOnly(false);
+            _templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_uwpAccentTemplate, "uwpaccent"));
+            _templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_styleTemplate, "style"));
+            _templateTable.MakeReadOnly(false);
 #endif
 		}
 
@@ -209,8 +214,21 @@ namespace MetroRadiance.UI
 				this._uwpAccentResources.Add(targetUwpAccentDic);
 			}
 
-			// Unregister したいときは戻り値の IDisposable を Dispose() してほしい
-			return Disposable.Create(() =>
+            // Find resources that include SolidColorBrushes in style and UWP theme
+            var targetStyleDics = allDictionaries.Where(x => CheckStyleResourceUri(x.Source)).Concat(Enumerable.Repeat(targetUwpThemeDic, 1)).Where(y => {
+                foreach (var item in y.OfType<System.Collections.DictionaryEntry>())
+                {
+                    if (item.Value is SolidColorBrush)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            });
+            this._styleResources.AddRange(targetStyleDics);
+            
+            // Unregister したいときは戻り値の IDisposable を Dispose() してほしい
+            return Disposable.Create(() =>
 			{
 				this._themeResources.Remove(targetThemeDic);
 				if (targetUwpThemeDic != null)
@@ -222,7 +240,8 @@ namespace MetroRadiance.UI
 				{
 					this._uwpAccentResources.Remove(targetUwpAccentDic);
 				}
-			});
+                targetStyleDics.ToList().ForEach(i=>this._styleResources.Remove(i));
+            });
 		}
 
 		ResourceDictionary UpdateDic(ResourceDictionary registertDic, ResourceDictionary targetDic, ResourceDictionary baseDic)
@@ -286,9 +305,22 @@ namespace MetroRadiance.UI
 					resource[key] = uwpDic[key];
 				}
 			}
-		}
 
-		private bool SetAppMode(Theme theme)
+            // SolidColorBrushのColorプロパティのDynamicResourceを再評価するようにブラシを再作成する
+            foreach (var resource in this._styleResources)
+            {
+                var entries = resource.OfType<System.Collections.DictionaryEntry>().ToList();
+                foreach (var item in entries)
+                {
+                    if (item.Value is SolidColorBrush brush)
+                    {
+                        resource[item.Key] = brush.Clone();
+                    }
+                }
+            }
+        }
+
+        private bool SetAppMode(Theme theme)
 		{
 			PreferredAppMode appMode;
 			if (theme.SyncToWindows)
@@ -340,9 +372,22 @@ namespace MetroRadiance.UI
 					resource[key] = uwpDic[key];
 				}
 			}
-		}
 
-		static ResourceDictionary GetThemeResource(Theme theme)
+            // SolidColorBrushのColorプロパティのDynamicResourceを再評価するようにブラシを再作成する
+            foreach (var resource in this._styleResources)
+            {
+                var entries = resource.OfType<System.Collections.DictionaryEntry>().ToList();
+                foreach (var item in entries)
+                {
+                    if (item.Value is SolidColorBrush brush)
+                    {
+                        resource[item.Key] = brush.Clone();
+                    }
+                }
+            }
+        }
+
+        static ResourceDictionary GetThemeResource(Theme theme)
 		{
 			var specified = theme.SyncToWindows
 				? WindowsTheme.Theme.Current == Platform.Theme.Dark ? Theme.Dark.Specified : Theme.Light.Specified
@@ -520,12 +565,31 @@ namespace MetroRadiance.UI
 #endif
 		}
 
+        /// <summary>
+        /// 指定した <see cref="Uri"/> がスタイルのリソースを指す URI かどうかをチェックします。
+        /// </summary>
+        /// <returns><paramref name="uri"/> がスタイルのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
+        static bool CheckStyleResourceUri(Uri uri)
+        {
+            if (uri == null) return false;
+#if NETCOREAPP
+			return _templateTable.Match(uri)?.Key == "style";
+#else
+#if false
+			var result = _templateTable.Match(uri);
+			return result != null && result.Count == 1 && result.First().Data.ToString() == "style";
+#else
+            return _styleTemplate.Match(_templateBaseUri, uri) != null;
+#endif
+#endif
+        }
 
-		/// <summary>
-		/// 指定した <see cref="Uri"/> がUWPアクセント カラーのリソースを指す URI かどうかをチェックします。
-		/// </summary>
-		/// <returns><paramref name="uri"/> がUWPアクセント カラーのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
-		static bool CheckUwpAccentResourceUri(Uri uri)
+
+        /// <summary>
+        /// 指定した <see cref="Uri"/> がUWPアクセント カラーのリソースを指す URI かどうかをチェックします。
+        /// </summary>
+        /// <returns><paramref name="uri"/> がUWPアクセント カラーのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
+        static bool CheckUwpAccentResourceUri(Uri uri)
 		{
 			if (uri == null) return false;
 #if NETCOREAPP

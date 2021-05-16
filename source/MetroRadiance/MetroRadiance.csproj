@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net45;net462;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.0.15100</AssemblyVersion>
-    <FileVersion>3.0.0.15100</FileVersion>
+    <AssemblyVersion>3.0.1.5130</AssemblyVersion>
+    <FileVersion>3.0.1.5130</FileVersion>
     <RootNamespace>MetroRadiance</RootNamespace>
-    <Version>3.0.0</Version>
+    <Version>3.0.1-alpha00</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -18,21 +18,9 @@
     <Copyright>©2020, 2021 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
     <PackageId>MetroRadiance.Fork</PackageId>
     <PackageReleaseNotes>
-      Changes
-      - Support .NET Core 3.1 (WPF)
-      - Add UWP compatible resources (colors/brushes)
-      - Add AcrylicBlurWindow class
-      - Add a style key for each style defined by MetroRadiance
-      - Add standard control styles (ComboBox/GroupBox/Label/TextBox)
-      - Add standard menu styles (Menu/MenuItem/ContextMenu)
-      - Add number validation rules (Int16Rule/UInt16Rule/Int32Rule/UInt32Rule/SingleRule/DoubleRule)
-      - Add toottip text to Caption buttons (Minimize/Maximize/Restore/Close).
-      - Localize the text string used in the Int32Rule class (en/ja/de/fr/ko/zh-Hans/zh-Hant)
-      - Apply dark theme to the system menu
-      - Improve CaptionIcon behavior to work with Window.
-      - Improve the appearance of radio button
-      - Adjust the foreground color of the tooltip control
-      - Fix an issue where brush values would not update as the theme changed after the control was reloaded
+      Changes from 3.0.0
+      - Fix an issue that error occurs when displaying ToolTip in System.Windows.Window
+      - Fix an issue that ComboBox appearance and UWP brushes may not follow dynamic changes in theme
 
       Limitations
       - When moving windows using AcrylicBlurWindow class, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
