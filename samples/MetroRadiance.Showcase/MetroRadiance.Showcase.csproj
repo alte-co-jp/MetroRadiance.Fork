@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net452;net462;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.0.15100</AssemblyVersion>
-    <FileVersion>3.0.0.15100</FileVersion>
+    <AssemblyVersion>3.1.0.6050</AssemblyVersion>
+    <FileVersion>3.1.0.6050</FileVersion>
 
-    <Version>3.0.0</Version>
+    <Version>3.1.0-alpha00</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -18,13 +18,8 @@
     <Copyright>©2020, 2021 nishy software / ©2014-2017 Manato KAMEYA</Copyright>
     <PackageId>MetroRadiance.Fork.Showcase</PackageId>
     <PackageReleaseNotes>
-      Changes
-      - Support .NET Core 3.1 (WPF)
-      - Localize the text string (English/Japanese)
-      - Add UWP compatible resource samples to the theme brush sample page
-      - Add UI controls for adjusting themes to the control sample page
-      - Add ComboBox / ContextMenu /GroupBox / MenuItem / Number validation rule samples in the control sample page
-      - Add Chrome.Externals sample in the External Window Chrome sample page
+      Changes from 3.0.0
+      - Add DataGrid samples in the control sample page
 
       Limitations
       - When moving windows using metro:AcrylicBlurWindow, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later

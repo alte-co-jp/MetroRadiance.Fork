@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net45;net462;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.0.1.5130</AssemblyVersion>
-    <FileVersion>3.0.1.5130</FileVersion>
+    <AssemblyVersion>3.1.0.6050</AssemblyVersion>
+    <FileVersion>3.1.0.6050</FileVersion>
     <RootNamespace>MetroRadiance</RootNamespace>
-    <Version>3.0.1-alpha00</Version>
+    <Version>3.1.0-alpha00</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -19,6 +19,7 @@
     <PackageId>MetroRadiance.Fork</PackageId>
     <PackageReleaseNotes>
       Changes from 3.0.0
+      - Add standard control styles (DataGrid)
       - Fix an issue that error occurs when displaying ToolTip in System.Windows.Window
       - Fix an issue that ComboBox appearance and UWP brushes may not follow dynamic changes in theme
 

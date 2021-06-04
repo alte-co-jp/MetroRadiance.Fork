@@ -1,14 +1,12 @@
 # Changelog for MetroRadiance.Fork
 
-## 3.0.1 (preview) MetroRadiance
-
-- ### Changes
-  - Fix an issue that error occurs when displaying ToolTip in System.Windows.Window
-  - Fix an issue that ComboBox appearance and UWP brushes may not follow dynamic changes in theme
+## 3.1.0 (preview) MetroRadiance
 
 - ### Breaking changes
+  - None
 
 - ### Enhancements/Features
+  - Add standard control styles (DataGrid)
 
 - ### Bug fixes
   - [#1](../../issues/1) - Error occurs when displaying ToolTip in System.Windows.Window (System.Windows.Window‚ÅToolTip‚ğ•\¦‚·‚é‚Æ‚«‚ÉƒGƒ‰[‚ª”­¶‚·‚é)

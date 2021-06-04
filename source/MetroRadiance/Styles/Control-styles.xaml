@@ -5,6 +5,7 @@
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.CheckBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.ComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.DataGrid.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Expander.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.FocusVisualStyle.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.GroupBox.xaml" />
@@ -18,6 +19,6 @@
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.TextBox.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.ToggleButton.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Tooltip.xaml" />
-	</ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary.MergedDictionaries>
 	
 </ResourceDictionary>

@@ -8,7 +8,16 @@
 			 xmlns:ui="clr-namespace:MetroRadiance.Showcase.UI"
 			 mc:Ignorable="d"
 			 d:DesignWidth="500"
-			 d:DesignHeight="850">
+			 d:DesignHeight="1200">
+    <UserControl.Resources>
+        <x:Array x:Key="DataItems" Type="{x:Type ui:SampleDataItem}">
+            <ui:SampleDataItem Id="1" Name="Name a" Description="AAAA" Active="True" Selected="Name c" />
+            <ui:SampleDataItem Id="3" Name="Name b" Description="TTTT" Active="False" />
+            <ui:SampleDataItem Id="9" Name="Name c" Description="ZZZZ" />
+        </x:Array>
+        <CollectionViewSource x:Key="DataItemsView1"  Source="{StaticResource DataItems}" />
+        <CollectionViewSource x:Key="DataItemsView2"  Source="{StaticResource DataItems}" />
+    </UserControl.Resources>
 
     <ScrollViewer HorizontalScrollBarVisibility="Disabled"
 				  VerticalScrollBarVisibility="Auto">
@@ -143,6 +152,10 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="TextBox: "/>
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="TextBox" />
@@ -183,11 +196,11 @@
                     <metro:PromptTextBox.Text>
                         <Binding Path="Int32"
 								 UpdateSourceTrigger="PropertyChanged">
-                        <Binding.ValidationRules>
-                            <metro:Int32Rule Min="-4"
+                            <Binding.ValidationRules>
+                                <metro:Int32Rule Min="-4"
 											 Max="49" />
-                        </Binding.ValidationRules>
-                    </Binding>
+                            </Binding.ValidationRules>
+                        </Binding>
                     </metro:PromptTextBox.Text>
                 </metro:PromptTextBox>
                 <TextBlock Grid.Row="6" Grid.Column="0" Text="metro:PromptTextBox with DobuleRule: "/>
@@ -195,11 +208,11 @@
                     <metro:PromptTextBox.Text>
                         <Binding Path="Double"
 								 UpdateSourceTrigger="Default">
-                        <Binding.ValidationRules>
-                            <metro:DoubleRule Min="-4.9"
+                            <Binding.ValidationRules>
+                                <metro:DoubleRule Min="-4.9"
 												 Max="9.9" />
-                        </Binding.ValidationRules>
-                    </Binding>
+                            </Binding.ValidationRules>
+                        </Binding>
                     </metro:PromptTextBox.Text>
                 </metro:PromptTextBox>
 
@@ -275,7 +288,7 @@
                 </ComboBox>
 
                 <TextBlock Grid.Row="26" Grid.Column="0" Text="Tooltip/ContextMenu: "/>
-                <Border Grid.Row="28" Grid.Column="1"
+                <Border Grid.Row="26" Grid.Column="1"
                         Margin="4"
                         BorderThickness="1"
                         BorderBrush="{DynamicResource BorderBrushKey}">
@@ -334,6 +347,63 @@
                         </TextBlock>
                     </Label>
                 </Border>
+
+                <TextBlock Grid.Row="30" Grid.Column="0" Text="DataGrid: "/>
+                <DataGrid Grid.Row="30" Grid.Column="1"
+                          Margin="0,4"
+                          ItemsSource="{Binding Source={StaticResource DataItemsView1}}"
+                          AlternationCount="2"
+                          AlternatingRowBackground="{DynamicResource MetroRadiance.Brushes.DataGrid.Static.Row.AlternatingBackground}"
+                          AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Text (R/W)"
+                                            Binding="{Binding Description}"/>
+                        <DataGridTextColumn Header="Text (R)"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Name,Mode=OneWay}"/>
+                        <DataGridCheckBoxColumn Header="CheckBox (R/W)"
+                                                Binding="{Binding Active,UpdateSourceTrigger=PropertyChanged}"
+                                                IsThreeState="True"/>
+                        <DataGridCheckBoxColumn Header="CheckBox (R)"
+                                                IsReadOnly="True"
+                                                Binding="{Binding Active,Mode=OneWay}"
+                                                IsThreeState="True"/>
+                        <DataGridComboBoxColumn Header="ComboBox (R/W)"
+                                                SelectedValueBinding="{Binding Selected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                DisplayMemberPath="Name"
+                                                SelectedValuePath="Name"
+                                                ItemsSource="{StaticResource DataItems}"/>
+                        <DataGridComboBoxColumn Header="ComboBox (R)"
+                                                IsReadOnly="True"
+                                                SelectedValueBinding="{Binding Selected,Mode=OneWay}"
+                                                DisplayMemberPath="Name"
+                                                SelectedValuePath="Name"
+                                                ItemsSource="{StaticResource DataItems}"/>
+                        <DataGridTextColumn Header="Selected item (R)"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Selected,Mode=OneWay}"/>
+                        <DataGridTemplateColumn Header="Template">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        Text="{Binding Selected,Mode=OneWay}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox
+                                        ItemsSource="{StaticResource DataItems}"
+                                        DisplayMemberPath="Name"
+                                        SelectedValuePath="Name"
+                                        SelectedValue="{Binding Selected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
 
             <Border Height="2"

@@ -77,6 +77,7 @@
     <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Editable.Button.Background" Color="Transparent"/>
     <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Editable.Button.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
     <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Glyph" Color="{DynamicResource ForegroundColorKey}"/>
+    
     <Style x:Key="MetroRadianceComboBoxToggleButtonKey" TargetType="{x:Type ToggleButton}">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="IsTabStop" Value="false"/>
@@ -216,6 +217,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <ControlTemplate x:Key="MetroRadianceComboBoxTemplateKey"
                      TargetType="{x:Type ComboBox}">
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
@@ -312,6 +314,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
+    
     <Style x:Key="MetroRadianceComboBoxEditableTextBoxKey"
            TargetType="{x:Type TextBox}"
            BasedOn="{StaticResource MetroRadianceTextBoxBaseStyleKey}">
@@ -339,6 +342,7 @@
         </Setter>
         -->
     </Style>
+    
     <ControlTemplate x:Key="MetroRadianceComboBoxEditableTemplateKey"
                      TargetType="{x:Type ComboBox}">
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
@@ -432,11 +436,11 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    <Style x:Key="MetroRadianceComboBoxStyleKey" TargetType="{x:Type ComboBox}">
+
+    <Style x:Key="MetroRadiance.Styles.ComboBox.Base" TargetType="{x:Type ComboBox}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource MetroRadianceInnerFocusVisualStyleKey}"/>
         <Setter Property="Background" Value="{DynamicResource MetroRadianceComboBox.Static.Background}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource MetroRadianceComboBox.Static.Border}"/>
-        <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Static.Foreground}"/>
         <Setter Property="BorderThickness" Value="0.999"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
@@ -485,6 +489,16 @@
                 <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Static.Foreground}"/>
                 <Setter Property="Template" Value="{StaticResource MetroRadianceComboBoxEditableTemplateKey}"/>
             </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Disabled.Foreground}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MetroRadianceComboBoxStyleKey" TargetType="{x:Type ComboBox}"
+           BasedOn="{StaticResource MetroRadiance.Styles.ComboBox.Base}">
+        <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Static.Foreground}"/>
+        <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Disabled.Foreground}"/>
             </Trigger>

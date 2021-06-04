@@ -20,10 +20,14 @@
 	<Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MetroRadianceContextMenuStyleKey}"
 		   x:Key="{x:Type ContextMenu}" />
 
-	<!-- Controls.Expander.xaml -->
-	<Style TargetType="{x:Type Expander}" BasedOn="{StaticResource MetroRadianceExpanderStyleKey}"/>
+    <!-- Controls.DataGrid.xaml -->
+    <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource MetroRadiance.Styles.DataGrid}"/>
+    <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MetroRadiance.Styles.DataGrid.DataGridColumnHeader}"/>
 
-	<!-- Controls.FocusVisualStyle.xaml -->
+    <!-- Controls.Expander.xaml -->
+    <Style TargetType="{x:Type Expander}" BasedOn="{StaticResource MetroRadianceExpanderStyleKey}"/>
+
+    <!-- Controls.FocusVisualStyle.xaml -->
 	<Style BasedOn="{StaticResource MetroRadianceFocusVisualStyleKey}"
 		   x:Key="{x:Static SystemParameters.FocusVisualStyleKey}"/>
 
