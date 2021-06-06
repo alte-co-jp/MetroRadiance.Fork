@@ -104,7 +104,7 @@
         </Setter>
     </Style>
     <Style x:Key="MetroRadiance.Styles.DataGridComboBoxColumn.EditingElement" TargetType="{x:Type ComboBox}"
-           BasedOn="{StaticResource MetroRadiance.Styles.ComboBox.Base}">
+           BasedOn="{StaticResource MetroRadiance.Styles.ComboBox}">
         <Setter Property="IsSynchronizedWithCurrentItem" Value="False"/>
     </Style>
 
