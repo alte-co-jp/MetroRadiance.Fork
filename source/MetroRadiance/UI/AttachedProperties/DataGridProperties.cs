@@ -15,7 +15,7 @@ namespace MetroRadiance.UI.AttachedProperties
     using System.Windows.Controls;
     using System.Windows.Data;
 
-    class DataGridHelper : DependencyObject
+    public class DataGridProperties : DependencyObject
     {
         #region TextColumnDefaultElementStyle Property
 
@@ -24,7 +24,7 @@ namespace MetroRadiance.UI.AttachedProperties
         /// This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty TextColumnDefaultElementStyleProperty =
-            DependencyProperty.RegisterAttached("TextColumnDefaultElementStyle", typeof(Style), typeof(DataGridHelper),
+            DependencyProperty.RegisterAttached("TextColumnDefaultElementStyle", typeof(Style), typeof(DataGridProperties),
                 new PropertyMetadata(null, OnTextColumnDefaultElementStyleChanged));
 
         public static void SetTextColumnDefaultElementStyle(DependencyObject d, Style style)
@@ -45,7 +45,7 @@ namespace MetroRadiance.UI.AttachedProperties
         /// This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty TextColumnDefaultEditingElementStyleProperty =
-            DependencyProperty.RegisterAttached("TextColumnDefaultEditingElementStyle", typeof(Style), typeof(DataGridHelper),
+            DependencyProperty.RegisterAttached("TextColumnDefaultEditingElementStyle", typeof(Style), typeof(DataGridProperties),
                 new PropertyMetadata(null, OnTextColumnDefaultEditingElementStyleChanged));
 
         public static void SetTextColumnDefaultEditingElementStyle(DependencyObject d, Style style)
@@ -66,7 +66,7 @@ namespace MetroRadiance.UI.AttachedProperties
         /// This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty CheckBoxColumnDefaultElementStyleProperty =
-            DependencyProperty.RegisterAttached("CheckBoxColumnDefaultElementStyle", typeof(Style), typeof(DataGridHelper),
+            DependencyProperty.RegisterAttached("CheckBoxColumnDefaultElementStyle", typeof(Style), typeof(DataGridProperties),
                 new PropertyMetadata(null, OnCheckBoxColumnDefaultElementStyleChanged));
 
         public static void SetCheckBoxColumnDefaultElementStyle(DependencyObject d, Style style)
@@ -87,7 +87,7 @@ namespace MetroRadiance.UI.AttachedProperties
         /// This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty CheckBoxColumnDefaultEditingElementStyleProperty =
-            DependencyProperty.RegisterAttached("CheckBoxColumnDefaultEditingElementStyle", typeof(Style), typeof(DataGridHelper),
+            DependencyProperty.RegisterAttached("CheckBoxColumnDefaultEditingElementStyle", typeof(Style), typeof(DataGridProperties),
                 new PropertyMetadata(null, OnCheckBoxColumnDefaultEditingElementStyleChanged));
 
         public static void SetCheckBoxColumnDefaultEditingElementStyle(DependencyObject d, Style style)
@@ -108,7 +108,7 @@ namespace MetroRadiance.UI.AttachedProperties
         /// This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty ComboBoxColumnDefaultElementStyleProperty =
-            DependencyProperty.RegisterAttached("ComboBoxColumnDefaultElementStyle", typeof(Style), typeof(DataGridHelper),
+            DependencyProperty.RegisterAttached("ComboBoxColumnDefaultElementStyle", typeof(Style), typeof(DataGridProperties),
                 new PropertyMetadata(null, OnComboBoxColumnDefaultElementStyleChanged));
 
         public static void SetComboBoxColumnDefaultElementStyle(DependencyObject d, Style style)
@@ -129,7 +129,7 @@ namespace MetroRadiance.UI.AttachedProperties
         /// This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty ComboBoxColumnDefaultEditingElementStyleProperty =
-            DependencyProperty.RegisterAttached("ComboBoxColumnDefaultEditingElementStyle", typeof(Style), typeof(DataGridHelper),
+            DependencyProperty.RegisterAttached("ComboBoxColumnDefaultEditingElementStyle", typeof(Style), typeof(DataGridProperties),
                 new PropertyMetadata(null, OnComboBoxColumnDefaultEditingElementStyleChanged));
 
         public static void SetComboBoxColumnDefaultEditingElementStyle(DependencyObject d, Style style)

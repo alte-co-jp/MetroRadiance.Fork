@@ -807,17 +807,17 @@
         <Setter Property="RowStyle"
                 Value="{DynamicResource MetroRadiance.Styles.DataGrid.DataGridRow}"/>
 
-        <Setter Property="mrap:DataGridHelper.TextColumnDefaultElementStyle"
+        <Setter Property="mrap:DataGridProperties.TextColumnDefaultElementStyle"
                 Value="{DynamicResource MetroRadiance.Styles.DataGridTextColumn.Element}"/>
-        <Setter Property="mrap:DataGridHelper.TextColumnDefaultEditingElementStyle"
+        <Setter Property="mrap:DataGridProperties.TextColumnDefaultEditingElementStyle"
                 Value="{DynamicResource MetroRadiance.Styles.DataGridTextColumn.EditingElement}"/>
-        <Setter Property="mrap:DataGridHelper.CheckBoxColumnDefaultElementStyle"
+        <Setter Property="mrap:DataGridProperties.CheckBoxColumnDefaultElementStyle"
                 Value="{DynamicResource MetroRadiance.Styles.DataGridCheckBoxColumn.Element}"/>
-        <Setter Property="mrap:DataGridHelper.CheckBoxColumnDefaultEditingElementStyle"
+        <Setter Property="mrap:DataGridProperties.CheckBoxColumnDefaultEditingElementStyle"
                 Value="{DynamicResource MetroRadiance.Styles.DataGridCheckBoxColumn.EditingElement}"/>
-        <Setter Property="mrap:DataGridHelper.ComboBoxColumnDefaultElementStyle"
+        <Setter Property="mrap:DataGridProperties.ComboBoxColumnDefaultElementStyle"
                 Value="{DynamicResource MetroRadiance.Styles.DataGridComboBoxColumn.Element}"/>
-        <Setter Property="mrap:DataGridHelper.ComboBoxColumnDefaultEditingElementStyle"
+        <Setter Property="mrap:DataGridProperties.ComboBoxColumnDefaultEditingElementStyle"
                 Value="{DynamicResource MetroRadiance.Styles.DataGridComboBoxColumn.EditingElement}"/>
 
         <Style.Triggers>

@@ -10,6 +10,7 @@ using System.Windows.Markup;
 	ResourceDictionaryLocation.None,
 	ResourceDictionaryLocation.SourceAssembly)]
 
+[assembly: XmlnsDefinition("http://schemes.grabacr.net/winfx/2014/attached-poperties", "MetroRadiance.UI.AttachedProperties")]
 [assembly: XmlnsDefinition("http://schemes.grabacr.net/winfx/2014/controls", "MetroRadiance.UI.Controls")]
 [assembly: XmlnsDefinition("http://schemes.grabacr.net/winfx/2014/converters", "MetroRadiance.UI.Converters")]
 [assembly: XmlnsDefinition("http://schemes.grabacr.net/winfx/2014/interactivity", "MetroRadiance.UI.Interactivity")]
