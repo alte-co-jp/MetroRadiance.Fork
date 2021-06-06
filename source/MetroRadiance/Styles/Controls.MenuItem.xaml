@@ -2,15 +2,15 @@
 					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					xmlns:ms="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
 
-	<Geometry x:Key="MetroRadianceMenuPathDataRight">M 0,0 L 4,3.5 L 0,7 Z</Geometry>
+    <Geometry x:Key="MetroRadiance.Geometries.Menu.Glyph.Right">M 0,0 L 4,3.5 L 0,7 Z</Geometry>
 
-	<Geometry x:Key="MetroRadianceMenuPathDataCheck">F1 M 10.0,1.2 L 4.7,9.1 L 4.5,9.1 L 0,5.2 L 1.3,3.5 L 4.3,6.1L 8.3,0 L 10.0,1.2 Z</Geometry>
+    <Geometry x:Key="MetroRadiance.Geometries.Menu.Glyph.Check">F1 M 10.0,1.2 L 4.7,9.1 L 4.5,9.1 L 0,5.2 L 1.3,3.5 L 4.3,6.1L 8.3,0 L 10.0,1.2 Z</Geometry>
 
-	<MenuScrollingVisibilityConverter x:Key="MetroRadianceMenuScrollingVisibilityConverter" />
-	<Geometry x:Key="MetroRadianceMenuPathDataDown">M 0,0 L 3.5,4 L 7,0 Z</Geometry>
-	<Geometry x:Key="MetroRadianceMenuPathDataUp">M 0,4 L 3.5,0 L 7,4 Z</Geometry>
+    <MenuScrollingVisibilityConverter x:Key="MetroRadiance.Converters.MenuScrollingVisibilityConverter" />
+    <Geometry x:Key="MetroRadiance.Geometries.Menu.Glyph.Down">M 0,0 L 3.5,4 L 7,0 Z</Geometry>
+    <Geometry x:Key="MetroRadiance.Geometries.Menu.Glyph.Up">M 0,4 L 3.5,0 L 7,4 Z</Geometry>
 
-	<Style x:Key="MetroRadianceSeparatorStyleKey"
+    <Style x:Key="MetroRadiance.Styles.Menu.Separator"
 		   TargetType="{x:Type Separator}">
 		<Setter Property="Background"
 				Value="{DynamicResource BorderBrushKey}" />
@@ -31,7 +31,7 @@
 		</Setter>
 	</Style>
 
-	<Style x:Key="MetroRadianceRepeatButtonStyleKey"
+    <Style x:Key="MetroRadiance.Styles.Menu.RepeatButton"
 		   TargetType="{x:Type RepeatButton}"
 		   BasedOn="{x:Null}">
 		<Setter Property="ClickMode"
@@ -53,7 +53,7 @@
 		</Setter>
 	</Style>
 
-	<Style x:Key="MetroRadianceMenuScrollViewerStyleKey"
+    <Style x:Key="MetroRadiance.Styles.Menu.ScrollViewer"
 		   TargetType="{x:Type ScrollViewer}"
 		   BasedOn="{x:Null}">
 		<Setter Property="HorizontalScrollBarVisibility"
@@ -73,13 +73,13 @@
 												Margin="{TemplateBinding Padding}"
 												CanContentScroll="{TemplateBinding CanContentScroll}" />
 						<RepeatButton Grid.Row="0"
-									  Style="{StaticResource MetroRadianceRepeatButtonStyleKey}"
+									  Style="{StaticResource MetroRadiance.Styles.Menu.RepeatButton}"
 									  Command="{x:Static ScrollBar.LineUpCommand}"
 									  CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
 									  Focusable="false">
 							<RepeatButton.Visibility>
 								<MultiBinding ConverterParameter="0"
-											  Converter="{StaticResource MetroRadianceMenuScrollingVisibilityConverter}"
+											  Converter="{StaticResource MetroRadiance.Converters.MenuScrollingVisibilityConverter}"
 											  FallbackValue="Visibility.Collapsed">
 									<Binding Path="ComputedVerticalScrollBarVisibility"
 											 RelativeSource="{RelativeSource TemplatedParent}" />
@@ -91,17 +91,17 @@
 											 RelativeSource="{RelativeSource TemplatedParent}" />
 								</MultiBinding>
 							</RepeatButton.Visibility>
-							<Path Data="{StaticResource MetroRadianceMenuPathDataUp}"
+                            <Path Data="{StaticResource MetroRadiance.Geometries.Menu.Glyph.Up}"
 								  Fill="{TemplateBinding Foreground}" />
 						</RepeatButton>
 						<RepeatButton Grid.Row="2"
-									  Style="{StaticResource MetroRadianceRepeatButtonStyleKey}"
+									  Style="{StaticResource MetroRadiance.Styles.Menu.RepeatButton}"
 									  Command="{x:Static ScrollBar.LineDownCommand}"
 									  CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
 									  Focusable="false">
 							<RepeatButton.Visibility>
 								<MultiBinding ConverterParameter="100"
-											  Converter="{StaticResource MetroRadianceMenuScrollingVisibilityConverter}"
+											  Converter="{StaticResource MetroRadiance.Converters.MenuScrollingVisibilityConverter}"
 											  FallbackValue="Visibility.Collapsed">
 									<Binding Path="ComputedVerticalScrollBarVisibility"
 											 RelativeSource="{RelativeSource TemplatedParent}" />
@@ -113,7 +113,7 @@
 											 RelativeSource="{RelativeSource TemplatedParent}" />
 								</MultiBinding>
 							</RepeatButton.Visibility>
-							<Path Data="{StaticResource MetroRadianceMenuPathDataDown}"
+                            <Path Data="{StaticResource MetroRadiance.Geometries.Menu.Glyph.Down}"
 								  Fill="{TemplateBinding Foreground}" />
 						</RepeatButton>
 					</Grid>
@@ -123,7 +123,7 @@
 	</Style>
 
 	<!-- Top-level Item -->
-	<ControlTemplate x:Key="MetroRadianceTopLevelItemTemplateKey"
+    <ControlTemplate x:Key="MetroRadiance.Templates.MenuItem.TopLevelItem"
 					 TargetType="{x:Type MenuItem}">
 		<Grid x:Name="templateRoot"
 			  VerticalAlignment="Center"
@@ -142,7 +142,7 @@
 							  Height="16"
 							  Margin="3" />
 			<Path x:Name="GlyphPanel"
-				  Data="{StaticResource MetroRadianceMenuPathDataCheck}"
+				  Data="{StaticResource MetroRadiance.Geometries.Menu.Glyph.Check}"
 				  FlowDirection="LeftToRight"
 				  Margin="3"
 				  Visibility="Collapsed"
@@ -203,7 +203,7 @@
 	</ControlTemplate>
 
 	<!-- Top-level Header -->
-	<ControlTemplate x:Key="MetroRadianceTopLevelHeaderTemplateKey"
+    <ControlTemplate x:Key="MetroRadiance.Templates.MenuItem.TopLevelHeader"
 					 TargetType="{x:Type MenuItem}">
 		<Border x:Name="templateRoot"
 				Background="Transparent"
@@ -224,7 +224,7 @@
 								  Margin="3"
 								  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 				<Path x:Name="GlyphPanel"
-					  Data="{StaticResource MetroRadianceMenuPathDataCheck}"
+					  Data="{StaticResource MetroRadiance.Geometries.Menu.Glyph.Check}"
 					  FlowDirection="LeftToRight"
 					  Margin="3"
 					  Visibility="Collapsed"
@@ -264,7 +264,7 @@
 
 								<ScrollViewer x:Name="SubMenuScrollViewer"
 											  Margin="4,2,0,0"
-											  Style="{DynamicResource MetroRadianceMenuScrollViewerStyleKey}">
+											  Style="{DynamicResource MetroRadiance.Styles.Menu.ScrollViewer}">
 									<Grid Margin="1,0,0,0">
 										<Canvas Height="0"
 												Width="0"
@@ -378,7 +378,7 @@
 	</ControlTemplate>
 
 	<!-- MenuItem only -->
-	<ControlTemplate x:Key="MetroRadianceSubmenuItemTemplateKey"
+    <ControlTemplate x:Key="MetroRadiance.Templates.MenuItem.SubmenuItem"
 					 TargetType="{x:Type MenuItem}">
 		<Grid x:Name="templateRoot"
 			  Background="{TemplateBinding Background}"
@@ -425,7 +425,7 @@
 					BorderThickness="{TemplateBinding BorderThickness}"
 					ClipToBounds="False">
 				<Path x:Name="Glyph"
-					  Data="{StaticResource MetroRadianceMenuPathDataCheck}"
+					  Data="{StaticResource MetroRadiance.Geometries.Menu.Glyph.Check}"
 					  FlowDirection="LeftToRight"
 					  Height="11"
 					  Width="10"
@@ -504,7 +504,7 @@
 	</ControlTemplate>
 
 	<!-- MenuItem with Popup -->
-	<ControlTemplate x:Key="MetroRadianceSubmenuHeaderTemplateKey"
+    <ControlTemplate x:Key="MetroRadiance.Templates.MenuItem.SubmenuHeader"
 					 TargetType="{x:Type MenuItem}">
 		<Grid x:Name="templateRoot"
 			  Background="{TemplateBinding Background}"
@@ -551,7 +551,7 @@
 					BorderThickness="{TemplateBinding BorderThickness}"
                     ClipToBounds="False">
 				<Path x:Name="Glyph"
-					  Data="{StaticResource MetroRadianceMenuPathDataCheck}"
+					  Data="{StaticResource MetroRadiance.Geometries.Menu.Glyph.Check}"
 					  FlowDirection="LeftToRight"
 					  Height="11"
 					  Width="9"
@@ -572,7 +572,7 @@
 					   Margin="{TemplateBinding MenuItem.Padding}" />
 			<Path x:Name="RightArrow"
 				  Grid.Column="5"
-				  Data="{StaticResource MetroRadianceMenuPathDataRight}"
+				  Data="{StaticResource MetroRadiance.Geometries.Menu.Glyph.Right}"
 				  Margin="10,0,0,0"
 				  VerticalAlignment="Center"
 				  HorizontalAlignment="Left"
@@ -593,7 +593,7 @@
 							BorderThickness="{TemplateBinding BorderThickness}"
 							Padding="2">
 						<ScrollViewer x:Name="SubMenuScrollViewer"
-									  Style="{DynamicResource MetroRadianceMenuScrollViewerStyleKey}">
+									  Style="{DynamicResource MetroRadiance.Styles.Menu.ScrollViewer}">
 							<Grid RenderOptions.ClearTypeHint="Enabled"
                                   Margin="1,0,0,0">
 								<Canvas Height="0"
@@ -695,7 +695,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 
-	<Style x:Key="MetroRadianceMenuItemStyleKey" TargetType="{x:Type MenuItem}">
+    <Style x:Key="MetroRadiance.Styles.MenuItem" TargetType="{x:Type MenuItem}">
 		<Setter Property="HorizontalContentAlignment"
 				Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
 		<Setter Property="VerticalContentAlignment"
@@ -713,26 +713,26 @@
 		<Setter Property="Padding"
 				Value="6,0" />
 		<Setter Property="Template"
-				Value="{DynamicResource MetroRadianceSubmenuItemTemplateKey}" />
+				Value="{DynamicResource MetroRadiance.Templates.MenuItem.SubmenuItem}" />
 		<Style.Triggers>
 			<Trigger Property="Role"
 					 Value="TopLevelHeader">
 				<Setter Property="Template"
-						Value="{DynamicResource MetroRadianceTopLevelHeaderTemplateKey}" />
+						Value="{DynamicResource MetroRadiance.Templates.MenuItem.TopLevelHeader}" />
 				<Setter Property="Padding"
 						Value="6,0" />
 			</Trigger>
 			<Trigger Property="Role"
 					 Value="TopLevelItem">
 				<Setter Property="Template"
-						Value="{DynamicResource MetroRadianceTopLevelItemTemplateKey}" />
+						Value="{DynamicResource MetroRadiance.Templates.MenuItem.TopLevelItem}" />
 				<Setter Property="Padding"
 						Value="6,0" />
 			</Trigger>
 			<Trigger Property="Role"
 					 Value="SubmenuHeader">
 				<Setter Property="Template"
-						Value="{DynamicResource MetroRadianceSubmenuHeaderTemplateKey}" />
+						Value="{DynamicResource MetroRadiance.Templates.MenuItem.SubmenuHeader}" />
 			</Trigger>
 		</Style.Triggers>
 	</Style>

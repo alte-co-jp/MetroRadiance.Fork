@@ -4,81 +4,49 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.TextBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Foreground" Color="{DynamicResource ActiveForegroundColorKey}"/>
-    <!--
-    <LinearGradientBrush x:Key="MetroRadianceComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
-        <GradientStop Color="#FFF0F0F0" Offset="0.0"/>
-        <GradientStop Color="#FFE5E5E5" Offset="1.0"/>
-    </LinearGradientBrush>
-    -->
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Background" Color="{DynamicResource BackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Border" Color="{DynamicResource BorderColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Editable.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Editable.Button.Background" Color="{DynamicResource BackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Editable.Button.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Glyph" Color="{DynamicResource AccentColorKey}"/>
-    <!--
-    <LinearGradientBrush x:Key="MetroRadianceComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
-        <GradientStop Color="#FFECF4FC" Offset="0.0"/>
-        <GradientStop Color="#FFDCECFC" Offset="1.0"/>
-    </LinearGradientBrush>
-    -->
-    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Background" Color="{DynamicResource ActiveBackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Border" Color="{DynamicResource AccentColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Editable.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
-    <!--
-    <LinearGradientBrush x:Key="MetroRadianceComboBox.MouseOver.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
-        <GradientStop Color="#FFEBF4FC" Offset="0.0"/>
-        <GradientStop Color="#FFDCECFC" Offset="1.0"/>
-    </LinearGradientBrush>
-    -->
-    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Editable.Button.Background" Color="{DynamicResource BackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.MouseOver.Editable.Button.Border" Color="{DynamicResource AccentColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Glyph" Color="{DynamicResource AccentForegroundColorKey}"/>
-    <!--
-    <LinearGradientBrush x:Key="MetroRadianceComboBox.Pressed.Background" EndPoint="0,1" StartPoint="0,0">
-        <GradientStop Color="#FFDAECFC" Offset="0.0"/>
-        <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
-    </LinearGradientBrush>
-    -->
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Background" Color="{DynamicResource ActiveBackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Border" Color="{DynamicResource AccentColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Editable.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
-    <!--
-    <LinearGradientBrush x:Key="MetroRadianceComboBox.Pressed.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
-        <GradientStop Color="#FFDAEBFC" Offset="0.0"/>
-        <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
-    </LinearGradientBrush>
-    -->
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Editable.Button.Background" Color="{DynamicResource BackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Pressed.Editable.Button.Border" Color="{DynamicResource AccentColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Background" Color="{DynamicResource BackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Border" Color="{DynamicResource BorderColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Editable.Border" Color="{DynamicResource BorderColorKey}"/>
-    <!--
-    <LinearGradientBrush x:Key="MetroRadianceComboBox.Opened.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
-        <GradientStop Color="#FFDAEBFC" Offset="0.0"/>
-        <GradientStop Color="#FFC4E0FC" Offset="1.0"/>
-    </LinearGradientBrush>
-    -->
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Editable.Button.Background" Color="{DynamicResource AccentColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Opened.Editable.Button.Border" Color="{DynamicResource AccentColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Foreground" Color="{DynamicResource InactiveForegroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Glyph" Color="{DynamicResource InactiveForegroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Background" Color="{DynamicResource InactiveBackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Editable.Background" Color="{DynamicResource InactiveBackgroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Editable.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Editable.Button.Background" Color="Transparent"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Disabled.Editable.Button.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadianceComboBox.Static.Glyph" Color="{DynamicResource ForegroundColorKey}"/>
-    
-    <Style x:Key="MetroRadianceComboBoxToggleButtonKey" TargetType="{x:Type ToggleButton}">
+
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Static.Foreground" Color="{DynamicResource ActiveForegroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Static.Glyph" Color="{DynamicResource ForegroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Static.Background" Color="{DynamicResource BackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Static.Border" Color="{DynamicResource BorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Static.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Static.Editable.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Static.Editable.Button.Background" Color="{DynamicResource BackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Static.Editable.Button.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
+
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.MouseOver.Glyph" Color="{DynamicResource AccentColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.MouseOver.Background" Color="{DynamicResource ActiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.MouseOver.Border" Color="{DynamicResource AccentColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.MouseOver.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.MouseOver.Editable.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.MouseOver.Editable.Button.Background" Color="{DynamicResource BackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.MouseOver.Editable.Button.Border" Color="{DynamicResource AccentColorKey}"/>
+
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Pressed.Glyph" Color="{DynamicResource AccentForegroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Pressed.Background" Color="{DynamicResource ActiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Pressed.Border" Color="{DynamicResource AccentColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Pressed.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Pressed.Editable.Border" Color="{DynamicResource SemiactiveBorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Pressed.Editable.Button.Background" Color="{DynamicResource BackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Pressed.Editable.Button.Border" Color="{DynamicResource AccentColorKey}"/>
+
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Opened.Background" Color="{DynamicResource BackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Opened.Border" Color="{DynamicResource BorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Opened.Editable.Background" Color="{DynamicResource SemiactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Opened.Editable.Border" Color="{DynamicResource BorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Opened.Editable.Button.Background" Color="{DynamicResource AccentColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Opened.Editable.Button.Border" Color="{DynamicResource AccentColorKey}"/>
+
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Disabled.Foreground" Color="{DynamicResource InactiveForegroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Disabled.Glyph" Color="{DynamicResource InactiveForegroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Disabled.Background" Color="{DynamicResource InactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Disabled.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Disabled.Editable.Background" Color="{DynamicResource InactiveBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Disabled.Editable.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Disabled.Editable.Button.Background" Color="Transparent"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ComboBox.Disabled.Editable.Button.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
+
+    <Style x:Key="MetroRadiance.Styles.ComboBox.ToggleButton" TargetType="{x:Type ToggleButton}">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="IsTabStop" Value="false"/>
         <Setter Property="Focusable" Value="false"/>
@@ -98,16 +66,9 @@
                                 Margin="0"
                                 SnapsToDevicePixels="true"
                                 Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
-                            <!--
-                            <Path x:Name="arrow" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z"
-                                  Fill="{DynamicResource MetroRadianceComboBox.Static.Glyph}"
-                                  HorizontalAlignment="Center"
-                                  Margin="0"
-                                  VerticalAlignment="Center"/>
-                            -->
                             <Path x:Name="arrow"
                                   Data="M 0.0,0.0 L 3.5,4.0 7.0,0.0 z"
-                                  Fill="{DynamicResource MetroRadianceComboBox.Static.Glyph}"
+                                  Fill="{DynamicResource MetroRadiance.Brushes.ComboBox.Static.Glyph}"
 							      HorizontalAlignment="Center"
                                   Margin="0"
 							      VerticalAlignment="Center" />
@@ -123,16 +84,16 @@
                                 <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="true"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Background" TargetName="templateRoot"
-                                    Value="{DynamicResource MetroRadianceComboBox.Static.Editable.Background}"/>
+                                    Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Static.Editable.Background}"/>
                             <Setter Property="BorderBrush" TargetName="templateRoot"
-                                    Value="{DynamicResource MetroRadianceComboBox.Static.Editable.Border}"/>
+                                    Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Static.Editable.Border}"/>
                             <Setter Property="Background" TargetName="splitBorder"
-                                    Value="{DynamicResource MetroRadianceComboBox.Static.Editable.Button.Background}"/>
+                                    Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Static.Editable.Button.Background}"/>
                             <Setter Property="BorderBrush" TargetName="splitBorder"
-                                    Value="{DynamicResource MetroRadianceComboBox.Static.Editable.Button.Border}"/>
+                                    Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Static.Editable.Button.Border}"/>
                         </MultiDataTrigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Glyph}"/>
+                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.MouseOver.Glyph}"/>
                         </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -140,8 +101,8 @@
                                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
                                            Value="false"/>
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Border}"/>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.MouseOver.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.MouseOver.Border}"/>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -149,13 +110,13 @@
                                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
                                            Value="true"/>
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Editable.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Editable.Border}"/>
-                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Editable.Button.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.MouseOver.Editable.Button.Border}"/>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.MouseOver.Editable.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.MouseOver.Editable.Border}"/>
+                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.MouseOver.Editable.Button.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.MouseOver.Editable.Button.Border}"/>
                         </MultiDataTrigger>
                         <Trigger Property="IsPressed" Value="true">
-                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadianceComboBox.Pressed.Glyph}"/>
+                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Pressed.Glyph}"/>
                         </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -163,8 +124,8 @@
                                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
                                            Value="false"/>
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Pressed.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Pressed.Border}"/>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Pressed.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Pressed.Border}"/>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -172,10 +133,10 @@
                                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
                                            Value="true"/>
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Pressed.Editable.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Pressed.Editable.Border}"/>
-                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Pressed.Editable.Button.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Pressed.Editable.Button.Border}"/>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Pressed.Editable.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Pressed.Editable.Border}"/>
+                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Pressed.Editable.Button.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Pressed.Editable.Button.Border}"/>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -183,14 +144,14 @@
                                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
                                            Value="true"/>
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Opened.Editable.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Opened.Editable.Border}"/>
-                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Opened.Editable.Button.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Opened.Editable.Button.Border}"/>
-                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadianceComboBox.Pressed.Glyph}"/>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Opened.Editable.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Opened.Editable.Border}"/>
+                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Opened.Editable.Button.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Opened.Editable.Button.Border}"/>
+                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Pressed.Glyph}"/>
                         </MultiDataTrigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadianceComboBox.Disabled.Glyph}"/>
+                            <Setter Property="Fill" TargetName="arrow" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Disabled.Glyph}"/>
                         </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -198,8 +159,8 @@
                                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
                                            Value="false"/>
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Disabled.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Disabled.Border}"/>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Disabled.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Disabled.Border}"/>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -207,18 +168,18 @@
                                 <Condition Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
                                            Value="true"/>
                             </MultiDataTrigger.Conditions>
-                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Disabled.Editable.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadianceComboBox.Disabled.Editable.Border}"/>
-                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Disabled.Editable.Button.Background}"/>
-                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadianceComboBox.Disabled.Editable.Button.Border}"/>
+                            <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Disabled.Editable.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Disabled.Editable.Border}"/>
+                            <Setter Property="Background" TargetName="splitBorder" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Disabled.Editable.Button.Background}"/>
+                            <Setter Property="BorderBrush" TargetName="splitBorder" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Disabled.Editable.Button.Border}"/>
                         </MultiDataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <ControlTemplate x:Key="MetroRadianceComboBoxTemplateKey"
+
+    <ControlTemplate x:Key="MetroRadiance.Templates.ComboBox"
                      TargetType="{x:Type ComboBox}">
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.ColumnDefinitions>
@@ -269,7 +230,7 @@
                           BorderThickness="{TemplateBinding BorderThickness}"
                           Background="{TemplateBinding Background}"
                           IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                          Style="{StaticResource MetroRadianceComboBoxToggleButtonKey}"/>
+                          Style="{StaticResource MetroRadiance.Styles.ComboBox.ToggleButton}"/>
             <ContentPresenter x:Name="contentPresenter"
                               ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
                               ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
@@ -314,10 +275,10 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
-    <Style x:Key="MetroRadianceComboBoxEditableTextBoxKey"
+
+    <Style x:Key="MetroRadiance.Styles.ComboBox.EditableTextBox"
            TargetType="{x:Type TextBox}"
-           BasedOn="{StaticResource MetroRadianceTextBoxBaseStyleKey}">
+           BasedOn="{StaticResource MetroRadiance.Styles.TextBoxBase}">
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Margin" Value="0"/>
         <Setter Property="Padding" Value="0" />
@@ -342,8 +303,8 @@
         </Setter>
         -->
     </Style>
-    
-    <ControlTemplate x:Key="MetroRadianceComboBoxEditableTemplateKey"
+
+    <ControlTemplate x:Key="MetroRadiance.Templates.ComboBox.Editable"
                      TargetType="{x:Type ComboBox}">
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.ColumnDefinitions>
@@ -394,21 +355,21 @@
                           Background="{TemplateBinding Background}"
                           Grid.ColumnSpan="2"
                           IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                          Style="{StaticResource MetroRadianceComboBoxToggleButtonKey}"/>
+                          Style="{StaticResource MetroRadiance.Styles.ComboBox.ToggleButton}"/>
             <Border x:Name="border"
-                    Background="{DynamicResource MetroRadianceComboBox.Static.Editable.Background}"
+                    Background="{DynamicResource MetroRadiance.Brushes.ComboBox.Static.Editable.Background}"
                     Margin="{TemplateBinding BorderThickness}">
                 <TextBox x:Name="PART_EditableTextBox"
                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                          IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}"
                          Padding="{TemplateBinding Padding}"
-                         Style="{StaticResource MetroRadianceComboBoxEditableTextBoxKey}"
+                         Style="{StaticResource MetroRadiance.Styles.ComboBox.EditableTextBox}"
                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Foreground" TargetName="PART_EditableTextBox" Value="{DynamicResource MetroRadianceComboBox.Disabled.Foreground}"/>
+                <Setter Property="Foreground" TargetName="PART_EditableTextBox" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Disabled.Foreground}"/>
                 <!--
                 <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                 -->
@@ -439,8 +400,8 @@
 
     <Style x:Key="MetroRadiance.Styles.ComboBox.Base" TargetType="{x:Type ComboBox}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource MetroRadianceInnerFocusVisualStyleKey}"/>
-        <Setter Property="Background" Value="{DynamicResource MetroRadianceComboBox.Static.Background}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource MetroRadianceComboBox.Static.Border}"/>
+        <Setter Property="Background" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Static.Background}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Static.Border}"/>
         <Setter Property="BorderThickness" Value="0.999"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
@@ -481,26 +442,26 @@
                 </Style>
             </Setter.Value>
         </Setter>
-        <Setter Property="Template" Value="{StaticResource MetroRadianceComboBoxTemplateKey}"/>
+        <Setter Property="Template" Value="{StaticResource MetroRadiance.Templates.ComboBox}"/>
         <Style.Triggers>
             <Trigger Property="IsEditable" Value="true">
                 <Setter Property="IsTabStop" Value="false"/>
                 <Setter Property="Padding" Value="1"/>
-                <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Static.Foreground}"/>
-                <Setter Property="Template" Value="{StaticResource MetroRadianceComboBoxEditableTemplateKey}"/>
+                <Setter Property="Foreground" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Static.Foreground}"/>
+                <Setter Property="Template" Value="{StaticResource MetroRadiance.Templates.ComboBox.Editable}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Disabled.Foreground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Disabled.Foreground}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="MetroRadianceComboBoxStyleKey" TargetType="{x:Type ComboBox}"
+    <Style x:Key="MetroRadiance.Styles.ComboBox" TargetType="{x:Type ComboBox}"
            BasedOn="{StaticResource MetroRadiance.Styles.ComboBox.Base}">
-        <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Static.Foreground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Static.Foreground}"/>
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{DynamicResource MetroRadianceComboBox.Disabled.Foreground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource MetroRadiance.Brushes.ComboBox.Disabled.Foreground}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

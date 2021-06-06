@@ -14,10 +14,10 @@
     <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MetroRadianceCheckBoxStyleKey}"/>
 
     <!-- Controls.ComboBox.xaml -->
-    <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroRadianceComboBoxStyleKey}"/>
+    <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroRadiance.Styles.ComboBox}"/>
 
     <!-- Controls.ContextMenu.xaml -->
-	<Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MetroRadianceContextMenuStyleKey}"
+    <Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MetroRadiance.Styles.ContextMenu}"
 		   x:Key="{x:Type ContextMenu}" />
 
     <!-- Controls.DataGrid.xaml -->
@@ -32,18 +32,18 @@
 		   x:Key="{x:Static SystemParameters.FocusVisualStyleKey}"/>
 
 	<!-- Controls.GroupBox.xaml -->
-	<Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroRadianceGroupBoxStyleKey}"/>
+    <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroRadiance.Styles.GroupBox}"/>
 
 	<!-- Controls.Label.xaml -->
-	<Style TargetType="{x:Type Label}" BasedOn="{StaticResource MetroRadianceLabelStyleKey}"/>
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource MetroRadiance.Styles.Label}"/>
 
 	<!-- Controls.Menu.xaml -->
-	<Style TargetType="{x:Type Menu}" BasedOn="{StaticResource MetroRadianceMenuStyleKey}"/>
+    <Style TargetType="{x:Type Menu}" BasedOn="{StaticResource MetroRadiance.Styles.Menu}"/>
 
 	<!-- Controls.MenuItem.xaml -->
-	<Style TargetType="{x:Type Separator}" BasedOn="{StaticResource MetroRadianceSeparatorStyleKey}"
+    <Style TargetType="{x:Type Separator}" BasedOn="{StaticResource MetroRadiance.Styles.Menu.Separator}"
 		   x:Key="{x:Static MenuItem.SeparatorStyleKey}"/>
-	<Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource MetroRadianceMenuItemStyleKey}"/>
+    <Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource MetroRadiance.Styles.MenuItem}"/>
 
 	<!-- Controls.PasswordBox.xaml -->
 	<Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MetroRadiancePasswordBoxStyleKey}"/>
@@ -55,7 +55,7 @@
 	<Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource MetroRadianceScrollBarStyleKey}"/>
 
 	<!-- Controls.TextBox.xaml -->
-	<Style TargetType="{x:Type TextBoxBase}" BasedOn="{StaticResource MetroRadianceTextBoxBaseStyleKey}"/>
+    <Style TargetType="{x:Type TextBoxBase}" BasedOn="{StaticResource MetroRadiance.Styles.TextBoxBase}"/>
 	<Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBoxBase}}"/>
 
 	<!-- Controls.ToggleButton.xaml -->

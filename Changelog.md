@@ -3,7 +3,18 @@
 ## 3.1.0 (preview) MetroRadiance
 
 - ### Breaking changes
-  - None
+  - Change then name of the resource keys added in Version 3.0.
+If you have been using the style keys added in Version 3.0 directly, you will need to change them.
+
+|Control| style key name in Ver. 3.1 | style key name in Ver. 3.0 |
+| --- | --- | --- |
+|ComboBox| MetroRadiance.Styles.ComboBox | MetroRadianceComboBoxStyleKey |
+|ContextMenu| MetroRadiance.Styles.ContextMenu | MetroRadianceContextMenuStyleKey |
+|GroupBox| MetroRadiance.Styles.GroupBox | MetroRadianceGroupBoxStyleKey |
+|Label   | MetroRadiance.Styles.Label    | MetroRadianceLabelStyleKey |
+|Menu   | MetroRadiance.Styles.Menu    | MetroRadianceMenuStyleKey |
+|MenuItem   | MetroRadiance.Styles.MenuItem    | MetroRadianceMenuItemStyleKey |
+|TextBoxBase   | MetroRadiance.Styles.TextBoxBase    | MetroRadianceTextBoxBaseStyleKey |
 
 - ### Enhancements/Features
   - Add standard control styles (DataGrid)

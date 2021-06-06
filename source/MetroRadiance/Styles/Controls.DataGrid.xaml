@@ -20,6 +20,7 @@
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Static.CurrentCell.Border" Color="{DynamicResource AccentActiveColorKey}"/>
 
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Static.Header.Foreground" Color="{DynamicResource ActiveForegroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Static.Header.Glyph" Color="{DynamicResource ForegroundColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Static.Header.Background" Color="{DynamicResource BackgroundColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Static.Header.Border" Color="{DynamicResource BorderColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Static.Header.Separator" Color="{DynamicResource ActiveBorderColorKey}"/>
@@ -52,20 +53,20 @@
           HorizontalAlignment="Center"
           VerticalAlignment="Center"
           Data="M 0.0,4.0 L 3.5,0.0 7.0,4.0 z"
-          Fill="{DynamicResource MetroRadianceComboBox.Static.Glyph}"/>
+          Fill="{DynamicResource MetroRadiance.Brushes.DataGrid.Static.Header.Glyph}"/>
     <Path x:Key="MetroRadiance.Shapes.DataGrid.Glyph.SortDescending"
           x:Shared="False"
           Margin="0"
           HorizontalAlignment="Center"
           VerticalAlignment="Center" 
           Data="M 0.0,0.0 L 3.5,4.0 7.0,0.0 z"
-          Fill="{DynamicResource MetroRadianceComboBox.Static.Glyph}"/>
+          Fill="{DynamicResource MetroRadiance.Brushes.DataGrid.Static.Header.Glyph}"/>
 
     <Style x:Key="MetroRadiance.Styles.DataGridTextColumn.Element" TargetType="{x:Type TextBlock}">
         <Setter Property="Margin" Value="2,0"/>
     </Style>
     <Style x:Key="MetroRadiance.Styles.DataGridTextColumn.EditingElement" TargetType="{x:Type TextBox}"
-           BasedOn="{StaticResource MetroRadianceTextBoxBaseStyleKey}">
+           BasedOn="{StaticResource MetroRadiance.Styles.TextBoxBase}">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Padding" Value="0"/>
     </Style>

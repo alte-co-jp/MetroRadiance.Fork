@@ -3,7 +3,7 @@
 					xmlns:ms="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
 					xmlns:properties="clr-namespace:MetroRadiance.Properties">
 	<!-- this style depends on some styles are defined by Controls.MenuItem.xaml-->
-	<ControlTemplate x:Key="MetroRadianceContextMenuTemplateKey"
+    <ControlTemplate x:Key="MetroRadiance.Templates.ContextMenu"
 					 TargetType="{x:Type ContextMenu}">
 		<ms:SystemDropShadowChrome x:Name="Shdw"
 									Color="Transparent"
@@ -14,7 +14,7 @@
 					BorderThickness="{TemplateBinding BorderThickness}"
 					Padding="2">
 				<ScrollViewer Name="ContextMenuScrollViewer"
-							  Style="{DynamicResource MetroRadianceMenuScrollViewerStyleKey}">
+							  Style="{DynamicResource MetroRadiance.Styles.Menu.ScrollViewer}">
 					<Grid>
 						<Canvas Height="0"
 								Width="0"
@@ -59,8 +59,8 @@
 			</Trigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
-	
-	<Style x:Key="MetroRadianceContextMenuStyleKey"
+
+    <Style x:Key="MetroRadiance.Styles.ContextMenu"
 		   TargetType="{x:Type ContextMenu}">
 		<Setter Property="Background"
 				Value="{DynamicResource BackgroundBrushKey}" />
@@ -91,6 +91,6 @@
 		<Setter Property="Stylus.IsFlicksEnabled"
 				Value="False" />
 		<Setter Property="Template"
-				Value="{DynamicResource MetroRadianceContextMenuTemplateKey}"/>
+				Value="{DynamicResource MetroRadiance.Templates.ContextMenu}"/>
 	</Style>
 </ResourceDictionary>
