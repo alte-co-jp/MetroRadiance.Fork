@@ -19,6 +19,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  dateYYYYMMDDHHMM: $[format('{0:yyyy}{0:MM}{0:dd}T{0:HH}{0:mm}', pipeline.startTime)]
 
 steps:
 - task: CmdLine@2
@@ -44,3 +45,28 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+# Archive files
+# Compress files into .7z, .tar.gz, or .zip
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.Repository.LocalPath)/samples/MetroRadiance.Showcase/bin/$(buildConfiguration)' 
+    includeRootFolder: false
+    #archiveType: 'zip' # Options: zip, 7z, tar, wim
+    #tarCompression: 'gz' # Optional. Options: gz, bz2, xz, none
+    archiveFile: '$(Build.ArtifactStagingDirectory)/MetroRadiance.Fork_Showcase_$(dateYYYYMMDDHHMM)_$(Build.SourceBranchName)-branch_$(buildConfiguration)_$(Build.BuildId)-$(Build.BuildNumber).zip' 
+    #replaceExistingArchive: true 
+    verbose: # Optional
+    #quiet: # Optional
+
+# Publish pipeline artifacts
+# Publish (upload) a file or directory as a named artifact for the current run
+- task: PublishPipelineArtifact@1
+  inputs:
+    #targetPath: '$(Pipeline.Workspace)' # Required 
+    targetPath: '$(Build.ArtifactStagingDirectory)' 
+    #artifactName: 'drop' # Optional
+    #artifactType: 'pipeline' # Required. Options: pipeline, filepath. Default value: pipeline
+    #fileSharePath: '\server\folderName' # Required when artifactType = filepath
+    #parallel: false # Optional. Default value: false
+    #parallelCount: 1 # Optional. Value must be at least 1 and not greater than 128. Default value: 8
