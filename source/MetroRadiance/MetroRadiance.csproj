@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFrameworks>net45;net462;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <AssemblyVersion>3.1.0.6050</AssemblyVersion>
-    <FileVersion>3.1.0.6050</FileVersion>
+    <AssemblyVersion>3.1.0.6130</AssemblyVersion>
+    <FileVersion>3.1.0.6130</FileVersion>
     <RootNamespace>MetroRadiance</RootNamespace>
-    <Version>3.1.0-alpha00</Version>
+    <Version>3.1.0</Version>
     <Company>nishy software</Company>
     <Authors>nishy software</Authors>
     <PackageTags>WPF Theme Dark Light Managed C# Metro Radiance MetroRadiance</PackageTags>
@@ -20,8 +20,10 @@
     <PackageReleaseNotes>
       Changes from 3.0.0
       - Add standard control styles (DataGrid)
+      - Add attached properties (DataGridProperties)
       - Fix an issue that error occurs when displaying ToolTip in System.Windows.Window
       - Fix an issue that ComboBox appearance and UWP brushes may not follow dynamic changes in theme
+      - Change then name of the resource keys added in Version 3.0.
 
       Limitations
       - When moving windows using AcrylicBlurWindow class, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
