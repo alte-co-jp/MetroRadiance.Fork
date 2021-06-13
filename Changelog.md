@@ -1,6 +1,6 @@
 # Changelog for MetroRadiance.Fork
 
-## 3.1.0 (preview) MetroRadiance
+## 3.1.0 MetroRadiance
 
 - ### Breaking changes
   - Change then name of the resource keys added in Version 3.0.

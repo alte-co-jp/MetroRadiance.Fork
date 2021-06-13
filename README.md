@@ -389,7 +389,7 @@ Style definition sample
 You can use the standard control styles by merging `"/Styles/Controls.xaml"` or `"/Styles/Control-styles.xaml"` of MetroRadiance into ```Application.Resource``` etc.
 These styles use the colors and brushes defined in MetroRadiance. Therefore, it will be linked to the theme change and color setting change.
 
-`"/Styles/Control-styles.xaml"` defines MetroRadiance styles using Keys in MetroRadiance*XXXX*StyleKey format.
+`"/Styles/Control-styles.xaml"` defines MetroRadiance styles using Keys in MetroRadiance.styles.*XXXX* format (defined in ver. 3.0 or later) or MetroRadiance*XXXX*StyleKey format (defined in ver. 2.4 or before).
 `"/Styles/Controls.xaml"` overrides standard control styles.
 `"/Styles/Controls.xaml"` also includes MetroRadiance styles are defined by `"/Styles/Control-styles.xaml"`.
 
@@ -414,19 +414,21 @@ These styles use the colors and brushes defined in MetroRadiance. Therefore, it 
  - `<Style TargetType="{x:Type Button}" x:key="MetroRadianceButtonStyleKey">`
  - `<Style TargetType="{x:Type Button}" x:Key="CircleButtonStyleKey">`
  - `<Style TargetType="{x:Type CheckBox}" x:Key="MetroRadianceCheckBoxStyleKey">`
- - `<Style TargetType="{x:Type ComboBox}" x:Key="MetroRadianceComboBoxStyleKey">`
- - `<Style TargetType="{x:Type ContextMenu}" x:Key="MetroRadianceContextMenuStyleKey">`
+ - `<Style TargetType="{x:Type ComboBox}" x:Key="MetroRadiance.Styles.ComboBox">`
+ - `<Style TargetType="{x:Type ContextMenu}" x:Key="MetroRadiance.Styles.ContextMenu">`
+ - [v3.1.0-] `<Style TargetType="{x:Type DataGrid}" x:Key="{StaticResource MetroRadiance.Styles.DataGrid}"/>`
+ - [v3.1.0-] `<Style TargetType="{x:Type DataGridColumnHeader}" x:Key="{StaticResource MetroRadiance.Styles.DataGrid.DataGridColumnHeader}"/>`
  - `<Style TargetType="{x:Type Expander}" x:Key="MetroRadianceExpanderStyleKey">`
  - `<Style x:Key="MetroRadianceFocusVisualStyleKey">`
- - `<Style TargetType="{x:Type GroupBox}" x:Key="MetroRadianceGroupBoxStyleKey">`
- - `<Style TargetType="{x:Type Label}" x:Key="MetroRadianceLabelStyleKey">`
- - `<Style TargetType="{x:Type Menu}" x:Key="MetroRadianceMenuStyleKey">`
- - `<Style TargetType="{x:Type MenuItem}" x:Key="MetroRadianceMenuItemStyleKey">`
- - `<Style TargetType="{x:Type Separator}" x:Key="MetroRadianceSeparatorStyleKey">`
+ - `<Style TargetType="{x:Type GroupBox}" x:Key="MetroRadiance.Styles.GroupBox">`
+ - `<Style TargetType="{x:Type Label}" x:Key="MetroRadiance.Styles.Label">`
+ - `<Style TargetType="{x:Type Menu}" x:Key="MetroRadiance.Styles.Menu">`
+ - `<Style TargetType="{x:Type MenuItem}" x:Key="MetroRadiance.Styles.MenuItem">`
+ - `<Style TargetType="{x:Type Separator}" x:Key="MetroRadiance.Styles.Menu.Separator">`
  - `<Style TargetType="{x:Type PasswordBox}" x:Key="MetroRadiancePasswordBoxStyleKey">`
  - `<Style TargetType="{x:Type RadioButton}" x:Key="MetroRadianceRadioButtonStyleKey">`
  - `<Style TargetType="{x:Type ScrollBar}" x:Key="MetroRadianceScrollBarStyleKey">`
- - `<Style TargetType="{x:Type TextBox}" x:Key="MetroRadianceTextBoxBaseStyleKey">`
+ - `<Style TargetType="{x:Type TextBox}" x:Key="MetroRadiance.Styles.TextBoxBase">`
  - `<Style TargetType="{x:Type ToggleButton}" x:Key="MetroRadianceToggleButtonStyleKey">`
  - `<Style TargetType="{x:Type ToolTip}" x:Key="MetroRadianceToolTipStyleKey">`
 
@@ -436,22 +438,24 @@ These styles use the colors and brushes defined in MetroRadiance. Therefore, it 
 
  - `<Style TargetType="{x:Type Button}" BasedOn="{StaticResource MetroRadianceButtonStyleKey}"/>`
  - `<Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MetroRadianceCheckBoxStyleKey}"/>`
- - [v3.0.0-] `<Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroRadianceComboBoxStyleKey}"/>`
- - [v3.0.0-] `<Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MetroRadianceContextMenuStyleKey}"
+ - [v3.0.0-] `<Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroRadiance.Styles.ComboBox}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource MetroRadiance.Styles.ContextMenu}"
 		   x:Key="{x:Type ContextMenu}" />`
+ - [v3.1.0-] `<Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource MetroRadiance.Styles.DataGrid}"/>`
+ - [v3.1.0-] `<Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MetroRadiance.Styles.DataGrid.DataGridColumnHeader}"/>`
  - `<Style TargetType="{x:Type Expander}" BasedOn="{StaticResource MetroRadianceExpanderStyleKey}"/>`
  - `<Style BasedOn="{StaticResource MetroRadianceFocusVisualStyleKey}"
 		   x:Key="{x:Static SystemParameters.FocusVisualStyleKey}"/>`
- - [v3.0.0-] `<Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroRadianceGroupBoxStyleKey}"/>`
- - [v3.0.0-] `<Style TargetType="{x:Type Label}" BasedOn="{StaticResource MetroRadianceLabelStyleKey}"/>`
- - [v3.0.0-] `<Style TargetType="{x:Type Menu}" BasedOn="{StaticResource MetroRadianceMenuStyleKey}"/>`
- - [v3.0.0-] `<Style TargetType="{x:Type Separator}" BasedOn="{StaticResource MetroRadianceSeparatorStyleKey}"
+ - [v3.0.0-] `<Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroRadiance.Styles.GroupBox}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type Label}" BasedOn="{StaticResource MetroRadiance.Styles.Label}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type Menu}" BasedOn="{StaticResource MetroRadiance.Styles.Menu}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type Separator}" BasedOn="{StaticResource MetroRadiance.Styles.Menu.Separator}"
 		   x:Key="{x:Static MenuItem.SeparatorStyleKey}"/>`
- - [v3.0.0-] `<Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource MetroRadianceMenuItemStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource MetroRadiance.Styles.MenuItem}"/>`
  - `<Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MetroRadiancePasswordBoxStyleKey}"/>`
  - `<Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource MetroRadianceRadioButtonStyleKey}"/>`
  - `<Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource MetroRadianceScrollBarStyleKey}"/>`
- - [v3.0.0-] `<Style TargetType="{x:Type TextBoxBase}" BasedOn="{StaticResource MetroRadianceTextBoxBaseStyleKey}"/>`
+ - [v3.0.0-] `<Style TargetType="{x:Type TextBoxBase}" BasedOn="{StaticResource MetroRadiance.Styles.TextBoxBase}"/>`
  - [v3.0.0-] `<Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBoxBase}}"/>`
  - `<Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource MetroRadianceToggleButtonStyleKey}"/>`
  - `<Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource MetroRadianceToolTipStyleKey}"/>`
@@ -569,7 +573,47 @@ Example for metro:PromptTextBox using Int32Rule (int)
 
 ### Custom behaviors
 
+### Custom attached properties
+#### MetroRadiance.UI.AttachedProperties.DataGridHelper
+The attached properties provided by DataGridProperties are attached properties that allow the element style of DataGridTextColumn / DataGridCheckBoxColumn / DataGridComboBoxColumn to be set to DataGrid.
+This simplifies the need to set element styles for DataGridTextColumn / DataGridCheckBoxColumn / DataGridComboBoxColumn.
+ - TextColumnDefaultElementStyle
+ - TextColumnDefaultEditingElementStyle
+ - CheckBoxColumnDefaultElementStyle
+ - CheckBoxColumnDefaultEditingElementStyle
+ - ComboBoxColumnDefaultElementStyle
+ - ComboBoxColumnDefaultEditingElementStyle
 
+Example for mrap:DataGridProperties.XXXDefalutElementStyle / mrap:DataGridProperties.XXXDefalutEditingElementStyle
+```xml
+<Window
+  ...
+  xmlns:metroAP="http://schemes.grabacr.net/winfx/2014/attached-poperties">
+    <DataGrid
+        metroAP:DataGridProperties.TextColumnDefaultElementStyle="{DynamicResource My.Styles.DataGridTextColumn.Element}"
+        metroAP:DataGridProperties.TextColumnDefaultEditingElementStyle="{DynamicResource My.Styles.DataGridTextColumn.EditingElement}"
+        metroAP:DataGridProperties.CheckBoxColumnDefaultElementStyle="{DynamicResource My.Styles.DataGridCheckBoxColumn.Element}"
+        metroAP:DataGridProperties.CheckBoxColumnDefaultEditingElementStyle="{DynamicResource My.Styles.DataGridCheckBoxColumn.EditingElement}"
+        metroAP:DataGridProperties.ComboBoxColumnDefaultElementStyle="{DynamicResource My.Styles.DataGridComboBoxColumn.Element}"
+        metroAP:DataGridProperties.ComboBoxColumnDefaultEditingElementStyle="{DynamicResource My.Styles.DataGridComboBoxColumn.EditingElement}"
+        >
+        <DataGrid.Columns>
+           <DataGridTextColumn
+               Header="Id"
+               Binding="{Binding Id}"/>
+           <DataGridCheckBoxColumn
+               Header="CheckBox"
+               Binding="{Binding Active,UpdateSourceTrigger=PropertyChanged}"
+               IsThreeState="True"/>
+           <DataGridComboBoxColumn
+               Header="ComboBox"
+               SelectedValueBinding="{Binding Selected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+               DisplayMemberPath="Name"
+               SelectedValuePath="Name"
+               ItemsSource="{StaticResource DataItems}"/>
+    </DataGrid>
+...
+```
 ## License
 
 This library is under [the MIT License (MIT)](LICENSE.txt).
