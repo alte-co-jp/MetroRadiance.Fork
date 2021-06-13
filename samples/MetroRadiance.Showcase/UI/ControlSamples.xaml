@@ -6,6 +6,7 @@
 			 xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
              xmlns:prop="clr-namespace:MetroRadiance.Showcase.Properties"
 			 xmlns:ui="clr-namespace:MetroRadiance.Showcase.UI"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
 			 mc:Ignorable="d"
 			 d:DesignWidth="500"
 			 d:DesignHeight="1200">
@@ -14,9 +15,32 @@
             <ui:SampleDataItem Id="1" Name="Name a" Description="AAAA" Active="True" Selected="Name c" />
             <ui:SampleDataItem Id="3" Name="Name b" Description="TTTT" Active="False" />
             <ui:SampleDataItem Id="9" Name="Name c" Description="ZZZZ" />
+            <ui:SampleDataItem Id="12" Name="Name d" Description="xxxx" />
+            <ui:SampleDataItem Id="15" Name="Name e" Description="aaaa" />
         </x:Array>
         <CollectionViewSource x:Key="DataItemsView1"  Source="{StaticResource DataItems}" />
         <CollectionViewSource x:Key="DataItemsView2"  Source="{StaticResource DataItems}" />
+        <ObjectDataProvider x:Key="dataGridHeadersVisibilityProvider"
+							MethodName="GetValues"
+							ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="DataGridHeadersVisibility"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="dataGridGridLinesVisibilityProvider"
+							MethodName="GetValues"
+							ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="DataGridGridLinesVisibility"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="dataGridSelectionUnitProvider"
+							MethodName="GetValues"
+							ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="DataGridSelectionUnit"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
     </UserControl.Resources>
 
     <ScrollViewer HorizontalScrollBarVisibility="Disabled"
@@ -349,61 +373,83 @@
                 </Border>
 
                 <TextBlock Grid.Row="30" Grid.Column="0" Text="DataGrid: "/>
-                <DataGrid Grid.Row="30" Grid.Column="1"
-                          Margin="0,4"
-                          ItemsSource="{Binding Source={StaticResource DataItemsView1}}"
-                          AlternationCount="2"
-                          AlternatingRowBackground="{DynamicResource MetroRadiance.Brushes.DataGrid.Static.Row.AlternatingBackground}"
-                          AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id"
-                                            IsReadOnly="True"
-                                            Binding="{Binding Id}"/>
-                        <DataGridTextColumn Header="Text (R/W)"
-                                            Binding="{Binding Description}"/>
-                        <DataGridTextColumn Header="Text (R)"
-                                            IsReadOnly="True"
-                                            Binding="{Binding Name,Mode=OneWay}"/>
-                        <DataGridCheckBoxColumn Header="CheckBox (R/W)"
-                                                Binding="{Binding Active,UpdateSourceTrigger=PropertyChanged}"
-                                                IsThreeState="True"/>
-                        <DataGridCheckBoxColumn Header="CheckBox (R)"
+                <Grid Grid.Row="30" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.Row="0"
+                              Margin="0,4"
+                              ItemsSource="{Binding Source={StaticResource DataItemsView1}}"
+                              HeadersVisibility="{Binding SelectedItem,ElementName=DataGrid_HeadersVisibility}"
+                              GridLinesVisibility="{Binding SelectedItem,ElementName=DataGrid_GridLinesVisibility}"
+                              SelectionUnit="{Binding SelectedItem,ElementName=DataGrid_SelectionUnit}"
+                              AlternatingRowBackground="{DynamicResource MetroRadiance.Brushes.DataGrid.Static.Row.AlternatingBackground}"
+                              AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id"
                                                 IsReadOnly="True"
-                                                Binding="{Binding Active,Mode=OneWay}"
-                                                IsThreeState="True"/>
-                        <DataGridComboBoxColumn Header="ComboBox (R/W)"
-                                                SelectedValueBinding="{Binding Selected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                                                DisplayMemberPath="Name"
-                                                SelectedValuePath="Name"
-                                                ItemsSource="{StaticResource DataItems}"/>
-                        <DataGridComboBoxColumn Header="ComboBox (R)"
+                                                Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Text (R/W)"
+                                                Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Text (R)"
                                                 IsReadOnly="True"
-                                                SelectedValueBinding="{Binding Selected,Mode=OneWay}"
-                                                DisplayMemberPath="Name"
-                                                SelectedValuePath="Name"
-                                                ItemsSource="{StaticResource DataItems}"/>
-                        <DataGridTextColumn Header="Selected item (R)"
-                                            IsReadOnly="True"
-                                            Binding="{Binding Selected,Mode=OneWay}"/>
-                        <DataGridTemplateColumn Header="Template">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock
-                                        Text="{Binding Selected,Mode=OneWay}" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                            <DataGridTemplateColumn.CellEditingTemplate>
-                                <DataTemplate>
-                                    <ComboBox
-                                        ItemsSource="{StaticResource DataItems}"
-                                        DisplayMemberPath="Name"
-                                        SelectedValuePath="Name"
-                                        SelectedValue="{Binding Selected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellEditingTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
+                                                Binding="{Binding Name,Mode=OneWay}"/>
+                            <DataGridCheckBoxColumn Header="CheckBox (R/W)"
+                                                    Binding="{Binding Active,UpdateSourceTrigger=PropertyChanged}"
+                                                    IsThreeState="True"/>
+                            <DataGridCheckBoxColumn Header="CheckBox (R)"
+                                                    IsReadOnly="True"
+                                                    Binding="{Binding Active,Mode=OneWay}"
+                                                    IsThreeState="True"/>
+                            <DataGridComboBoxColumn Header="ComboBox (R/W)"
+                                                    SelectedValueBinding="{Binding Selected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                    DisplayMemberPath="Name"
+                                                    SelectedValuePath="Name"
+                                                    ItemsSource="{StaticResource DataItems}"/>
+                            <DataGridComboBoxColumn Header="ComboBox (R)"
+                                                    IsReadOnly="True"
+                                                    SelectedValueBinding="{Binding Selected,Mode=OneWay}"
+                                                    DisplayMemberPath="Name"
+                                                    SelectedValuePath="Name"
+                                                    ItemsSource="{StaticResource DataItems}"/>
+                            <DataGridTextColumn Header="Selected item (R)"
+                                                IsReadOnly="True"
+                                                Binding="{Binding Selected,Mode=OneWay}"/>
+                            <DataGridTemplateColumn Header="Template">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            Text="{Binding Selected,Mode=OneWay}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox
+                                            ItemsSource="{StaticResource DataItems}"
+                                            DisplayMemberPath="Name"
+                                            SelectedValuePath="Name"
+                                            SelectedValue="{Binding Selected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock Text="HeadersVisibility: "/>
+                        <ComboBox x:Name="DataGrid_HeadersVisibility"
+                                  ItemsSource="{Binding Source={StaticResource dataGridHeadersVisibilityProvider}}"
+                                  SelectedIndex="3"/>
+                        <TextBlock Text="    GridLinesVisibility: "/>
+                        <ComboBox x:Name="DataGrid_GridLinesVisibility"
+                                  ItemsSource="{Binding Source={StaticResource dataGridGridLinesVisibilityProvider}}"
+                                  SelectedIndex="0"/>
+                        <TextBlock Text="    SelectionUnit: "/>
+                        <ComboBox x:Name="DataGrid_SelectionUnit"
+                                  ItemsSource="{Binding Source={StaticResource dataGridSelectionUnitProvider}}"
+                                  SelectedIndex="1"/>
+                    </StackPanel>
+                </Grid>
             </Grid>
 
             <Border Height="2"
