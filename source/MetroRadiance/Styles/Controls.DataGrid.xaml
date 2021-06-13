@@ -296,6 +296,31 @@
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Foreground" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.Disabled.Foreground}"/>
             </Trigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False"/>
+                    <Condition Property="IsSelected" Value="True"/>
+                    <Condition Property="Selector.IsSelectionActive" Value="False"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.Selected.Inactive.Background}"/>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False"/>
+                    <Condition Property="IsSelected" Value="True"/>
+                    <Condition Property="Selector.IsSelectionActive" Value="True"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.Selected.Editable.Background}"/>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True"/>
+                    <Condition Property="IsSelected" Value="True"/>
+                    <Condition Property="Selector.IsSelectionActive" Value="True"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.Selected.Editable.Background}"/>
+            </MultiTrigger>
         </Style.Triggers>
     </Style>
 
@@ -664,11 +689,11 @@
                         </MultiTrigger>
 
                         <!-- Background -->
-                        <Trigger Property="AlternationIndex" Value="1">
+                        <!--<Trigger Property="AlternationIndex" Value="1">
                             <Setter TargetName="DGR_Border"
                                     Property="Background"
                                     Value="{Binding AlternatingRowBackground, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                        </Trigger>
+                        </Trigger>-->
 
                         <!-- Background when IsMouseOver is False -->
                         <MultiTrigger>
