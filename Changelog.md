@@ -1,5 +1,20 @@
 # Changelog for MetroRadiance.Fork
 
+## 3.1.1-preview MetroRadiance
+
+- ### Breaking changes
+  - none
+
+- ### Enhancements/Features
+  - none
+
+- ### Bug fixes
+  - [#3](../../issues/3) - ArgumentNullException may occur at app startup when EnableUwpResoruces() is not called
+
+- ### Limitations
+  No changes
+  - When moving windows using AcrylicBlurWindow class, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
+
 ## 3.1.0 MetroRadiance
 
 - ### Breaking changes
@@ -25,6 +40,7 @@ If you have been using the style keys added in Version 3.0 directly, you will ne
   - [#2](../../issues/2) - Bug: ComboBox appearance and UWP brushes may not follow dynamic changes in theme
 
 - ### Limitations
+  No changes
   - When moving windows using AcrylicBlurWindow class, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
 
 

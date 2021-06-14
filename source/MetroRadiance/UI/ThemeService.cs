@@ -215,7 +215,12 @@ namespace MetroRadiance.UI
 			}
 
             // Find resources that include SolidColorBrushes in style and UWP theme
-            var targetStyleDics = allDictionaries.Where(x => CheckStyleResourceUri(x.Source)).Concat(Enumerable.Repeat(targetUwpThemeDic, 1)).Where(y => {
+            var targetStyleDics = allDictionaries.Where(x => CheckStyleResourceUri(x.Source));
+            if (targetUwpThemeDic != null)
+            {
+                targetStyleDics = targetStyleDics.Concat(Enumerable.Repeat(targetUwpThemeDic, 1));
+            }
+            targetStyleDics = targetStyleDics.Where(y => {
                 foreach (var item in y.OfType<System.Collections.DictionaryEntry>())
                 {
                     if (item.Value is SolidColorBrush)
