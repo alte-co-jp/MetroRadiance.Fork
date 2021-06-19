@@ -20,6 +20,7 @@
         </x:Array>
         <CollectionViewSource x:Key="DataItemsView1"  Source="{StaticResource DataItems}" />
         <CollectionViewSource x:Key="DataItemsView2"  Source="{StaticResource DataItems}" />
+        <CollectionViewSource x:Key="DataItemsView3"  Source="{StaticResource DataItems}" />
         <ObjectDataProvider x:Key="dataGridHeadersVisibilityProvider"
 							MethodName="GetValues"
 							ObjectType="{x:Type sys:Enum}">
@@ -450,6 +451,11 @@
                                   SelectedIndex="1"/>
                     </StackPanel>
                 </Grid>
+                <TextBlock Grid.Row="31" Grid.Column="0" Text="ListBox: "/>
+                <ListBox Grid.Row="31" Grid.Column="1"
+                         ItemsSource="{Binding Source={StaticResource DataItemsView2}}"
+                         DisplayMemberPath="Name">
+                </ListBox>
             </Grid>
 
             <Border Height="2"
