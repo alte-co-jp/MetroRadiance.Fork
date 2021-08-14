@@ -41,6 +41,11 @@
     <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource MetroRadiance.Styles.ListBox}"/>
     <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource MetroRadiance.Styles.ListBoxItem}"/>
 
+    <!-- Controls.ListView.xaml -->
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MetroRadiance.Styles.ListView}"/>
+    <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource MetroRadiance.Styles.ListViewItem}"/>
+    <Style TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource MetroRadiance.Styles.ListView.GridViewColumnHeader}"/>
+
     <!-- Controls.Menu.xaml -->
     <Style TargetType="{x:Type Menu}" BasedOn="{StaticResource MetroRadiance.Styles.Menu}"/>
 

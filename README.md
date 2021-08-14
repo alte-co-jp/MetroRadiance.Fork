@@ -422,6 +422,11 @@ These styles use the colors and brushes defined in MetroRadiance. Therefore, it 
  - `<Style x:Key="MetroRadianceFocusVisualStyleKey">`
  - `<Style TargetType="{x:Type GroupBox}" x:Key="MetroRadiance.Styles.GroupBox">`
  - `<Style TargetType="{x:Type Label}" x:Key="MetroRadiance.Styles.Label">`
+ - [v3.2.0-] `<Style TargetType="{x:Type ListBox}" x:Key="MetroRadiance.Styles.ListBox"/>`
+ - [v3.2.0-] `<Style TargetType="{x:Type ListBoxItem}" x:Key="MetroRadiance.Styles.ListBoxItem"/>`
+ - [v3.2.0-] `<Style TargetType="{x:Type ListView}" x:Key="MetroRadiance.Styles.ListView"/>`
+ - [v3.2.0-] `<Style TargetType="{x:Type ListViewItem}" x:Key="MetroRadiance.Styles.ListViewItem"/>`
+ - [v3.2.0-] `<Style TargetType="{x:Type GridViewColumnHeader}" x:Key="MetroRadiance.Styles.ListView.GridViewColumnHeader"/>`
  - `<Style TargetType="{x:Type Menu}" x:Key="MetroRadiance.Styles.Menu">`
  - `<Style TargetType="{x:Type MenuItem}" x:Key="MetroRadiance.Styles.MenuItem">`
  - `<Style TargetType="{x:Type Separator}" x:Key="MetroRadiance.Styles.Menu.Separator">`
@@ -448,6 +453,11 @@ These styles use the colors and brushes defined in MetroRadiance. Therefore, it 
 		   x:Key="{x:Static SystemParameters.FocusVisualStyleKey}"/>`
  - [v3.0.0-] `<Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroRadiance.Styles.GroupBox}"/>`
  - [v3.0.0-] `<Style TargetType="{x:Type Label}" BasedOn="{StaticResource MetroRadiance.Styles.Label}"/>`
+ - [v3.2.0-] `<Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource MetroRadiance.Styles.ListBox}"/>`
+ - [v3.2.0-] `<Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource MetroRadiance.Styles.ListBoxItem}"/>`
+ - [v3.2.0-] `<Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MetroRadiance.Styles.ListView}"/>`
+ - [v3.2.0-] `<Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource MetroRadiance.Styles.ListViewItem}"/>`
+ - [v3.2.0-] `<Style TargetType="{x:Type GridViewColumnHeader}" BasedOn="{StaticResource MetroRadiance.Styles.ListView.GridViewColumnHeader}"/>`
  - [v3.0.0-] `<Style TargetType="{x:Type Menu}" BasedOn="{StaticResource MetroRadiance.Styles.Menu}"/>`
  - [v3.0.0-] `<Style TargetType="{x:Type Separator}" BasedOn="{StaticResource MetroRadiance.Styles.Menu.Separator}"
 		   x:Key="{x:Static MenuItem.SeparatorStyleKey}"/>`
@@ -574,7 +584,7 @@ Example for metro:PromptTextBox using Int32Rule (int)
 ### Custom behaviors
 
 ### Custom attached properties
-#### MetroRadiance.UI.AttachedProperties.DataGridHelper
+#### [v3.1.0-]MetroRadiance.UI.AttachedProperties.DataGridProperties
 The attached properties provided by DataGridProperties are attached properties that allow the element style of DataGridTextColumn / DataGridCheckBoxColumn / DataGridComboBoxColumn to be set to DataGrid.
 This simplifies the need to set element styles for DataGridTextColumn / DataGridCheckBoxColumn / DataGridComboBoxColumn.
  - TextColumnDefaultElementStyle
@@ -611,7 +621,32 @@ Example for mrap:DataGridProperties.XXXDefalutElementStyle / mrap:DataGridProper
                DisplayMemberPath="Name"
                SelectedValuePath="Name"
                ItemsSource="{StaticResource DataItems}"/>
+        </DataGrid.Columns>
     </DataGrid>
+...
+```
+
+#### [v3.2.0-] MetroRadiance.UI.AttachedProperties.ListViewProperties
+The attached properties provided by ListViewProperties are attached properties that allow the element style of GridView to be set to ListView.
+This simplifies the need to set element styles for Grid.
+ - ColumnHeaderDefaultContainerStyle
+
+Example for mrap:ListViewProperties.ColumnHeaderDefaultContainerStyle
+```xml
+<Window
+  ...
+  xmlns:metroAP="http://schemes.grabacr.net/winfx/2014/attached-poperties">
+    <ListView
+        metroAP:ListViewProperties.ColumnHeaderDefaultContainerStyle="{DynamicResource My.Styles.ListView.GridViewColumnHeader}"
+        >
+        <ListView.View>
+            <GridView AllowsColumnReorder="True"
+                      ColumnHeaderToolTip="Employee Information">
+                <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id"/>
+                <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name"/>
+            </GridView>
+        </ListView.View>
+    </ListView>
 ...
 ```
 ## License

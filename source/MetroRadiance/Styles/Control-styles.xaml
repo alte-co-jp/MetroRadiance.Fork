@@ -11,6 +11,7 @@
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.GroupBox.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Label.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.ListBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.ListView.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.Menu.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.MenuItem.xaml" />
 		<ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Styles/Controls.ContextMenu.xaml" />

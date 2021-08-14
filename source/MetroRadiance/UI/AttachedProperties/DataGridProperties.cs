@@ -178,7 +178,7 @@ namespace MetroRadiance.UI.AttachedProperties
             foreach (TargetColumnClassT column in grid.Columns.OfType<TargetColumnClassT>())
             {
                 var source = DependencyPropertyHelper.GetValueSource(column, targetProperty);
-                if(source.BaseValueSource == BaseValueSource.Default)
+                if (source.BaseValueSource == BaseValueSource.Default)
                 {
                     if (style != null)
                     {
