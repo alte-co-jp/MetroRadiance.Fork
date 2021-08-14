@@ -41,11 +41,6 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
 # Archive files
 # Compress files into .7z, .tar.gz, or .zip
 - task: ArchiveFiles@2
@@ -70,3 +65,8 @@ steps:
     #fileSharePath: '\server\folderName' # Required when artifactType = filepath
     #parallel: false # Optional. Default value: false
     #parallelCount: 1 # Optional. Value must be at least 1 and not greater than 128. Default value: 8
+    
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
