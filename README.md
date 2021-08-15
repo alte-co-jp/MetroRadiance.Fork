@@ -627,8 +627,8 @@ Example for mrap:DataGridProperties.XXXDefalutElementStyle / mrap:DataGridProper
 ```
 
 #### [v3.2.0-] MetroRadiance.UI.AttachedProperties.ListViewProperties
-The attached properties provided by ListViewProperties are attached properties that allow the element style of GridView to be set to ListView.
-This simplifies the need to set element styles for Grid.
+The attached properties provided by ListViewProperties are attached properties that allow the style of GridView to be set to ListView.
+This simplifies the need to set styles for GridView.
  - ColumnHeaderDefaultContainerStyle
 
 Example for mrap:ListViewProperties.ColumnHeaderDefaultContainerStyle
