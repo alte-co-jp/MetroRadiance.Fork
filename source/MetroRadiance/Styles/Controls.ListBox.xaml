@@ -12,8 +12,10 @@
     <SolidColorBrush x:Key="MetroRadiance.Brushes.ListBox.MouseOver.Border" Color="{DynamicResource HighlightBackgroundColorKey}" />
     <SolidColorBrush x:Key="MetroRadiance.Brushes.ListBox.MouseOver.Inactive.Background" Color="{DynamicResource HighlightBackgroundColorKey}" />
     <SolidColorBrush x:Key="MetroRadiance.Brushes.ListBox.MouseOver.Inactive.Border" Color="{DynamicResource HighlightBackgroundColorKey}" />
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ListBox.MouseOver.Selected.Foreground" Color="{DynamicResource AccentForegroundColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.ListBox.MouseOver.Selected.Background" Color="{DynamicResource AccentActiveColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.ListBox.MouseOver.Selected.Border" Color="{DynamicResource AccentHighlightColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.ListBox.Selected.Foreground" Color="{DynamicResource AccentForegroundColorKey}" />
     <SolidColorBrush x:Key="MetroRadiance.Brushes.ListBox.Selected.Background" Color="{DynamicResource AccentActiveColorKey}" />
     <SolidColorBrush x:Key="MetroRadiance.Brushes.ListBox.Selected.Border" Color="{DynamicResource AccentColorKey}" />
     <SolidColorBrush x:Key="MetroRadiance.Brushes.ListBox.Selected.Inactive.Background" Color="{DynamicResource HighlightBackgroundColorKey}" />
@@ -99,6 +101,7 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="True" />
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{DynamicResource MetroRadiance.Brushes.ListBox.Selected.Foreground}" />
                             <Setter TargetName="Bd" Property="Background" Value="{DynamicResource MetroRadiance.Brushes.ListBox.Selected.Background}" />
                             <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource MetroRadiance.Brushes.ListBox.Selected.Border}" />
                         </MultiTrigger>
@@ -107,6 +110,7 @@
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{DynamicResource MetroRadiance.Brushes.ListBox.MouseOver.Selected.Foreground}" />
                             <Setter TargetName="Bd" Property="Background" Value="{DynamicResource MetroRadiance.Brushes.ListBox.MouseOver.Selected.Background}" />
                             <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource MetroRadiance.Brushes.ListBox.MouseOver.Selected.Border}" />
                         </MultiTrigger>

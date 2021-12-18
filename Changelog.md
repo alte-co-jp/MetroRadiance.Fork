@@ -1,6 +1,21 @@
 # Changelog for MetroRadiance.Fork
 
-## 3.2.0 (preview) MetroRadiance
+## 3.2.1 (preview) MetroRadiance
+
+- ### Breaking changes
+  - none
+
+- ### Enhancements/Features
+  - Improve text color of selected state for some standard control styles (DataGrid/ListBox/ListView).
+
+- ### Bug fixes
+  - none
+
+- ### Limitations
+  No changes
+  - When moving windows using AcrylicBlurWindow class, the move process is very slow on Windows 10 1903 (Build 18362, May 2019 Update) or later
+
+## 3.2.0 MetroRadiance
 
 - ### Breaking changes
   - none

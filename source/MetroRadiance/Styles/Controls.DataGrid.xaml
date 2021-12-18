@@ -27,7 +27,7 @@
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Static.Header.DropLocationIndicator" Color="{DynamicResource ActiveForegroundColorKey}"/>
 
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Selected.Foreground" Color="{DynamicResource AccentForegroundColorKey}"/>
-    <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Selected.Background" Color="{DynamicResource AccentHighlightColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Selected.Background" Color="{DynamicResource AccentActiveColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Selected.Editable.Background" Color="{DynamicResource AccentActiveColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Selected.Inactive.Foreground" Color="{DynamicResource HighlightForegroundColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Selected.Inactive.Background" Color="{DynamicResource HighlightBackgroundColorKey}"/>
@@ -35,10 +35,11 @@
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Disabled.Foreground" Color="{DynamicResource InactiveForegroundColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Disabled.Background" Color="{DynamicResource InactiveBackgroundColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.Disabled.Border" Color="{DynamicResource InactiveBorderColorKey}"/>
-    
+
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.MouseOver.Background" Color="{DynamicResource ActiveBackgroundColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.MouseOver.Border" Color="{DynamicResource AccentActiveColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.MouseOver.Inactive.Background" Color="{DynamicResource HighlightBackgroundColorKey}"/>
+    <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.MouseOver.Selected.Foreground" Color="{DynamicResource AccentForegroundColorKey}" />
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.MouseOver.Selected.Background" Color="{DynamicResource AccentActiveColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.MouseOver.Selected.Border" Color="{DynamicResource AccentColorKey}"/>
     <SolidColorBrush x:Key="MetroRadiance.Brushes.DataGrid.MouseOver.Selected.Inactive.Background" Color="{DynamicResource Highlight2BackgroundColorKey}"/>
@@ -303,6 +304,7 @@
                     <Condition Property="IsSelected" Value="True"/>
                     <Condition Property="Selector.IsSelectionActive" Value="False"/>
                 </MultiTrigger.Conditions>
+                <Setter Property="Foreground" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.Selected.Inactive.Foreground}" />
                 <Setter Property="Background" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.Selected.Inactive.Background}"/>
             </MultiTrigger>
             <MultiTrigger>
@@ -311,7 +313,8 @@
                     <Condition Property="IsSelected" Value="True"/>
                     <Condition Property="Selector.IsSelectionActive" Value="True"/>
                 </MultiTrigger.Conditions>
-                <Setter Property="Background" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.Selected.Editable.Background}"/>
+                <Setter Property="Foreground" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.Selected.Foreground}" />
+                <Setter Property="Background" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.Selected.Background}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -319,7 +322,8 @@
                     <Condition Property="IsSelected" Value="True"/>
                     <Condition Property="Selector.IsSelectionActive" Value="True"/>
                 </MultiTrigger.Conditions>
-                <Setter Property="Background" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.Selected.Editable.Background}"/>
+                <Setter Property="Foreground" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.MouseOver.Selected.Foreground}" />
+                <Setter Property="Background" Value="{DynamicResource MetroRadiance.Brushes.DataGrid.MouseOver.Selected.Background}"/>
             </MultiTrigger>
         </Style.Triggers>
     </Style>

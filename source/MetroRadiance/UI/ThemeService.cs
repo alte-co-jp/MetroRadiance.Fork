@@ -18,40 +18,40 @@ using Tavis.UriTemplates;
 
 namespace MetroRadiance.UI
 {
-	/// <summary>
-	/// MetroRadiance テーマ機能を提供します。
-	/// </summary>
-	public class ThemeService : INotifyPropertyChanged
-	{
-		#region singleton members
+    /// <summary>
+    /// MetroRadiance テーマ機能を提供します。
+    /// </summary>
+    public class ThemeService : INotifyPropertyChanged
+    {
+        #region singleton members
 
-		public static ThemeService Current { get; } = new ThemeService();
+        public static ThemeService Current { get; } = new ThemeService();
 
-		#endregion
+        #endregion
 
-		private static readonly string _baseUrl = @"pack://application:,,,/MetroRadiance;component/";
-		private static readonly string _themeUrl = @"Themes/{theme}.xaml";
-		private static readonly string _uwpThemeUrl = @"Themes/UWP/{theme}.xaml";
-		private static readonly string _accentUrl = @"Themes/Accents/{accent}.xaml";
+        private static readonly string _baseUrl = @"pack://application:,,,/MetroRadiance;component/";
+        private static readonly string _themeUrl = @"Themes/{theme}.xaml";
+        private static readonly string _uwpThemeUrl = @"Themes/UWP/{theme}.xaml";
+        private static readonly string _accentUrl = @"Themes/Accents/{accent}.xaml";
         private static readonly string _uwpAccentUrl = @"Themes/UWP/Accents/{accent}.xaml";
         private static readonly string _styleUrl = @"Styles/{style}.xaml";
         private static readonly UriTemplateTable _templateTable;
 
-		private static readonly UriTemplate _themeTemplate = new UriTemplate(_themeUrl);
-		private static readonly UriTemplate _uwpThemeTemplate = new UriTemplate(_uwpThemeUrl);
-		private static readonly UriTemplate _accentTemplate = new UriTemplate(_accentUrl);
+        private static readonly UriTemplate _themeTemplate = new UriTemplate(_themeUrl);
+        private static readonly UriTemplate _uwpThemeTemplate = new UriTemplate(_uwpThemeUrl);
+        private static readonly UriTemplate _accentTemplate = new UriTemplate(_accentUrl);
         private static readonly UriTemplate _uwpAccentTemplate = new UriTemplate(_uwpAccentUrl);
         private static readonly UriTemplate _styleTemplate = new UriTemplate(_styleUrl);
         private static readonly Uri _templateBaseUri = new Uri(_baseUrl);
 
-		private bool _enableUWPCompatibleResources;
-		private Dispatcher _dispatcher;
-		private IDisposable _windowsAccentListener;
-		private IDisposable _windowsThemeListener;
+        private bool _enableUWPCompatibleResources;
+        private Dispatcher _dispatcher;
+        private IDisposable _windowsAccentListener;
+        private IDisposable _windowsThemeListener;
 
-		private readonly List<ResourceDictionary> _themeResources = new List<ResourceDictionary>();
-		private readonly List<ResourceDictionary> _uwpThemeResources = new List<ResourceDictionary>();
-		private readonly List<ResourceDictionary> _accentResources = new List<ResourceDictionary>();
+        private readonly List<ResourceDictionary> _themeResources = new List<ResourceDictionary>();
+        private readonly List<ResourceDictionary> _uwpThemeResources = new List<ResourceDictionary>();
+        private readonly List<ResourceDictionary> _accentResources = new List<ResourceDictionary>();
         private readonly List<ResourceDictionary> _uwpAccentResources = new List<ResourceDictionary>();
         private readonly List<ResourceDictionary> _styleResources = new List<ResourceDictionary>();
 
@@ -59,50 +59,50 @@ namespace MetroRadiance.UI
 
         private Theme? _Theme;
 
-		/// <summary>
-		/// 現在設定されているテーマを取得します。
-		/// </summary>
-		public Theme Theme
-		{
-			get { return this._Theme ?? Theme.Windows; }
-			private set
-			{
-				if (this._Theme != value)
-				{
-					this._Theme = value;
-					this.UpdateListener(value);
-					this.RaisePropertyChanged();
-				}
-			}
-		}
+        /// <summary>
+        /// 現在設定されているテーマを取得します。
+        /// </summary>
+        public Theme Theme
+        {
+            get { return this._Theme ?? Theme.Windows; }
+            private set
+            {
+                if (this._Theme != value)
+                {
+                    this._Theme = value;
+                    this.UpdateListener(value);
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
 
-		#endregion
+        #endregion
 
-		#region Accent 変更通知プロパティ
+        #region Accent 変更通知プロパティ
 
-		private Accent? _Accent;
+        private Accent? _Accent;
 
-		/// <summary>
-		/// 現在設定されているアクセントを取得します。
-		/// </summary>
-		public Accent Accent
-		{
-			get { return this._Accent ?? Accent.Windows; }
-			private set
-			{
-				if (this._Accent != value)
-				{
-					this._Accent = value;
-					this.UpdateListener(value);
-					this.RaisePropertyChanged();
-				}
-			}
-		}
+        /// <summary>
+        /// 現在設定されているアクセントを取得します。
+        /// </summary>
+        public Accent Accent
+        {
+            get { return this._Accent ?? Accent.Windows; }
+            private set
+            {
+                if (this._Accent != value)
+                {
+                    this._Accent = value;
+                    this.UpdateListener(value);
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
 
-		#endregion
+        #endregion
 
-		static ThemeService()
-		{
+        static ThemeService()
+        {
 #if NETCOREAPP
 			_templateTable = new UriTemplateTable();
 			_templateTable.Add("theme", new UriTemplate(_baseUrl + _themeUrl));
@@ -112,107 +112,107 @@ namespace MetroRadiance.UI
 			_templateTable.Add("style", new UriTemplate(_baseUrl + _styleUrl));
 #else
             _templateTable = new UriTemplateTable(_templateBaseUri);
-			_templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_themeTemplate, "theme"));
-			_templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_accentTemplate, "accent"));
-			_templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_uwpThemeTemplate, "uwptheme"));
+            _templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_themeTemplate, "theme"));
+            _templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_accentTemplate, "accent"));
+            _templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_uwpThemeTemplate, "uwptheme"));
             _templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_uwpAccentTemplate, "uwpaccent"));
             _templateTable.KeyValuePairs.Add(new KeyValuePair<UriTemplate, Object>(_styleTemplate, "style"));
             _templateTable.MakeReadOnly(false);
 #endif
-		}
+        }
 
-		private ThemeService() { }
+        private ThemeService() { }
 
-		/// <summary>
-		/// Enable UWP resources.
-		///   ColorKey: System[Simple Light/Dark Name]Color
-		///   HighContrastColorKey: System[Simple HighContrast Name]Color
-		///   BrushKey: SystemControl[Simple HighContrast name][Simple light/dark name]Brush
-		/// EnableUWPResoruces() need to be called befer calling Register().
-		/// 
-		/// Refferences:
-		///  - https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/xaml-theme-resources#the-xaml-color-ramp-and-theme-dependent-brushes
-		///  - https://docs.microsoft.com/en-us/windows/uwp/design/style/color#accent-color-palette
-		/// </summary>
-		public void EnableUwpResoruces()
-		{
-			Debug.Assert(!this._themeResources.Any() && !this._uwpThemeResources.Any()
-				&& !this._accentResources.Any() && !this._uwpAccentResources.Any(),
-				"Warning: ThemeService.EnableUWPResoruces() need to be called befer calling ThemeService.Register()");
-			this._enableUWPCompatibleResources = true;
-		}
+        /// <summary>
+        /// Enable UWP resources.
+        ///   ColorKey: System[Simple Light/Dark Name]Color
+        ///   HighContrastColorKey: System[Simple HighContrast Name]Color
+        ///   BrushKey: SystemControl[Simple HighContrast name][Simple light/dark name]Brush
+        /// EnableUWPResoruces() need to be called befer calling Register().
+        /// 
+        /// Refferences:
+        ///  - https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/xaml-theme-resources#the-xaml-color-ramp-and-theme-dependent-brushes
+        ///  - https://docs.microsoft.com/en-us/windows/uwp/design/style/color#accent-color-palette
+        /// </summary>
+        public void EnableUwpResoruces()
+        {
+            Debug.Assert(!this._themeResources.Any() && !this._uwpThemeResources.Any()
+                && !this._accentResources.Any() && !this._uwpAccentResources.Any(),
+                "Warning: ThemeService.EnableUWPResoruces() need to be called befer calling ThemeService.Register()");
+            this._enableUWPCompatibleResources = true;
+        }
 
-		/// <summary>
-		/// テーマ機能を有効化します。テーマまたはアクセントが変更されたとき、<paramref name="app"/>
-		/// で指定した WPF アプリケーション内のテーマ関連リソースは自動的に書き換えられます。
-		/// </summary>
-		/// <param name="app">テーマ関連リソースを含む WPF アプリケーション。</param>
-		/// <param name="theme">初期値として使用するテーマ。</param>
-		/// <param name="accent">初期値として使用するアクセント。</param>
-		/// <returns><paramref name="app"/> をリソースの書き換え対象から外すときに使用する <see cref="IDisposable"/> オブジェクト。</returns>
-		public IDisposable Register(Application app, Theme theme, Accent accent)
-		{
-			this._dispatcher = app.Dispatcher;
+        /// <summary>
+        /// テーマ機能を有効化します。テーマまたはアクセントが変更されたとき、<paramref name="app"/>
+        /// で指定した WPF アプリケーション内のテーマ関連リソースは自動的に書き換えられます。
+        /// </summary>
+        /// <param name="app">テーマ関連リソースを含む WPF アプリケーション。</param>
+        /// <param name="theme">初期値として使用するテーマ。</param>
+        /// <param name="accent">初期値として使用するアクセント。</param>
+        /// <returns><paramref name="app"/> をリソースの書き換え対象から外すときに使用する <see cref="IDisposable"/> オブジェクト。</returns>
+        public IDisposable Register(Application app, Theme theme, Accent accent)
+        {
+            this._dispatcher = app.Dispatcher;
 
-			var disposable = this.Register(app.Resources, theme, accent);
+            var disposable = this.Register(app.Resources, theme, accent);
 
-			this.Theme = theme;
-			this.Accent = accent;
+            this.Theme = theme;
+            this.Accent = accent;
 
-			return disposable;
-		}
+            return disposable;
+        }
 
-		/// <summary>
-		/// テーマまたはアクセントが変更されたときにリソースの書き換え対象とする <see cref="ResourceDictionary"/>
-		/// を登録します。このメソッドは、登録解除に使用する <see cref="IDisposable"/> オブジェクトを返します。
-		/// </summary>
-		/// <returns><paramref name="rd"/> をリソースの書き換え対象から外すときに使用する <see cref="IDisposable"/> オブジェクト。</returns>
-		public IDisposable Register(ResourceDictionary rd)
-		{
-			return this.Register(rd, this.Theme, this.Accent);
-		}
+        /// <summary>
+        /// テーマまたはアクセントが変更されたときにリソースの書き換え対象とする <see cref="ResourceDictionary"/>
+        /// を登録します。このメソッドは、登録解除に使用する <see cref="IDisposable"/> オブジェクトを返します。
+        /// </summary>
+        /// <returns><paramref name="rd"/> をリソースの書き換え対象から外すときに使用する <see cref="IDisposable"/> オブジェクト。</returns>
+        public IDisposable Register(ResourceDictionary rd)
+        {
+            return this.Register(rd, this.Theme, this.Accent);
+        }
 
-		internal IDisposable Register(ResourceDictionary rd, Theme theme, Accent accent)
-		{
-			this.SetAppMode(theme);
+        internal IDisposable Register(ResourceDictionary rd, Theme theme, Accent accent)
+        {
+            this.SetAppMode(theme);
 
-			var allDictionaries = EnumerateDictionaries(rd).ToArray();
+            var allDictionaries = EnumerateDictionaries(rd).ToArray();
 
-			// MetroRadiance Theme
-			var themeDic = GetThemeResource(theme);
-			var targetThemeDic = allDictionaries.LastOrDefault(x => CheckThemeResourceUri(x.Source));
-			targetThemeDic = UpdateDic(rd, targetThemeDic, themeDic);
-			this._themeResources.Add(targetThemeDic);
+            // MetroRadiance Theme
+            var themeDic = GetThemeResource(theme);
+            var targetThemeDic = allDictionaries.LastOrDefault(x => CheckThemeResourceUri(x.Source));
+            targetThemeDic = UpdateDic(rd, targetThemeDic, themeDic);
+            this._themeResources.Add(targetThemeDic);
 
-			// UWP Theme
-			ResourceDictionary targetUwpThemeDic = null;
-			var upwThemeDic = GetUwpThemeResource(theme);
-			targetUwpThemeDic = allDictionaries.LastOrDefault(x => CheckUwpThemeResourceUri(x.Source));
-			if (targetUwpThemeDic != null || this._enableUWPCompatibleResources)
-			{
-				targetUwpThemeDic = UpdateDic(rd, targetUwpThemeDic, upwThemeDic);
-				this._uwpThemeResources.Add(targetUwpThemeDic);
-			}
+            // UWP Theme
+            ResourceDictionary targetUwpThemeDic = null;
+            var upwThemeDic = GetUwpThemeResource(theme);
+            targetUwpThemeDic = allDictionaries.LastOrDefault(x => CheckUwpThemeResourceUri(x.Source));
+            if (targetUwpThemeDic != null || this._enableUWPCompatibleResources)
+            {
+                targetUwpThemeDic = UpdateDic(rd, targetUwpThemeDic, upwThemeDic);
+                this._uwpThemeResources.Add(targetUwpThemeDic);
+            }
 
-			// MetroRadiance Accent
-			var accentDic = GetAccentResource(accent);
-			var targetAccentDic = allDictionaries.LastOrDefault(x => CheckAccentResourceUri(x.Source));
-			targetAccentDic = UpdateDic(rd, targetAccentDic, accentDic);
-			this._accentResources.Add(targetAccentDic);
+            // MetroRadiance Accent
+            var accentDic = GetAccentResource(accent, theme);
+            var targetAccentDic = allDictionaries.LastOrDefault(x => CheckAccentResourceUri(x.Source));
+            targetAccentDic = UpdateDic(rd, targetAccentDic, accentDic);
+            this._accentResources.Add(targetAccentDic);
 
-			// UWP Accent
-			var uwpAccentDic = GetUwpAccentResource(accent);
-			if (targetUwpThemeDic != null)
-			{
-				// UWP Themeにより、追加されている可能性があるので、再取得する
-				allDictionaries = EnumerateDictionaries(rd).ToArray();
-			}
-			var targetUwpAccentDic = allDictionaries.LastOrDefault(x => CheckUwpAccentResourceUri(x.Source));
-			if (targetUwpAccentDic != null || this._enableUWPCompatibleResources)
-			{
-				targetUwpAccentDic = UpdateDic(rd, targetUwpAccentDic, uwpAccentDic);
-				this._uwpAccentResources.Add(targetUwpAccentDic);
-			}
+            // UWP Accent
+            var uwpAccentDic = GetUwpAccentResource(accent);
+            if (targetUwpThemeDic != null)
+            {
+                // UWP Themeにより、追加されている可能性があるので、再取得する
+                allDictionaries = EnumerateDictionaries(rd).ToArray();
+            }
+            var targetUwpAccentDic = allDictionaries.LastOrDefault(x => CheckUwpAccentResourceUri(x.Source));
+            if (targetUwpAccentDic != null || this._enableUWPCompatibleResources)
+            {
+                targetUwpAccentDic = UpdateDic(rd, targetUwpAccentDic, uwpAccentDic);
+                this._uwpAccentResources.Add(targetUwpAccentDic);
+            }
 
             // Find resources that include SolidColorBrushes in style and UWP theme
             var targetStyleDics = allDictionaries.Where(x => CheckStyleResourceUri(x.Source));
@@ -220,7 +220,8 @@ namespace MetroRadiance.UI
             {
                 targetStyleDics = targetStyleDics.Concat(Enumerable.Repeat(targetUwpThemeDic, 1));
             }
-            targetStyleDics = targetStyleDics.Where(y => {
+            targetStyleDics = targetStyleDics.Where(y =>
+            {
                 foreach (var item in y.OfType<System.Collections.DictionaryEntry>())
                 {
                     if (item.Value is SolidColorBrush)
@@ -231,85 +232,91 @@ namespace MetroRadiance.UI
                 return false;
             });
             this._styleResources.AddRange(targetStyleDics);
-            
+
             // Unregister したいときは戻り値の IDisposable を Dispose() してほしい
             return Disposable.Create(() =>
-			{
-				this._themeResources.Remove(targetThemeDic);
-				if (targetUwpThemeDic != null)
-				{
-					this._uwpThemeResources.Remove(targetUwpThemeDic);
-				}
-				this._accentResources.Remove(targetAccentDic);
-				if (targetUwpAccentDic != null)
-				{
-					this._uwpAccentResources.Remove(targetUwpAccentDic);
-				}
-                targetStyleDics.ToList().ForEach(i=>this._styleResources.Remove(i));
+            {
+                this._themeResources.Remove(targetThemeDic);
+                if (targetUwpThemeDic != null)
+                {
+                    this._uwpThemeResources.Remove(targetUwpThemeDic);
+                }
+                this._accentResources.Remove(targetAccentDic);
+                if (targetUwpAccentDic != null)
+                {
+                    this._uwpAccentResources.Remove(targetUwpAccentDic);
+                }
+                targetStyleDics.ToList().ForEach(i => this._styleResources.Remove(i));
             });
-		}
+        }
 
-		ResourceDictionary UpdateDic(ResourceDictionary registertDic, ResourceDictionary targetDic, ResourceDictionary baseDic)
-		{
-			if (targetDic == null)
-			{
-				targetDic = baseDic;
-				registertDic.MergedDictionaries.Add(targetDic);
-			}
-			else
-			{
-				foreach (var key in baseDic.Keys.OfType<string>().Where(x => targetDic.Contains(x)))
-				{
-					targetDic[key] = baseDic[key];
-				}
-			}
-			return targetDic;
-		}
+        ResourceDictionary UpdateDic(ResourceDictionary registertDic, ResourceDictionary targetDic, ResourceDictionary baseDic)
+        {
+            if (targetDic == null)
+            {
+                targetDic = baseDic;
+                registertDic.MergedDictionaries.Add(targetDic);
+            }
+            else
+            {
+                foreach (var key in baseDic.Keys.OfType<string>().Where(x => targetDic.Contains(x)))
+                {
+                    targetDic[key] = baseDic[key];
+                }
+            }
+            return targetDic;
+        }
 
-		public void ChangeTheme(Theme theme)
-		{
-			if (this.Theme == theme) return;
+        public void ChangeTheme(Theme theme)
+        {
+            if (this.Theme == theme) return;
 
-			this.InvokeOnUIDispatcher(() => this.ChangeThemeCore(theme));
-			this.Theme = theme;
-		}
+            var accent = this.Accent;
 
-		void ChangeThemeCore(Platform.Theme theme)
-		{
-			switch (theme)
-			{
-				case Platform.Theme.Dark:
-					this.ChangeThemeCore(Theme.Dark);
-					break;
-				case Platform.Theme.Light:
-					this.ChangeThemeCore(Theme.Light);
-					break;
-			}
-		}
+            this.InvokeOnUIDispatcher(() =>
+            {
+                this.ChangeThemeCore(theme);
+                this.ChangeAccentCore(GetAccentResource(accent, theme), GetUwpAccentResource(accent));
+            });
+            this.Theme = theme;
+        }
 
-		void ChangeThemeCore(Theme theme)
-		{
-			this.SetAppMode(theme);
+        void ChangeThemeCore(Platform.Theme theme)
+        {
+            switch (theme)
+            {
+                case Platform.Theme.Dark:
+                    this.ChangeThemeCore(Theme.Dark);
+                    break;
+                case Platform.Theme.Light:
+                    this.ChangeThemeCore(Theme.Light);
+                    break;
+            }
+        }
 
-			var dic = GetThemeResource(theme);
+        void ChangeThemeCore(Theme theme)
+        {
+            this.SetAppMode(theme);
 
-			foreach (var key in dic.Keys.OfType<string>())
-			{
-				foreach (var resource in this._themeResources.Where(x => x.Contains(key)))
-				{
-					resource[key] = dic[key];
-				}
-			}
+            var dic = GetThemeResource(theme);
 
-			var uwpDic = GetUwpThemeResource(theme);
+            foreach (var key in dic.Keys.OfType<string>())
+            {
+                foreach (var resource in this._themeResources.Where(x => x.Contains(key)))
+                {
+                    resource[key] = dic[key];
+                }
+            }
 
-			foreach (var key in uwpDic.Keys.OfType<string>())
-			{
-				foreach (var resource in this._uwpThemeResources.Where(x => x.Contains(key)))
-				{
-					resource[key] = uwpDic[key];
-				}
-			}
+            var uwpDic = GetUwpThemeResource(theme);
+
+            foreach (var key in uwpDic.Keys.OfType<string>())
+            {
+                foreach (var resource in this._uwpThemeResources.Where(x => x.Contains(key)))
+                {
+                    resource[key] = uwpDic[key];
+                }
+            }
 
             // SolidColorBrushのColorプロパティのDynamicResourceを再評価するようにブラシを再作成する
             foreach (var resource in this._styleResources)
@@ -326,57 +333,57 @@ namespace MetroRadiance.UI
         }
 
         private bool SetAppMode(Theme theme)
-		{
-			PreferredAppMode appMode;
-			if (theme.SyncToWindows)
-			{
-				appMode = PreferredAppMode.APPMODE_ALLOWDARK;
-			}
-			else if (theme.Specified == Theme.SpecifiedColor.Dark)
-			{
-				appMode = PreferredAppMode.APPMODE_FORCEDARK;
-			}
-			else
-			{
-				appMode = PreferredAppMode.APPMODE_DEFAULT;
-			}
-			return AppMode.SetAppMode(appMode);
-		}
+        {
+            PreferredAppMode appMode;
+            if (theme.SyncToWindows)
+            {
+                appMode = PreferredAppMode.APPMODE_ALLOWDARK;
+            }
+            else if (theme.Specified == Theme.SpecifiedColor.Dark)
+            {
+                appMode = PreferredAppMode.APPMODE_FORCEDARK;
+            }
+            else
+            {
+                appMode = PreferredAppMode.APPMODE_DEFAULT;
+            }
+            return AppMode.SetAppMode(appMode);
+        }
 
-		public void ChangeAccent(Accent accent)
-		{
-			if (this.Accent == accent) return;
+        public void ChangeAccent(Accent accent)
+        {
+            if (this.Accent == accent) return;
 
-			this.InvokeOnUIDispatcher(() => this.ChangeAccentCore(accent));
-			this.Accent = accent;
-		}
+            this.InvokeOnUIDispatcher(() => this.ChangeAccentCore(accent));
+            this.Accent = accent;
+        }
 
-		void ChangeAccentCore(Accent accent)
-		{
-			this.ChangeAccentCore(GetAccentResource(accent), GetUwpAccentResource(accent));
-		}
+        void ChangeAccentCore(Accent accent)
+        {
+            this.ChangeAccentCore(GetAccentResource(accent, this.Theme), GetUwpAccentResource(accent));
+        }
 
-		void ChangeAccentCore(Color color)
-		{
-			this.ChangeAccentCore(GetAccentResource(color), GetUwpAccentResource(color));
-		}
+        void ChangeAccentCore(Color color)
+        {
+            this.ChangeAccentCore(GetAccentResource(color, this.Theme), GetUwpAccentResource(color));
+        }
 
-		void ChangeAccentCore(ResourceDictionary dic, ResourceDictionary uwpDic)
-		{
-			foreach (var key in dic.Keys.OfType<string>())
-			{
-				foreach (var resource in this._accentResources.Where(x => x.Contains(key)))
-				{
-					resource[key] = dic[key];
-				}
-			}
-			foreach (var key in uwpDic.Keys.OfType<string>())
-			{
-				foreach (var resource in this._uwpAccentResources.Where(x => x.Contains(key)))
-				{
-					resource[key] = uwpDic[key];
-				}
-			}
+        void ChangeAccentCore(ResourceDictionary dic, ResourceDictionary uwpDic)
+        {
+            foreach (var key in dic.Keys.OfType<string>())
+            {
+                foreach (var resource in this._accentResources.Where(x => x.Contains(key)))
+                {
+                    resource[key] = dic[key];
+                }
+            }
+            foreach (var key in uwpDic.Keys.OfType<string>())
+            {
+                foreach (var resource in this._uwpAccentResources.Where(x => x.Contains(key)))
+                {
+                    resource[key] = uwpDic[key];
+                }
+            }
 
             // SolidColorBrushのColorプロパティのDynamicResourceを再評価するようにブラシを再作成する
             foreach (var resource in this._styleResources)
@@ -392,134 +399,134 @@ namespace MetroRadiance.UI
             }
         }
 
+        static Theme.SpecifiedColor GetCurrentThemeColor(Theme theme)
+        {
+            var specified = theme.SyncToWindows
+                ? WindowsTheme.Theme.Current == Platform.Theme.Dark ? Theme.Dark.Specified : Theme.Light.Specified
+                : theme.Specified;
+            if (specified == null) throw new ArgumentException($"Invalid theme value '{theme}'.");
+            return specified.Value;
+        }
+
         static ResourceDictionary GetThemeResource(Theme theme)
-		{
-			var specified = theme.SyncToWindows
-				? WindowsTheme.Theme.Current == Platform.Theme.Dark ? Theme.Dark.Specified : Theme.Light.Specified
-				: theme.Specified;
-			if (specified == null) throw new ArgumentException($"Invalid theme value '{theme}'.");
+        {
+            return new ResourceDictionary { Source = CreateThemeResourceUri(GetCurrentThemeColor(theme)), };
+        }
 
-			return new ResourceDictionary { Source = CreateThemeResourceUri(specified.Value), };
-		}
+        static ResourceDictionary GetUwpThemeResource(Theme theme)
+        {
+            return new ResourceDictionary { Source = CreateUwpThemeResourceUri(GetCurrentThemeColor(theme)), };
+        }
 
-		static ResourceDictionary GetUwpThemeResource(Theme theme)
-		{
-			var specified = theme.SyncToWindows
-				? WindowsTheme.Theme.Current == Platform.Theme.Dark ? Theme.Dark.Specified : Theme.Light.Specified
-				: theme.Specified;
-			if (specified == null) throw new ArgumentException($"Invalid theme value '{theme}'.");
+        static ResourceDictionary GetAccentResource(Accent accent, Theme theme)
+        {
+            return accent.Specified != null
+                ? new ResourceDictionary { Source = CreateAccentResourceUri(accent.Specified.Value), }
+                : GetAccentResource(accent.Color ?? WindowsTheme.Accent.Current, theme);
+        }
+        static ResourceDictionary GetUwpAccentResource(Accent accent)
+        {
+            return accent.Specified != null
+                ? new ResourceDictionary { Source = CreateUwpAccentResourceUri(accent.Specified.Value), }
+                : GetUwpAccentResource(accent.Color ?? WindowsTheme.Accent.Current);
+        }
 
-			return new ResourceDictionary { Source = CreateUwpThemeResourceUri(specified.Value), };
-		}
+        static ResourceDictionary GetAccentResource(Color color, Theme theme)
+        {
+            // Windows のテーマがアルファ チャネル 255 以外の色を返してくるけど、
+            // HSV で Active と Highlight 用の色を作る過程で結局失われるので、
+            // アルファ チャネルは 255 しかサポートしないようにしてしまおう感。
+            color.A = 255;
 
-		static ResourceDictionary GetAccentResource(Accent accent)
-		{
-			return accent.Specified != null
-				? new ResourceDictionary { Source = CreateAccentResourceUri(accent.Specified.Value), }
-				: GetAccentResource(accent.Color ?? WindowsTheme.Accent.Current);
-		}
-		static ResourceDictionary GetUwpAccentResource(Accent accent)
-		{
-			return accent.Specified != null
-				? new ResourceDictionary { Source = CreateUwpAccentResourceUri(accent.Specified.Value), }
-				: GetUwpAccentResource(accent.Color ?? WindowsTheme.Accent.Current);
-		}
+            var hsv = color.ToHsv();
+            var dark = hsv;
+            var light = hsv;
 
-		static ResourceDictionary GetAccentResource(Color color)
-		{
-			// Windows のテーマがアルファ チャネル 255 以外の色を返してくるけど、
-			// HSV で Active と Highlight 用の色を作る過程で結局失われるので、
-			// アルファ チャネルは 255 しかサポートしないようにしてしまおう感。
-			color.A = 255;
+            dark.V *= 0.8;
+            light.S *= 0.6;
 
-			var hsv = color.ToHsv();
-			var dark = hsv;
-			var light = hsv;
+            var activeColor = dark.ToRgb();
+            var highlightColor = light.ToRgb();
 
-			dark.V *= 0.8;
-			light.S *= 0.6;
+            var specified = GetCurrentThemeColor(theme);
+            var luminocity = Luminosity.FromRgb(color);
+            var foreground = luminocity < (specified == Theme.SpecifiedColor.Dark ? 128 + 16 : 128 - 16) ? Colors.White : Colors.Black;
 
-			var activeColor = dark.ToRgb();
-			var highlightColor = light.ToRgb();
+            var dic = new ResourceDictionary()
+            {
+                ["AccentColorKey"] = color,
+                ["AccentBrushKey"] = new SolidColorBrush(color),
+                ["AccentActiveColorKey"] = activeColor,
+                ["AccentActiveBrushKey"] = new SolidColorBrush(activeColor),
+                ["AccentHighlightColorKey"] = highlightColor,
+                ["AccentHighlightBrushKey"] = new SolidColorBrush(highlightColor),
+                ["AccentForegroundColorKey"] = foreground,
+                ["AccentForegroundBrushKey"] = new SolidColorBrush(foreground),
+            };
 
-			var luminocity = Luminosity.FromRgb(color);
-			var foreground = luminocity < 128 ? Colors.White : Colors.Black;
+            return dic;
+        }
 
-			var dic = new ResourceDictionary()
-			{
-				["AccentColorKey"] = color,
-				["AccentBrushKey"] = new SolidColorBrush(color),
-				["AccentActiveColorKey"] = activeColor,
-				["AccentActiveBrushKey"] = new SolidColorBrush(activeColor),
-				["AccentHighlightColorKey"] = highlightColor,
-				["AccentHighlightBrushKey"] = new SolidColorBrush(highlightColor),
-				["AccentForegroundColorKey"] = foreground,
-				["AccentForegroundBrushKey"] = new SolidColorBrush(foreground),
-			};
+        static ResourceDictionary GetUwpAccentResource(Color color)
+        {
+            // Windows のテーマがアルファ チャネル 255 以外の色を返してくるけど、
+            // アルファ チャネルは 255 しかサポートしないようにしてしまおう感。
+            color.A = 255;
+            var hsl = color.ToHsl();
+            var dic = new ResourceDictionary()
+            {
+                ["SystemAccentColorLigth3"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L + 0.175).ToRgb(),
+                ["SystemAccentColorLigth2"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L + 0.1025).ToRgb(),
+                ["SystemAccentColorLigth1"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L + 0.05).ToRgb(),
+                ["SystemAccentColor"] = color,
+                ["SystemAccentColorDark1"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L - 0.05).ToRgb(),
+                ["SystemAccentColorDark2"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L - 0.1025).ToRgb(),
+                ["SystemAccentColorDark3"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L - 0.175).ToRgb(),
+            };
+            return dic;
+        }
 
-			return dic;
-		}
+        void UpdateListener(Accent accent)
+        {
+            if (accent == Accent.Windows)
+            {
+                if (this._windowsAccentListener == null)
+                {
+                    // アクセントが Windows 依存で、リスナーが未登録だったら購読する
+                    this._windowsAccentListener = WindowsTheme.Accent.RegisterListener(x => this.ChangeAccentCore(x));
+                }
+            }
+            else if (this._windowsAccentListener != null)
+            {
+                // アクセントが Windows 依存でないのにリスナーが登録されてたら解除する
+                this._windowsAccentListener.Dispose();
+                this._windowsAccentListener = null;
+            }
+        }
 
-		static ResourceDictionary GetUwpAccentResource(Color color)
-		{
-			// Windows のテーマがアルファ チャネル 255 以外の色を返してくるけど、
-			// アルファ チャネルは 255 しかサポートしないようにしてしまおう感。
-			color.A = 255;
-			var hsl = color.ToHsl();
-			var dic = new ResourceDictionary()
-			{
-				["SystemAccentColorLigth3"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L + 0.175).ToRgb(),
-				["SystemAccentColorLigth2"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L + 0.1025).ToRgb(),
-				["SystemAccentColorLigth1"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L + 0.05).ToRgb(),
-				["SystemAccentColor"] = color,
-				["SystemAccentColorDark1"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L - 0.05).ToRgb(),
-				["SystemAccentColorDark2"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L - 0.1025).ToRgb(),
-				["SystemAccentColorDark3"] = HslColor.FromHsl(hsl.H, hsl.S, hsl.L - 0.175).ToRgb(),
-			};
-			return dic;
-		}
+        void UpdateListener(Theme theme)
+        {
+            if (theme == Theme.Windows)
+            {
+                if (this._windowsThemeListener == null)
+                {
+                    this._windowsThemeListener = WindowsTheme.Theme.RegisterListener(x => this.ChangeThemeCore(x));
+                }
+            }
+            else if (this._windowsThemeListener != null)
+            {
+                this._windowsThemeListener.Dispose();
+                this._windowsThemeListener = null;
+            }
+        }
 
-		void UpdateListener(Accent accent)
-		{
-			if (accent == Accent.Windows)
-			{
-				if (this._windowsAccentListener == null)
-				{
-					// アクセントが Windows 依存で、リスナーが未登録だったら購読する
-					this._windowsAccentListener = WindowsTheme.Accent.RegisterListener(x => this.ChangeAccentCore(x));
-				}
-			}
-			else if (this._windowsAccentListener != null)
-			{
-				// アクセントが Windows 依存でないのにリスナーが登録されてたら解除する
-				this._windowsAccentListener.Dispose();
-				this._windowsAccentListener = null;
-			}
-		}
-
-		void UpdateListener(Theme theme)
-		{
-			if (theme == Theme.Windows)
-			{
-				if (this._windowsThemeListener == null)
-				{
-					this._windowsThemeListener = WindowsTheme.Theme.RegisterListener(x => this.ChangeThemeCore(x));
-				}
-			}
-			else if (this._windowsThemeListener != null)
-			{
-				this._windowsThemeListener.Dispose();
-				this._windowsThemeListener = null;
-			}
-		}
-
-		/// <summary>
-		/// 指定した <see cref="Uri"/> がテーマのリソースを指す URI かどうかをチェックします。
-		/// </summary>
-		/// <returns><paramref name="uri"/> がテーマのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
-		static bool CheckThemeResourceUri(Uri uri)
-		{
-			if (uri == null) return false;
+        /// <summary>
+        /// 指定した <see cref="Uri"/> がテーマのリソースを指す URI かどうかをチェックします。
+        /// </summary>
+        /// <returns><paramref name="uri"/> がテーマのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
+        static bool CheckThemeResourceUri(Uri uri)
+        {
+            if (uri == null) return false;
 #if NETCOREAPP
 			return _templateTable.Match(uri)?.Key == "theme";
 #else
@@ -527,18 +534,18 @@ namespace MetroRadiance.UI
 			var result = _templateTable.Match(uri);
 			return result != null && result.Count == 1 && result.First().Data.ToString() == "theme";
 #else
-			return _themeTemplate.Match(_templateBaseUri, uri) != null;
+            return _themeTemplate.Match(_templateBaseUri, uri) != null;
 #endif
 #endif
-		}
+        }
 
-		/// <summary>
-		/// 指定した <see cref="Uri"/> がUWPテーマのリソースを指す URI かどうかをチェックします。
-		/// </summary>
-		/// <returns><paramref name="uri"/> UWPがテーマのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
-		static bool CheckUwpThemeResourceUri(Uri uri)
-		{
-			if (uri == null) return false;
+        /// <summary>
+        /// 指定した <see cref="Uri"/> がUWPテーマのリソースを指す URI かどうかをチェックします。
+        /// </summary>
+        /// <returns><paramref name="uri"/> UWPがテーマのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
+        static bool CheckUwpThemeResourceUri(Uri uri)
+        {
+            if (uri == null) return false;
 #if NETCOREAPP
 			return _templateTable.Match(uri)?.Key == "uwptheme";
 #else
@@ -546,18 +553,18 @@ namespace MetroRadiance.UI
 			var result = _templateTable.Match(uri);
 			return result != null && result.Count == 1 && result.First().Data.ToString() == "uwptheme";
 #else
-			return _uwpThemeTemplate.Match(_templateBaseUri, uri) != null;
+            return _uwpThemeTemplate.Match(_templateBaseUri, uri) != null;
 #endif
 #endif
-		}
+        }
 
-		/// <summary>
-		/// 指定した <see cref="Uri"/> がアクセント カラーのリソースを指す URI かどうかをチェックします。
-		/// </summary>
-		/// <returns><paramref name="uri"/> がアクセント カラーのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
-		static bool CheckAccentResourceUri(Uri uri)
-		{
-			if (uri == null) return false;
+        /// <summary>
+        /// 指定した <see cref="Uri"/> がアクセント カラーのリソースを指す URI かどうかをチェックします。
+        /// </summary>
+        /// <returns><paramref name="uri"/> がアクセント カラーのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
+        static bool CheckAccentResourceUri(Uri uri)
+        {
+            if (uri == null) return false;
 #if NETCOREAPP
 			return _templateTable.Match(uri)?.Key == "accent";
 #else
@@ -565,10 +572,10 @@ namespace MetroRadiance.UI
 			var result = _templateTable.Match(uri);
 			return result != null && result.Count == 1 && result.First().Data.ToString() == "accent";
 #else
-			return _accentTemplate.Match(_templateBaseUri, uri) != null;
+            return _accentTemplate.Match(_templateBaseUri, uri) != null;
 #endif
 #endif
-		}
+        }
 
         /// <summary>
         /// 指定した <see cref="Uri"/> がスタイルのリソースを指す URI かどうかをチェックします。
@@ -595,8 +602,8 @@ namespace MetroRadiance.UI
         /// </summary>
         /// <returns><paramref name="uri"/> がUWPアクセント カラーのリソースを指す URI の場合は true、それ以外の場合は false。</returns>
         static bool CheckUwpAccentResourceUri(Uri uri)
-		{
-			if (uri == null) return false;
+        {
+            if (uri == null) return false;
 #if NETCOREAPP
 			return _templateTable.Match(uri)?.Key == "uwpaccent";
 #else
@@ -604,13 +611,13 @@ namespace MetroRadiance.UI
 			var result = _templateTable.Match(uri);
 			return result != null && result.Count == 1 && result.First().Data.ToString() == "uwpaccent";
 #else
-			return _uwpAccentTemplate.Match(_templateBaseUri, uri) != null;
+            return _uwpAccentTemplate.Match(_templateBaseUri, uri) != null;
 #endif
 #endif
-		}
+        }
 
-		static Uri CreateThemeResourceUri(Theme.SpecifiedColor theme)
-		{
+        static Uri CreateThemeResourceUri(Theme.SpecifiedColor theme)
+        {
 #if NETCOREAPP
 			var url = _themeTemplate
 				.AddParameters(new
@@ -620,16 +627,16 @@ namespace MetroRadiance.UI
 				.Resolve();
 			return new Uri(_templateBaseUri, url);
 #else
-			var param = new Dictionary<string, string>
-			{
-				{ "theme", theme.ToString() },
-			};
-			return _themeTemplate.BindByName(_templateBaseUri, param);
+            var param = new Dictionary<string, string>
+            {
+                { "theme", theme.ToString() },
+            };
+            return _themeTemplate.BindByName(_templateBaseUri, param);
 #endif
-		}
+        }
 
-		static Uri CreateUwpThemeResourceUri(Theme.SpecifiedColor theme)
-		{
+        static Uri CreateUwpThemeResourceUri(Theme.SpecifiedColor theme)
+        {
 #if NETCOREAPP
 			var url = _uwpThemeTemplate
 				.AddParameters(new
@@ -639,16 +646,16 @@ namespace MetroRadiance.UI
 				.Resolve();
 			return new Uri(_templateBaseUri, url);
 #else
-			var param = new Dictionary<string, string>
-			{
-				{ "theme", theme.ToString() },
-			};
-			return _uwpThemeTemplate.BindByName(_templateBaseUri, param);
+            var param = new Dictionary<string, string>
+            {
+                { "theme", theme.ToString() },
+            };
+            return _uwpThemeTemplate.BindByName(_templateBaseUri, param);
 #endif
-		}
+        }
 
-		static Uri CreateAccentResourceUri(Accent.SpecifiedColor accent)
-		{
+        static Uri CreateAccentResourceUri(Accent.SpecifiedColor accent)
+        {
 #if NETCOREAPP
 			var url = _accentTemplate
 				.AddParameters(new
@@ -658,16 +665,16 @@ namespace MetroRadiance.UI
 				.Resolve();
 			return new Uri(_templateBaseUri, url);
 #else
-			var param = new Dictionary<string, string>
-			{
-				{ "accent", accent.ToString() },
-			};
-			return _accentTemplate.BindByName(_templateBaseUri, param);
+            var param = new Dictionary<string, string>
+            {
+                { "accent", accent.ToString() },
+            };
+            return _accentTemplate.BindByName(_templateBaseUri, param);
 #endif
-		}
+        }
 
-		static Uri CreateUwpAccentResourceUri(Accent.SpecifiedColor accent)
-		{
+        static Uri CreateUwpAccentResourceUri(Accent.SpecifiedColor accent)
+        {
 #if NETCOREAPP
 			var url = _uwpAccentTemplate
 				.AddParameters(new
@@ -677,54 +684,54 @@ namespace MetroRadiance.UI
 				.Resolve();
 			return new Uri(_templateBaseUri, url);
 #else
-			var param = new Dictionary<string, string>
-			{
-				{ "accent", accent.ToString() },
-			};
-			return _uwpAccentTemplate.BindByName(_templateBaseUri, param);
+            var param = new Dictionary<string, string>
+            {
+                { "accent", accent.ToString() },
+            };
+            return _uwpAccentTemplate.BindByName(_templateBaseUri, param);
 #endif
-		}
+        }
 
-		static IEnumerable<ResourceDictionary> EnumerateDictionaries(ResourceDictionary dictionary)
-		{
-			if (dictionary.MergedDictionaries.Count == 0)
-			{
-				yield break;
-			}
+        static IEnumerable<ResourceDictionary> EnumerateDictionaries(ResourceDictionary dictionary)
+        {
+            if (dictionary.MergedDictionaries.Count == 0)
+            {
+                yield break;
+            }
 
-			foreach (var mergedDictionary in dictionary.MergedDictionaries)
-			{
-				yield return mergedDictionary;
+            foreach (var mergedDictionary in dictionary.MergedDictionaries)
+            {
+                yield return mergedDictionary;
 
-				foreach (var other in EnumerateDictionaries(mergedDictionary))
-				{
-					yield return other;
-				}
-			}
-		}
+                foreach (var other in EnumerateDictionaries(mergedDictionary))
+                {
+                    yield return other;
+                }
+            }
+        }
 
-		void InvokeOnUIDispatcher(Action action, DispatcherPriority priority = DispatcherPriority.Normal)
-		{
-			(this._dispatcher ?? Application.Current.Dispatcher).BeginInvoke(action, priority);
-		}
+        void InvokeOnUIDispatcher(Action action, DispatcherPriority priority = DispatcherPriority.Normal)
+        {
+            (this._dispatcher ?? Application.Current.Dispatcher).BeginInvoke(action, priority);
+        }
 
-		#region INotifyPropertyChanged 
+        #region INotifyPropertyChanged 
 
-		public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-		protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
-		{
-			this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
+        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-		#endregion
+        #endregion
 
 
-		[Obsolete("Use Register() method")]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public void Initialize(Application app, Theme theme, Accent accent)
-		{
-			this.Register(app, theme, accent);
-		}
-	}
+        [Obsolete("Use Register() method")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void Initialize(Application app, Theme theme, Accent accent)
+        {
+            this.Register(app, theme, accent);
+        }
+    }
 }
