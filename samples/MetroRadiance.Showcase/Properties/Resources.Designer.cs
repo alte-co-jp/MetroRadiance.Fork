@@ -178,6 +178,15 @@ namespace MetroRadiance.Showcase.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Caption icon.
+        /// </summary>
+        public static string ControlSample_TextCaptionIcon {
+            get {
+                return ResourceManager.GetString("ControlSample_TextCaptionIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check box.
         /// </summary>
         public static string ControlSample_TextCheckBox {
@@ -210,6 +219,33 @@ namespace MetroRadiance.Showcase.Properties {
         public static string ControlSample_TextComboBoxItem3 {
             get {
                 return ResourceManager.GetString("ControlSample_TextComboBoxItem3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expander button (Content on the left).
+        /// </summary>
+        public static string ControlSample_TextExpanderButtonLeft {
+            get {
+                return ResourceManager.GetString("ControlSample_TextExpanderButtonLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expander button (Content on the right).
+        /// </summary>
+        public static string ControlSample_TextExpanderButtonRight {
+            get {
+                return ResourceManager.GetString("ControlSample_TextExpanderButtonRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Link button.
+        /// </summary>
+        public static string ControlSample_TextLinkButton {
+            get {
+                return ResourceManager.GetString("ControlSample_TextLinkButton", resourceCulture);
             }
         }
         

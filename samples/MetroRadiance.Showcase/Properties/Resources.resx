@@ -156,6 +156,9 @@
   <data name="ControlSample_IsEnabledUIControls" xml:space="preserve">
     <value>Enable UI controls (IsEnabled = True)</value>
   </data>
+  <data name="ControlSample_TextCaptionIcon" xml:space="preserve">
+    <value>Caption icon</value>
+  </data>
   <data name="ControlSample_TextCheckBox" xml:space="preserve">
     <value>Check box</value>
   </data>
@@ -167,6 +170,15 @@
   </data>
   <data name="ControlSample_TextComboBoxItem3" xml:space="preserve">
     <value>ComboBox item 3</value>
+  </data>
+  <data name="ControlSample_TextExpanderButtonLeft" xml:space="preserve">
+    <value>Expander button (Content on the left)</value>
+  </data>
+  <data name="ControlSample_TextExpanderButtonRight" xml:space="preserve">
+    <value>Expander button (Content on the right)</value>
+  </data>
+  <data name="ControlSample_TextLinkButton" xml:space="preserve">
+    <value>Link button</value>
   </data>
   <data name="ControlSample_TextRadioButtonItem1" xml:space="preserve">
     <value>Radio button item 1</value>

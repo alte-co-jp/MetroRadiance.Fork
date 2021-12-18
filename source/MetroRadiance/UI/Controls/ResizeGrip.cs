@@ -45,16 +45,24 @@ namespace MetroRadiance.UI.Controls
 		{
 			if (msg == (int)WindowsMessages.WM_NCHITTEST && this._canResize)
 			{
-				var ptScreen = lParam.ToPoint();
-				var ptClient = this.PointFromScreen(ptScreen);
+                try
+                {
+                    var ptScreen = lParam.ToPoint();
+                    var ptClient = this.PointFromScreen(ptScreen);
 
-				var rectTarget = new Rect(0, 0, this.ActualWidth, this.ActualHeight);
+                    var rectTarget = new Rect(0, 0, this.ActualWidth, this.ActualHeight);
 
-				if (rectTarget.Contains(ptClient))
-				{
-					handled = true;
-					return (IntPtr)HitTestValues.HTBOTTOMRIGHT;
-				}
+                    if (rectTarget.Contains(ptClient))
+                    {
+                        handled = true;
+                        return (IntPtr)HitTestValues.HTBOTTOMRIGHT;
+                    }
+                }
+                catch
+                {
+                    handled = false;
+                    return (IntPtr)HitTestValues.HTCLIENT;
+                }
 			}
 
 			return IntPtr.Zero;

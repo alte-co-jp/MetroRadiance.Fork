@@ -8,8 +8,8 @@
 			 xmlns:ui="clr-namespace:MetroRadiance.Showcase.UI"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
 			 mc:Ignorable="d"
-			 d:DesignWidth="500"
-			 d:DesignHeight="1200">
+			 d:DesignWidth="720"
+			 d:DesignHeight="1400">
     <UserControl.Resources>
         <x:Array x:Key="DataItems" Type="{x:Type ui:SampleDataItem}">
             <ui:SampleDataItem Id="1" Name="Name a" Description="AAAA" Active="True" Selected="Name c" />
@@ -189,8 +189,12 @@
                 <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,2" Text="TextBox: "/>
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="0,2" Text="TextBox" />
 
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,2" Text="TextBox with UInt16Rule: "/>
-                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,2">
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,2" Text="PasswordBox: "/>
+                <PasswordBox Grid.Row="1" Grid.Column="1"
+                             Margin="0,2"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="0,2" Text="TextBox with UInt16Rule: "/>
+                <TextBox Grid.Row="3" Grid.Column="1" Margin="0,2">
                     <TextBox.Text>
                         <Binding Path="UInt16"
 								 UpdateSourceTrigger="PropertyChanged">
@@ -245,8 +249,8 @@
                     </metro:PromptTextBox.Text>
                 </metro:PromptTextBox>
 
-                <TextBlock Grid.Row="8" Grid.Column="0" Margin="0,2" Text="metro:PromptComboBox: "/>
-                <metro:PromptComboBox Grid.Row="8" Grid.Column="1"
+                <TextBlock Grid.Row="7" Grid.Column="0" Margin="0,2" Text="metro:PromptComboBox: "/>
+                <metro:PromptComboBox Grid.Row="7" Grid.Column="1"
                                       Margin="0,2"
 									  IsEditable="True">
                     <ComboBoxItem>2.2</ComboBoxItem>
@@ -254,8 +258,8 @@
                     <ComboBoxItem>-10</ComboBoxItem>
                     <ComboBoxItem>-1</ComboBoxItem>
                 </metro:PromptComboBox>
-                <TextBlock Grid.Row="9" Grid.Column="0" Margin="0,2" Text="metro:PromptComboBox with Int32Rule: "/>
-                <metro:PromptComboBox Grid.Row="9" Grid.Column="1"
+                <TextBlock Grid.Row="8" Grid.Column="0" Margin="0,2" Text="metro:PromptComboBox with Int32Rule: "/>
+                <metro:PromptComboBox Grid.Row="8" Grid.Column="1"
                                       Margin="0,2"
 									  IsEditable="True">
                     <metro:PromptComboBox.Text>
@@ -272,10 +276,37 @@
                     <ComboBoxItem>-10</ComboBoxItem>
                     <ComboBoxItem>-1</ComboBoxItem>
                 </metro:PromptComboBox>
+                
+                <TextBlock Grid.Row="9" Grid.Column="0" Margin="0,2" Text="metro:ExpanderButton: "/>
+                <StackPanel Grid.Row="9" Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="0,2"
+                            HorizontalAlignment="Left">
+                    <metro:ExpanderButton Direction="Left" Margin="0"
+                                          Content="{x:Static prop:Resources.ControlSample_TextExpanderButtonLeft}"/>
+                    <metro:ExpanderButton Direction="Right" Margin="12,0,0,0"
+                                          Content="{x:Static prop:Resources.ControlSample_TextExpanderButtonRight}"/>
+                </StackPanel>
 
-                <TextBlock Grid.Row="12" Grid.Column="0" Margin="0,2" Text="PasswordBox: "/>
-                <PasswordBox Grid.Row="12" Grid.Column="1"
-                             Margin="0,2"/>
+                <TextBlock Grid.Row="10" Grid.Column="0" Margin="0,2" Text="metro:LinkButton: "/>
+                <metro:LinkButton Grid.Row="10" Grid.Column="1"
+                                  Margin="0,2"
+                                  Text="{x:Static prop:Resources.ControlSample_TextLinkButton}"/>
+
+                <TextBlock Grid.Row="11" Grid.Column="0" Margin="0,2" Text="metro:ProgressRing: "/>
+                <metro:ProgressRing Grid.Row="11" Grid.Column="1"
+                                    Margin="0,2"
+                                    HorizontalAlignment="Left"/>
+
+                <TextBlock Grid.Row="12" Grid.Column="0" Margin="0,2" Text="metro custom controls for Window: "/>
+                <StackPanel Grid.Row="12" Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="-6,2,0,2"
+                            HorizontalAlignment="Left">
+                    <metro:CaptionIcon Margin="6,0" Content="{x:Static prop:Resources.ControlSample_TextCaptionIcon}"/>
+                    <metro:SystemButtons Margin="6,0"/>
+                    <metro:ResizeGrip Margin="6,0"/>
+                </StackPanel>
 
                 <TextBlock Grid.Row="14" Grid.Column="0" Margin="0,2" Text="CheckBox: "/>
                 <CheckBox Grid.Row="14" Grid.Column="1" Content="{x:Static prop:Resources.ControlSample_TextCheckBox}"

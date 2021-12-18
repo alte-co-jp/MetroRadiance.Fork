@@ -156,6 +156,9 @@
   <data name="ControlSample_IsEnabledUIControls" xml:space="preserve">
     <value>UI コントロールを有効化する (IsEnabled = True)</value>
   </data>
+  <data name="ControlSample_TextCaptionIcon" xml:space="preserve">
+    <value>キャプション アイコン</value>
+  </data>
   <data name="ControlSample_TextCheckBox" xml:space="preserve">
     <value>チェックボックス</value>
   </data>
@@ -167,6 +170,15 @@
   </data>
   <data name="ControlSample_TextComboBoxItem3" xml:space="preserve">
     <value>コンボボックス 項目 3</value>
+  </data>
+  <data name="ControlSample_TextExpanderButtonLeft" xml:space="preserve">
+    <value>エキスパンダー ボタン (左側にコンテンツ)</value>
+  </data>
+  <data name="ControlSample_TextExpanderButtonRight" xml:space="preserve">
+    <value>エキスパンダー ボタン (右側にコンテンツ)</value>
+  </data>
+  <data name="ControlSample_TextLinkButton" xml:space="preserve">
+    <value>リンク ボタン</value>
   </data>
   <data name="ControlSample_TextRadioButtonItem1" xml:space="preserve">
     <value>ラジオ ボタン 項目 1</value>
