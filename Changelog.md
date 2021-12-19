@@ -1,6 +1,6 @@
 # Changelog for MetroRadiance.Fork
 
-## 3.2.1 (preview) MetroRadiance
+## 3.2.1 MetroRadiance
 
 - ### Breaking changes
   - none
